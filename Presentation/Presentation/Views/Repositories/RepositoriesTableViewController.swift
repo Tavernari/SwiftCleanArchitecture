@@ -62,6 +62,19 @@ class RepositoriesTableViewController: UIViewController {
             .subscribe( viewModel.select )
             .disposed(by: self.disposeBag)
 
+        viewModel
+            .status
+            .subscribe(onNext: { status in
+                switch status {
+                case .loading:
+                    self.showLoadingIndicator(text: "Loading")
+                case .loaded:
+                    self.removeLoadingIndicator()
+                case .fail(let errorMessage):
+                    print(errorMessage)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
 
     override func viewDidLoad() {
@@ -70,11 +83,12 @@ class RepositoriesTableViewController: UIViewController {
         bindViewModel()
 
         title = "Repositories"
+        
+        self.viewModel.search.onNext("Javascript")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.showLoadingIndicator(text: "Loading")
-        self.viewModel.search.onNext("Javascript")
+
     }
 }
