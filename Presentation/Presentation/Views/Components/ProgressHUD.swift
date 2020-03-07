@@ -11,6 +11,10 @@ import UIKit
 
 extension UIViewController {
     func showLoadingIndicator(text: String) {
+        guard isLoadingIndicatorShowing() == false else {
+            return
+        }
+
         let progressHUD = ProgressHUD(text: text)
         self.view.addSubview(progressHUD)
     }
@@ -19,6 +23,14 @@ extension UIViewController {
         for view in self.view.subviews where view is ProgressHUD {
             view.removeFromSuperview()
         }
+    }
+
+    func isLoadingIndicatorShowing() -> Bool {
+        for view in self.view.subviews where view is ProgressHUD {
+            return true
+        }
+
+        return false
     }
 }
 
