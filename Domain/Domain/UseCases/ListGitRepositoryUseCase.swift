@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol ListGitRepositoryUseCase {
+public protocol ListGitRepositoryUseCase {
     func execute(term: String) -> Observable<[Repository]>
 }
 
