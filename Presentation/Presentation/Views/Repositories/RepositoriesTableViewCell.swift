@@ -47,11 +47,11 @@ class RepositoriesTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
         self.containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        self.containerView.layer.shadowOffset = .init(width: 3, height: 5)
-        self.containerView.layer.shadowRadius = 5
+        self.containerView.layer.shadowOffset = .init(width: 1, height: 1)
+        self.containerView.layer.shadowRadius = 1
         self.containerView.layer.shouldRasterize = true
         self.containerView.layer.rasterizationScale = UIScreen.main.scale
-        self.containerView.layer.shadowOpacity = 1
+        self.containerView.layer.shadowOpacity = 0.3
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
