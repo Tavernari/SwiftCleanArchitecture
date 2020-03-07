@@ -28,7 +28,7 @@ protocol GitRepositoriesListViewModelInput {
 
 protocol GitRepositoriesListViewModelOutput {
     var status: Observable<GitRepositoriesListStatus> { get }
-    var repositories: Observable<[Repository]> { get }
+    var repositories: Observable<[GitRepository]> { get }
     var route: Observable<GitRepositoriesListRoute> { get }
 }
 
@@ -63,8 +63,8 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     private var statusSubject = PublishSubject<GitRepositoriesListStatus>()
     var status: Observable<GitRepositoriesListStatus> { statusSubject }
 
-    private var repositoriesSubject = PublishSubject<[Repository]>()
-    var repositories: Observable<[Repository]> { repositoriesSubject }
+    private var repositoriesSubject = PublishSubject<[GitRepository]>()
+    var repositories: Observable<[GitRepository]> { repositoriesSubject }
 
     private var errorSubject = PublishSubject<String>()
     var error: Observable<String> { errorSubject }
@@ -72,7 +72,7 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     private var routeSubject = PublishSubject<GitRepositoriesListRoute>()
     var route: Observable<GitRepositoriesListRoute> { routeSubject }
 
-    private var memoryRepositories = [Repository]()
+    private var memoryRepositories = [GitRepository]()
 
     private func search(term: String) {
         self.listGitRepositoryUseCase.execute(term: term)

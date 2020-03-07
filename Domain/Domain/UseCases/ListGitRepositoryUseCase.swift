@@ -9,7 +9,7 @@
 import RxSwift
 
 public protocol ListGitRepositoryUseCase {
-    func execute(term: String) -> Observable<[Repository]>
+    func execute(term: String) -> Observable<[GitRepository]>
 }
 
 public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
@@ -19,7 +19,7 @@ public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
         self.repository = repository
     }
 
-    public func execute(term: String) -> Observable<[Repository]> {
+    public func execute(term: String) -> Observable<[GitRepository]> {
         return self.repository.listUsing(term: term)
     }
 }

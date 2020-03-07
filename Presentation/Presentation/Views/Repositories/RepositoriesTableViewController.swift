@@ -36,7 +36,7 @@ class RepositoriesTableViewController: UIViewController {
         tableView.estimatedRowHeight = 90
     }
 
-    fileprivate func populateCell(index: Int, repository: Repository, cell: RepositoriesTableViewCell) {
+    fileprivate func populateCell(index: Int, repository: GitRepository, cell: RepositoriesTableViewCell) {
         cell.repositoryAuthor = repository.author
         cell.repositoryName = repository.name
         cell.repositoryDescription = repository.description

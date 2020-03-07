@@ -1,8 +1,8 @@
 //
-//  GithubRepoRepository.swift
+//  GithubPullRequestDataSource.swift
 //  DataSource
 //
-//  Created by Victor C Tavernari on 06/03/20.
+//  Created by Victor C Tavernari on 07/03/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
@@ -10,17 +10,14 @@ import Domain
 import RxSwift
 import Alamofire
 
-public class GithubRepoRepository: GitRepoRepository {
-
-    public init() {}
-    
-    public func listUsing(term: String) -> Observable<[GitRepository]> {
+public class GithubPullRequestDataSource: GitPullRequestDataSource {
+    public func list(owner: String, onRepository repository: String) -> Observable<[GitPullRequest]> {
         return Observable.create { (observer) -> Disposable in
-            let request = AF.request(GithubAPIRouter.search(term: term))
-            request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
+            let request = AF.request(GithubAPIRouter.listPullRequest(owner: owner, repoName: repository))
+            request.responseDecodable { (response: DataResponse<[GithubPullRequestData], AFError>) in
                 switch response.result {
                 case .success(let repositories):
-                    let result = repositories.items.map(GitRepository.fromGithub)
+                    let result = repositories.map(GitPullRequest.fromGithub)
                     observer.onNext(result)
                     observer.onCompleted()
                 case .failure(let error):

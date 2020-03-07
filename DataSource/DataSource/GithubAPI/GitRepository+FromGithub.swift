@@ -1,5 +1,5 @@
 //
-//  Repository+FromGithub.swift
+//  GitRepository+FromGithub.swift
 //  DataSource
 //
 //  Created by Victor C Tavernari on 06/03/20.
@@ -8,9 +8,9 @@
 
 import Domain
 
-extension Repository {
-    static func fromGithub(_ data: GithubRepositoryData) -> Repository {
-        var repository = Repository()
+extension GitRepository {
+    static func fromGithub(_ data: GithubRepositoryData) -> GitRepository {
+        var repository = GitRepository()
         repository.author = data.owner.login
         repository.description = data.description ?? ""
         repository.forkCount = data.forks_count
