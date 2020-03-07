@@ -59,6 +59,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
         var repository1Data = Repository()
         repository1Data.name = "repository1DataName"
         repository1Data.author = "repository1DataAuthor"
+
         var repository2Data = Repository()
         repository2Data.name = "repository2DataName"
         repository2Data.author = "repository2DataAuthor"
@@ -74,14 +75,15 @@ class RepositoriesTableViewModelTests: XCTestCase {
             .bind(to: viewModel.search)
             .disposed(by: disposeBag)
 
+        let selectIndex = 1
         scheduler
-            .createColdObservable([.next(2, 1)])
+            .createColdObservable([.next(2, selectIndex)])
             .bind(to: viewModel.select)
             .disposed(by: disposeBag)
 
         scheduler.start()
 
-        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(owner: repository2Data.author, repository: repository2Data.name))])
         XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
+        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(owner: repository2Data.author, repository: repository2Data.name))])
     }
 }
