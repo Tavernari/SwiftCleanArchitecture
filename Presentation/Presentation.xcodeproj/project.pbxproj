@@ -222,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A1672CB72413B397004CE285 /* Components */,
-				A166A946240D529200824CAD /* Repositories */,
+				A166A946240D529200824CAD /* GitRepositories */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		A166A946240D529200824CAD /* Repositories */ = {
+		A166A946240D529200824CAD /* GitRepositories */ = {
 			isa = PBXGroup;
 			children = (
 				A166A941240D518F00824CAD /* RepositoriesTableViewController.swift */,
@@ -243,7 +243,7 @@
 				A166A947240D52BE00824CAD /* RepositoriesTableViewCell.swift */,
 				A166A948240D52BE00824CAD /* RepositoriesTableViewCell.xib */,
 			);
-			path = Repositories;
+			path = GitRepositories;
 			sourceTree = "<group>";
 		};
 		A166A94B240D538300824CAD /* Extensions */ = {
