@@ -12,9 +12,9 @@ import Alamofire
 
 public class GithubRepoRepository: GitRepoRepository {
 
-    public init() {} 
-
-    public func list(term: String) -> Observable<[Repository]> {
+    public init() {}
+    
+    public func listUsing(term: String) -> Observable<[Repository]> {
         return Observable.create { (observer) -> Disposable in
             let request = AF.request(GithubAPIRouter.search(term: term))
             request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
