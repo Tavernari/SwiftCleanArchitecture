@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public class ListRepositories: UseCaseInput {
+public class ListRepositoriesUseCase: UseCaseInput {
     typealias Output = [Repository]
 
     public enum Errors: Error {
@@ -31,7 +31,7 @@ public class ListRepositories: UseCaseInput {
 
     public func run() throws -> Observable<[Repository]> {
         guard let term = self.term else {
-            throw ListRepositories.Errors.needSearchTerm
+            throw ListRepositoriesUseCase.Errors.needSearchTerm
         }
 
         return self.repository.list(term: term)
