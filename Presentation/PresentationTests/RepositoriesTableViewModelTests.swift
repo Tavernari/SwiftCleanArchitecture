@@ -20,7 +20,7 @@ class MockGitRepoRepository: GitRepoRepository {
         self.result = result
     }
 
-    func list(term: String) -> Observable<[Repository]> {
+    func listUsing(term: String) -> Observable<[Repository]> {
         return result
     }
 }
@@ -34,7 +34,8 @@ class RepositoriesTableViewModelTests: XCTestCase {
 
         let repositoryData = Repository()
         let mockRepository = MockGitRepoRepository(result: Observable.just([repositoryData, repositoryData]))
-        let viewModel = RepositoriesTableViewModel(gitRepository: mockRepository)
+        let useCase = DoListGitRepositoryUseCase(repository: mockRepository)
+        let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
 
         viewModel.repositories.asDriver(onErrorJustReturn: []).drive(testRepositories).disposed(by: disposeBag)
         viewModel.status.asDriver(onErrorJustReturn: .fail("failed")).drive(testStatus).disposed(by: disposeBag)
@@ -65,7 +66,8 @@ class RepositoriesTableViewModelTests: XCTestCase {
         repository2Data.author = "repository2DataAuthor"
 
         let mockRepository = MockGitRepoRepository(result: Observable.just([repository1Data, repository2Data]))
-        let viewModel = RepositoriesTableViewModel(gitRepository: mockRepository)
+        let useCase = DoListGitRepositoryUseCase(repository: mockRepository)
+        let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
 
         viewModel.route.asDriver(onErrorJustReturn: .none).drive(testRoute).disposed(by: disposeBag)
         viewModel.status.asDriver(onErrorJustReturn: .fail("failed")).drive(testStatus).disposed(by: disposeBag)
