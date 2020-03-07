@@ -11,6 +11,7 @@
 		A158AC35240BEDDB00B7A40E /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = A158AC27240BEDDB00B7A40E /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A163E5682413F56100FA0BA2 /* ListPullRequestsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5672413F56100FA0BA2 /* ListPullRequestsUseCase.swift */; };
 		A163E56A2413F5DD00FA0BA2 /* GitPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5692413F5DD00FA0BA2 /* GitPullRequest.swift */; };
+		A163E56C2413F71D00FA0BA2 /* GitPullRequestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56B2413F71D00FA0BA2 /* GitPullRequestRepository.swift */; };
 		A166A955240D741200824CAD /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A954240D741200824CAD /* GitRepository.swift */; };
 		A166A957240D751E00824CAD /* ListGitRepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A956240D751E00824CAD /* ListGitRepositoryUseCase.swift */; };
 		A1E2973F2410646A0020288A /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2973E2410646A0020288A /* GitRepoRepository.swift */; };
@@ -43,6 +44,7 @@
 		A158AC34240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A163E5672413F56100FA0BA2 /* ListPullRequestsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPullRequestsUseCase.swift; sourceTree = "<group>"; };
 		A163E5692413F5DD00FA0BA2 /* GitPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequest.swift; sourceTree = "<group>"; };
+		A163E56B2413F71D00FA0BA2 /* GitPullRequestRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestRepository.swift; sourceTree = "<group>"; };
 		A166A954240D741200824CAD /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		A166A956240D751E00824CAD /* ListGitRepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCase.swift; sourceTree = "<group>"; };
 		A1E2973E2410646A0020288A /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E2973E2410646A0020288A /* GitRepoRepository.swift */,
+				A163E56B2413F71D00FA0BA2 /* GitPullRequestRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				A166A955240D741200824CAD /* GitRepository.swift in Sources */,
 				A1E2973F2410646A0020288A /* GitRepoRepository.swift in Sources */,
 				A163E5682413F56100FA0BA2 /* ListPullRequestsUseCase.swift in Sources */,
+				A163E56C2413F71D00FA0BA2 /* GitPullRequestRepository.swift in Sources */,
 				A166A957240D751E00824CAD /* ListGitRepositoryUseCase.swift in Sources */,
 				A163E56A2413F5DD00FA0BA2 /* GitPullRequest.swift in Sources */,
 			);
