@@ -20,7 +20,7 @@ public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
         self.repository = repository
     }
 
-    func execute(term: String) -> Observable<[Repository]> {
+    public func execute(term: String) -> Observable<[Repository]> {
         return self.repository.listUsing(term: term)
     }
 }
