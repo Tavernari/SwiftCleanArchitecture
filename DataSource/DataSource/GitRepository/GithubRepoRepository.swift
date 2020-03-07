@@ -10,7 +10,7 @@ import Domain
 import RxSwift
 import Alamofire
 
-public class GithubRepoRepository: Domain.GitRepoRepository {
+public class GithubRepoRepository: GitRepoRepository {
 
     public init() {} 
 
@@ -24,7 +24,6 @@ public class GithubRepoRepository: Domain.GitRepoRepository {
                     observer.onNext(result)
                     observer.onCompleted()
                 case .failure(let error):
-                    print(error)
                     observer.onError(error)
                 }
             }

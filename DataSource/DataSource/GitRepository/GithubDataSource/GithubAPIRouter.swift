@@ -9,12 +9,11 @@
 import Alamofire
 
 enum GithubAPIRouter: URLRequestConvertible {
+    case search(term: String)
 
     struct ProductionServer {
         static let baseURL = "https://api.github.com"
     }
-
-    case search(term: String)
 
     private var path: String {
         switch self {
@@ -25,7 +24,6 @@ enum GithubAPIRouter: URLRequestConvertible {
 
     func asURLRequest() throws -> URLRequest {
         let url = try! "\(GithubAPIRouter.ProductionServer.baseURL)\(path)".asURL()
-//        let path = url.appendingPathComponent(self.path)
         let urlRequest = URLRequest(url: url)
         return urlRequest
     }
