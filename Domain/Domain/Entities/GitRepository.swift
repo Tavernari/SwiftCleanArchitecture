@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Repository: Equatable {
+public struct GitRepository: Equatable {
     public var name = ""
     public var author = ""
     public var description = ""
