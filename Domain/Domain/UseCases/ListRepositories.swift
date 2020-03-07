@@ -9,16 +9,6 @@
 import Foundation
 import RxSwift
 
-protocol UseCase {
-    associatedtype Output
-    func run() throws -> Observable<Output>
-}
-
-protocol UseCaseInput: UseCase {
-    associatedtype Input
-    func with(input: Input) -> Self
-}
-
 public class ListRepositories: UseCaseInput {
     typealias Output = [Repository]
 
@@ -34,8 +24,6 @@ public class ListRepositories: UseCaseInput {
         self.repository = repository
     }
 
-    /// Method to configure term to search on Github
-    /// - Parameter input: input to search repositories on Github
     public func with(input: String) -> Self {
         self.term = input
         return self
