@@ -74,7 +74,7 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     private var memoryRepositories = [Repository]()
 
     private func search(term: String) {
-        try? ListRepositories(repository: gitRepository)
+        try? ListRepositoriesUseCase(repository: gitRepository)
             .with(input: term)
             .run()
             .do(onNext: { self.memoryRepositories = $0 })
