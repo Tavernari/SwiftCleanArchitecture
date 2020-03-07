@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import DataSource
+import Domain
 
 class MainCoordinator: Coordinator {
     var childrens: [Coordinator] = []
@@ -20,7 +21,8 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let viewModel = RepositoriesTableViewModel(gitRepository: GithubRepoRepository())
+        let listGitRepositoryUseCase = DoListGitRepositoryUseCase(repository: GithubRepoRepository())
+        let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
 
         viewModel.route.subscribe(onNext: {
             if case .showPullRequests(let owner, let repository) = $0 {
