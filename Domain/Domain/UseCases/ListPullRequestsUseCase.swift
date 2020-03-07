@@ -14,13 +14,13 @@ public protocol ListPullRequestsUseCase {
 
 public class DoListPullRequestsUseCase: ListPullRequestsUseCase {
 
-    private let repository: GitRepoRepository
+    private let repository: GitPullRequestRepository
 
-    public init(repository: GitRepoRepository) {
+    public init(repository: GitPullRequestRepository) {
        self.repository = repository
     }
 
     public func execute(owner: String, repoName: String) -> Observable<[GitPullRequest]> {
-        
+        return self.repository.list(owner: owner, onRepository: repoName)
     }
 }
