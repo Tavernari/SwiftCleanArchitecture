@@ -52,9 +52,9 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
         return searchSubject
     }()
 
-    private let gitRepository: GitRepoRepository
-    public init(gitRepository: GitRepoRepository) {
-        self.gitRepository = gitRepository
+    private let listGitRepositoryUseCase: ListGitRepositoryUseCase
+    public init(listGitRepositoryUseCase: ListGitRepositoryUseCase) {
+        self.listGitRepositoryUseCase = listGitRepositoryUseCase
     }
 
     private let disposeBag = DisposeBag()
