@@ -15,14 +15,20 @@ enum GitRepositoriesListRoute: Equatable {
     case showPullRequests(owner: String, repository: String)
 }
 
+enum GitRepositoriesListStatus: Equatable {
+    case loading
+    case loaded
+    case fail(String)
+}
+
 protocol GitRepositoriesListViewModelInput {
     var search: PublishSubject<String> { get }
     var select: PublishSubject<Int> { get }
 }
 
 protocol GitRepositoriesListViewModelOutput {
+    var status: Observable<GitRepositoriesListStatus> { get }
     var repositories: Observable<[Repository]> { get }
-    var error: Observable<String> { get }
     var route: Observable<GitRepositoriesListRoute> { get }
 }
 
@@ -31,7 +37,8 @@ protocol GitRepositoriesListViewModel : GitRepositoriesListViewModelInput, GitRe
 class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     lazy var select: PublishSubject<Int> = {
         let selectSubject = PublishSubject<Int>()
-        selectSubject.subscribe(onNext: self.selected)
+        selectSubject
+            .subscribe(onNext: self.selected)
             .disposed(by: self.disposeBag)
         return selectSubject
     }()
@@ -39,6 +46,7 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     lazy var search: PublishSubject<String> = {
         let searchSubject = PublishSubject<String>()
         searchSubject
+            .do(onNext: { _ in self.statusSubject.onNext(.loading) })
             .subscribe(onNext: { self.search(term: $0 ) })
             .disposed(by: self.disposeBag)
         return searchSubject
@@ -50,6 +58,9 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     }
 
     private let disposeBag = DisposeBag()
+
+    private var statusSubject = PublishSubject<GitRepositoriesListStatus>()
+    var status: Observable<GitRepositoriesListStatus> { statusSubject }
 
     private var repositoriesSubject = PublishSubject<[Repository]>()
     var repositories: Observable<[Repository]> { repositoriesSubject }
@@ -71,8 +82,9 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
                 switch event {
                 case .next(let repositories):
                     self.repositoriesSubject.onNext(repositories)
+                    self.statusSubject.onNext(.loaded)
                 case .error(let error):
-                    self.errorSubject.onNext(error.localizedDescription)
+                    self.statusSubject.onNext(.fail(error.localizedDescription))
                 default:
                     break
                 }
