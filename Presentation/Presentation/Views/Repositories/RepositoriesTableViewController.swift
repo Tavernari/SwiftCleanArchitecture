@@ -11,6 +11,12 @@ import RxCocoa
 import RxSwift
 import Domain
 
+extension IndexPath {
+    static func extractRow(indexPath: IndexPath) -> Int {
+        return indexPath.row
+    }
+}
+
 class RepositoriesTableViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
@@ -51,11 +57,14 @@ class RepositoriesTableViewController: UIViewController {
         }
     }
 
+    fileprivate func deselectRow(indexPath: IndexPath) {
+        self.tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+    }
+
     fileprivate func bindViewModel() {
         let cellIdentifier = R.reuseIdentifier.repositoriesTableViewCell.identifier
         viewModel
             .repositories
-            .do(onNext: { _ in self.removeLoadingIndicator() })
             .bind(to:
                 tableView
                 .rx
@@ -69,15 +78,15 @@ class RepositoriesTableViewController: UIViewController {
         tableView
             .rx
             .itemSelected
-            .do(onNext: { self.tableView.cellForRow(at: $0)?.setSelected(false, animated: true) })
-            .map{ $0.row }
+            .do(onNext:deselectRow)
+            .map(IndexPath.extractRow)
             .subscribe(viewModel.select)
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
 
         viewModel
             .status
-            .subscribe(onNext: self.handleStatus)
-            .disposed(by: self.disposeBag)
+            .subscribe(onNext: handleStatus)
+            .disposed(by: disposeBag)
     }
 
     override func viewDidLoad() {
