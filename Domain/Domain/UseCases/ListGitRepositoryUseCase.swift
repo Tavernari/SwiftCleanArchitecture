@@ -6,7 +6,6 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
 public protocol ListGitRepositoryUseCase {
