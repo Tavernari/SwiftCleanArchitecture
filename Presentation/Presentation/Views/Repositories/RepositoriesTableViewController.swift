@@ -46,6 +46,12 @@ class RepositoriesTableViewController: UIViewController {
         cell.repositoryIssueCount = "\(repository.issuesCount)"
     }
 
+    fileprivate func showError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     fileprivate func handleStatus(status: GitRepositoriesListStatus) {
         switch status {
         case .loading:
@@ -53,7 +59,8 @@ class RepositoriesTableViewController: UIViewController {
         case .loaded:
             self.removeLoadingIndicator()
         case .fail(let errorMessage):
-            print(errorMessage)
+            self.removeLoadingIndicator()
+            self.showError(message: errorMessage)
         }
     }
 
