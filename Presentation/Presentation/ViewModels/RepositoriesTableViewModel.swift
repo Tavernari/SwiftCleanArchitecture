@@ -35,6 +35,12 @@ protocol GitRepositoriesListViewModelOutput {
 protocol GitRepositoriesListViewModel : GitRepositoriesListViewModelInput, GitRepositoriesListViewModelOutput { }
 
 class RepositoriesTableViewModel : GitRepositoriesListViewModel {
+    
+    private let listGitRepositoryUseCase: ListGitRepositoryUseCase
+    public init(listGitRepositoryUseCase: ListGitRepositoryUseCase) {
+        self.listGitRepositoryUseCase = listGitRepositoryUseCase
+    }
+
     lazy var select: PublishSubject<Int> = {
         let selectSubject = PublishSubject<Int>()
         selectSubject
@@ -51,11 +57,6 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
             .disposed(by: self.disposeBag)
         return searchSubject
     }()
-
-    private let listGitRepositoryUseCase: ListGitRepositoryUseCase
-    public init(listGitRepositoryUseCase: ListGitRepositoryUseCase) {
-        self.listGitRepositoryUseCase = listGitRepositoryUseCase
-    }
 
     private let disposeBag = DisposeBag()
 
@@ -74,9 +75,7 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     private var memoryRepositories = [Repository]()
 
     private func search(term: String) {
-        try? ListRepositoriesUseCase(repository: gitRepository)
-            .with(input: term)
-            .run()
+        self.listGitRepositoryUseCase.execute(term: term)
             .do(onNext: { self.memoryRepositories = $0 })
             .subscribe { (event) in
                 switch event {
