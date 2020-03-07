@@ -12,7 +12,7 @@
 		A163E5642413C31500FA0BA2 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5632413C31500FA0BA2 /* UseCase.swift */; };
 		A163E5662413C33200FA0BA2 /* UseCaseInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5652413C33200FA0BA2 /* UseCaseInput.swift */; };
 		A166A955240D741200824CAD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A954240D741200824CAD /* Repository.swift */; };
-		A166A957240D751E00824CAD /* ListRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A956240D751E00824CAD /* ListRepositories.swift */; };
+		A166A957240D751E00824CAD /* ListRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A956240D751E00824CAD /* ListRepositoriesUseCase.swift */; };
 		A1E2973F2410646A0020288A /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2973E2410646A0020288A /* GitRepository.swift */; };
 		A1E29741241067960020288A /* ListRepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListRepositoriesTests.swift */; };
 		A1E2974524106A970020288A /* MockRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2974424106A970020288A /* MockRepoRepository.swift */; };
@@ -44,7 +44,7 @@
 		A163E5632413C31500FA0BA2 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		A163E5652413C33200FA0BA2 /* UseCaseInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseInput.swift; sourceTree = "<group>"; };
 		A166A954240D741200824CAD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		A166A956240D751E00824CAD /* ListRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositories.swift; sourceTree = "<group>"; };
+		A166A956240D751E00824CAD /* ListRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositoriesUseCase.swift; sourceTree = "<group>"; };
 		A1E2973E2410646A0020288A /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListRepositoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositoriesTests.swift; sourceTree = "<group>"; };
 		A1E2974424106A970020288A /* MockRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoRepository.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		A158AC45240BEE2000B7A40E /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				A166A956240D751E00824CAD /* ListRepositories.swift */,
+				A166A956240D751E00824CAD /* ListRepositoriesUseCase.swift */,
 				A163E5632413C31500FA0BA2 /* UseCase.swift */,
 				A163E5652413C33200FA0BA2 /* UseCaseInput.swift */,
 			);
@@ -359,7 +359,7 @@
 				A163E5642413C31500FA0BA2 /* UseCase.swift in Sources */,
 				A1E2973F2410646A0020288A /* GitRepository.swift in Sources */,
 				A163E5662413C33200FA0BA2 /* UseCaseInput.swift in Sources */,
-				A166A957240D751E00824CAD /* ListRepositories.swift in Sources */,
+				A166A957240D751E00824CAD /* ListRepositoriesUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
