@@ -23,23 +23,13 @@ class MockGitRepoRepository: GitRepoRepository {
     func list(term: String) -> Observable<[Repository]> {
         return result
     }
-
-
 }
 
 class RepositoriesTableViewModelTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testListRepository() {
         let scheduler = TestScheduler(initialClock: 0)
         let testRepositories = scheduler.createObserver([Repository].self)
+        let testStatus = scheduler.createObserver(GitRepositoriesListStatus.self)
         let disposeBag = DisposeBag()
 
         let repositoryData = Repository()
@@ -47,6 +37,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let viewModel = RepositoriesTableViewModel(gitRepository: mockRepository)
 
         viewModel.repositories.asDriver(onErrorJustReturn: []).drive(testRepositories).disposed(by: disposeBag)
+        viewModel.status.asDriver(onErrorJustReturn: .fail("failed")).drive(testStatus).disposed(by: disposeBag)
 
         scheduler
             .createColdObservable([.next(1, "Javascript")])
@@ -56,11 +47,13 @@ class RepositoriesTableViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(testRepositories.events, [.next(1, [repositoryData, repositoryData])])
+        XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
     }
 
     func testSelectRepository() {
         let scheduler = TestScheduler(initialClock: 0)
         let testRoute = scheduler.createObserver(GitRepositoriesListRoute.self)
+        let testStatus = scheduler.createObserver(GitRepositoriesListStatus.self)
         let disposeBag = DisposeBag()
 
         var repository1Data = Repository()
@@ -74,6 +67,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let viewModel = RepositoriesTableViewModel(gitRepository: mockRepository)
 
         viewModel.route.asDriver(onErrorJustReturn: .none).drive(testRoute).disposed(by: disposeBag)
+        viewModel.status.asDriver(onErrorJustReturn: .fail("failed")).drive(testStatus).disposed(by: disposeBag)
 
         scheduler
             .createColdObservable([.next(1, "Javascript")])
@@ -88,5 +82,6 @@ class RepositoriesTableViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(owner: repository2Data.author, repository: repository2Data.name))])
+        XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
     }
 }
