@@ -29,6 +29,7 @@
 		A1672CA824134252004CE285 /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1672CA724134252004CE285 /* DataSource.framework */; };
 		A1672CA924134252004CE285 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1672CA724134252004CE285 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1672CB6241357A6004CE285 /* RepositoriesTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */; };
+		A1672CB92413B3B4004CE285 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB82413B3B4004CE285 /* ProgressHUD.swift */; };
 		A1E2974D241121EC0020288A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E2974C241121EC0020288A /* Domain.framework */; };
 		A1E2974E241121EC0020288A /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1E2974C241121EC0020288A /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		A1672C8D24132E66004CE285 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A1672CA724134252004CE285 /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewModelTests.swift; sourceTree = "<group>"; };
+		A1672CB82413B3B4004CE285 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		A1E2974C241121EC0020288A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6575950721BD7B9481C9F4D /* Pods_Presentation_PresentationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Presentation_PresentationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5236E50692AA857AE593B3 /* Pods_PresentationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +193,7 @@
 				A1672C8924132DC9004CE285 /* Coordinator */,
 				A166A94B240D538300824CAD /* Extensions */,
 				A166A94F240D587B00824CAD /* SupportFiles */,
-				A166A937240D507500824CAD /* ViewControllers */,
+				A166A937240D507500824CAD /* Views */,
 				A166A938240D507B00824CAD /* ViewModels */,
 			);
 			path = Presentation;
@@ -216,12 +218,13 @@
 			path = PresentationUITests;
 			sourceTree = "<group>";
 		};
-		A166A937240D507500824CAD /* ViewControllers */ = {
+		A166A937240D507500824CAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1672CB72413B397004CE285 /* Components */,
 				A166A946240D529200824CAD /* Repositories */,
 			);
-			path = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A166A938240D507B00824CAD /* ViewModels */ = {
@@ -267,6 +270,14 @@
 				A1672C8D24132E66004CE285 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A1672CB72413B397004CE285 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1672CB82413B3B4004CE285 /* ProgressHUD.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,7 +530,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -554,6 +565,7 @@
 				A166A949240D52BE00824CAD /* RepositoriesTableViewCell.swift in Sources */,
 				A1672C8E24132E66004CE285 /* MainCoordinator.swift in Sources */,
 				A166A94D240D539300824CAD /* UIView+Utils.swift in Sources */,
+				A1672CB92413B3B4004CE285 /* ProgressHUD.swift in Sources */,
 				A166A943240D518F00824CAD /* RepositoriesTableViewController.swift in Sources */,
 				A166A905240D505800824CAD /* AppDelegate.swift in Sources */,
 				A1672C882413130E004CE285 /* RepositoriesTableViewModel.swift in Sources */,

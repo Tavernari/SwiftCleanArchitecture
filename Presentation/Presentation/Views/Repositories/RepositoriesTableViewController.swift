@@ -36,6 +36,7 @@ class RepositoriesTableViewController: UIViewController {
         let cellIdentifier = R.reuseIdentifier.repositoriesTableViewCell.identifier
         viewModel
             .repositories
+            .do(onNext: { _ in self.removeLoadingIndicator() })
             .bind(to:
                 tableView
                 .rx
@@ -73,6 +74,7 @@ class RepositoriesTableViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.showLoadingIndicator(text: "Loading")
         self.viewModel.search.onNext("Javascript")
     }
 }
