@@ -9,31 +9,18 @@
 import Foundation
 import RxSwift
 
-public class ListRepositoriesUseCase: UseCaseInput {
-    typealias Output = [Repository]
+protocol ListGitRepositoryUseCase {
+    func execute(term: String) -> Observable<[Repository]>
+}
 
-    public enum Errors: Error {
-        case needHandleCompletionResult
-        case needSearchTerm
-    }
-
-    private var term: String?
+public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
     private let repository: GitRepoRepository
 
     public init(repository: GitRepoRepository) {
         self.repository = repository
     }
 
-    public func with(input: String) -> Self {
-        self.term = input
-        return self
-    }
-
-    public func run() throws -> Observable<[Repository]> {
-        guard let term = self.term else {
-            throw ListRepositoriesUseCase.Errors.needSearchTerm
-        }
-
+    func execute(term: String) -> Observable<[Repository]> {
         return self.repository.list(term: term)
     }
 }

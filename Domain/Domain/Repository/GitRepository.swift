@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 public protocol GitRepoRepository {
-    func list(term:String) -> Observable<[Repository]>
+    func listUsing(term:String) -> Observable<[Repository]>
 }
