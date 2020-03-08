@@ -8,19 +8,20 @@
 
 import XCTest
 import Domain
+import DataSource
 import RxSwift
 import RxTest
 import RxBlocking
 @testable import Presentation
 
-class MockGitRepoRepository: GitRepoRepository {
+class MockGitRepoDataSource: GitRepoDataSource {
 
     private let result: Observable<[GitRepository]>
     init(result: Observable<[GitRepository]>){
         self.result = result
     }
 
-    func listUsing(term: String) -> Observable<[GitRepository]> {
+    func list(term: String) -> Observable<[GitRepository]> {
         return result
     }
 }
@@ -32,9 +33,10 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let testStatus = scheduler.createObserver(ViewModelLoadStatus.self)
         let disposeBag = DisposeBag()
 
-        let repositoryData = GitRepository()
-        let mockRepository = MockGitRepoRepository(result: Observable.just([repositoryData, repositoryData]))
-        let useCase = DoListGitRepositoryUseCase(repository: mockRepository)
+        let data = GitRepository()
+        let datasource = MockGitRepoDataSource(result: Observable.just([data, data]))
+        let repository = DataSource.GitRepoRepository(dataSource: datasource)
+        let useCase = DoListGitRepositoryUseCase(repository: repository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
 
         viewModel.repositories.asDriver(onErrorJustReturn: []).drive(testRepositories).disposed(by: disposeBag)
@@ -47,7 +49,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        XCTAssertEqual(testRepositories.events, [.next(1, [repositoryData, repositoryData]), .completed(1)])
+        XCTAssertEqual(testRepositories.events, [.next(1, [data, data]), .completed(1)])
         XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
     }
 
@@ -57,16 +59,17 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let testStatus = scheduler.createObserver(ViewModelLoadStatus.self)
         let disposeBag = DisposeBag()
 
-        var repository1Data = GitRepository()
-        repository1Data.name = "repository1DataName"
-        repository1Data.author = "repository1DataAuthor"
+        var data1 = GitRepository()
+        data1.name = "repository1DataName"
+        data1.author = "repository1DataAuthor"
 
-        var repository2Data = GitRepository()
-        repository2Data.name = "repository2DataName"
-        repository2Data.author = "repository2DataAuthor"
+        var data2 = GitRepository()
+        data2.name = "repository2DataName"
+        data2.author = "repository2DataAuthor"
 
-        let mockRepository = MockGitRepoRepository(result: Observable.just([repository1Data, repository2Data]))
-        let useCase = DoListGitRepositoryUseCase(repository: mockRepository)
+        let datasource = MockGitRepoDataSource(result: Observable.just([data1, data2]))
+        let repository = DataSource.GitRepoRepository(dataSource: datasource)
+        let useCase = DoListGitRepositoryUseCase(repository: repository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
 
         viewModel.route.asDriver(onErrorJustReturn: .none).drive(testRoute).disposed(by: disposeBag)
@@ -86,6 +89,6 @@ class RepositoriesTableViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
-        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(repo: repository2Data))])
+        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(repo: data2))])
     }
 }

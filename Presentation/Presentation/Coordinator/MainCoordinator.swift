@@ -21,7 +21,9 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let listGitRepositoryUseCase = DoListGitRepositoryUseCase(repository: GithubRepoRepository())
+        let dataSource = GithubRepoDataSource()
+        let repository = DataSource.GitRepoRepository(dataSource: dataSource)
+        let listGitRepositoryUseCase = DoListGitRepositoryUseCase(repository: repository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
 
         viewModel.route.subscribe(onNext: {

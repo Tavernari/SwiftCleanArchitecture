@@ -1,8 +1,8 @@
 //
-//  GithubRepoRepository.swift
+//  GithubRepoDataSource.swift
 //  DataSource
 //
-//  Created by Victor C Tavernari on 06/03/20.
+//  Created by Victor C Tavernari on 08/03/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
@@ -10,11 +10,11 @@ import Domain
 import RxSwift
 import Alamofire
 
-public class GithubRepoRepository: GitRepoRepository {
+public class GithubRepoDataSource: GitRepoDataSource {
 
     public init() {}
-    
-    public func listUsing(term: String) -> Observable<[GitRepository]> {
+
+    public func list(term: String) -> Observable<[GitRepository]> {
         return Observable.create { (observer) -> Disposable in
             let request = AF.request(GithubAPIRouter.search(term: term))
             request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
