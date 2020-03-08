@@ -6,10 +6,9 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import RxSwift
 import Domain
 
 public protocol GitPullRequestDataSource {
-    func list(repo: GitRepository) -> Observable<[GitPullRequest]>
-    func get(id: Int, fromRepo repo:GitRepository) -> Observable<GitPullRequest>
+    func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void)
+    func get(id: Int, fromRepo repo:GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void)
 }

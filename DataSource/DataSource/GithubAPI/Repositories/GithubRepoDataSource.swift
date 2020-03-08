@@ -7,30 +7,22 @@
 //
 
 import Domain
-import RxSwift
 import Alamofire
 
 public class GithubRepoDataSource: GitRepoDataSource {
 
     public init() {}
 
-    public func list(term: String) -> Observable<[GitRepository]> {
-        return Observable.create { (observer) -> Disposable in
+    public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
             let request = AF.request(GithubAPIRouter.search(term: term))
             request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
                 switch response.result {
                 case .success(let repositories):
                     let result = repositories.items.map(GitRepository.fromGithub)
-                    observer.onNext(result)
-                    observer.onCompleted()
+                    completion(.success(result))
                 case .failure(let error):
-                    observer.onError(error)
+                    completion(.failure(error))
                 }
             }
-
-            return Disposables.create {
-                request.cancel()
-            }
-        }
     }
 }

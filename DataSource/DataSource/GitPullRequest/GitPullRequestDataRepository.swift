@@ -7,7 +7,6 @@
 //
 
 import Domain
-import RxSwift
 
 public class GitPullRequestDataRepository: GitPullRequestRepository {
 
@@ -17,15 +16,11 @@ public class GitPullRequestDataRepository: GitPullRequestRepository {
     }
 
     public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
-        self.dataSource.list(repo: repo).subscribe(onNext: {
-            completion(.success($0))
-        })
+        self.dataSource.list(repo: repo, completion: completion)
     }
 
     public func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
-        self.dataSource.get(id: id, fromRepo: repo).subscribe(onNext: {
-            completion(.success($0))
-        })
+        self.dataSource.get(id: id, fromRepo: repo, completion: completion)
     }
 
 }

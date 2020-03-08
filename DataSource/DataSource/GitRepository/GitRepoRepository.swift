@@ -7,7 +7,6 @@
 //
 
 import Domain
-import RxSwift
 import Alamofire
 
 public class GitRepoRepository: Domain.GitRepoRepository {
@@ -18,9 +17,7 @@ public class GitRepoRepository: Domain.GitRepoRepository {
     }
 
     public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
-        self.dataSource.list(term: term).subscribe(onNext: {
-            completion(.success($0))
-        })
+        self.dataSource.list(term: term, completion: completion)
     }
 
 }

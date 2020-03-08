@@ -41,11 +41,9 @@ target 'DataSource' do
   use_frameworks!
 
   # Pods for Presentation
-  pod 'RxSwift', '~> 5'
   pod 'Alamofire', '~> 5'
 
   target 'DataSourceTests' do
     inherit! :search_paths
-    pod 'RxSwift', '~> 5'
   end
 end

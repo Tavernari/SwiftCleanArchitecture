@@ -6,9 +6,8 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import RxSwift
 import Domain
 
 public protocol GitRepoDataSource {
-    func list(term: String) -> Observable<[GitRepository]>
+    func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void)
 }
