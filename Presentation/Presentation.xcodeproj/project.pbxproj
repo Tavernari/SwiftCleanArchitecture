@@ -22,6 +22,7 @@
 		A163E5912415211400FA0BA2 /* GitPullRequestDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5902415211400FA0BA2 /* GitPullRequestDetailViewModel.swift */; };
 		A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5922415270500FA0BA2 /* Date+ToString.swift */; };
 		A163E59524152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */; };
+		A163E597241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */; };
 		A166A905240D505800824CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A904240D505800824CAD /* AppDelegate.swift */; };
 		A166A907240D505800824CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A906240D505800824CAD /* SceneDelegate.swift */; };
 		A166A909240D505800824CAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A908240D505800824CAD /* ViewController.swift */; };
@@ -97,6 +98,7 @@
 		A163E5902415211400FA0BA2 /* GitPullRequestDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDetailViewModel.swift; sourceTree = "<group>"; };
 		A163E5922415270500FA0BA2 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
 		A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadCircleImage.swift"; sourceTree = "<group>"; };
+		A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsViewModelTests.swift; sourceTree = "<group>"; };
 		A166A901240D505800824CAD /* Presentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Presentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A166A904240D505800824CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A166A906240D505800824CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				A166A91E240D506000824CAD /* PresentationTests.swift */,
 				A166A920240D506000824CAD /* Info.plist */,
 				A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */,
+				A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */,
 			);
 			path = PresentationTests;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A163E597241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift in Sources */,
 				A166A91F240D506000824CAD /* PresentationTests.swift in Sources */,
 				A1672CB6241357A6004CE285 /* RepositoriesTableViewModelTests.swift in Sources */,
 			);

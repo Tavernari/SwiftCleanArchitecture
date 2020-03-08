@@ -47,7 +47,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        XCTAssertEqual(testRepositories.events, [.next(1, [repositoryData, repositoryData])])
+        XCTAssertEqual(testRepositories.events, [.next(1, [repositoryData, repositoryData]), .completed(1)])
         XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
     }
 
@@ -86,6 +86,6 @@ class RepositoriesTableViewModelTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
-        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(owner: repository2Data.author, repository: repository2Data.name))])
+        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequests(repo: repository2Data))])
     }
 }

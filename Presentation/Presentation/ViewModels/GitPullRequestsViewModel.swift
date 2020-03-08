@@ -9,7 +9,7 @@
 import RxSwift
 import Domain
 
-enum GitPullRequestViewModelRoute {
+enum GitPullRequestViewModelRoute: Equatable {
     case none
     case showPullRequestDetail(id: Int, repo: GitRepository)
 }
