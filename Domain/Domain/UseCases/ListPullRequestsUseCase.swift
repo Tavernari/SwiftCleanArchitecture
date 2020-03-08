@@ -21,6 +21,6 @@ public class DoListPullRequestsUseCase: ListPullRequestsUseCase {
     }
 
     public func execute(repo: GitRepository) -> Observable<[GitPullRequest]> {
-        return self.repository.list(owner: repo.author, onRepository: repo.name)
+        return self.repository.list(repo: repo)
     }
 }

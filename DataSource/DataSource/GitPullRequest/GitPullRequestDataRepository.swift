@@ -16,7 +16,11 @@ public class GitPullRequestDataRepository: GitPullRequestRepository {
         self.dataSource = dataSource
     }
 
-    public func list(owner: String, onRepository repository: String) -> Observable<[GitPullRequest]> {
-        return self.dataSource.list(owner: owner, onRepository: repository)
+    public func list(repo: GitRepository) -> Observable<[GitPullRequest]> {
+        return self.dataSource.list(repo: repo)
+    }
+
+    public func get(id: Int, fromRepo repo:GitRepository) -> Observable<GitPullRequest> {
+        return self.dataSource.get(id: id, fromRepo: repo)
     }
 }

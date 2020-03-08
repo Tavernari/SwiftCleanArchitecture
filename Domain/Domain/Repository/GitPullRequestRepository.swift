@@ -9,5 +9,6 @@
 import RxSwift
 
 public protocol GitPullRequestRepository {
-    func list(owner: String, onRepository repository: String) -> Observable<[GitPullRequest]>
+    func list(repo:GitRepository) -> Observable<[GitPullRequest]>
+    func get(id: Int, fromRepo repo:GitRepository) -> Observable<GitPullRequest>
 }

@@ -14,6 +14,11 @@ public struct GitPullRequest: Equatable {
     public var description = ""
     public var image = ""
     public var date: Date?
+    public var commentsCount = 0
+    public var commitsCount = 0
+    public var additionsCount = 0
+    public var deletionsCount = 0
+    public var changedFilesCount = 0
 
     public init() { }
 }

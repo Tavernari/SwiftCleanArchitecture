@@ -11,6 +11,7 @@ import Alamofire
 enum GithubAPIRouter: URLRequestConvertible {
     case search(term: String)
     case listPullRequest(owner: String, repoName: String)
+    case getPullRequest(owner: String, repoName: String, pullNumber: Int)
 
     struct ProductionServer {
         static let baseURL = "https://api.github.com"
@@ -18,10 +19,12 @@ enum GithubAPIRouter: URLRequestConvertible {
 
     private var path: String {
         switch self {
-            case .search(let term):
-                return "/search/repositories?q=\(term)"
-            case .listPullRequest(let owner, let repoName):
-                return "/repos/\(owner)/\(repoName)/pulls"
+        case .search(let term):
+            return "/search/repositories?q=\(term)"
+        case .listPullRequest(let owner, let repoName):
+            return "/repos/\(owner)/\(repoName)/pulls"
+        case .getPullRequest(let owner, let repoName, let pullNumber):
+            return "/repos/\(owner)/\(repoName)/pulls/\(pullNumber)"
         }
     }
 
