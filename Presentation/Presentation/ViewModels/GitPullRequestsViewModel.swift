@@ -77,13 +77,14 @@ class GitListPullRequestViewModel: GitPullRequestsViewModel {
 
     private func load(repo: GitRepository) {
         self.gitRepository = repo
-        self.listPullRequestsUseCase
-            .execute(repo: repo)
-            .subscribe(
-                onNext: onReceivedPullRequests,
-                onError: onReceivedError
-            )
-            .disposed(by: disposeBag)
+        self.listPullRequestsUseCase.execute(repo: repo) { (result) in
+            switch result {
+            case .success(let data):
+                self.onReceivedPullRequests(pullRequests: data)
+            case .failure(let error):
+                self.onReceivedError(error: error)
+            }
+        }
     }
 
     private func select(index: Int) {

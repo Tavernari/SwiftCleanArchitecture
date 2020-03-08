@@ -70,15 +70,16 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
     private var memoryRepositories = [GitRepository]()
 
     private func search(term: String) {
-        self.listGitRepositoryUseCase.execute(term: term)
-            .do(onNext: {
-                self.memoryRepositories = $0
+        self.listGitRepositoryUseCase.execute(term: term) { (result) in
+            switch result {
+            case .success(let data):
+                self.memoryRepositories = data
                 self.statusSubject.onNext(.loaded)
-            }, onError: { error in
+                self.repositoriesSubject.onNext(data)
+            case .failure(let error):
                 self.statusSubject.onNext(.fail( error.localizedDescription ))
-            })
-            .subscribe(self.repositoriesSubject)
-            .disposed(by: self.disposeBag)
+            }
+        }
     }
 
     private func selected(itemIndex: Int) {

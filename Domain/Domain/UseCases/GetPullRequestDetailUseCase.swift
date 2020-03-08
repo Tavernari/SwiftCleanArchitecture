@@ -6,10 +6,10 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import RxSwift
+import Foundation
 
 public protocol GetPullRequestDetailUseCase {
-    func execute(id: Int, fromRepo repo: GitRepository) -> Observable<GitPullRequest>
+    func execute(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void)
 }
 
 public class DoGetPullRequestDetailUseCase: GetPullRequestDetailUseCase {
@@ -19,7 +19,7 @@ public class DoGetPullRequestDetailUseCase: GetPullRequestDetailUseCase {
        self.repository = repository
     }
 
-    public func execute(id: Int, fromRepo repo: GitRepository) -> Observable<GitPullRequest> {
-        return self.repository.get(id: id, fromRepo: repo)
+    public func execute(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
+        return self.repository.get(id: id, fromRepo: repo, completion: completion)
     }
 }

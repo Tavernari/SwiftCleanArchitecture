@@ -6,10 +6,10 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import RxSwift
+import Foundation
 
 public protocol ListGitRepositoryUseCase {
-    func execute(term: String) -> Observable<[GitRepository]>
+    func execute(term: String, completion: @escaping (Result<[GitRepository],Error>) -> Void)
 }
 
 public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
@@ -19,7 +19,7 @@ public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
         self.repository = repository
     }
 
-    public func execute(term: String) -> Observable<[GitRepository]> {
-        return self.repository.list(term: term)
+    public func execute(term: String, completion: @escaping (Result<[GitRepository],Error>) -> Void) {
+        return self.repository.list(term: term, completion: completion)
     }
 }

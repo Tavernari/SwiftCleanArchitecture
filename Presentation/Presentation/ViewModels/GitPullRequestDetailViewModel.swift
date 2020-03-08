@@ -48,16 +48,15 @@ class PullRequestDetailViewModel: GitPullRequestDetailViewModel {
     }
 
     private func load(data: GitPullRequestDetailViewModelInputData) {
-        self.useCase
-            .execute(id: data.id, fromRepo: data.repo)
-            .do(onNext: { _ in
-                    self.statusSubject.onNext(.loaded)
-            },
-                onError: { error in
-                    self.statusSubject.onNext(.fail(error.localizedDescription))
-            })
-            .subscribe(pullRequestSubject)
-            .disposed(by: self.disposeBag)
+        self.useCase.execute(id: data.id, fromRepo: data.repo) { (result) in
+            switch result {
+            case .success(let data):
+                self.statusSubject.onNext(.loaded)
+                self.pullRequestSubject.onNext(data)
+            case .failure(let error):
+                self.statusSubject.onNext(.fail(error.localizedDescription))
+            }
+        }
     }
 
 }

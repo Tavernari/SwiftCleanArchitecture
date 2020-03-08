@@ -16,11 +16,16 @@ public class GitPullRequestDataRepository: GitPullRequestRepository {
         self.dataSource = dataSource
     }
 
-    public func list(repo: GitRepository) -> Observable<[GitPullRequest]> {
-        return self.dataSource.list(repo: repo)
+    public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
+        self.dataSource.list(repo: repo).subscribe(onNext: {
+            completion(.success($0))
+        })
     }
 
-    public func get(id: Int, fromRepo repo:GitRepository) -> Observable<GitPullRequest> {
-        return self.dataSource.get(id: id, fromRepo: repo)
+    public func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
+        self.dataSource.get(id: id, fromRepo: repo).subscribe(onNext: {
+            completion(.success($0))
+        })
     }
+
 }

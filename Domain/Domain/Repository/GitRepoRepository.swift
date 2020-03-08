@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import RxSwift
 
 public protocol GitRepoRepository {
-    func list(term:String) -> Observable<[GitRepository]>
+    func list(term:String, completion: @escaping (Result<[GitRepository], Error>) -> Void)
 }

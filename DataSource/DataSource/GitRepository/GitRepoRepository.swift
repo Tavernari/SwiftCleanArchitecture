@@ -16,8 +16,11 @@ public class GitRepoRepository: Domain.GitRepoRepository {
     public init(dataSource: GitRepoDataSource) {
         self.dataSource = dataSource
     }
-    
-    public func list(term: String) -> Observable<[GitRepository]> {
-        return self.dataSource.list(term: term)
+
+    public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
+        self.dataSource.list(term: term).subscribe(onNext: {
+            completion(.success($0))
+        })
     }
+
 }

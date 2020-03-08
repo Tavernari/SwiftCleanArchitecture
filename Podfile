@@ -30,11 +30,9 @@ target 'Domain' do
   use_frameworks!
   
   # Pods for Presentation
-  pod 'RxSwift', '~> 5'
-
+  
   target 'DomainTests' do
     inherit! :search_paths
-    pod 'RxSwift', '~> 5'
   end
 end
 
