@@ -14,22 +14,6 @@ import RxTest
 import RxBlocking
 @testable import Presentation
 
-class MockGitPullRequestDataSource: GitPullRequestDataSource {
-
-    private let result: Observable<Any>
-    init(result: Observable<Any>){
-       self.result = result
-    }
-
-    func list(repo: GitRepository) -> Observable<[GitPullRequest]> {
-        return result.map { $0 as! [GitPullRequest]}
-    }
-
-    func get(id: Int, fromRepo repo: GitRepository) -> Observable<GitPullRequest> {
-        return result.map { $0 as! GitPullRequest}
-    }
-}
-
 class GitPullRequestsViewModelTests: XCTestCase {
     func testListPullRequests() {
         let scheduler = TestScheduler(initialClock: 0)
