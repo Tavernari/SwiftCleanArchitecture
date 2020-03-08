@@ -8,7 +8,6 @@
 
 import UIKit
 import Domain
-import RxSwift
 import Alamofire
 import AlamofireImage
 
@@ -37,7 +36,6 @@ class GitPullRequestDetailViewController: UIViewController {
     private(set) var viewModel: GitPullRequestDetailViewModel!
     private(set) var id: Int!
     private(set) var repo: GitRepository!
-    private let disposeBag = DisposeBag()
 
     fileprivate func populateView(data: GitPullRequest) {
         self.titleLabel.text = data.title
@@ -69,25 +67,21 @@ class GitPullRequestDetailViewController: UIViewController {
         case .fail(let errorMessage):
             self.removeLoadingIndicator()
             self.showError(message: errorMessage)
+        case .none:
+            self.removeLoadingIndicator()
+            self.containerView.isHidden = true
         }
     }
 
     fileprivate func bindToViewModel() {
-        self.viewModel
-            .pullRequest
-            .subscribe(onNext: self.populateView)
-            .disposed(by: disposeBag)
-
-        self.viewModel
-            .status
-            .subscribe(onNext: handleStatus)
-            .disposed(by: disposeBag)
+        self.viewModel.status.observe(listener: self.handleStatus)
+        self.viewModel.pullRequest.observe(listener: self.populateView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pull Request Detail"
         bindToViewModel()
-        viewModel.load.onNext(GitPullRequestDetailViewModelInputData(repo: repo, id: id))
+        viewModel.load(data: GitPullRequestDetailViewModelInputData(repo: repo, id: id))
     }
 }

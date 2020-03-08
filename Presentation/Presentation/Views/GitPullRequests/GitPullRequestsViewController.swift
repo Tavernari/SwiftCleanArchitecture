@@ -8,8 +8,6 @@
 
 import UIKit
 import Domain
-import RxSwift
-import RxCocoa
 
 class GitPullRequestsViewController: UIViewController {
 
@@ -22,7 +20,8 @@ class GitPullRequestsViewController: UIViewController {
 
     private(set) var viewModel: GitPullRequestsViewModel!
     private(set) var repo: GitRepository!
-    private let disposeBag = DisposeBag()
+
+    private var dataSource: [GitPullRequest] { self.viewModel.pullRequests.value }
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -30,6 +29,8 @@ class GitPullRequestsViewController: UIViewController {
         tableView.register(R.nib.gitPullRequestsTableViewCell)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     fileprivate func populateCell(index: Int, pullRequests: GitPullRequest, cell: GitPullRequestsTableViewCell) {
@@ -55,6 +56,8 @@ class GitPullRequestsViewController: UIViewController {
         case .fail(let errorMessage):
             self.removeLoadingIndicator()
             self.showError(message: errorMessage)
+        case .none:
+            break
         }
     }
 
@@ -63,31 +66,8 @@ class GitPullRequestsViewController: UIViewController {
     }
 
     fileprivate func bindViewModel() {
-        let cellIdentifier = R.reuseIdentifier.gitPullRequestsTableViewCell.identifier
-        viewModel
-            .pullRequests
-            .bind(to:
-                tableView
-                .rx
-                .items(cellIdentifier: cellIdentifier)) { (index, pullRequests, cell) in
-                    guard let cell = cell as? GitPullRequestsTableViewCell else {
-                        return
-                    }
-                    self.populateCell(index: index, pullRequests: pullRequests, cell: cell)
-            }.disposed(by: disposeBag)
-
-        tableView
-            .rx
-            .itemSelected
-            .do(onNext:deselectRow)
-            .map(IndexPath.extractRow)
-            .subscribe(viewModel.select)
-            .disposed(by: disposeBag)
-
-        viewModel
-            .status
-            .subscribe(onNext: handleStatus)
-            .disposed(by: disposeBag)
+        self.viewModel.status.observe(listener: self.handleStatus)
+        self.viewModel.pullRequests.observe { _ in self.tableView.reloadData() }
     }
 
     override func viewDidLoad() {
@@ -95,6 +75,29 @@ class GitPullRequestsViewController: UIViewController {
         self.title = "\(repo.name) Pull Requests"
         configTableView()
         bindViewModel()
-        viewModel.load.onNext(repo)
+        viewModel.load(repo: repo)
     }
+}
+
+extension GitPullRequestsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.viewModel.select(index: indexPath.row)
+    }
+}
+
+extension GitPullRequestsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.gitPullRequestsTableViewCell, for: indexPath)!
+        let index = indexPath.row
+        let data = self.dataSource[index]
+        self.populateCell(index: index, pullRequests: data, cell: cell)
+        return cell
+    }
+
+
 }

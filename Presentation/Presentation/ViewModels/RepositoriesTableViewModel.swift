@@ -8,7 +8,6 @@
 
 import Foundation
 import Domain
-import RxSwift
 
 enum GitRepositoriesListRoute: Equatable {
     case none
@@ -16,8 +15,8 @@ enum GitRepositoriesListRoute: Equatable {
 }
 
 protocol GitRepositoriesListViewModelInput {
-    var search: PublishSubject<String> { get }
-    var select: PublishSubject<Int> { get }
+    func search(term: String)
+    func select(index: Int)
 }
 
 protocol GitRepositoriesListViewModelOutput {
@@ -29,61 +28,34 @@ protocol GitRepositoriesListViewModelOutput {
 protocol GitRepositoriesListViewModel : GitRepositoriesListViewModelInput, GitRepositoriesListViewModelOutput { }
 
 class RepositoriesTableViewModel : GitRepositoriesListViewModel {
-    
+    var status = Observable<ViewModelLoadStatus>(.none)
+    var repositories = Observable<[GitRepository]>([])
+    var route = Observable<GitRepositoriesListRoute>(.none)
+
+
     private let listGitRepositoryUseCase: ListGitRepositoryUseCase
     public init(listGitRepositoryUseCase: ListGitRepositoryUseCase) {
         self.listGitRepositoryUseCase = listGitRepositoryUseCase
     }
 
-    lazy var select: PublishSubject<Int> = {
-        let selectSubject = PublishSubject<Int>()
-        selectSubject
-            .subscribe(onNext: self.selected)
-            .disposed(by: self.disposeBag)
-        return selectSubject
-    }()
-
-    lazy var search: PublishSubject<String> = {
-        let searchSubject = PublishSubject<String>()
-        searchSubject
-            .do(onNext: { _ in self.statusSubject.onNext(.loading) })
-
-            .subscribe(onNext: { self.search(term: $0 ) })
-            .disposed(by: self.disposeBag)
-        return searchSubject
-    }()
-
-    private let disposeBag = DisposeBag()
-
-    private var statusSubject = PublishSubject<ViewModelLoadStatus>()
-    var status: Observable<ViewModelLoadStatus> { statusSubject }
-
-    private var repositoriesSubject = PublishSubject<[GitRepository]>()
-    var repositories: Observable<[GitRepository]> { repositoriesSubject }
-
-    private var errorSubject = PublishSubject<String>()
-    var error: Observable<String> { errorSubject }
-
-    private var routeSubject = PublishSubject<GitRepositoriesListRoute>()
-    var route: Observable<GitRepositoriesListRoute> { routeSubject }
-
     private var memoryRepositories = [GitRepository]()
 
-    private func search(term: String) {
+    func search(term: String) {
+        self.status.value = .loading
         self.listGitRepositoryUseCase.execute(term: term) { (result) in
             switch result {
             case .success(let data):
                 self.memoryRepositories = data
-                self.statusSubject.onNext(.loaded)
-                self.repositoriesSubject.onNext(data)
+                self.status.value = .loaded
+                self.repositories.value = data
             case .failure(let error):
-                self.statusSubject.onNext(.fail( error.localizedDescription ))
+                self.status.value = .fail(error.localizedDescription)
             }
         }
     }
 
-    private func selected(itemIndex: Int) {
-        let repository = self.memoryRepositories[itemIndex]
-        routeSubject.onNext(.showPullRequests(repo: repository))
+    func select(index: Int) {
+        let repository = self.memoryRepositories[index]
+        self.route.value = .showPullRequests(repo: repository)
     }
 }

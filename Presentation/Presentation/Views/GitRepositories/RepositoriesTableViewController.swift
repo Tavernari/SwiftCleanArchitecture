@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 import Domain
 
 class RepositoriesTableViewController: UIViewController {
@@ -22,12 +20,14 @@ class RepositoriesTableViewController: UIViewController {
     }
 
     private(set) var viewModel: GitRepositoriesListViewModel!
-    private let disposeBag = DisposeBag()
+    private var dataSource: [GitRepository] { self.viewModel.repositories.value }
         
     fileprivate func configTableView() {
         tableView.register(R.nib.repositoriesTableViewCell)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     fileprivate func populateCell(index: Int, repository: GitRepository, cell: RepositoriesTableViewCell) {
@@ -55,6 +55,8 @@ class RepositoriesTableViewController: UIViewController {
         case .fail(let errorMessage):
             self.removeLoadingIndicator()
             self.showError(message: errorMessage)
+        case .none:
+            self.removeLoadingIndicator()
         }
     }
 
@@ -63,31 +65,12 @@ class RepositoriesTableViewController: UIViewController {
     }
 
     fileprivate func bindViewModel() {
-        let cellIdentifier = R.reuseIdentifier.repositoriesTableViewCell.identifier
-        viewModel
-            .repositories
-            .bind(to:
-                tableView
-                .rx
-                .items(cellIdentifier: cellIdentifier)) { (index, repository, cell) in
-                    guard let cell = cell as? RepositoriesTableViewCell else {
-                        return
-                    }
-                    self.populateCell(index: index, repository: repository, cell: cell)
-            }.disposed(by: disposeBag)
 
-        tableView
-            .rx
-            .itemSelected
-            .do(onNext:deselectRow)
-            .map(IndexPath.extractRow)
-            .subscribe(viewModel.select)
-            .disposed(by: disposeBag)
+        self.viewModel.status.observe { (status) in
+            self.handleStatus(status: status)
+        }
 
-        viewModel
-            .status
-            .subscribe(onNext: handleStatus)
-            .disposed(by: disposeBag)
+        self.viewModel.repositories.observe { _ in self.tableView.reloadData() }
     }
 
     override func viewDidLoad() {
@@ -96,7 +79,29 @@ class RepositoriesTableViewController: UIViewController {
         bindViewModel()
 
         title = "Repositories"
-        
-        self.viewModel.search.onNext("Javascript")
+        self.viewModel.search(term: "Swift")
     }
+}
+
+extension RepositoriesTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        deselectRow(indexPath: indexPath)
+        self.viewModel.select(index: indexPath.row)
+    }
+}
+
+extension RepositoriesTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.repositoriesTableViewCell, for: indexPath)!
+        let index = indexPath.row
+        let data = dataSource[index]
+        populateCell(index: index, repository: data, cell: cell)
+        return cell
+    }
+
+    
 }

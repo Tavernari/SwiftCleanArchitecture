@@ -6,7 +6,6 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import RxSwift
 import Domain
 
 enum GitPullRequestViewModelRoute: Equatable {
@@ -15,8 +14,8 @@ enum GitPullRequestViewModelRoute: Equatable {
 }
 
 protocol GitPullRequestsViewModelInput {
-    var select: PublishSubject<Int> { get }
-    var load: PublishSubject<GitRepository> { get }
+    func select(index: Int)
+    func load(repo: GitRepository)
 }
 
 protocol GitPullRequestsViewModelOutput {
@@ -28,54 +27,30 @@ protocol GitPullRequestsViewModelOutput {
 protocol GitPullRequestsViewModel : GitPullRequestsViewModelInput, GitPullRequestsViewModelOutput { }
 
 class GitListPullRequestViewModel: GitPullRequestsViewModel {
+    var pullRequests = Observable<[GitPullRequest]>([])
+    var status = Observable<ViewModelLoadStatus>(.none)
+    var route = Observable<GitPullRequestViewModelRoute>(.none)
 
     private let listPullRequestsUseCase: ListPullRequestsUseCase
     init(listPullRequestsUseCase: ListPullRequestsUseCase) {
         self.listPullRequestsUseCase = listPullRequestsUseCase
     }
 
-    private let disposeBag = DisposeBag()
-
-    lazy var select: PublishSubject<Int> = {
-        let select = PublishSubject<Int>()
-        select
-            .subscribe(onNext: self.select)
-            .disposed(by: self.disposeBag)
-        return select
-    }()
-
-    lazy var load: PublishSubject<GitRepository> = {
-        let load = PublishSubject<GitRepository>()
-        load
-            .do(onNext: { _ in self.statusSubject.onNext(.loading) })
-            .subscribe(onNext: self.load)
-            .disposed(by: self.disposeBag)
-        return load
-    }()
-
-    private let pullRequestsSubject = PublishSubject<[GitPullRequest]>()
-    var pullRequests: Observable<[GitPullRequest]> { pullRequestsSubject }
-
-    private let statusSubject = PublishSubject<ViewModelLoadStatus>()
-    var status: Observable<ViewModelLoadStatus> { statusSubject }
-
-    private let routeSubject = PublishSubject<GitPullRequestViewModelRoute>()
-    var route: Observable<GitPullRequestViewModelRoute> { routeSubject }
-
     private var gitPullRequests = [GitPullRequest]()
     private var gitRepository:GitRepository!
 
     private func onReceivedPullRequests(pullRequests: [GitPullRequest]) {
         self.gitPullRequests = pullRequests
-        self.statusSubject.onNext(.loaded)
-        self.pullRequestsSubject.onNext(pullRequests)
+        self.status.value = .loaded
+        self.pullRequests.value = pullRequests
     }
 
     private func onReceivedError(error: Error) {
-        self.statusSubject.onNext(.fail( error.localizedDescription ))
+        self.status.value = .fail(error.localizedDescription)
     }
 
-    private func load(repo: GitRepository) {
+    func load(repo: GitRepository) {
+        self.status.value = .loading
         self.gitRepository = repo
         self.listPullRequestsUseCase.execute(repo: repo) { (result) in
             switch result {
@@ -87,8 +62,8 @@ class GitListPullRequestViewModel: GitPullRequestsViewModel {
         }
     }
 
-    private func select(index: Int) {
+    func select(index: Int) {
         let pullRequest = self.gitPullRequests[index]
-        routeSubject.onNext(.showPullRequestDetail(id: pullRequest.id, repo: gitRepository))
+        self.route.value = .showPullRequestDetail(id: pullRequest.id, repo: gitRepository)
     }
 }

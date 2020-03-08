@@ -9,15 +9,11 @@ target 'Presentation' do
 
   # Pods for Presentation
   pod 'R.swift'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
   pod 'Alamofire', '~> 5.0'
   pod 'AlamofireImage', '~> 4.0'
 
   target 'PresentationTests' do
     inherit! :search_paths
-    pod 'RxBlocking', '~> 5'
-    pod 'RxTest', '~> 5'
   end
 
   target 'PresentationUITests' do

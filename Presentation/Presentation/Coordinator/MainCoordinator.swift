@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import RxSwift
 import DataSource
 import Domain
 
-class MainCoordinator: Coordinator {
+class MainCoordinator: NSObject, Coordinator {
     var childrens: [Coordinator] = []
 
     private let navigationController: UINavigationController
-    private let disposeBag = DisposeBag()
     required init(withNavigation navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -26,11 +24,11 @@ class MainCoordinator: Coordinator {
         let listGitRepositoryUseCase = DoListGitRepositoryUseCase(repository: repository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
 
-        viewModel.route.subscribe(onNext: {
-            if case .showPullRequests(let repo) = $0 {
+        viewModel.route.observe { (route) in
+            if case .showPullRequests(let repo) = route {
                 self.showPullRequests(repo: repo)
             }
-        }).disposed(by: self.disposeBag)
+        }
 
         let vc = RepositoriesTableViewController.initWith(withViewModel: viewModel)
         self.navigationController.viewControllers = [vc]
@@ -42,13 +40,11 @@ class MainCoordinator: Coordinator {
         let useCase = DoListPullRequestsUseCase(repository: repository)
         let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
 
-        viewModel.route.subscribe(
-            onNext: {
-                if case .showPullRequestDetail(let id, let repo) = $0 {
-                    self.showPullRequestDetail(id: id, repo: repo)
-                }
-            })
-            .disposed(by: disposeBag)
+        viewModel.route.observe { (route) in
+            if case .showPullRequestDetail(let id, let repo) = route {
+                self.showPullRequestDetail(id: id, repo: repo)
+            }
+        }
 
         let vc = GitPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
         self.navigationController.pushViewController(vc, animated: true)

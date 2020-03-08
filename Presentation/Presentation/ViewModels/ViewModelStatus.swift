@@ -9,6 +9,7 @@
 import Foundation
 
 enum ViewModelLoadStatus: Equatable {
+    case none
     case loading
     case loaded
     case fail(String)

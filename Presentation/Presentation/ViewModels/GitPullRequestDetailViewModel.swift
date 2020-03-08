@@ -7,14 +7,13 @@
 //
 
 import Domain
-import RxSwift
 
 struct GitPullRequestDetailViewModelInputData {
     public var repo: GitRepository!
     public var id: Int!
 }
 protocol GitPullRequestDetailViewModelInput {
-    var load: PublishSubject<GitPullRequestDetailViewModelInputData> { get }
+    func load(data: GitPullRequestDetailViewModelInputData)
 }
 
 protocol GitPullRequestDetailViewModelOutput {
@@ -25,36 +24,23 @@ protocol GitPullRequestDetailViewModelOutput {
 protocol GitPullRequestDetailViewModel: GitPullRequestDetailViewModelInput, GitPullRequestDetailViewModelOutput {}
 
 class PullRequestDetailViewModel: GitPullRequestDetailViewModel {
-
-    lazy var load: PublishSubject<GitPullRequestDetailViewModelInputData> = {
-        let load = PublishSubject<GitPullRequestDetailViewModelInputData>()
-        load
-            .do(onNext: { _ in self.statusSubject.onNext(.loading) })
-            .subscribe(onNext: self.load)
-            .disposed(by: self.disposeBag)
-        return load
-    }()
-
-    private let pullRequestSubject = PublishSubject<GitPullRequest>()
-    var pullRequest: Observable<GitPullRequest> { pullRequestSubject }
-
-    private let statusSubject = PublishSubject<ViewModelLoadStatus>()
-    var status: Observable<ViewModelLoadStatus> { statusSubject }
+    var pullRequest = Observable<GitPullRequest>(GitPullRequest())
+    var status = Observable<ViewModelLoadStatus>(.none)
 
     private let useCase: GetPullRequestDetailUseCase
-    private let disposeBag = DisposeBag()
     init(useCase: GetPullRequestDetailUseCase) {
         self.useCase = useCase
     }
 
-    private func load(data: GitPullRequestDetailViewModelInputData) {
+    func load(data: GitPullRequestDetailViewModelInputData) {
+        self.status.value = .loading
         self.useCase.execute(id: data.id, fromRepo: data.repo) { (result) in
             switch result {
             case .success(let data):
-                self.statusSubject.onNext(.loaded)
-                self.pullRequestSubject.onNext(data)
+                self.status.value = .loaded
+                self.pullRequest.value = data
             case .failure(let error):
-                self.statusSubject.onNext(.fail(error.localizedDescription))
+                self.status.value = .fail(error.localizedDescription)
             }
         }
     }
