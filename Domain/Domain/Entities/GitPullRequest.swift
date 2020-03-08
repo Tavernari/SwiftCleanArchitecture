@@ -9,6 +9,7 @@
 import Foundation
 
 public struct GitPullRequest: Equatable {
+    public var id = 0
     public var author = ""
     public var title = ""
     public var description = ""

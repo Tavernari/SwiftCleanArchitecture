@@ -13,24 +13,18 @@ import RxCocoa
 
 class GitPullRequestsViewController: UIViewController {
 
-    final class func initWith(withViewModel viewModel: GitListPullRequestViewModel, andRepo repo: GitRepository) -> GitPullRequestsViewController {
+    final class func initWith(withViewModel viewModel: GitPullRequestsViewModel, andRepo repo: GitRepository) -> GitPullRequestsViewController {
         let vc = GitPullRequestsViewController()
         vc.viewModel = viewModel
         vc.repo = repo
         return vc
     }
 
-    private(set) var viewModel: GitListPullRequestViewModel!
+    private(set) var viewModel: GitPullRequestsViewModel!
     private(set) var repo: GitRepository!
     private let disposeBag = DisposeBag()
 
     @IBOutlet private weak var tableView: UITableView!
-
-    private lazy var dateFormatter:DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
-        return dateFormatter
-    }()
 
     fileprivate func configTableView() {
         tableView.register(R.nib.gitPullRequestsTableViewCell)
@@ -43,11 +37,7 @@ class GitPullRequestsViewController: UIViewController {
         cell.pullRequestImage = pullRequests.image
         cell.pullRequestTitle = pullRequests.title
         cell.pullRequestDescription = pullRequests.description
-
-        if let date = pullRequests.date {
-            cell.pullRequestDate = dateFormatter.string(from: date)
-        }
-
+        cell.pullRequestDate = pullRequests.date?.string(format: .ddMMyyyyHHmmss) ?? ""
     }
 
     fileprivate func showError(message: String) {

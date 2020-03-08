@@ -39,7 +39,25 @@ class MainCoordinator: Coordinator {
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
         let useCase = DoListPullRequestsUseCase(repository: repository)
         let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
+
+        viewModel.route.subscribe(
+            onNext: {
+                if case .showPullRequestDetail(let id, let repo) = $0 {
+                    self.showPullRequestDetail(id: id, repo: repo)
+                }
+            })
+            .disposed(by: disposeBag)
+
         let vc = GitPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
+        self.navigationController.pushViewController(vc, animated: true)
+    }
+
+    func showPullRequestDetail(id: Int, repo: GitRepository) {
+        let dataSource = GithubPullRequestDataSource()
+        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let useCase = DoGetPullRequestDetailUseCase(repository: repository)
+        let viewModel = PullRequestDetailViewModel(useCase: useCase)
+        let vc = GitPullRequestDetailViewController.initWith(viewModel: viewModel, id: id, repo: repo)
         self.navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -45,15 +45,7 @@ class GitPullRequestsTableViewCell: UITableViewCell {
 
     public var pullRequestImage: String? {
         didSet{
-            guard let url = try? pullRequestImage?.asURL() else {
-                return
-            }
-
-            AF.request(url).responseImage { response in
-                if case .success(let image) = response.result {
-                    self.pullRequestImageView.image = image.af.imageRoundedIntoCircle()
-                }
-            }
+            self.pullRequestImageView.loadCircleImage(url: try? pullRequestImage?.asURL())
         }
     }
 

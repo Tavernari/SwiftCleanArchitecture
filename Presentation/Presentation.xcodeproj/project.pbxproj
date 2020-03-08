@@ -17,6 +17,11 @@
 		A163E5842414375900FA0BA2 /* GitPullRequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A163E5822414375900FA0BA2 /* GitPullRequestsTableViewCell.xib */; };
 		A163E5862414FCC400FA0BA2 /* GitPullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5852414FCC400FA0BA2 /* GitPullRequestsViewModel.swift */; };
 		A163E5882414FD6E00FA0BA2 /* ViewModelStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5872414FD6E00FA0BA2 /* ViewModelStatus.swift */; };
+		A163E58E2415159800FA0BA2 /* GitPullRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E58C2415159800FA0BA2 /* GitPullRequestDetailViewController.swift */; };
+		A163E58F2415159800FA0BA2 /* GitPullRequestDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A163E58D2415159800FA0BA2 /* GitPullRequestDetailViewController.xib */; };
+		A163E5912415211400FA0BA2 /* GitPullRequestDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5902415211400FA0BA2 /* GitPullRequestDetailViewModel.swift */; };
+		A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5922415270500FA0BA2 /* Date+ToString.swift */; };
+		A163E59524152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */; };
 		A166A905240D505800824CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A904240D505800824CAD /* AppDelegate.swift */; };
 		A166A907240D505800824CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A906240D505800824CAD /* SceneDelegate.swift */; };
 		A166A909240D505800824CAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A908240D505800824CAD /* ViewController.swift */; };
@@ -87,6 +92,11 @@
 		A163E5822414375900FA0BA2 /* GitPullRequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitPullRequestsTableViewCell.xib; sourceTree = "<group>"; };
 		A163E5852414FCC400FA0BA2 /* GitPullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsViewModel.swift; sourceTree = "<group>"; };
 		A163E5872414FD6E00FA0BA2 /* ViewModelStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelStatus.swift; sourceTree = "<group>"; };
+		A163E58C2415159800FA0BA2 /* GitPullRequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDetailViewController.swift; sourceTree = "<group>"; };
+		A163E58D2415159800FA0BA2 /* GitPullRequestDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitPullRequestDetailViewController.xib; sourceTree = "<group>"; };
+		A163E5902415211400FA0BA2 /* GitPullRequestDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDetailViewModel.swift; sourceTree = "<group>"; };
+		A163E5922415270500FA0BA2 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
+		A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadCircleImage.swift"; sourceTree = "<group>"; };
 		A166A901240D505800824CAD /* Presentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Presentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A166A904240D505800824CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A166A906240D505800824CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +195,15 @@
 			path = GitPullRequests;
 			sourceTree = "<group>";
 		};
+		A163E58B2415157800FA0BA2 /* GitPullRequestDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A163E58C2415159800FA0BA2 /* GitPullRequestDetailViewController.swift */,
+				A163E58D2415159800FA0BA2 /* GitPullRequestDetailViewController.xib */,
+			);
+			path = GitPullRequestDetail;
+			sourceTree = "<group>";
+		};
 		A166A8F8240D505800824CAD = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +265,7 @@
 		A166A937240D507500824CAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A163E58B2415157800FA0BA2 /* GitPullRequestDetail */,
 				A1672CB72413B397004CE285 /* Components */,
 				A163E57A2414367B00FA0BA2 /* GitPullRequests */,
 				A166A946240D529200824CAD /* GitRepositories */,
@@ -259,6 +279,7 @@
 				A1672C872413130E004CE285 /* RepositoriesTableViewModel.swift */,
 				A163E5852414FCC400FA0BA2 /* GitPullRequestsViewModel.swift */,
 				A163E5872414FD6E00FA0BA2 /* ViewModelStatus.swift */,
+				A163E5902415211400FA0BA2 /* GitPullRequestDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -279,6 +300,8 @@
 			children = (
 				A166A94C240D539300824CAD /* UIView+Utils.swift */,
 				A163E57F241436E700FA0BA2 /* IndexPath+extractRow.swift */,
+				A163E5922415270500FA0BA2 /* Date+ToString.swift */,
+				A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A166A914240D506000824CAD /* LaunchScreen.storyboard in Resources */,
+				A163E58F2415159800FA0BA2 /* GitPullRequestDetailViewController.xib in Resources */,
 				A166A94A240D52BE00824CAD /* RepositoriesTableViewCell.xib in Resources */,
 				A166A911240D506000824CAD /* Assets.xcassets in Resources */,
 				A163E57E241436A100FA0BA2 /* GitPullRequestsViewController.xib in Resources */,
@@ -591,9 +615,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A163E59524152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift in Sources */,
 				A163E5882414FD6E00FA0BA2 /* ViewModelStatus.swift in Sources */,
 				A163E580241436E700FA0BA2 /* IndexPath+extractRow.swift in Sources */,
 				A166A909240D505800824CAD /* ViewController.swift in Sources */,
+				A163E5912415211400FA0BA2 /* GitPullRequestDetailViewModel.swift in Sources */,
+				A163E58E2415159800FA0BA2 /* GitPullRequestDetailViewController.swift in Sources */,
 				A166A951240D596500824CAD /* R.generated.swift in Sources */,
 				A163E5832414375900FA0BA2 /* GitPullRequestsTableViewCell.swift in Sources */,
 				A166A949240D52BE00824CAD /* RepositoriesTableViewCell.swift in Sources */,
@@ -601,6 +628,7 @@
 				A166A94D240D539300824CAD /* UIView+Utils.swift in Sources */,
 				A1672CB92413B3B4004CE285 /* ProgressHUD.swift in Sources */,
 				A163E57D241436A100FA0BA2 /* GitPullRequestsViewController.swift in Sources */,
+				A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */,
 				A166A943240D518F00824CAD /* RepositoriesTableViewController.swift in Sources */,
 				A166A905240D505800824CAD /* AppDelegate.swift in Sources */,
 				A1672C882413130E004CE285 /* RepositoriesTableViewModel.swift in Sources */,

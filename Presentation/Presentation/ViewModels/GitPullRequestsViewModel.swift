@@ -11,7 +11,7 @@ import Domain
 
 enum GitPullRequestViewModelRoute {
     case none
-    case showPerfil
+    case showPullRequestDetail(id: Int, repo: GitRepository)
 }
 
 protocol GitPullRequestsViewModelInput {
@@ -25,9 +25,9 @@ protocol GitPullRequestsViewModelOutput {
     var route: Observable<GitPullRequestViewModelRoute> { get }
 }
 
-protocol GitPullRequestViewModel : GitPullRequestsViewModelInput, GitPullRequestsViewModelOutput { }
+protocol GitPullRequestsViewModel : GitPullRequestsViewModelInput, GitPullRequestsViewModelOutput { }
 
-class GitListPullRequestViewModel: GitPullRequestViewModel {
+class GitListPullRequestViewModel: GitPullRequestsViewModel {
 
     private let listPullRequestsUseCase: ListPullRequestsUseCase
     init(listPullRequestsUseCase: ListPullRequestsUseCase) {
@@ -63,6 +63,7 @@ class GitListPullRequestViewModel: GitPullRequestViewModel {
     var route: Observable<GitPullRequestViewModelRoute> { routeSubject }
 
     private var gitPullRequests = [GitPullRequest]()
+    private var gitRepository:GitRepository!
 
     private func onReceivedPullRequests(pullRequests: [GitPullRequest]) {
         self.gitPullRequests = pullRequests
@@ -75,6 +76,7 @@ class GitListPullRequestViewModel: GitPullRequestViewModel {
     }
 
     private func load(repo: GitRepository) {
+        self.gitRepository = repo
         self.listPullRequestsUseCase
             .execute(repo: repo)
             .subscribe(
@@ -85,7 +87,7 @@ class GitListPullRequestViewModel: GitPullRequestViewModel {
     }
 
     private func select(index: Int) {
-        let repository = self.gitPullRequests[index]
-        routeSubject.onNext(.showPerfil)
+        let pullRequest = self.gitPullRequests[index]
+        routeSubject.onNext(.showPullRequestDetail(id: pullRequest.id, repo: gitRepository))
     }
 }

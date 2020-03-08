@@ -23,16 +23,7 @@ class RepositoriesTableViewCell: UITableViewCell {
 
     public var repositoryImage: String? {
         didSet{
-
-            guard let url = try? repositoryImage?.asURL() else {
-                return
-            }
-
-            AF.request(url).responseImage { response in
-                if case .success(let image) = response.result {
-                    self.repositoryImageView.image = image.af.imageRoundedIntoCircle()
-                }
-            }
+            self.repositoryImageView.loadCircleImage(url: try? repositoryImage?.asURL())
         }
     }
 

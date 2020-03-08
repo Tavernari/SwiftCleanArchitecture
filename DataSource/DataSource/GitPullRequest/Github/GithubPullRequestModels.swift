@@ -11,6 +11,20 @@ struct GithubPullRequestData: Codable {
     let body: String
     let user: GithubPullRequestUser
     let created_at: String
+    let number: Int
+}
+
+struct GithubPullRequestDetailData: Codable {
+    let title: String
+    let body: String
+    let user: GithubPullRequestUser
+    let created_at: String
+    let number: Int
+    let comments: Int
+    let additions: Int
+    let deletions: Int
+    let changed_files: Int
+    let commits: Int
 }
 
 struct GithubPullRequestUser: Codable {

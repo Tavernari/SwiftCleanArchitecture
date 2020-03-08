@@ -37,7 +37,7 @@ public class GithubPullRequestDataSource: GitPullRequestDataSource {
     public func get(id: Int, fromRepo repo: GitRepository) -> Observable<GitPullRequest> {
         return Observable.create { (observer) -> Disposable in
             let request = AF.request(GithubAPIRouter.getPullRequest(owner: repo.author, repoName: repo.name, pullNumber: id))
-            request.responseDecodable { (response: DataResponse<GithubPullRequestData, AFError>) in
+            request.responseDecodable { (response: DataResponse<GithubPullRequestDetailData, AFError>) in
                 switch response.result {
                 case .success(let pullRequest):
                     let result = GitPullRequest.fromGithub(pullRequest)
