@@ -1,43 +1,53 @@
 //
-//  RepositoriesTableViewController.swift
+//  GitPullRequestsViewController.swift
 //  Presentation
 //
-//  Created by Victor C Tavernari on 02/03/20.
+//  Created by Victor C Tavernari on 07/03/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 import Domain
+import RxSwift
+import RxCocoa
 
-class RepositoriesTableViewController: UIViewController {
+class GitPullRequestsViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
-
-    final class func initWith(withViewModel viewModel: GitRepositoriesListViewModel) -> RepositoriesTableViewController {
-        let vc = RepositoriesTableViewController()
+    final class func initWith(withViewModel viewModel: GitListPullRequestViewModel, andRepo repo: GitRepository) -> GitPullRequestsViewController {
+        let vc = GitPullRequestsViewController()
         vc.viewModel = viewModel
+        vc.repo = repo
         return vc
     }
 
-    private(set) var viewModel: GitRepositoriesListViewModel!
+    private(set) var viewModel: GitListPullRequestViewModel!
+    private(set) var repo: GitRepository!
     private let disposeBag = DisposeBag()
-        
+
+    @IBOutlet private weak var tableView: UITableView!
+
+    private lazy var dateFormatter:DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        return dateFormatter
+    }()
+
     fileprivate func configTableView() {
-        tableView.register(R.nib.repositoriesTableViewCell)
+        tableView.register(R.nib.gitPullRequestsTableViewCell)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
     }
 
-    fileprivate func populateCell(index: Int, repository: GitRepository, cell: RepositoriesTableViewCell) {
-        cell.repositoryAuthor = repository.author
-        cell.repositoryName = repository.name
-        cell.repositoryDescription = repository.description
-        cell.repositoryImage = repository.image
-        cell.repositoryForkCount = "\(repository.forkCount)"
-        cell.repositoryStarCount = "\(repository.starCount)"
-        cell.repositoryIssueCount = "\(repository.issuesCount)"
+    fileprivate func populateCell(index: Int, pullRequests: GitPullRequest, cell: GitPullRequestsTableViewCell) {
+        cell.pullRequestAuthor = pullRequests.author
+        cell.pullRequestImage = pullRequests.image
+        cell.pullRequestTitle = pullRequests.title
+        cell.pullRequestDescription = pullRequests.description
+
+        if let date = pullRequests.date {
+            cell.pullRequestDate = dateFormatter.string(from: date)
+        }
+
     }
 
     fileprivate func showError(message: String) {
@@ -63,17 +73,17 @@ class RepositoriesTableViewController: UIViewController {
     }
 
     fileprivate func bindViewModel() {
-        let cellIdentifier = R.reuseIdentifier.repositoriesTableViewCell.identifier
+        let cellIdentifier = R.reuseIdentifier.gitPullRequestsTableViewCell.identifier
         viewModel
-            .repositories
+            .pullRequests
             .bind(to:
                 tableView
                 .rx
-                .items(cellIdentifier: cellIdentifier)) { (index, repository, cell) in
-                    guard let cell = cell as? RepositoriesTableViewCell else {
+                .items(cellIdentifier: cellIdentifier)) { (index, pullRequests, cell) in
+                    guard let cell = cell as? GitPullRequestsTableViewCell else {
                         return
                     }
-                    self.populateCell(index: index, repository: repository, cell: cell)
+                    self.populateCell(index: index, pullRequests: pullRequests, cell: cell)
             }.disposed(by: disposeBag)
 
         tableView
@@ -92,11 +102,9 @@ class RepositoriesTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "\(repo.name) Pull Requests"
         configTableView()
         bindViewModel()
-
-        title = "Repositories"
-        
-        self.viewModel.search.onNext("Javascript")
+        viewModel.load.onNext(repo)
     }
 }

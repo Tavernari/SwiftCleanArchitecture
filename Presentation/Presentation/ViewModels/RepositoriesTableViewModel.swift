@@ -12,13 +12,7 @@ import RxSwift
 
 enum GitRepositoriesListRoute: Equatable {
     case none
-    case showPullRequests(owner: String, repository: String)
-}
-
-enum GitRepositoriesListStatus: Equatable {
-    case loading
-    case loaded
-    case fail(String)
+    case showPullRequests(repo: GitRepository)
 }
 
 protocol GitRepositoriesListViewModelInput {
@@ -27,7 +21,7 @@ protocol GitRepositoriesListViewModelInput {
 }
 
 protocol GitRepositoriesListViewModelOutput {
-    var status: Observable<GitRepositoriesListStatus> { get }
+    var status: Observable<ViewModelLoadStatus> { get }
     var repositories: Observable<[GitRepository]> { get }
     var route: Observable<GitRepositoriesListRoute> { get }
 }
@@ -53,6 +47,7 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
         let searchSubject = PublishSubject<String>()
         searchSubject
             .do(onNext: { _ in self.statusSubject.onNext(.loading) })
+
             .subscribe(onNext: { self.search(term: $0 ) })
             .disposed(by: self.disposeBag)
         return searchSubject
@@ -60,8 +55,8 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
 
     private let disposeBag = DisposeBag()
 
-    private var statusSubject = PublishSubject<GitRepositoriesListStatus>()
-    var status: Observable<GitRepositoriesListStatus> { statusSubject }
+    private var statusSubject = PublishSubject<ViewModelLoadStatus>()
+    var status: Observable<ViewModelLoadStatus> { statusSubject }
 
     private var repositoriesSubject = PublishSubject<[GitRepository]>()
     var repositories: Observable<[GitRepository]> { repositoriesSubject }
@@ -76,22 +71,18 @@ class RepositoriesTableViewModel : GitRepositoriesListViewModel {
 
     private func search(term: String) {
         self.listGitRepositoryUseCase.execute(term: term)
-            .do(onNext: { self.memoryRepositories = $0 })
-            .subscribe { (event) in
-                switch event {
-                case .next(let repositories):
-                    self.repositoriesSubject.onNext(repositories)
-                    self.statusSubject.onNext(.loaded)
-                case .error(let error):
-                    self.statusSubject.onNext(.fail(error.localizedDescription))
-                default:
-                    break
-                }
-        }.disposed(by: self.disposeBag)
+            .do(onNext: {
+                self.memoryRepositories = $0
+                self.statusSubject.onNext(.loaded)
+            }, onError: { error in
+                self.statusSubject.onNext(.fail( error.localizedDescription ))
+            })
+            .subscribe(self.repositoriesSubject)
+            .disposed(by: self.disposeBag)
     }
 
     private func selected(itemIndex: Int) {
         let repository = self.memoryRepositories[itemIndex]
-        routeSubject.onNext(.showPullRequests(owner: repository.author, repository: repository.name))
+        routeSubject.onNext(.showPullRequests(repo: repository))
     }
 }

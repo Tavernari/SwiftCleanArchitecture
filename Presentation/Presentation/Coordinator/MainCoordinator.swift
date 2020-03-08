@@ -25,18 +25,21 @@ class MainCoordinator: Coordinator {
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
 
         viewModel.route.subscribe(onNext: {
-            if case .showPullRequests(let owner, let repository) = $0 {
-                self.showPullRequests(owner: owner, repository: repository)
+            if case .showPullRequests(let repo) = $0 {
+                self.showPullRequests(repo: repo)
             }
         }).disposed(by: self.disposeBag)
 
-        let vc = RepositoriesTableViewController.build(withViewModel: viewModel)
+        let vc = RepositoriesTableViewController.initWith(withViewModel: viewModel)
         self.navigationController.viewControllers = [vc]
     }
 
-    func showPullRequests(owner: String, repository: String) {
-        let vc = UIViewController()
+    func showPullRequests(repo: GitRepository) {
+        let dataSource = GithubPullRequestDataSource()
+        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let useCase = DoListPullRequestsUseCase(repository: repository)
+        let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
+        let vc = GitPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
         self.navigationController.pushViewController(vc, animated: true)
     }
-
 }

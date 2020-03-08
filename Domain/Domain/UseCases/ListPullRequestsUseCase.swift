@@ -9,7 +9,7 @@
 import RxSwift
 
 public protocol ListPullRequestsUseCase {
-    func execute(owner: String, repoName: String) -> Observable<[GitPullRequest]>
+    func execute(repo: GitRepository) -> Observable<[GitPullRequest]>
 }
 
 public class DoListPullRequestsUseCase: ListPullRequestsUseCase {
@@ -20,7 +20,7 @@ public class DoListPullRequestsUseCase: ListPullRequestsUseCase {
        self.repository = repository
     }
 
-    public func execute(owner: String, repoName: String) -> Observable<[GitPullRequest]> {
-        return self.repository.list(owner: owner, onRepository: repoName)
+    public func execute(repo: GitRepository) -> Observable<[GitPullRequest]> {
+        return self.repository.list(owner: repo.author, onRepository: repo.name)
     }
 }

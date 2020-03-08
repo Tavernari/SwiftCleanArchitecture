@@ -15,12 +15,12 @@ import RxBlocking
 
 class MockGitRepoRepository: GitRepoRepository {
 
-    private let result: Observable<[Repository]>
-    init(result: Observable<[Repository]>){
+    private let result: Observable<[GitRepository]>
+    init(result: Observable<[GitRepository]>){
         self.result = result
     }
 
-    func listUsing(term: String) -> Observable<[Repository]> {
+    func listUsing(term: String) -> Observable<[GitRepository]> {
         return result
     }
 }
@@ -28,11 +28,11 @@ class MockGitRepoRepository: GitRepoRepository {
 class RepositoriesTableViewModelTests: XCTestCase {
     func testListRepository() {
         let scheduler = TestScheduler(initialClock: 0)
-        let testRepositories = scheduler.createObserver([Repository].self)
-        let testStatus = scheduler.createObserver(GitRepositoriesListStatus.self)
+        let testRepositories = scheduler.createObserver([GitRepository].self)
+        let testStatus = scheduler.createObserver(ViewModelLoadStatus.self)
         let disposeBag = DisposeBag()
 
-        let repositoryData = Repository()
+        let repositoryData = GitRepository()
         let mockRepository = MockGitRepoRepository(result: Observable.just([repositoryData, repositoryData]))
         let useCase = DoListGitRepositoryUseCase(repository: mockRepository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
@@ -54,14 +54,14 @@ class RepositoriesTableViewModelTests: XCTestCase {
     func testSelectRepository() {
         let scheduler = TestScheduler(initialClock: 0)
         let testRoute = scheduler.createObserver(GitRepositoriesListRoute.self)
-        let testStatus = scheduler.createObserver(GitRepositoriesListStatus.self)
+        let testStatus = scheduler.createObserver(ViewModelLoadStatus.self)
         let disposeBag = DisposeBag()
 
-        var repository1Data = Repository()
+        var repository1Data = GitRepository()
         repository1Data.name = "repository1DataName"
         repository1Data.author = "repository1DataAuthor"
 
-        var repository2Data = Repository()
+        var repository2Data = GitRepository()
         repository2Data.name = "repository2DataName"
         repository2Data.author = "repository2DataAuthor"
 

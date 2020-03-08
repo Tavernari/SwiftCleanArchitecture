@@ -12,7 +12,7 @@ extension GitPullRequest {
     static func fromGithub(_ data: GithubPullRequestData) -> GitPullRequest {
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
         var pullRequest = GitPullRequest()
         pullRequest.author = data.user.login
