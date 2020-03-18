@@ -5,12 +5,14 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5)
   - Alamofire (~> 5.0)
   - AlamofireImage (~> 4.0)
   - R.swift
+  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - AlamofireImage
     - R.swift
     - R.swift.Library
+    - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
   AlamofireImage: ca7325440303d041a80b7caa55066ba945522378
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: b3745495d7175324705b707ef66483719fcdfdd6
+PODFILE CHECKSUM: 25860374ede0a8bad6b9c9d1d3077ca53ce9fd7b
 
 COCOAPODS: 1.9.0

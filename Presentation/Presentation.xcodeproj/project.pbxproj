@@ -10,9 +10,11 @@
 		5BB8E9FF973F7F5F50F963CA /* Pods_Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7EB77734B100B758C01131 /* Pods_Presentation.framework */; };
 		70B62D3B0E6D1DE018761C85 /* Pods_PresentationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5236E50692AA857AE593B3 /* Pods_PresentationTests.framework */; };
 		847CC2E6624EFB21F97EA58A /* Pods_Presentation_PresentationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6575950721BD7B9481C9F4D /* Pods_Presentation_PresentationUITests.framework */; };
+		A1073F1424223C5200770450 /* GithubAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1324223C5200770450 /* GithubAssembly.swift */; };
+		A1073F1624223C6F00770450 /* GithubUITestWithDataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1524223C6F00770450 /* GithubUITestWithDataAssembly.swift */; };
+		A1073F1824223F3300770450 /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1724223F3300770450 /* MainAssembler.swift */; };
 		A163E57D241436A100FA0BA2 /* GitPullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E57B241436A100FA0BA2 /* GitPullRequestsViewController.swift */; };
 		A163E57E241436A100FA0BA2 /* GitPullRequestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A163E57C241436A100FA0BA2 /* GitPullRequestsViewController.xib */; };
-		A163E580241436E700FA0BA2 /* IndexPath+extractRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E57F241436E700FA0BA2 /* IndexPath+extractRow.swift */; };
 		A163E5832414375900FA0BA2 /* GitPullRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5812414375900FA0BA2 /* GitPullRequestsTableViewCell.swift */; };
 		A163E5842414375900FA0BA2 /* GitPullRequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A163E5822414375900FA0BA2 /* GitPullRequestsTableViewCell.xib */; };
 		A163E5862414FCC400FA0BA2 /* GitPullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5852414FCC400FA0BA2 /* GitPullRequestsViewModel.swift */; };
@@ -28,7 +30,6 @@
 		A163E5A62415A5CA00FA0BA2 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5A52415A5CA00FA0BA2 /* Observable.swift */; };
 		A166A905240D505800824CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A904240D505800824CAD /* AppDelegate.swift */; };
 		A166A907240D505800824CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A906240D505800824CAD /* SceneDelegate.swift */; };
-		A166A909240D505800824CAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A908240D505800824CAD /* ViewController.swift */; };
 		A166A911240D506000824CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A166A910240D506000824CAD /* Assets.xcassets */; };
 		A166A914240D506000824CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A166A912240D506000824CAD /* LaunchScreen.storyboard */; };
 		A166A92A240D506000824CAD /* PresentationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A929240D506000824CAD /* PresentationUITests.swift */; };
@@ -88,9 +89,11 @@
 		54C77493AA7D9DB58E1BA88B /* Pods-PresentationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationTests.debug.xcconfig"; path = "Target Support Files/Pods-PresentationTests/Pods-PresentationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61E166D86EE628E348D34210 /* Pods-Presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.debug.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.debug.xcconfig"; sourceTree = "<group>"; };
 		8C941EE83833F9174BE98261 /* Pods-Presentation-PresentationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation-PresentationUITests.release.xcconfig"; path = "Target Support Files/Pods-Presentation-PresentationUITests/Pods-Presentation-PresentationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A1073F1324223C5200770450 /* GithubAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAssembly.swift; sourceTree = "<group>"; };
+		A1073F1524223C6F00770450 /* GithubUITestWithDataAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUITestWithDataAssembly.swift; sourceTree = "<group>"; };
+		A1073F1724223F3300770450 /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		A163E57B241436A100FA0BA2 /* GitPullRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsViewController.swift; sourceTree = "<group>"; };
 		A163E57C241436A100FA0BA2 /* GitPullRequestsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitPullRequestsViewController.xib; sourceTree = "<group>"; };
-		A163E57F241436E700FA0BA2 /* IndexPath+extractRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+extractRow.swift"; sourceTree = "<group>"; };
 		A163E5812414375900FA0BA2 /* GitPullRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		A163E5822414375900FA0BA2 /* GitPullRequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitPullRequestsTableViewCell.xib; sourceTree = "<group>"; };
 		A163E5852414FCC400FA0BA2 /* GitPullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsViewModel.swift; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		A166A901240D505800824CAD /* Presentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Presentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A166A904240D505800824CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A166A906240D505800824CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A166A908240D505800824CAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A166A910240D506000824CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A166A913240D506000824CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A166A915240D506000824CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +192,16 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		A1073F1224223C3700770450 /* DataSourcesAssemblers */ = {
+			isa = PBXGroup;
+			children = (
+				A1073F1324223C5200770450 /* GithubAssembly.swift */,
+				A1073F1524223C6F00770450 /* GithubUITestWithDataAssembly.swift */,
+				A1073F1724223F3300770450 /* MainAssembler.swift */,
+			);
+			path = DataSourcesAssemblers;
+			sourceTree = "<group>";
+		};
 		A163E57A2414367B00FA0BA2 /* GitPullRequests */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,10 +247,10 @@
 		A166A903240D505800824CAD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A1073F1224223C3700770450 /* DataSourcesAssemblers */,
 				A166A915240D506000824CAD /* Info.plist */,
 				A166A904240D505800824CAD /* AppDelegate.swift */,
 				A166A906240D505800824CAD /* SceneDelegate.swift */,
-				A166A908240D505800824CAD /* ViewController.swift */,
 				A166A910240D506000824CAD /* Assets.xcassets */,
 				A1672C8924132DC9004CE285 /* Coordinator */,
 				A166A94B240D538300824CAD /* Extensions */,
@@ -307,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				A166A94C240D539300824CAD /* UIView+Utils.swift */,
-				A163E57F241436E700FA0BA2 /* IndexPath+extractRow.swift */,
 				A163E5922415270500FA0BA2 /* Date+ToString.swift */,
 				A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */,
 			);
@@ -609,9 +620,8 @@
 				A163E5A62415A5CA00FA0BA2 /* Observable.swift in Sources */,
 				A163E59524152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift in Sources */,
 				A163E5882414FD6E00FA0BA2 /* ViewModelStatus.swift in Sources */,
-				A163E580241436E700FA0BA2 /* IndexPath+extractRow.swift in Sources */,
-				A166A909240D505800824CAD /* ViewController.swift in Sources */,
 				A163E5912415211400FA0BA2 /* GitPullRequestDetailViewModel.swift in Sources */,
+				A1073F1624223C6F00770450 /* GithubUITestWithDataAssembly.swift in Sources */,
 				A163E58E2415159800FA0BA2 /* GitPullRequestDetailViewController.swift in Sources */,
 				A166A951240D596500824CAD /* R.generated.swift in Sources */,
 				A163E5832414375900FA0BA2 /* GitPullRequestsTableViewCell.swift in Sources */,
@@ -622,8 +632,10 @@
 				A163E57D241436A100FA0BA2 /* GitPullRequestsViewController.swift in Sources */,
 				A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */,
 				A166A943240D518F00824CAD /* RepositoriesTableViewController.swift in Sources */,
+				A1073F1824223F3300770450 /* MainAssembler.swift in Sources */,
 				A166A905240D505800824CAD /* AppDelegate.swift in Sources */,
 				A1672C882413130E004CE285 /* RepositoriesTableViewModel.swift in Sources */,
+				A1073F1424223C5200770450 /* GithubAssembly.swift in Sources */,
 				A166A907240D505800824CAD /* SceneDelegate.swift in Sources */,
 				A1672C8B24132DE4004CE285 /* Coordinator.swift in Sources */,
 				A163E5862414FCC400FA0BA2 /* GitPullRequestsViewModel.swift in Sources */,

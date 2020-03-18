@@ -74,8 +74,19 @@ class GitPullRequestsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "\(repo.name) Pull Requests"
         configTableView()
-        bindViewModel()
         viewModel.load(repo: repo)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindViewModel()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.viewModel.status.removeAllObservers()
+        self.viewModel.pullRequests.removeAllObservers()
     }
 }
 

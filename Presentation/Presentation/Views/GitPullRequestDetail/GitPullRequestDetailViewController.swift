@@ -81,7 +81,18 @@ class GitPullRequestDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pull Request Detail"
-        bindToViewModel()
         viewModel.load(data: GitPullRequestDetailViewModelInputData(repo: repo, id: id))
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindToViewModel()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.viewModel.status.removeAllObservers()
+        self.viewModel.pullRequest.removeAllObservers()
     }
 }

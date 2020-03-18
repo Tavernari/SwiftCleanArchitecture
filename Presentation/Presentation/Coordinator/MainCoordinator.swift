@@ -14,12 +14,14 @@ class MainCoordinator: NSObject, Coordinator {
     var childrens: [Coordinator] = []
 
     private let navigationController: UINavigationController
-    required init(withNavigation navigationController: UINavigationController) {
+    private let assembler: MainAssembler
+    required init(withNavigation navigationController: UINavigationController, assembler: MainAssembler) {
         self.navigationController = navigationController
+        self.assembler = assembler
     }
 
     func start() {
-        let dataSource = GithubRepoDataSource()
+        let dataSource = assembler.resolver.resolve(GitRepoDataSource.self)!
         let repository = DataSource.GitRepoRepository(dataSource: dataSource)
         let listGitRepositoryUseCase = DoListGitRepositoryUseCase(repository: repository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
@@ -35,7 +37,7 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func showPullRequests(repo: GitRepository) {
-        let dataSource = GithubPullRequestDataSource()
+        let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
         let useCase = DoListPullRequestsUseCase(repository: repository)
         let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
@@ -51,7 +53,7 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func showPullRequestDetail(id: Int, repo: GitRepository) {
-        let dataSource = GithubPullRequestDataSource()
+        let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
         let useCase = DoGetPullRequestDetailUseCase(repository: repository)
         let viewModel = PullRequestDetailViewModel(useCase: useCase)

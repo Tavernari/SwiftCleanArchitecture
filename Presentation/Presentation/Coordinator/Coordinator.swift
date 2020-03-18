@@ -10,6 +10,6 @@ import UIKit
 
 protocol Coordinator: class {
     var childrens: [Coordinator] {get set}
-    init(withNavigation navigationController: UINavigationController)
+    init(withNavigation navigationController: UINavigationController, assembler: MainAssembler)
     func start()
 }

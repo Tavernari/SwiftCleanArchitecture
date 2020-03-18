@@ -32,12 +32,6 @@ class Observable<Data: Equatable> {
         listener(value)
     }
 
-    func bind<T: Observable>(_ observable: T) {
-        listeners?.append({
-            observable.value = $0
-        })
-    }
-
     func removeAllObservers() {
         self.listeners?.removeAll()
     }

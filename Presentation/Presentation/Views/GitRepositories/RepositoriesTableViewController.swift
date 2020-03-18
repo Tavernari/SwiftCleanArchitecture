@@ -76,10 +76,21 @@ class RepositoriesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        bindViewModel()
 
         title = "Repositories"
         self.viewModel.search(term: "Swift")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bindViewModel()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.viewModel.status.removeAllObservers()
+        self.viewModel.repositories.removeAllObservers()
     }
 }
 
