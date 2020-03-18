@@ -1,5 +1,5 @@
 ## **Arquitetura para projetos iOS**
->  CLEAN ARCH - ALAMOFIRE - RxSWIFT - MVVM
+>  CLEAN ARCH - ALAMOFIRE - MVVM
 
 Consumo da [API do GitHub](https://developer.github.com/v3/search/) para:
 - Listar repositórios
