@@ -8,63 +8,21 @@
 
 import SwiftUI
 import Domain
-import Combine
 import DataSource
-
-struct ListPullRequestsRowViewModel: Identifiable {
-    var id = UUID()
-
-    let item: GitPullRequest
-
-    var title: String { item.title }
-    var author: String { item.author }
-    var description: String { item.description }
-
-    init(item: GitPullRequest) {
-        self.item = item
-    }
-}
-
-class ListPullRequestsViewModel: ObservableObject {
-    @Published var isLoading: Bool = true
-    @Published var listGitRepoRowViewModel: ListGitRepoRowViewModel?
-    @Published var dataSource: [ListPullRequestsRowViewModel] = []
-    private var disposables = Set<AnyCancellable>()
-
-    private let useCase: ListPullRequestsUseCase
-    init(useCase: ListPullRequestsUseCase) {
-        self.useCase = useCase
-
-        $listGitRepoRowViewModel
-            .compactMap { $0?.item }
-            .sink(receiveValue: executeUseCase)
-            .store(in: &disposables)
-
-    }
-
-    private func executeUseCase(repo: GitRepository) {
-        self.isLoading = true
-        self.useCase.execute(repo: repo) { (result) in
-            self.isLoading = false
-            switch result {
-            case .success(let gitRepos):
-                self.dataSource = gitRepos.map(ListPullRequestsRowViewModel.init)
-            case .failure:
-                self.dataSource = []
-            }
-        }
-    }
-}
 
 struct PullRequestsView: View {
 
-    @ObservedObject var viewModel: ListPullRequestsViewModel
+    @ObservedObject var viewModel: PullRequestsViewModel
 
-    private let repo: ListGitRepoRowViewModel
-    init(repo: ListGitRepoRowViewModel, viewModel: ListPullRequestsViewModel){
-        self.viewModel = viewModel
-        self.repo = repo
-        self.viewModel.listGitRepoRowViewModel = self.repo
+    private let rowModel: ListGitRepoRowModel
+    init(rowModel: ListGitRepoRowModel){
+        let dataSource = GithubPullRequestDataSource()
+        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let useCase = DoListPullRequestsUseCase(repository: repository)
+        self.viewModel = PullRequestsViewModel(useCase: useCase)
+
+        self.rowModel = rowModel
+        self.viewModel.listGitRepoRowViewModel = self.rowModel
     }
 
     var body: some View {
@@ -83,6 +41,6 @@ struct PullRequestsView: View {
                 }
             }
         }
-        .navigationBarTitle("\(self.repo.title) Pull Requests", displayMode: .inline)
+        .navigationBarTitle("\(self.rowModel.title) Pull Requests", displayMode: .inline)
     }
 }

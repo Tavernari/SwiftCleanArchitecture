@@ -14,10 +14,16 @@
 		A1480E8A2417141800F41944 /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1480E892417141800F41944 /* DataSource.framework */; };
 		A1480E8B2417141800F41944 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1480E892417141800F41944 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A14A7E812417352A006A4789 /* PullRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E802417352A006A4789 /* PullRequestsView.swift */; };
+		A14A7E922417D671006A4789 /* PullRequestsRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E912417D671006A4789 /* PullRequestsRowModel.swift */; };
+		A14A7E942417D6D6006A4789 /* PullRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E932417D6D6006A4789 /* PullRequestsViewModel.swift */; };
+		A14A7E962417D740006A4789 /* ListGitRepoRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E952417D740006A4789 /* ListGitRepoRowModel.swift */; };
+		A14A7E982417D7A2006A4789 /* ListGitRepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E972417D7A2006A4789 /* ListGitRepoViewModel.swift */; };
+		A14A7E9A2417DA33006A4789 /* ListGitRepoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E992417DA33006A4789 /* ListGitRepoRowView.swift */; };
+		A14A7E9D2417E1C4006A4789 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A7E9C2417E1C3006A4789 /* R.generated.swift */; };
 		A17391062416F4BA00820CC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17391052416F4BA00820CC6 /* AppDelegate.swift */; };
 		A17391082416F4BA00820CC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17391072416F4BA00820CC6 /* SceneDelegate.swift */; };
 		A173910B2416F4BA00820CC6 /* PresentationSwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A17391092416F4BA00820CC6 /* PresentationSwiftUI.xcdatamodeld */; };
-		A173910D2416F4BA00820CC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173910C2416F4BA00820CC6 /* ContentView.swift */; };
+		A173910D2416F4BA00820CC6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173910C2416F4BA00820CC6 /* RootView.swift */; };
 		A173910F2416F4C100820CC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A173910E2416F4C100820CC6 /* Assets.xcassets */; };
 		A17391122416F4C100820CC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17391112416F4C100820CC6 /* Preview Assets.xcassets */; };
 		A17391152416F4C100820CC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17391132416F4C100820CC6 /* LaunchScreen.storyboard */; };
@@ -71,11 +77,17 @@
 		A1480E852417141400F41944 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1480E892417141800F41944 /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14A7E802417352A006A4789 /* PullRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsView.swift; sourceTree = "<group>"; };
+		A14A7E912417D671006A4789 /* PullRequestsRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsRowModel.swift; sourceTree = "<group>"; };
+		A14A7E932417D6D6006A4789 /* PullRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsViewModel.swift; sourceTree = "<group>"; };
+		A14A7E952417D740006A4789 /* ListGitRepoRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepoRowModel.swift; sourceTree = "<group>"; };
+		A14A7E972417D7A2006A4789 /* ListGitRepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepoViewModel.swift; sourceTree = "<group>"; };
+		A14A7E992417DA33006A4789 /* ListGitRepoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepoRowView.swift; sourceTree = "<group>"; };
+		A14A7E9C2417E1C3006A4789 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		A17391022416F4BA00820CC6 /* PresentationSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentationSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17391052416F4BA00820CC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A17391072416F4BA00820CC6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A173910A2416F4BA00820CC6 /* PresentationSwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PresentationSwiftUI.xcdatamodel; sourceTree = "<group>"; };
-		A173910C2416F4BA00820CC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A173910C2416F4BA00820CC6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A173910E2416F4C100820CC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A17391112416F4C100820CC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A17391142416F4C100820CC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				A1480E8324170E2200F41944 /* ListGitRepoView.swift */,
+				A14A7E952417D740006A4789 /* ListGitRepoRowModel.swift */,
+				A14A7E972417D7A2006A4789 /* ListGitRepoViewModel.swift */,
+				A14A7E992417DA33006A4789 /* ListGitRepoRowView.swift */,
 			);
 			path = GitRepositories;
 			sourceTree = "<group>";
@@ -167,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				A14A7E802417352A006A4789 /* PullRequestsView.swift */,
+				A14A7E912417D671006A4789 /* PullRequestsRowModel.swift */,
+				A14A7E932417D6D6006A4789 /* PullRequestsViewModel.swift */,
 			);
 			path = PullRequests;
 			sourceTree = "<group>";
@@ -198,8 +215,9 @@
 			children = (
 				A1480E8124170DFA00F41944 /* Views */,
 				A17391052416F4BA00820CC6 /* AppDelegate.swift */,
+				A14A7E9C2417E1C3006A4789 /* R.generated.swift */,
 				A17391072416F4BA00820CC6 /* SceneDelegate.swift */,
-				A173910C2416F4BA00820CC6 /* ContentView.swift */,
+				A173910C2416F4BA00820CC6 /* RootView.swift */,
 				A173910E2416F4C100820CC6 /* Assets.xcassets */,
 				A17391132416F4C100820CC6 /* LaunchScreen.storyboard */,
 				A17391162416F4C100820CC6 /* Info.plist */,
@@ -243,6 +261,7 @@
 			buildConfigurationList = A173912F2416F4C100820CC6 /* Build configuration list for PBXNativeTarget "PresentationSwiftUI" */;
 			buildPhases = (
 				BC5781F6D83ED9051A996D50 /* [CP] Check Pods Manifest.lock */,
+				A14A7E9B2417E161006A4789 /* R.swift */,
 				A17390FE2416F4BA00820CC6 /* Sources */,
 				A17390FF2416F4BA00820CC6 /* Frameworks */,
 				A17391002416F4BA00820CC6 /* Resources */,
@@ -390,6 +409,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A14A7E9B2417E161006A4789 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		BC5781F6D83ED9051A996D50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,12 +514,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14A7E9A2417DA33006A4789 /* ListGitRepoRowView.swift in Sources */,
+				A14A7E922417D671006A4789 /* PullRequestsRowModel.swift in Sources */,
+				A14A7E962417D740006A4789 /* ListGitRepoRowModel.swift in Sources */,
 				A17391062416F4BA00820CC6 /* AppDelegate.swift in Sources */,
+				A14A7E982417D7A2006A4789 /* ListGitRepoViewModel.swift in Sources */,
 				A1480E8424170E2200F41944 /* ListGitRepoView.swift in Sources */,
+				A14A7E942417D6D6006A4789 /* PullRequestsViewModel.swift in Sources */,
 				A17391082416F4BA00820CC6 /* SceneDelegate.swift in Sources */,
-				A173910D2416F4BA00820CC6 /* ContentView.swift in Sources */,
+				A173910D2416F4BA00820CC6 /* RootView.swift in Sources */,
 				A173910B2416F4BA00820CC6 /* PresentationSwiftUI.xcdatamodeld in Sources */,
 				A14A7E812417352A006A4789 /* PullRequestsView.swift in Sources */,
+				A14A7E9D2417E1C4006A4789 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
