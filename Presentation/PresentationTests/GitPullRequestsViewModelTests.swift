@@ -9,47 +9,24 @@
 import XCTest
 import Domain
 import DataSource
-import RxSwift
-import RxTest
-import RxBlocking
 @testable import Presentation
 
 class GitPullRequestsViewModelTests: XCTestCase {
     func testListPullRequests() {
-        let scheduler = TestScheduler(initialClock: 0)
-        let testPullRequests = scheduler.createObserver([GitPullRequest].self)
-        let testStatus = scheduler.createObserver(ViewModelLoadStatus.self)
-        let disposeBag = DisposeBag()
-
         let data = GitPullRequest()
-        let dataSource = MockGitPullRequestDataSource(result: Observable.just([data]))
+        let dataSource = MockGitPullRequestDataSource(result: [data])
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
         let useCase = DoListPullRequestsUseCase(repository: repository)
         let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
-
-        viewModel.pullRequests.asDriver(onErrorJustReturn: []).drive(testPullRequests).disposed(by: disposeBag)
-        viewModel.status.asDriver(onErrorJustReturn: .fail("failed")).drive(testStatus).disposed(by: disposeBag)
-
-        scheduler
-            .createColdObservable([.next(1, GitRepository())])
-            .bind(to: viewModel.load)
-            .disposed(by: disposeBag)
-
-        scheduler.start()
-
-        XCTAssertEqual(testPullRequests.events, [.next(1, [data])])
-        XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
+        var statusBuffer = [ViewModelLoadStatus]()
+        viewModel.status.observe(listener: { status in statusBuffer.append( status )})
+        viewModel.load(repo: GitRepository())
+        XCTAssertEqual(viewModel.pullRequests.value.count, 1)
+        XCTAssertEqual(statusBuffer, [.none, .loading, .loaded])
     }
 
     func testSelectPullRequest() {
-
-        let scheduler = TestScheduler(initialClock: 0)
-        let testRoute = scheduler.createObserver(GitPullRequestViewModelRoute.self)
-        let testStatus = scheduler.createObserver(ViewModelLoadStatus.self)
-        let disposeBag = DisposeBag()
-
-        var repo = GitRepository()
-
+        let repo = GitRepository()
         var data1 = GitPullRequest()
         data1.author = "data1"
         data1.id = 400
@@ -57,29 +34,17 @@ class GitPullRequestsViewModelTests: XCTestCase {
         data2.author = "data2"
         data2.id = 500
 
-        let dataSource = MockGitPullRequestDataSource(result: Observable.just([data1, data2]))
+        let dataSource = MockGitPullRequestDataSource(result: [data1, data2])
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
         let useCase = DoListPullRequestsUseCase(repository: repository)
         let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
-
-        viewModel.route.asDriver(onErrorJustReturn: .none).drive(testRoute).disposed(by: disposeBag)
-        viewModel.status.asDriver(onErrorJustReturn: .fail("failed")).drive(testStatus).disposed(by: disposeBag)
-
-        scheduler
-            .createColdObservable([.next(1, repo)])
-            .bind(to: viewModel.load)
-            .disposed(by: disposeBag)
-
-        let selectIndex = 0
-        scheduler
-           .createColdObservable([.next(2, selectIndex)])
-           .bind(to: viewModel.select)
-           .disposed(by: disposeBag)
-
-        scheduler.start()
-
-        XCTAssertEqual(testRoute.events, [.next(2, .showPullRequestDetail(id: data1.id, repo: repo))])
-        XCTAssertEqual(testStatus.events, [.next(1, .loading), .next(1, .loaded)])
+        var statusBuffer = [ViewModelLoadStatus]()
+        viewModel.status.observe(listener: { status in statusBuffer.append( status )})
+        viewModel.load(repo: repo)
+        viewModel.select(index: 0)
+        XCTAssertEqual(viewModel.pullRequests.value.count, 2)
+        XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.id, repo: repo))
+        XCTAssertEqual(statusBuffer, [.none, .loading, .loaded])
 
     }
 }

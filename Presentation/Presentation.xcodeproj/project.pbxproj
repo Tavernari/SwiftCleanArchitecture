@@ -31,7 +31,6 @@
 		A166A909240D505800824CAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A908240D505800824CAD /* ViewController.swift */; };
 		A166A911240D506000824CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A166A910240D506000824CAD /* Assets.xcassets */; };
 		A166A914240D506000824CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A166A912240D506000824CAD /* LaunchScreen.storyboard */; };
-		A166A91F240D506000824CAD /* PresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A91E240D506000824CAD /* PresentationTests.swift */; };
 		A166A92A240D506000824CAD /* PresentationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A929240D506000824CAD /* PresentationUITests.swift */; };
 		A166A943240D518F00824CAD /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A941240D518F00824CAD /* RepositoriesTableViewController.swift */; };
 		A166A944240D518F00824CAD /* RepositoriesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166A942240D518F00824CAD /* RepositoriesTableViewController.xib */; };
@@ -113,7 +112,6 @@
 		A166A913240D506000824CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A166A915240D506000824CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A166A91A240D506000824CAD /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A166A91E240D506000824CAD /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
 		A166A920240D506000824CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A166A925240D506000824CAD /* PresentationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A166A929240D506000824CAD /* PresentationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUITests.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		A166A91D240D506000824CAD /* PresentationTests */ = {
 			isa = PBXGroup;
 			children = (
-				A166A91E240D506000824CAD /* PresentationTests.swift */,
 				A166A920240D506000824CAD /* Info.plist */,
 				A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */,
 				A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */,
@@ -639,7 +636,6 @@
 			files = (
 				A163E599241538A600FA0BA2 /* MockGitPullRequestDataSource.swift in Sources */,
 				A163E597241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift in Sources */,
-				A166A91F240D506000824CAD /* PresentationTests.swift in Sources */,
 				A163E59B2415391400FA0BA2 /* PullRequestDetailViewModelTests.swift in Sources */,
 				A1672CB6241357A6004CE285 /* RepositoriesTableViewModelTests.swift in Sources */,
 			);

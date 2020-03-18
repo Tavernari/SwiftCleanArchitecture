@@ -8,20 +8,19 @@
 
 import Domain
 import DataSource
-import RxSwift
 
 class MockGitPullRequestDataSource: GitPullRequestDataSource {
 
-    private let result: Observable<Any>
-    init(result: Observable<Any>){
+    private let result: Any
+    init(result: Any){
        self.result = result
     }
 
-    func list(repo: GitRepository) -> Observable<[GitPullRequest]> {
-        return result.map { $0 as! [GitPullRequest]}
+    func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
+        completion(.success(self.result as! [GitPullRequest]))
     }
 
-    func get(id: Int, fromRepo repo: GitRepository) -> Observable<GitPullRequest> {
-        return result.map { $0 as! GitPullRequest}
+    func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
+        completion(.success(self.result as! GitPullRequest))
     }
 }
