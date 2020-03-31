@@ -16,6 +16,9 @@ public struct GitRepository: Equatable {
     public var starCount = 0
     public var forkCount = 0
     public var issuesCount = 0
+    public var stats = GitRepoStatsModel()
+    public var isReliabilityEnabled = false
+    public var reliabilityScore = 0.0
 
     public init() { }
 }

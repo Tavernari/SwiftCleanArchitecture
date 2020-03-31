@@ -21,9 +21,12 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func start() {
-        let dataSource = assembler.resolver.resolve(GitRepoDataSource.self)!
-        let repository = DataSource.GitRepoRepository(dataSource: dataSource)
-        let listGitRepositoryUseCase = DoListGitRepositoryUseCase(repository: repository)
+        let configDataSource = assembler.resolver.resolve(ConfigDataSource.self)!
+        let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSource.self)!
+        let gitRepoRepository = DataSource.GitRepoRepository(gitRepoDataSource: gitRepoDataSource)
+        let reliabilityCaculatorRepository = ReliabilityCalculatorRepository()
+        let configRepository = ConfigDataRepository(dataSource: configDataSource)
+        let listGitRepositoryUseCase = DoListGitRepositoryUseCase(gitRepoRepository: gitRepoRepository, configRepository: configRepository, reliabilityCalculatorRepository: reliabilityCaculatorRepository)
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
 
         viewModel.route.observe { (route) in

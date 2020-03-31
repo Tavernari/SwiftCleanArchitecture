@@ -10,4 +10,5 @@ import Domain
 
 public protocol GitRepoDataSource {
     func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void)
+    func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void)
 }

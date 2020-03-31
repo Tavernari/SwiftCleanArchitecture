@@ -38,6 +38,8 @@ class RepositoriesTableViewController: UIViewController {
         cell.repositoryForkCount = "\(repository.forkCount)"
         cell.repositoryStarCount = "\(repository.starCount)"
         cell.repositoryIssueCount = "\(repository.issuesCount)"
+        cell.repositoryReliabilityIndicatorEnabled = repository.isReliabilityEnabled
+        cell.repositoryReliabilityIndicator = "\(Int(repository.reliabilityScore))"
     }
 
     fileprivate func showError(message: String) {

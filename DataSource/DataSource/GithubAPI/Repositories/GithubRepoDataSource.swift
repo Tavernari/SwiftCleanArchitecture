@@ -11,6 +11,8 @@ import Alamofire
 
 public class GithubRepoDataSource: GitRepoDataSource {
 
+
+
     public init() {}
 
     public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
@@ -24,5 +26,15 @@ public class GithubRepoDataSource: GitRepoDataSource {
                     completion(.failure(error))
                 }
             }
+    }
+
+    public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+        var gitRepoStatsModel = GitRepoStatsModel()
+        gitRepoStatsModel.name = repo.name
+        gitRepoStatsModel.closedIssues = Int.random(in: 0...1000)
+        gitRepoStatsModel.openedIssues = Int.random(in: 0...1000)
+        gitRepoStatsModel.mergedPullRequests = Int.random(in: 0...1000)
+        gitRepoStatsModel.proposedPullRequests = Int.random(in: 0...1000)
+        completion(.success(gitRepoStatsModel))
     }
 }

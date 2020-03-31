@@ -12,6 +12,10 @@ import DataSource
 @testable import Presentation
 
 class MockGitRepoDataSource: GitRepoDataSource {
+    func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+        completion(.success(.init()))
+    }
+
 
     private let result: [GitRepository]
     init(result: [GitRepository]){
@@ -27,8 +31,9 @@ class RepositoriesTableViewModelTests: XCTestCase {
     func testListRepository() {
         let data = GitRepository()
         let datasource = MockGitRepoDataSource(result: [data, data])
-        let repository = DataSource.GitRepoRepository(dataSource: datasource)
-        let useCase = DoListGitRepositoryUseCase(repository: repository)
+        let configDataSource = MemoryConfigDataSource(enable: true, multiplier: 4)
+        let repository = DataSource.GitRepoRepository(gitRepoDataSource: datasource, configDataSource: configDataSource)
+        let useCase = DoListGitRepositoryUseCase(gitRepoRepository: repository, reliabilityCalculatorRepository: ReliabilityCalculatorRepository())
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
         var statusBuffer = [ViewModelLoadStatus]()
         viewModel.status.observe(listener: { status in statusBuffer.append( status )})
@@ -47,8 +52,9 @@ class RepositoriesTableViewModelTests: XCTestCase {
         data2.author = "repository2DataAuthor"
 
         let datasource = MockGitRepoDataSource(result: [data1, data2])
-        let repository = DataSource.GitRepoRepository(dataSource: datasource)
-        let useCase = DoListGitRepositoryUseCase(repository: repository)
+        let configDataSource = MemoryConfigDataSource(enable: true, multiplier: 4)
+        let repository = DataSource.GitRepoRepository(gitRepoDataSource: datasource, configDataSource: configDataSource)
+        let useCase = DoListGitRepositoryUseCase(gitRepoRepository: repository, reliabilityCalculatorRepository: ReliabilityCalculatorRepository())
         let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
         var statusBuffer = [ViewModelLoadStatus]()
         viewModel.status.observe(listener: { status in statusBuffer.append( status )})

@@ -11,6 +11,16 @@ import Domain
 import DataSource
 
 class MockGitRepoDataSource: GitRepoDataSource {
+    func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+        var gitRepoStatsModel = GitRepoStatsModel()
+        gitRepoStatsModel.name = repo.name
+        gitRepoStatsModel.closedIssues = 0
+        gitRepoStatsModel.openedIssues = 0
+        gitRepoStatsModel.mergedPullRequests = 0
+        gitRepoStatsModel.proposedPullRequests = 0
+        completion(.success(gitRepoStatsModel))
+    }
+
     func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
         var data1 = GitRepository()
         data1.name = "IOSArchitecture"
@@ -76,6 +86,10 @@ class GithubUITestWithDataAssembly: Assembly {
 
         container.register(GitPullRequestDataSource.self) { _ in
             return MockPullRequestDataSource()
+        }
+
+        container.register(ConfigDataSource.self) { _ in
+            return MemoryConfigDataSource(enable: true, multiplier: 4)
         }
     }
 }

@@ -19,5 +19,9 @@ class GithubAssembly: Assembly {
         container.register(GitPullRequestDataSource.self) { _ in
             return GithubPullRequestDataSource()
         }
+
+        container.register(ConfigDataSource.self) { _ in
+            return MemoryConfigDataSource(enable: true, multiplier: 0.5)
+        }
     }
 }

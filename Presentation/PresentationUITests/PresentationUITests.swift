@@ -53,7 +53,6 @@ class PresentationUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Additions: 10"].exists)
         XCTAssertTrue(app.staticTexts["Commits: 30"].exists)
         XCTAssertTrue(app.staticTexts["Comments: 4"].exists)
-
     }
 
     func testLaunchPerformance() {

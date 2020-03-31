@@ -21,6 +21,9 @@ class RepositoriesTableViewCell: UITableViewCell {
     @IBOutlet private weak var repositoryForkCountLabel: UILabel!
     @IBOutlet private weak var repositoryIssueCountLabel: UILabel!
 
+    @IBOutlet private weak var repositoryReliabilityIndicatorContainer: UIStackView!
+    @IBOutlet private weak var repositoryReliabilityIndicatorLabel: UILabel!
+
     public var repositoryImage: String? {
         didSet{
             self.repositoryImageView.loadCircleImage(url: try? repositoryImage?.asURL())
@@ -33,6 +36,18 @@ class RepositoriesTableViewCell: UITableViewCell {
     public var repositoryStarCount: String = "" { didSet { self.repositoryStarCountLabel.text = repositoryStarCount } }
     public var repositoryForkCount: String = "" { didSet { self.repositoryForkCountLabel.text = repositoryForkCount } }
     public var repositoryIssueCount: String = "" { didSet { self.repositoryIssueCountLabel.text = repositoryIssueCount } }
+    public var repositoryReliabilityIndicator: String = "" { didSet { self.repositoryReliabilityIndicatorLabel.text = repositoryReliabilityIndicator}}
+
+    public var repositoryReliabilityIndicatorEnabled = false {
+        didSet {
+            if repositoryReliabilityIndicatorEnabled == false {
+                let parent = self.repositoryReliabilityIndicatorContainer.superview as! UIStackView
+                parent.removeArrangedSubview(self.repositoryReliabilityIndicatorContainer)
+                self.repositoryReliabilityIndicatorContainer.removeFromSuperview()
+                parent.updateConstraints()
+            }
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
