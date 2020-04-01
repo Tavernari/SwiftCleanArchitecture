@@ -22,7 +22,7 @@
 		A1C766DC242A18FB009EFA6F /* GitRepoStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766DB242A18FB009EFA6F /* GitRepoStatsModel.swift */; };
 		A1C766E0242A1CED009EFA6F /* ConfigRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766DF242A1CED009EFA6F /* ConfigRepository.swift */; };
 		A1E2973F2410646A0020288A /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2973E2410646A0020288A /* GitRepoRepository.swift */; };
-		A1E29741241067960020288A /* ListRepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListRepositoriesTests.swift */; };
+		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
 		A1E2974524106A970020288A /* MockRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2974424106A970020288A /* MockRepoRepository.swift */; };
 		BFB596E274F866EC66972A68 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06484D37BD9A11200301736F /* Pods_DomainTests.framework */; };
 		D33EABD65A836FC5F8100ACB /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107C63A9AD1086393874BE60 /* Pods_Domain.framework */; };
@@ -62,7 +62,7 @@
 		A1C766DB242A18FB009EFA6F /* GitRepoStatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoStatsModel.swift; sourceTree = "<group>"; };
 		A1C766DF242A1CED009EFA6F /* ConfigRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRepository.swift; sourceTree = "<group>"; };
 		A1E2973E2410646A0020288A /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
-		A1E29740241067960020288A /* ListRepositoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositoriesTests.swift; sourceTree = "<group>"; };
+		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		A1E2974424106A970020288A /* MockRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoRepository.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,7 +174,7 @@
 		A1E2974224106A710020288A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				A1E29740241067960020288A /* ListRepositoriesTests.swift */,
+				A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -380,7 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1191B042433F8BA00A8FA1F /* MockConfigRepository.swift in Sources */,
-				A1E29741241067960020288A /* ListRepositoriesTests.swift in Sources */,
+				A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */,
 				A1191B062433F8D400A8FA1F /* MockRelibilityCalculator.swift in Sources */,
 				A1E2974524106A970020288A /* MockRepoRepository.swift in Sources */,
 			);

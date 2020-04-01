@@ -1,5 +1,5 @@
 //
-//  ListRepositoriesTests.swift
+//  ListGitRepositoryUseCaseTests.swift
 //  DomainTests
 //
 //  Created by Victor C Tavernari on 04/03/20.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Domain
 
-class ListRepositoriesTests: XCTestCase {
+class ListGitRepositoryUseCaseTests: XCTestCase {
     func testListRepository() {
         let expectation = XCTestExpectation(description: "Waiting results")
         let repository = MockRepoRepository(result: [.init()], error: nil)
