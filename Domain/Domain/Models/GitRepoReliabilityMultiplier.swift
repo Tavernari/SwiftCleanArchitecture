@@ -1,5 +1,5 @@
 //
-//  GitRepoReliabilityMultiplierModel.swift
+//  GitRepoReliabilityMultiplier.swift
 //  Domain
 //
 //  Created by Victor C Tavernari on 25/03/20.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-public struct GitRepoReliabilityMultiplierModel {
+public struct GitRepoReliabilityMultiplier: Equatable{
     public var enable = false
     public var multiplier = 0.0
 
-    public init() { }
+    public init() {}
 }

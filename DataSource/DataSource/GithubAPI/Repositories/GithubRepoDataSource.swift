@@ -11,8 +11,6 @@ import Alamofire
 
 public class GithubRepoDataSource: GitRepoDataSource {
 
-
-
     public init() {}
 
     public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {

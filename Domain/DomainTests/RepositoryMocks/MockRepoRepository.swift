@@ -10,14 +10,22 @@ import Foundation
 import Domain
 
 class MockRepoRepository: GitRepoRepository {
+    func list(term: String, completion: @escaping (Result<[GitRepository], ListGitRepositoryUseCaseError>) -> Void) {
 
-    private var result: [Repository]?
-    private var error: Error?
-    init(result: [Repository]?, error: Error?) {
+        guard error == nil else {
+            completion(.failure(error!))
+            return
+        }
+
+        completion(.success(result!))
+    }
+
+
+    private var result: [GitRepository]?
+    private var error: ListGitRepositoryUseCaseError?
+    init(result: [GitRepository]?, error: ListGitRepositoryUseCaseError?) {
         self.result = result
         self.error = error
     }
-    func list(term: String, completionHandler: ([Repository]?, Error?) -> Void) {
-        completionHandler(self.result, self.error)
-    }
+
 }

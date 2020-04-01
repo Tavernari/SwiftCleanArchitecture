@@ -8,8 +8,24 @@
 
 import Foundation
 
+public class HandleResult {
+    public static func handle<T, E>(result: Result<T, E>) throws -> T where E: Error {
+        switch result {
+        case .failure(let error):
+            throw error
+        case .success(let data):
+            return data
+        }
+    }
+}
+
+public enum ListGitRepositoryUseCaseError: Error {
+    case failWhenFetchRepository(message: String?)
+    case failWhenGetReliabilityMultiplier(message: String?)
+}
+
 public protocol ListGitRepositoryUseCase {
-    func execute(term: String, completion: @escaping (Result<[GitRepository],Error>) -> Void)
+    func execute(term: String, completion: @escaping (Result<[GitRepository], ListGitRepositoryUseCaseError>) -> Void)
 }
 
 public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
@@ -23,33 +39,26 @@ public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
         self.reliabilityCalculatorRepository = reliabilityCalculatorRepository
     }
 
-    public func execute(term: String, completion: @escaping (Result<[GitRepository],Error>) -> Void) {
+    public func execute(term: String, completion: @escaping (Result<[GitRepository], ListGitRepositoryUseCaseError>) -> Void) {
         let dispatchGroup = DispatchGroup()
 
         var repositories = [GitRepository]()
-        var repoReliabilityMultiplierModel = GitRepoReliabilityMultiplierModel()
-        var errorResult: Error?
+        var repoReliabilityMultiplierModel = GitRepoReliabilityMultiplier()
+        var errorResult: ListGitRepositoryUseCaseError?
 
         dispatchGroup.enter()
         self.gitRepoRepository.list(term: term) { result in
-            switch result {
-            case .success(let repositoriesResult):
-                repositories = repositoriesResult
-            case .failure(let error):
-                errorResult = error
-            }
-
+            do { repositories = try HandleResult.handle(result: result) }
+            catch let error as ListGitRepositoryUseCaseError { errorResult = error }
+            catch { errorResult = .failWhenFetchRepository(message: nil) }
             dispatchGroup.leave()
         }
 
         dispatchGroup.enter()
         self.configRepository.gitRepoReliabilityMultiplier { result in
-            switch result {
-            case .failure(let error):
-                errorResult = error
-            case .success(let model):
-                repoReliabilityMultiplierModel = model
-            }
+            do { repoReliabilityMultiplierModel = try HandleResult.handle(result: result) }
+            catch let error as ListGitRepositoryUseCaseError { errorResult = error }
+            catch { errorResult = .failWhenGetReliabilityMultiplier(message: nil) }
             dispatchGroup.leave()
         }
 
@@ -73,9 +82,5 @@ public class DoListGitRepositoryUseCase: ListGitRepositoryUseCase {
                 completion(.success(repoResult))
             }
         }
-    }
-
-    internal func teste(a: String) -> String {
-        return a
     }
 }

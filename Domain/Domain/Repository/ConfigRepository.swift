@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol ConfigRepository {
-    func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void)
+    func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplier, ListGitRepositoryUseCaseError>) -> Void)
 }

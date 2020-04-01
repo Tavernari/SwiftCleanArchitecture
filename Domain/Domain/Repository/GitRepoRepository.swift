@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol GitRepoRepository {
-    func list(term:String, completion: @escaping (Result<[GitRepository], Error>) -> Void)
+    func list(term:String, completion: @escaping (Result<[GitRepository], ListGitRepositoryUseCaseError>) -> Void)
 }
