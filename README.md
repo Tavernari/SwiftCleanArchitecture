@@ -1,6 +1,6 @@
 ![Swift](https://github.com/Tavernari/IOSArchitecture/workflows/Swift/badge.svg?branch=master)
-
-## **Clean Architecture for iOS**
+![](GithubMidia.png)
+## **Clean Architecture using Swift**
 
 Using  [Github Api](https://developer.github.com/v3/search/) para:
 - List repositories
