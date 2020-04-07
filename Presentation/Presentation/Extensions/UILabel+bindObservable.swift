@@ -10,7 +10,7 @@ import UIKit
 
 extension UILabel {
     func bind(observable: Observable<String>) {
-        observable.observe { (message) in
+        observable.observe { message in
             self.text = message
         }
     }

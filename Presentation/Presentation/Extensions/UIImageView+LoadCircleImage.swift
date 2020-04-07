@@ -11,11 +11,12 @@ import AlamofireImage
 
 extension UIImageView {
     func loadCircleImage(url: URL, crossDissolveTime: Double = 0.3) {
-        self.af.setImage(
+        af.setImage(
             withURL: url,
             filter: CircleFilter(),
             progressQueue: .main,
             imageTransition: .crossDissolve(crossDissolveTime),
-            runImageTransitionIfCached: true)
+            runImageTransitionIfCached: true
+        )
     }
 }

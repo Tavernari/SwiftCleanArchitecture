@@ -9,7 +9,6 @@
 import UIKit
 
 class APIErrorViewController: UIViewController {
-
     final class func initWith(withViewModel viewModel: APIErrorViewModel) -> APIErrorViewController {
         let vc = APIErrorViewController()
         vc.viewModel = viewModel
@@ -28,5 +27,4 @@ class APIErrorViewController: UIViewController {
     @IBAction func ok() {
         viewModel.ok()
     }
-
 }

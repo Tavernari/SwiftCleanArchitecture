@@ -9,14 +9,13 @@
 import Domain
 
 public class GitPullRequestDataRepository: GitPullRequestRepositoryInterface {
-
     private let dataSource: GitPullRequestDataSource
     public init(dataSource: GitPullRequestDataSource) {
         self.dataSource = dataSource
     }
 
     public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
-        self.dataSource.list(repo: repo, completion: completion)
+        dataSource.list(repo: repo, completion: completion)
     }
 
     public func get(
@@ -24,7 +23,6 @@ public class GitPullRequestDataRepository: GitPullRequestRepositoryInterface {
         fromRepo repo: GitRepository,
         completion: @escaping (Result<GitPullRequest, Error>) -> Void
     ) {
-        self.dataSource.get(id: id, fromRepo: repo, completion: completion)
+        dataSource.get(id: id, fromRepo: repo, completion: completion)
     }
-
 }

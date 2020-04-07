@@ -6,14 +6,13 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import XCTest
-import Domain
 import DataSource
+import Domain
 @testable import Presentation
+import XCTest
 
 class PullRequestDetailViewModelTests: XCTestCase {
     func testLoadDetail() {
-
         let resultExpectation = XCTestExpectation(description: "Waiting result")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
 
@@ -27,13 +26,13 @@ class PullRequestDetailViewModelTests: XCTestCase {
         let viewModel = PullRequestDetailsViewModel(useCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
-        viewModel.isLoading.observe { (isLoading) in
+        viewModel.isLoading.observe { isLoading in
             if isLoading {
                 loadingExpectation.fulfill()
             }
         }
 
-        viewModel.pullRequest.observe { (pullRequest) in
+        viewModel.pullRequest.observe { pullRequest in
             if pullRequest != nil {
                 resultExpectation.fulfill()
             }
@@ -41,6 +40,6 @@ class PullRequestDetailViewModelTests: XCTestCase {
 
         viewModel.load(pullRequestid: 0, fromRepo: .init())
 
-        self.wait(for: [resultExpectation, loadingExpectation], timeout: 2)
+        wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
 }

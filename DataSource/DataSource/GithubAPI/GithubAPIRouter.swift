@@ -28,11 +28,11 @@ enum GithubAPIRouter: URLRequestConvertible {
 
     private var path: String {
         switch self {
-        case .search(let term):
+        case let .search(term):
             return "/search/repositories?q=\(term)"
-        case .listPullRequest(let owner, let repoName):
+        case let .listPullRequest(owner, repoName):
             return "/repos/\(owner)/\(repoName)/pulls"
-        case .getPullRequest(let owner, let repoName, let pullNumber):
+        case let .getPullRequest(owner, repoName, pullNumber):
             return "/repos/\(owner)/\(repoName)/pulls/\(pullNumber)"
         }
     }

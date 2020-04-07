@@ -6,13 +6,13 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import XCTest
-import Domain
 import DataSource
+import Domain
 @testable import Presentation
+import XCTest
 
 class MockGitRepoDataSource: GitRepoDataSource {
-    func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+    func stats(repo _: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
         completion(.success(.init()))
     }
 
@@ -21,8 +21,8 @@ class MockGitRepoDataSource: GitRepoDataSource {
         self.result = result
     }
 
-    func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
-        completion(.success(self.result))
+    func list(term _: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
+        completion(.success(result))
     }
 }
 
@@ -44,7 +44,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
         useCase.delegateInterfaceAdapter = viewModel
         viewModel.search(term: "Java")
 
-        viewModel.repositories.observe { (repositories) in
+        viewModel.repositories.observe { repositories in
             guard repositories.isEmpty == false else {
                 return
             }
@@ -53,13 +53,13 @@ class RepositoriesTableViewModelTests: XCTestCase {
             expectationRepositories.fulfill()
         }
 
-        viewModel.isLoading.observe { (isLoading) in
+        viewModel.isLoading.observe { isLoading in
             if isLoading == true {
                 expectationLoadingStatus.fulfill()
             }
         }
 
-        self.wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
+        wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
     }
 
     func testSelectRepository() {
@@ -87,7 +87,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
         useCase.delegateInterfaceAdapter = viewModel
         viewModel.search(term: "Java")
 
-        viewModel.repositories.observe { (repositories) in
+        viewModel.repositories.observe { repositories in
             guard repositories.isEmpty == false else {
                 return
             }
@@ -96,13 +96,13 @@ class RepositoriesTableViewModelTests: XCTestCase {
             expectationRepositories.fulfill()
         }
 
-        viewModel.isLoading.observe { (isLoading) in
+        viewModel.isLoading.observe { isLoading in
             if isLoading == true {
                 expectationLoadingStatus.fulfill()
             }
         }
 
-        viewModel.repositories.observe { (repositories) in
+        viewModel.repositories.observe { repositories in
             guard repositories.isEmpty == false else {
                 return
             }
@@ -113,6 +113,6 @@ class RepositoriesTableViewModelTests: XCTestCase {
             XCTAssertEqual(.showPullRequests(repo: data2), viewModel.route.value)
         }
 
-        self.wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
+        wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
     }
 }

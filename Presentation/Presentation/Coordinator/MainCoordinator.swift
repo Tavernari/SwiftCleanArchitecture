@@ -6,9 +6,9 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import Domain
+import UIKit
 
 class MainCoordinator: NSObject, Coordinator {
     var childrens: [Coordinator] = []
@@ -37,11 +37,11 @@ class MainCoordinator: NSObject, Coordinator {
 
         fetchGitRepositories.delegateInterfaceAdapter = viewModel
 
-        viewModel.route.observe { (route) in
+        viewModel.route.observe { route in
             switch route {
-            case .showError(let errorMessage):
+            case let .showError(errorMessage):
                 self.showAPIError(errorMessage: errorMessage)
-            case .showPullRequests(let repo):
+            case let .showPullRequests(repo):
                 self.showPullRequests(repo: repo)
             case .none:
                 break
@@ -49,7 +49,7 @@ class MainCoordinator: NSObject, Coordinator {
         }
 
         let vc = ListOfRepositoriesViewController.initWith(viewModel: viewModel)
-        self.navigationController.viewControllers = [vc]
+        navigationController.viewControllers = [vc]
     }
 
     func showAPIError(errorMessage: String) {
@@ -57,9 +57,9 @@ class MainCoordinator: NSObject, Coordinator {
 
         let vc = APIErrorViewController.initWith(withViewModel: viewModel)
         vc.modalPresentationStyle = .overFullScreen
-        self.navigationController.present(vc, animated: true, completion: nil)
+        navigationController.present(vc, animated: true, completion: nil)
 
-        viewModel.route.observe { (route) in
+        viewModel.route.observe { route in
             if case .ok = route {
                 vc.dismiss(animated: true, completion: nil)
             }
@@ -73,14 +73,14 @@ class MainCoordinator: NSObject, Coordinator {
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
-        viewModel.route.observe { (route) in
-            if case .showPullRequestDetail(let id, let repo) = route {
+        viewModel.route.observe { route in
+            if case let .showPullRequestDetail(id, repo) = route {
                 self.showPullRequestDetail(id: id, repo: repo)
             }
         }
 
         let vc = ListOfPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
-        self.navigationController.pushViewController(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
 
     func showPullRequestDetail(id: Int, repo: GitRepository) {
@@ -90,6 +90,6 @@ class MainCoordinator: NSObject, Coordinator {
         let viewModel = PullRequestDetailsViewModel(useCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
         let vc = PullRequestDetailsViewController.initWith(viewModel: viewModel, id: id, repo: repo)
-        self.navigationController.pushViewController(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -17,6 +17,6 @@ public class ConfigDataRepository: ConfigRepositoryInterface {
     public func gitRepoReliabilityMultiplier(
         completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void
     ) {
-        self.dataSource.gitRepoReliabilityMultiplier(completion: completion)
+        dataSource.gitRepoReliabilityMultiplier(completion: completion)
     }
 }

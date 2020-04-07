@@ -28,11 +28,11 @@ class Observable<Data: Equatable> {
     }
 
     func observe(listener: @escaping Listener) {
-        self.listeners?.append(listener)
+        listeners?.append(listener)
         listener(value)
     }
 
     func removeAllObservers() {
-        self.listeners?.removeAll()
+        listeners?.removeAll()
     }
 }

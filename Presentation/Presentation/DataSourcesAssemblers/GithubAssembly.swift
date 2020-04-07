@@ -6,18 +6,18 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Swinject
-import Domain
 import DataSource
+import Domain
+import Swinject
 
 class GithubAssembly: Assembly {
     func assemble(container: Container) {
         container.register(GitRepoDataSource.self) { _ in
-            return GithubRepoDataSource()
+            GithubRepoDataSource()
         }
 
         container.register(GitPullRequestDataSource.self) { _ in
-            return GithubPullRequestDataSource()
+            GithubPullRequestDataSource()
         }
 
         container.register(ConfigDataSource.self) { _ in

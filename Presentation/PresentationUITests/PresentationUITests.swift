@@ -6,36 +6,35 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import XCTest
-import SwiftLocalhost
 import DataSource
+import SwiftLocalhost
+import XCTest
 
 class PresentationUITests: XCTestCase {
-
     var localhostServer: LocalhostServer!
 //    var app: XCUIApplication!
     var portNumber: UInt!
     override func setUp() {
         continueAfterFailure = false
-        self.localhostServer = LocalhostServer.initializeUsingRandomPortNumber()
-        self.localhostServer.startListening()
-        portNumber = self.localhostServer.portNumber
+        localhostServer = LocalhostServer.initializeUsingRandomPortNumber()
+        localhostServer.startListening()
+        portNumber = localhostServer.portNumber
 
-        self.localhostServer.get("/search/repositories", routeBlock: { _ in
+        localhostServer.get("/search/repositories", routeBlock: { _ in
             let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
             let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
             let data = GithubRepositoryDataReponseFake.repositoriesData()
             return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
         })
 
-        self.localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls", routeBlock: { _ in
+        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls", routeBlock: { _ in
             let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
             let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
             let data = GithubRepositoryDataReponseFake.listOfPullsData()
             return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
         })
 
-        self.localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls/1", routeBlock: { _ in
+        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls/1", routeBlock: { _ in
             let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
             let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
             let data = GithubRepositoryDataReponseFake.pullDetailData()
@@ -44,11 +43,10 @@ class PresentationUITests: XCTestCase {
     }
 
     override func tearDown() {
-        self.localhostServer.stopListening()
+        localhostServer.stopListening()
     }
 
     func testShowListOfRepositories() {
-
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
         app.launchEnvironment["localhostPort"] = "\(portNumber!)"

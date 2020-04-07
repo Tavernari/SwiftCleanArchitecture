@@ -8,7 +8,7 @@
 
 import Domain
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol GitRepoDataSource {
     func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void)
     func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void)

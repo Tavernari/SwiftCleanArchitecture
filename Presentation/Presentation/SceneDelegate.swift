@@ -9,18 +9,16 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
     var coordinator: Coordinator!
     var assembler: MainAssembler!
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
+    func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let navigationController = UINavigationController()
         window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()
 
         assembler = MainAssembler()
         coordinator = MainCoordinator(withNavigation: navigationController, assembler: assembler)

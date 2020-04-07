@@ -20,7 +20,7 @@ public enum GithubAPIError: LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .error(let data):
+        case let .error(data):
             return data?.message
         }
     }
@@ -34,7 +34,7 @@ class GithubRequester {
             .validate(contentType: ["application/json"])
             .validate { (_, httpReponse, data) -> DataRequest.ValidationResult in
                 switch httpReponse.statusCode {
-                case 200..<300:
+                case 200 ..< 300:
                     return .success(())
                 case 422:
                     let data = data ?? Data()

@@ -1,7 +1,7 @@
 ////From - https://gist.github.com/GLeHir/ef4a2b5ade86025cb31d7d8f2494c319
-//import UIKit
+// import UIKit
 //
-//@IBDesignable extension UIView {
+// @IBDesignable extension UIView {
 //
 //    /* BORDER */
 //    @IBInspectable var borderColor:UIColor? {
@@ -76,4 +76,4 @@
 //            return layer.shadowRadius
 //        }
 //    }
-//}
+// }

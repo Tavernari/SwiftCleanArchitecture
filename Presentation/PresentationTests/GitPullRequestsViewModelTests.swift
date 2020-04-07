@@ -6,10 +6,10 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import XCTest
-import Domain
 import DataSource
+import Domain
 @testable import Presentation
+import XCTest
 
 class GitPullRequestsViewModelTests: XCTestCase {
     func testListPullRequests() {
@@ -22,7 +22,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
-        viewModel.pullRequests.observe { (pullRequests) in
+        viewModel.pullRequests.observe { pullRequests in
             guard pullRequests.isEmpty == false else {
                 return
             }
@@ -31,7 +31,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
             XCTAssertEqual(viewModel.pullRequests.value.count, 1)
         }
 
-        viewModel.isLoading.observe { (isLoading) in
+        viewModel.isLoading.observe { isLoading in
             if isLoading == true {
                 loadingExpectation.fulfill()
             }
@@ -39,7 +39,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
 
         viewModel.load(repo: GitRepository())
 
-        self.wait(for: [resultExpectation, loadingExpectation], timeout: 2)
+        wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
 
     func testSelectPullRequest() {
@@ -59,7 +59,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
-        viewModel.pullRequests.observe { (pullRequests) in
+        viewModel.pullRequests.observe { pullRequests in
             guard pullRequests.isEmpty == false else {
                 return
             }
@@ -71,7 +71,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
             XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.id, repo: repo))
         }
 
-        viewModel.isLoading.observe { (isLoading) in
+        viewModel.isLoading.observe { isLoading in
             if isLoading {
                 loadingExpectation.fulfill()
             }
@@ -79,7 +79,6 @@ class GitPullRequestsViewModelTests: XCTestCase {
 
         viewModel.load(repo: repo)
 
-        self.wait(for: [resultExpectation, loadingExpectation], timeout: 2)
-
+        wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
 }

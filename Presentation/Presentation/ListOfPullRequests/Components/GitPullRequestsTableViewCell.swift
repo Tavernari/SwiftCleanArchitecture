@@ -6,18 +6,17 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import AlamofireImage
+import UIKit
 
 class GitPullRequestsTableViewCell: UITableViewCell {
-
-    @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var pullRequestAuthorLabel: UILabel!
-    @IBOutlet private weak var pullRequestTitleLabel: UILabel!
-    @IBOutlet private weak var pullRequestDescriptionLabel: UILabel!
-    @IBOutlet private weak var pullRequestDateLabel: UILabel!
-    @IBOutlet private weak var pullRequestImageView: UIImageView!
+    @IBOutlet private var containerView: UIView!
+    @IBOutlet private var pullRequestAuthorLabel: UILabel!
+    @IBOutlet private var pullRequestTitleLabel: UILabel!
+    @IBOutlet private var pullRequestDescriptionLabel: UILabel!
+    @IBOutlet private var pullRequestDateLabel: UILabel!
+    @IBOutlet private var pullRequestImageView: UIImageView!
 
     public var pullRequestAuthor: String = "" {
         didSet {
@@ -54,11 +53,11 @@ class GitPullRequestsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        self.containerView.layer.shadowOffset = .init(width: 1, height: 1)
-        self.containerView.layer.shadowRadius = 1
-        self.containerView.layer.shouldRasterize = true
-        self.containerView.layer.rasterizationScale = UIScreen.main.scale
-        self.containerView.layer.shadowOpacity = 0.3
+        containerView.layer.shadowColor = UIColor.lightGray.cgColor
+        containerView.layer.shadowOffset = .init(width: 1, height: 1)
+        containerView.layer.shadowRadius = 1
+        containerView.layer.shouldRasterize = true
+        containerView.layer.rasterizationScale = UIScreen.main.scale
+        containerView.layer.shadowOpacity = 0.3
     }
 }

@@ -6,18 +6,16 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Domain
 import DataSource
+import Domain
 
 class MockGitPullRequestDataSource: GitPullRequestDataSource {
-
     private let result: Any
     init(result: Any) {
-       self.result = result
+        self.result = result
     }
 
-    func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
-
+    func list(repo _: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
         guard let result = self.result as? [GitPullRequest] else {
             fatalError()
         }
@@ -25,8 +23,7 @@ class MockGitPullRequestDataSource: GitPullRequestDataSource {
         completion(.success(result))
     }
 
-    func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
-
+    func get(id _: Int, fromRepo _: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
         guard let result = self.result as? GitPullRequest else {
             fatalError()
         }

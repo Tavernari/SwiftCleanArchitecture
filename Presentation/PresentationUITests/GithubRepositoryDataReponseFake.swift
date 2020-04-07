@@ -9,7 +9,6 @@
 import DataSource
 
 class GithubRepositoryDataReponseFake {
-
     static func repositoriesData() -> Data {
         var githubResponseData = GithubResponseData()
 
@@ -38,7 +37,6 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func listOfPullsData() -> Data {
-
         var user = GithubPullRequestUser()
         user.avatar_url = "https://picsum.photos/id/5/200/300"
         user.login = "Luis"
@@ -58,7 +56,6 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func pullDetailData() -> Data {
-
         var user = GithubPullRequestUser()
         user.avatar_url = "https://picsum.photos/id/5/200/300"
         user.login = "Luis"

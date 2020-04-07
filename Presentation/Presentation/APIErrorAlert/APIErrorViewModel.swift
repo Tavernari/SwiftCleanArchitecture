@@ -9,15 +9,14 @@
 import Domain
 
 class APIErrorViewModel: APIErrorViewModelInterface {
-
     var route = Observable<APIErrorViewModelRoute>(.none)
     var message = Observable<String>("")
 
     init(errorMessage: String) {
-        self.message.value = errorMessage
+        message.value = errorMessage
     }
 
     func ok() {
-        self.route.value = .ok
+        route.value = .ok
     }
 }

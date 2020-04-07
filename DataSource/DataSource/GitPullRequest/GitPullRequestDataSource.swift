@@ -6,7 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 import Domain
 
 public protocol GitPullRequestDataSource {

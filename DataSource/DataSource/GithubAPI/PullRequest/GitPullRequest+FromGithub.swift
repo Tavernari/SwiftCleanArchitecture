@@ -10,7 +10,6 @@ import Domain
 
 extension GitPullRequest {
     static func fromGithub(_ data: GithubPullRequestData) -> GitPullRequest {
-
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 

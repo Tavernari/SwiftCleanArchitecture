@@ -6,8 +6,8 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Domain
 import Alamofire
+import Domain
 
 public class GitRepoRepository: GitRepoRepositoryInterface {
     private let gitRepoDataSource: GitRepoDataSource
@@ -22,31 +22,30 @@ public class GitRepoRepository: GitRepoRepositoryInterface {
         var error: Error?
 
         dispatchGroup.enter()
-        self.gitRepoDataSource.list(term: term) { result in
+        gitRepoDataSource.list(term: term) { result in
             switch result {
-            case .success(let repositories):
+            case let .success(repositories):
                 repositories.forEach { repo in
                     var gitRepo = repo
                     dispatchGroup.enter()
                     self.gitRepoDataSource.stats(repo: repo) { result in
                         switch result {
-                        case .success(let model):
+                        case let .success(model):
                             gitRepo.stats = model
                             gitRepoRepositoriesResult.append(gitRepo)
-                        case .failure(let statsError):
+                        case let .failure(statsError):
                             error = statsError
                         }
                         dispatchGroup.leave()
                     }
                 }
-            case .failure(let dataSourceError):
+            case let .failure(dataSourceError):
                 error = dataSourceError
             }
             dispatchGroup.leave()
         }
 
         dispatchGroup.notify(queue: .global(qos: .background)) {
-
             guard error == nil else {
                 DispatchQueue.main.async {
                     completion(.failure(error!))
@@ -61,6 +60,6 @@ public class GitRepoRepository: GitRepoRepositoryInterface {
     }
 
     public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
-        self.gitRepoDataSource.stats(repo: repo, completion: completion)
+        gitRepoDataSource.stats(repo: repo, completion: completion)
     }
 }
