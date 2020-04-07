@@ -13,7 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Fastlane
+      run: sudo gem install fastlane -NV
     - name: Build
       run: swift build -v
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild test -project Proj.xcodeproj -scheme ProjTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6,OS=12.2"
