@@ -72,7 +72,7 @@ class PresentationUIErrorTests: XCTestCase {
         let tablesQuery = app.tables
         sleep(1)
         XCTAssertEqual(tablesQuery.cells.count, 0)
-        XCTAssertTrue(app.alerts.element.exists)
+        XCTAssertFalse(app.alerts.element.exists)
     }
 
     func testErrorOnListOfPullRequests() {

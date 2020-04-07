@@ -35,6 +35,8 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
             switch error.code {
             case URLError.Code.notConnectedToInternet:
                 delegateInterfaceAdapter?.fetchFailure(withError: .common(.noInternetConnection))
+            case URLError.Code.timedOut:
+                delegateInterfaceAdapter?.fetchFailure(withError: .common(.timeOut))
             default:
                 delegateInterfaceAdapter?.fetchFailure(withError: .common(.generic(error.localizedDescription)))
             }
