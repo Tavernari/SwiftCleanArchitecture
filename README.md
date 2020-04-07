@@ -8,7 +8,7 @@ Using  [Github Api](https://developer.github.com/v3/search/) para:
 - Show detail from some pull request
 
 ## Motivation
- Study about implemention, using three layers (Domain, DataSource, Presentation), in this repository I chose follow a more flexible solutions.
+ Study about implementation, using three layers (Domain, DataSource, Presentation), in this repository I chose follow a more flexible solutions.
 
 - Organization
 - Easy to debug
