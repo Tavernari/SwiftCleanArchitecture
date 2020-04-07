@@ -13,10 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Fastlane
+    - name: Install Fastlane
       run: sudo gem install fastlane -NV
-    - name: Install GemFile
-      run: gem install
+    - name: Install Bundler
+      run: sudo gem install bundler
     - name: Config Fastlane
       run: export PATH="$HOME/.fastlane/bin:$PATH" 
     - name: Run tests
