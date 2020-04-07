@@ -1,0 +1,65 @@
+PODS:
+  - Alamofire (5.0.2)
+  - AlamofireImage (4.0.2):
+    - Alamofire (< 6.0.0, >= 5.0.2)
+  - CocoaAsyncSocket (7.6.4)
+  - Criollo (0.5.5):
+    - CocoaAsyncSocket (~> 7.6)
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
+  - Sourcery (0.17.0)
+  - SwiftFormat/CLI (0.44.7)
+  - SwiftLint (0.39.1)
+  - SwiftLocalhost (0.0.8):
+    - Criollo
+  - SwiftyMocky (3.5.0):
+    - SwiftyMocky/Core (= 3.5.0)
+  - SwiftyMocky/Core (3.5.0):
+    - Sourcery (>= 0.17)
+  - Swinject (2.7.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5)
+  - Alamofire (~> 5.0)
+  - AlamofireImage (~> 4.0)
+  - R.swift
+  - SwiftFormat/CLI
+  - SwiftLint
+  - SwiftLocalhost
+  - SwiftyMocky
+  - Swinject
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CocoaAsyncSocket
+    - Criollo
+    - R.swift
+    - R.swift.Library
+    - Sourcery
+    - SwiftLint
+    - SwiftLocalhost
+    - SwiftyMocky
+    - Swinject
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - SwiftFormat
+
+SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  AlamofireImage: ca7325440303d041a80b7caa55066ba945522378
+  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  Criollo: 617173837c296ca4248b0b058f36ce9b91e5c25b
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
+  SwiftFormat: fd97e27b8de5a46c9d1988bf1db1dc92e79f86a3
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+  SwiftLocalhost: 78ad6ca707ef2162aa9ab29407321226d44f5027
+  SwiftyMocky: f277174040db328a9da04ce8efa81b6d6d5b9d7d
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+
+PODFILE CHECKSUM: 897c7422687498fe98491d23bbe55346c6593577
+
+COCOAPODS: 1.9.0

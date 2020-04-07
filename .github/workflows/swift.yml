@@ -13,7 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
+    - name: Install Fastlane
+      run: sudo gem install fastlane -NV
+    - name: Install Bundler
+      run: sudo gem install bundler
+    - name: Install Gemfile
+      run: bundle update && bundle install
+    - name: Config Fastlane
+      run: export PATH="$HOME/.fastlane/bin:$PATH" 
     - name: Run tests
-      run: swift test -v
+      run: fastlane test
+    
