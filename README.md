@@ -29,9 +29,9 @@ Image from [this medium post](https://tech.olx.com/clean-architecture-and-mvvm-o
 * [SwiftyMocky](https://github.com/MakeAWishFoundation/SwiftyMocky)
 
 ## Roadmap
-- [] Do more tests
-- [] Discuss about necessity to translate Error from DataSource to Domain
-- [] Discuss about best way to connect Domain to Presentation without external solutions
+- [ ] Do more tests
+- [ ] Discuss about necessity to translate Error from DataSource to Domain
+- [ ] Discuss about best way to connect Domain to Presentation without external solutions
 
 
 ## License
