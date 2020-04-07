@@ -84,6 +84,16 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "githubTerm"
+            value = "swift"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "localhostPort"
+            value = "80"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "remoteConfigReabilityMultiplier"
             value = "4"
             isEnabled = "YES">

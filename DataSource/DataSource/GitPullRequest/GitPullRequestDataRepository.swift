@@ -8,7 +8,7 @@
 
 import Domain
 
-public class GitPullRequestDataRepository: GitPullRequestRepository {
+public class GitPullRequestDataRepository: GitPullRequestRepositoryInterface {
 
     private let dataSource: GitPullRequestDataSource
     public init(dataSource: GitPullRequestDataSource) {
@@ -19,7 +19,11 @@ public class GitPullRequestDataRepository: GitPullRequestRepository {
         self.dataSource.list(repo: repo, completion: completion)
     }
 
-    public func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void) {
+    public func get(
+        id: Int,
+        fromRepo repo: GitRepository,
+        completion: @escaping (Result<GitPullRequest, Error>) -> Void
+    ) {
         self.dataSource.get(id: id, fromRepo: repo, completion: completion)
     }
 

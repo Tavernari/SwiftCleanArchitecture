@@ -14,14 +14,18 @@ public class GithubRepoDataSource: GitRepoDataSource {
     public init() {}
 
     public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
-            let request = AF.request(GithubAPIRouter.search(term: term))
+        let request = GithubRequester.request(GithubAPIRouter.search(term: term))
             request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
                 switch response.result {
                 case .success(let repositories):
                     let result = repositories.items.map(GitRepository.fromGithub)
                     completion(.success(result))
                 case .failure(let error):
-                    completion(.failure(error))
+                    if let underlyingError = error.underlyingError {
+                        completion(.failure(underlyingError))
+                    } else {
+                        completion(.failure(error))
+                    }
                 }
             }
     }

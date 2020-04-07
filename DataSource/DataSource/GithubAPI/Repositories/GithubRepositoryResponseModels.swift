@@ -1,17 +1,20 @@
-struct GithubResponseData: Codable {
-    let items: [GithubRepositoryData]
+public struct GithubResponseData: Codable {
+    public var items: [GithubRepositoryData] = []
+    public init() {}
 }
 
-struct GithubRepositoryData: Codable {
-    let name: String
-    let description: String?
-    let stargazers_count: Int
-    let forks_count: Int
-    let open_issues_count: Int
-    let owner: GithubRepositoryOwner
+public struct GithubRepositoryData: Codable {
+    public var name: String = ""
+    public var description: String? = ""
+    public var stargazers_count: Int = 0
+    public var forks_count: Int = 0
+    public var open_issues_count: Int = 0
+    public var owner: GithubRepositoryOwner = .init()
+    public init() {}
 }
 
-struct GithubRepositoryOwner: Codable {
-    let login: String
-    let avatar_url: String
+public struct GithubRepositoryOwner: Codable {
+    public var login: String = ""
+    public var avatar_url: String = ""
+    public init() {}
 }

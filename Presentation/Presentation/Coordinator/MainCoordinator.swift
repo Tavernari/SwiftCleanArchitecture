@@ -24,26 +24,54 @@ class MainCoordinator: NSObject, Coordinator {
         let configDataSource = assembler.resolver.resolve(ConfigDataSource.self)!
         let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSource.self)!
         let gitRepoRepository = DataSource.GitRepoRepository(gitRepoDataSource: gitRepoDataSource)
-        let reliabilityCaculatorRepository = ReliabilityCalculatorRepository()
+        let reliabilityRepoCalculatorUseCase = ReliabilityRepoCalculator()
         let configRepository = ConfigDataRepository(dataSource: configDataSource)
-        let listGitRepositoryUseCase = DoListGitRepositoryUseCase(gitRepoRepository: gitRepoRepository, configRepository: configRepository, reliabilityCalculatorRepository: reliabilityCaculatorRepository)
-        let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: listGitRepositoryUseCase)
+
+        let fetchGitRepositories = FetchGitRepositoriesUseCase(
+            gitRepoRepository: gitRepoRepository,
+            configRepository: configRepository,
+            reliabilityCalculatorUseCase: reliabilityRepoCalculatorUseCase
+        )
+
+        let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories)
+
+        fetchGitRepositories.delegateInterfaceAdapter = viewModel
 
         viewModel.route.observe { (route) in
-            if case .showPullRequests(let repo) = route {
+            switch route {
+            case .showError(let errorMessage):
+                self.showAPIError(errorMessage: errorMessage)
+            case .showPullRequests(let repo):
                 self.showPullRequests(repo: repo)
+            case .none:
+                break
             }
         }
 
-        let vc = RepositoriesTableViewController.initWith(withViewModel: viewModel)
+        let vc = ListOfRepositoriesViewController.initWith(viewModel: viewModel)
         self.navigationController.viewControllers = [vc]
+    }
+
+    func showAPIError(errorMessage: String) {
+        let viewModel = APIErrorViewModel(errorMessage: errorMessage)
+
+        let vc = APIErrorViewController.initWith(withViewModel: viewModel)
+        vc.modalPresentationStyle = .overFullScreen
+        self.navigationController.present(vc, animated: true, completion: nil)
+
+        viewModel.route.observe { (route) in
+            if case .ok = route {
+                vc.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 
     func showPullRequests(repo: GitRepository) {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
-        let useCase = DoListPullRequestsUseCase(repository: repository)
-        let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
+        let useCase = FetchPullRequestsUseCase(repository: repository)
+        let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
 
         viewModel.route.observe { (route) in
             if case .showPullRequestDetail(let id, let repo) = route {
@@ -51,16 +79,17 @@ class MainCoordinator: NSObject, Coordinator {
             }
         }
 
-        let vc = GitPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
+        let vc = ListOfPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
         self.navigationController.pushViewController(vc, animated: true)
     }
 
     func showPullRequestDetail(id: Int, repo: GitRepository) {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
-        let useCase = DoGetPullRequestDetailUseCase(repository: repository)
-        let viewModel = PullRequestDetailViewModel(useCase: useCase)
-        let vc = GitPullRequestDetailViewController.initWith(viewModel: viewModel, id: id, repo: repo)
+        let useCase = FetchPullRequestDetailUseCase(repository: repository)
+        let viewModel = PullRequestDetailsViewModel(useCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
+        let vc = PullRequestDetailsViewController.initWith(viewModel: viewModel, id: id, repo: repo)
         self.navigationController.pushViewController(vc, animated: true)
     }
 }

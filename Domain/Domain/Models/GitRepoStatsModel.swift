@@ -15,5 +15,5 @@ public struct GitRepoStatsModel: Equatable {
     public var mergedPullRequests: Int = 0
     public var proposedPullRequests: Int = 0
 
-    public init() { }
+    public init() {}
 }

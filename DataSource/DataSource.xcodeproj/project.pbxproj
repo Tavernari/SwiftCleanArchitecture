@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A147CBED242B7C950071C972 /* ReliabilityCalculatorRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A147CBEC242B7C950071C972 /* ReliabilityCalculatorRepository.swift */; };
+		A1398AEF243847CB00A3A0CD /* GithubRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* GithubRequester.swift */; };
 		A158ABFB240BE89A00B7A40E /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataSource.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
 		A158AC02240BE89A00B7A40E /* DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A158ABF4240BE89A00B7A40E /* DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,7 +61,7 @@
 		4C88F94646AF4F0ABEF66A9B /* Pods-DataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.debug.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.release.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.release.xcconfig"; sourceTree = "<group>"; };
 		792B3B465FAEF07C60638D0B /* Pods_DataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A147CBEC242B7C950071C972 /* ReliabilityCalculatorRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReliabilityCalculatorRepository.swift; sourceTree = "<group>"; };
+		A1398AEE243847CB00A3A0CD /* GithubRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequester.swift; sourceTree = "<group>"; };
 		A158ABF1240BE89A00B7A40E /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABF4240BE89A00B7A40E /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,7 +133,6 @@
 		A147CBEB242B7C840071C972 /* ReliabilityCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				A147CBEC242B7C950071C972 /* ReliabilityCalculatorRepository.swift */,
 			);
 			path = ReliabilityCalculator;
 			sourceTree = "<group>";
@@ -196,6 +195,7 @@
 				A163E59D24153ABF00FA0BA2 /* Repositories */,
 				A163E59C24153A9C00FA0BA2 /* PullRequest */,
 				A1672C9C241337B7004CE285 /* GithubAPIRouter.swift */,
+				A1398AEE243847CB00A3A0CD /* GithubRequester.swift */,
 			);
 			path = GithubAPI;
 			sourceTree = "<group>";
@@ -258,7 +258,9 @@
 			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSource" */;
 			buildPhases = (
 				EB847BE676A3CDF0283C6D40 /* [CP] Check Pods Manifest.lock */,
+				A1FFB842243BEF3900120CDB /* SwiftLint */,
 				A158ABEC240BE89A00B7A40E /* Headers */,
+				A1FFB845243BF3DD00120CDB /* SwiftFormat */,
 				A158ABED240BE89A00B7A40E /* Sources */,
 				A158ABEE240BE89A00B7A40E /* Frameworks */,
 				A158ABEF240BE89A00B7A40E /* Resources */,
@@ -281,6 +283,7 @@
 				A158ABF6240BE89A00B7A40E /* Sources */,
 				A158ABF7240BE89A00B7A40E /* Frameworks */,
 				A158ABF8240BE89A00B7A40E /* Resources */,
+				0E14B6695ABB02811722B5E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +351,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E14B6695ABB02811722B5E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		822BC8889F94DFE088FAEC54 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +389,42 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A1FFB842243BEF3900120CDB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		A1FFB845243BF3DD00120CDB /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 		EB847BE676A3CDF0283C6D40 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -401,12 +457,12 @@
 			files = (
 				A1C766E8242A2807009EFA6F /* ConfigDataSource.swift in Sources */,
 				A1C766EB242A2899009EFA6F /* MemoryConfigDataSource.swift in Sources */,
-				A147CBED242B7C950071C972 /* ReliabilityCalculatorRepository.swift in Sources */,
 				A1C766E5242A2754009EFA6F /* ConfigDataRepository.swift in Sources */,
 				A163E5712413F9C600FA0BA2 /* GitPullRequestDataSource.swift in Sources */,
 				A1672CA624134228004CE285 /* GitRepository+FromGithub.swift in Sources */,
 				A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */,
 				A1672C9D241337B7004CE285 /* GithubAPIRouter.swift in Sources */,
+				A1398AEF243847CB00A3A0CD /* GithubRequester.swift in Sources */,
 				A163E574241431D900FA0BA2 /* GithubPullRequestDataSource.swift in Sources */,
 				A163E59F24153B3700FA0BA2 /* GitRepoDataSource.swift in Sources */,
 				A163E5A124153B9400FA0BA2 /* GithubRepoDataSource.swift in Sources */,

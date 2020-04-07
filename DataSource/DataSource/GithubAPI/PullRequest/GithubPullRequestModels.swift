@@ -6,29 +6,31 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-struct GithubPullRequestData: Codable {
-    let title: String
-    let body: String
-    let user: GithubPullRequestUser
-    let created_at: String
-    let number: Int
+public struct GithubPullRequestData: Codable {
+    public var title: String = ""
+    public var body: String = ""
+    public var user: GithubPullRequestUser = .init()
+    public var created_at: String = ""
+    public var number: Int = 0
+    public init() {}
 }
 
-struct GithubPullRequestDetailData: Codable {
-    let title: String
-    let body: String
-    let user: GithubPullRequestUser
-    let created_at: String
-    let number: Int
-    let comments: Int
-    let additions: Int
-    let deletions: Int
-    let changed_files: Int
-    let commits: Int
+public struct GithubPullRequestDetailData: Codable {
+    public var title: String = ""
+    public var body: String = ""
+    public var user: GithubPullRequestUser = .init()
+    public var created_at: String = ""
+    public var number: Int = 0
+    public var comments: Int = 0
+    public var additions: Int = 0
+    public var deletions: Int = 0
+    public var changed_files: Int = 0
+    public var commits: Int = 0
+    public init() {}
 }
 
-struct GithubPullRequestUser: Codable {
-    let login: String
-    let avatar_url: String
+public struct GithubPullRequestUser: Codable {
+    public var login: String = ""
+    public var avatar_url: String = ""
+    public init() {}
 }
-

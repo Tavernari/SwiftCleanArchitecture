@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GitRepoReliabilityMultiplier: Equatable{
+public struct GitRepoReliabilityMultiplier: Equatable {
     public var enable = false
     public var multiplier = 0.0
 

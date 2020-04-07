@@ -13,7 +13,7 @@ extension GitPullRequest {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
+
         var pullRequest = GitPullRequest()
         pullRequest.id = data.number
         pullRequest.author = data.user.login

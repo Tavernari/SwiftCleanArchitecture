@@ -14,7 +14,16 @@ enum GithubAPIRouter: URLRequestConvertible {
     case getPullRequest(owner: String, repoName: String, pullNumber: Int)
 
     struct ProductionServer {
-        static let baseURL = "https://api.github.com"
+        static var baseURL = { () -> String in
+            var url = "https://api.github.com"
+
+            if ProcessInfo.processInfo.arguments.contains("ui-testing"),
+                let port = Int(ProcessInfo.processInfo.environment["localhostPort"] ?? "80") {
+                url = "http://localhost:\(port)"
+            }
+
+            return url
+        }()
     }
 
     private var path: String {
@@ -29,7 +38,7 @@ enum GithubAPIRouter: URLRequestConvertible {
     }
 
     func asURLRequest() throws -> URLRequest {
-        let url = try! "\(GithubAPIRouter.ProductionServer.baseURL)\(path)".asURL()
+        let url = try "\(GithubAPIRouter.ProductionServer.baseURL)\(path)".asURL()
         let urlRequest = URLRequest(url: url)
         return urlRequest
     }

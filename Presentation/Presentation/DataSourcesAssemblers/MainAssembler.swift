@@ -12,10 +12,6 @@ class MainAssembler {
     private let assembler: Assembler
     var resolver: Resolver { assembler.resolver }
     init() {
-        if ProcessInfo.processInfo.arguments.contains("ui-testing") {
-            assembler = Assembler([GithubUITestWithDataAssembly()])
-        } else {
             assembler = Assembler([GithubAssembly()])
-        }
     }
 }

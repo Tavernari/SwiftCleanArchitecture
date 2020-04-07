@@ -21,5 +21,5 @@ public struct GitPullRequest: Equatable {
     public var deletionsCount = 0
     public var changedFilesCount = 0
 
-    public init() { }
+    public init() {}
 }

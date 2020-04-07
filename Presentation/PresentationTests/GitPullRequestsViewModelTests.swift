@@ -13,19 +13,38 @@ import DataSource
 
 class GitPullRequestsViewModelTests: XCTestCase {
     func testListPullRequests() {
+        let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
+        let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let data = GitPullRequest()
         let dataSource = MockGitPullRequestDataSource(result: [data])
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
-        let useCase = DoListPullRequestsUseCase(repository: repository)
-        let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
-        var statusBuffer = [ViewModelLoadStatus]()
-        viewModel.status.observe(listener: { status in statusBuffer.append( status )})
+        let useCase = FetchPullRequestsUseCase(repository: repository)
+        let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
+
+        viewModel.pullRequests.observe { (pullRequests) in
+            guard pullRequests.isEmpty == false else {
+                return
+            }
+
+            resultExpectation.fulfill()
+            XCTAssertEqual(viewModel.pullRequests.value.count, 1)
+        }
+
+        viewModel.isLoading.observe { (isLoading) in
+            if isLoading == true {
+                loadingExpectation.fulfill()
+            }
+        }
+
         viewModel.load(repo: GitRepository())
-        XCTAssertEqual(viewModel.pullRequests.value.count, 1)
-        XCTAssertEqual(statusBuffer, [.none, .loading, .loaded])
+
+        self.wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
 
     func testSelectPullRequest() {
+        let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
+        let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let repo = GitRepository()
         var data1 = GitPullRequest()
         data1.author = "data1"
@@ -36,15 +55,31 @@ class GitPullRequestsViewModelTests: XCTestCase {
 
         let dataSource = MockGitPullRequestDataSource(result: [data1, data2])
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
-        let useCase = DoListPullRequestsUseCase(repository: repository)
-        let viewModel = GitListPullRequestViewModel(listPullRequestsUseCase: useCase)
-        var statusBuffer = [ViewModelLoadStatus]()
-        viewModel.status.observe(listener: { status in statusBuffer.append( status )})
+        let useCase = FetchPullRequestsUseCase(repository: repository)
+        let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
+
+        viewModel.pullRequests.observe { (pullRequests) in
+            guard pullRequests.isEmpty == false else {
+                return
+            }
+
+            resultExpectation.fulfill()
+            XCTAssertEqual(viewModel.pullRequests.value.count, 2)
+
+            viewModel.select(index: 0)
+            XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.id, repo: repo))
+        }
+
+        viewModel.isLoading.observe { (isLoading) in
+            if isLoading {
+                loadingExpectation.fulfill()
+            }
+        }
+
         viewModel.load(repo: repo)
-        viewModel.select(index: 0)
-        XCTAssertEqual(viewModel.pullRequests.value.count, 2)
-        XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.id, repo: repo))
-        XCTAssertEqual(statusBuffer, [.none, .loading, .loaded])
+
+        self.wait(for: [resultExpectation, loadingExpectation], timeout: 2)
 
     }
 }

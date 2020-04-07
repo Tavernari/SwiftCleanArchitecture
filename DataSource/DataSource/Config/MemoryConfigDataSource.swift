@@ -10,13 +10,15 @@ import Domain
 
 public class MemoryConfigDataSource: ConfigDataSource {
 
-    var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplierModel()
+    var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplier()
     public init(enable: Bool, multiplier: Double) {
         gitRepoReliabilityMultiplierModel.enable = enable
         gitRepoReliabilityMultiplierModel.multiplier = multiplier
     }
 
-    public func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void) {
+    public func gitRepoReliabilityMultiplier(
+        completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void
+    ) {
         completion(.success(gitRepoReliabilityMultiplierModel))
     }
 }

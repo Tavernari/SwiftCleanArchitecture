@@ -16,9 +16,8 @@ class MockGitRepoDataSource: GitRepoDataSource {
         completion(.success(.init()))
     }
 
-
     private let result: [GitRepository]
-    init(result: [GitRepository]){
+    init(result: [GitRepository]) {
         self.result = result
     }
 
@@ -29,20 +28,44 @@ class MockGitRepoDataSource: GitRepoDataSource {
 
 class RepositoriesTableViewModelTests: XCTestCase {
     func testListRepository() {
+        let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
+        let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
         let data = GitRepository()
         let datasource = MockGitRepoDataSource(result: [data, data])
         let configDataSource = MemoryConfigDataSource(enable: true, multiplier: 4)
-        let repository = DataSource.GitRepoRepository(gitRepoDataSource: datasource, configDataSource: configDataSource)
-        let useCase = DoListGitRepositoryUseCase(gitRepoRepository: repository, reliabilityCalculatorRepository: ReliabilityCalculatorRepository())
-        let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
-        var statusBuffer = [ViewModelLoadStatus]()
-        viewModel.status.observe(listener: { status in statusBuffer.append( status )})
+        let configRepository = ConfigDataRepository(dataSource: configDataSource)
+        let repository = DataSource.GitRepoRepository(gitRepoDataSource: datasource)
+        let useCase = FetchGitRepositoriesUseCase(
+            gitRepoRepository: repository,
+            configRepository: configRepository,
+            reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
+        )
+        let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
         viewModel.search(term: "Java")
-        XCTAssertEqual(viewModel.repositories.value.count, 2)
-        XCTAssertEqual(statusBuffer, [.none, .loading, .loaded])
+
+        viewModel.repositories.observe { (repositories) in
+            guard repositories.isEmpty == false else {
+                return
+            }
+
+            XCTAssertEqual(viewModel.repositories.value.count, 2)
+            expectationRepositories.fulfill()
+        }
+
+        viewModel.isLoading.observe { (isLoading) in
+            if isLoading == true {
+                expectationLoadingStatus.fulfill()
+            }
+        }
+
+        self.wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
     }
 
     func testSelectRepository() {
+        let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
+        let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
+
         var data1 = GitRepository()
         data1.name = "repository1DataName"
         data1.author = "repository1DataAuthor"
@@ -52,16 +75,44 @@ class RepositoriesTableViewModelTests: XCTestCase {
         data2.author = "repository2DataAuthor"
 
         let datasource = MockGitRepoDataSource(result: [data1, data2])
-        let configDataSource = MemoryConfigDataSource(enable: true, multiplier: 4)
-        let repository = DataSource.GitRepoRepository(gitRepoDataSource: datasource, configDataSource: configDataSource)
-        let useCase = DoListGitRepositoryUseCase(gitRepoRepository: repository, reliabilityCalculatorRepository: ReliabilityCalculatorRepository())
-        let viewModel = RepositoriesTableViewModel(listGitRepositoryUseCase: useCase)
-        var statusBuffer = [ViewModelLoadStatus]()
-        viewModel.status.observe(listener: { status in statusBuffer.append( status )})
+        let configDataSource = MemoryConfigDataSource(enable: false, multiplier: 4)
+        let configRepository = ConfigDataRepository(dataSource: configDataSource)
+        let repository = DataSource.GitRepoRepository(gitRepoDataSource: datasource)
+        let useCase = FetchGitRepositoriesUseCase(
+            gitRepoRepository: repository,
+            configRepository: configRepository,
+            reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
+        )
+        let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
         viewModel.search(term: "Java")
-        viewModel.select(index: 1)
-        XCTAssertEqual(viewModel.repositories.value.count, 2)
-        XCTAssertEqual(viewModel.route.value, .showPullRequests(repo: data2))
-        XCTAssertEqual(statusBuffer, [.none, .loading, .loaded])
+
+        viewModel.repositories.observe { (repositories) in
+            guard repositories.isEmpty == false else {
+                return
+            }
+
+            XCTAssertEqual(viewModel.repositories.value.count, 2)
+            expectationRepositories.fulfill()
+        }
+
+        viewModel.isLoading.observe { (isLoading) in
+            if isLoading == true {
+                expectationLoadingStatus.fulfill()
+            }
+        }
+
+        viewModel.repositories.observe { (repositories) in
+            guard repositories.isEmpty == false else {
+                return
+            }
+
+            XCTAssertEqual(viewModel.repositories.value.count, 2)
+            expectationRepositories.fulfill()
+            viewModel.select(index: 1)
+            XCTAssertEqual(.showPullRequests(repo: data2), viewModel.route.value)
+        }
+
+        self.wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
     }
 }

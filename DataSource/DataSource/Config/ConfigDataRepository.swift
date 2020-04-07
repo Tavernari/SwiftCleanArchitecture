@@ -8,13 +8,15 @@
 
 import Domain
 
-public class ConfigDataRepository: ConfigRepository {
+public class ConfigDataRepository: ConfigRepositoryInterface {
     private let dataSource: ConfigDataSource
     public init(dataSource: ConfigDataSource) {
         self.dataSource = dataSource
     }
-    
-    public func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void) {
+
+    public func gitRepoReliabilityMultiplier(
+        completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void
+    ) {
         self.dataSource.gitRepoReliabilityMultiplier(completion: completion)
     }
 }

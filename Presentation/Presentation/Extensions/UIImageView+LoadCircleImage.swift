@@ -10,12 +10,7 @@ import Alamofire
 import AlamofireImage
 
 extension UIImageView {
-    func loadCircleImage(url: URL?, crossDissolveTime: Double = 0.3){
-
-        guard let url = url else {
-            return
-        }
-
+    func loadCircleImage(url: URL, crossDissolveTime: Double = 0.3) {
         self.af.setImage(
             withURL: url,
             filter: CircleFilter(),

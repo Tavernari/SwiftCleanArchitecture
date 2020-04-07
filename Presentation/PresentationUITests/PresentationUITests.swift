@@ -7,24 +7,54 @@
 //
 
 import XCTest
+import SwiftLocalhost
+import DataSource
 
 class PresentationUITests: XCTestCase {
 
+    var localhostServer: LocalhostServer!
+//    var app: XCUIApplication!
+    var portNumber: UInt!
     override func setUp() {
         continueAfterFailure = false
+        self.localhostServer = LocalhostServer.initializeUsingRandomPortNumber()
+        self.localhostServer.startListening()
+        portNumber = self.localhostServer.portNumber
 
+        self.localhostServer.get("/search/repositories", routeBlock: { _ in
+            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
+            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
+            let data = GithubRepositoryDataReponseFake.repositoriesData()
+            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
+        })
 
+        self.localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls", routeBlock: { _ in
+            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
+            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
+            let data = GithubRepositoryDataReponseFake.listOfPullsData()
+            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
+        })
+
+        self.localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls/1", routeBlock: { _ in
+            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
+            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
+            let data = GithubRepositoryDataReponseFake.pullDetailData()
+            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
+        })
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.localhostServer.stopListening()
     }
 
     func testShowListOfRepositories() {
+
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
+        app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
         let tablesQuery = app.tables
+        sleep(1)
         XCTAssertEqual(tablesQuery.cells.count, 2)
         XCTAssertTrue(app.staticTexts["ReSwiftMiddleware"].exists)
         XCTAssertTrue(app.staticTexts["Tavernari"].exists)
@@ -34,9 +64,11 @@ class PresentationUITests: XCTestCase {
     func testNavigateToPullRequests() {
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
+        app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
         let tablesQuery = app.tables
         tablesQuery.cells.firstMatch.tap()
+        sleep(1)
         XCTAssertEqual(tablesQuery.cells.count, 1)
         XCTAssertTrue(app.staticTexts["Luis"].exists)
         XCTAssertTrue(app.staticTexts["Title of pull request"].exists)
@@ -46,10 +78,13 @@ class PresentationUITests: XCTestCase {
     func testNavigateToPullRequestDetail() {
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
+        app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
         let tablesQuery = app.tables
         tablesQuery.cells.firstMatch.tap()
+        sleep(1)
         tablesQuery.cells.firstMatch.tap()
+        sleep(1)
         XCTAssertTrue(app.staticTexts["Additions: 10"].exists)
         XCTAssertTrue(app.staticTexts["Commits: 30"].exists)
         XCTAssertTrue(app.staticTexts["Comments: 4"].exists)

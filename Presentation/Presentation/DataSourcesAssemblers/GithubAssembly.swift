@@ -20,10 +20,9 @@ class GithubAssembly: Assembly {
             return GithubPullRequestDataSource()
         }
 
-
         container.register(ConfigDataSource.self) { _ in
             let isEnable = ProcessInfo.processInfo.environment["remoteConfigReabilityEnabled"] == "true"
-            let multiplier = Double(ProcessInfo.processInfo.environment["remoteConfigReabilityMultiplier"] ?? "0") ?? 0.0
+            let multiplier = Double(ProcessInfo.processInfo.environment["remoteConfigReabilityMultiplier"] ?? "0")!
             return MemoryConfigDataSource(enable: isEnable, multiplier: multiplier)
         }
     }

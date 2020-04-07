@@ -20,5 +20,5 @@ public struct GitRepository: Equatable {
     public var isReliabilityEnabled = false
     public var reliabilityScore = 0.0
 
-    public init() { }
+    public init() {}
 }

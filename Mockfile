@@ -1,0 +1,12 @@
+sourceryCommand: null
+DomainTests:
+  sources:
+    include:
+    - ./Domain
+  output: ./Domain/DomainTests/Mock.generated.swift
+  targets:
+  - DomainTests
+  testable:
+  - Domain
+  import:
+  - Foundation

@@ -13,7 +13,7 @@ enum DateStringFormats: String {
 }
 
 extension Date {
-    func string(format:DateStringFormats) -> String {
+    func string(format: DateStringFormats) -> String {
         return self.string(format: format.rawValue)
     }
 
