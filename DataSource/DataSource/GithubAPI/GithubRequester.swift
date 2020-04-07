@@ -29,18 +29,19 @@ public enum GithubAPIError: LocalizedError {
 class GithubRequester {
     private init() {}
 
-    static func request(_ value: URLRequestConvertible) -> DataRequest {
+    static func request(_ value: GithubAPIRouter) -> DataRequest {
         return AF.request(value)
             .validate(contentType: ["application/json"])
             .validate { (_, httpReponse, data) -> DataRequest.ValidationResult in
                 switch httpReponse.statusCode {
                 case 200 ..< 300:
                     return .success(())
-                case 422:
-                    let data = data ?? Data()
-                    let errorData = try? JSONDecoder().decode(GithubAPIErrorData.self, from: data)
-                    return .failure(GithubAPIError.error(data: errorData))
+
                 default:
+                    if let data = data, let errorData = try? JSONDecoder().decode(GithubAPIErrorData.self, from: data) {
+                        return .failure(GithubAPIError.error(data: errorData))
+                    }
+
                     let error = URLError(.init(rawValue: httpReponse.statusCode))
                     return .failure(error)
                 }
