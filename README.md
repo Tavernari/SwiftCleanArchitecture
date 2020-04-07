@@ -1,3 +1,5 @@
+![Swift](https://github.com/Tavernari/IOSArchitecture/workflows/Swift/badge.svg?branch=master)
+
 ## **Arquitetura para projetos iOS**
 >  CLEAN ARCH - ALAMOFIRE - MVVM
 
