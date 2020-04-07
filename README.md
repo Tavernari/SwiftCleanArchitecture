@@ -23,8 +23,8 @@ Image from [this medium post](https://tech.olx.com/clean-architecture-and-mvvm-o
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [AlamofireImage](https://github.com/Alamofire/AlamofireImage)
 * [R.Swift](https://github.com/mac-cain13/R.swift)
-* [SwiftLint](https://github.com/realm/SwiftLint)
 * [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+* [SwiftLint](https://github.com/realm/SwiftLint)
 * [SwiftLocalhost](https://github.com/depoon/SwiftLocalhost)
 * [SwiftyMocky](https://github.com/MakeAWishFoundation/SwiftyMocky)
 
