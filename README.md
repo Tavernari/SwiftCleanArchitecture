@@ -1,33 +1,38 @@
 ![Swift](https://github.com/Tavernari/IOSArchitecture/workflows/Swift/badge.svg?branch=master)
 
-## **Arquitetura para projetos iOS**
->  CLEAN ARCH - ALAMOFIRE - MVVM
+## **Clean Architecture for iOS**
 
-Consumo da [API do GitHub](https://developer.github.com/v3/search/) para:
-- Listar repositórios
-- Listar pull requests
-- Detalhe pull request
+Using  [Github Api](https://developer.github.com/v3/search/) para:
+- List repositories
+- List pull requests from some repository
+- Show detail from some pull request
 
-## Motivação
-- Organização
-- Facilidade para debugar
-- Facilidade para lidar com ciclo de vidas
-- Modularização
-- Testes.
+## Motivation
+ Study about implemention, using three layers (Domain, DataSource, Presentation), in this repository I chose follow a more flexible solutions.
 
-## Como funciona
+- Organization
+- Easy to debug
+- Easy to plug layers
+- Componentization 
+- Tests
+
+## How works
 ![](https://miro.medium.com/max/2950/1*N3ypUNMUGv87qUL57JyqJA.png)
 Image from [this medium post](https://tech.olx.com/clean-architecture-and-mvvm-on-ios-c9d167d9f5b3 "this post")
 ## Libs
-* [RxSwift/RxCocoa](https://github.com/ReactiveX/RxSwift)
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [AlamofireImage](https://github.com/Alamofire/AlamofireImage)
 * [R.Swift](https://github.com/mac-cain13/R.swift)
+* [SwiftLint](https://github.com/realm/SwiftLint)
+* [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+* [SwiftLocalhost](https://github.com/depoon/SwiftLocalhost)
+* [SwiftyMocky](https://github.com/MakeAWishFoundation/SwiftyMocky)
 
 ## Roadmap
-- [ ] Paginar resultados
-- [ ] Buscar conteúdo local como fonte principal e dar opção de buscar remoto
+- [] Do more tests
+- [] Discuss about necessity to translate Error from DataSource to Domain
+- [] Discuss about best way to connect Domain to Presentation without external solutions
 
 
-## Licença
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE.md](LICENSE) para detalhes.
+## License
+This project is lincesed by MIT - look at file [LICENSE.md](LICENSE) for details.
