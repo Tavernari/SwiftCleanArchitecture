@@ -36,7 +36,7 @@ _This layer has the reponsability to handle `APIs` calls and access to `DataBase
 
 _This layer has the reponsability to show and handle inputs from an interface, so in that example is implemented using like `MVVM`_
 
-* `Coordinator` has the reponsability to get all `DataSources`, `UseCases`, `ViewModel` and `ViewController`, so this will build everything and then show `ViewController` with your relative `ViewModel`
+* The `Coordinator` has the responsibility to get all `DataSources`, `UseCases`, `ViewModel` and `ViewController`, so this will build everything and then show `ViewController` with your relative `ViewModel`
 * `ViewModel`, in this case, extends `InterfaceAdapter` to receive responses from `UseCase` and implement `UseCase` interfaces to execute that logics 
 * `ViewController`, in that case, was created only to observe `ViewModel` and modify `View` without any intelligence there.
 * The view is a view, an only structure like `Xib` or `StoryBoards`.
