@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1398AEF243847CB00A3A0CD /* GithubRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* GithubRequester.swift */; };
-		A158ABFB240BE89A00B7A40E /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataSource.framework */; };
+		A158ABFB240BE89A00B7A40E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* Data.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
 		A158AC02240BE89A00B7A40E /* DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A158ABF4240BE89A00B7A40E /* DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A163E56F2413F91700FA0BA2 /* GitPullRequestDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */; };
@@ -62,10 +62,10 @@
 		6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.release.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.release.xcconfig"; sourceTree = "<group>"; };
 		792B3B465FAEF07C60638D0B /* Pods_DataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1398AEE243847CB00A3A0CD /* GithubRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequester.swift; sourceTree = "<group>"; };
-		A158ABF1240BE89A00B7A40E /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158ABF1240BE89A00B7A40E /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABF4240BE89A00B7A40E /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A158ABFA240BE89A00B7A40E /* DataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158ABFA240BE89A00B7A40E /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceTests.swift; sourceTree = "<group>"; };
 		A158AC01240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDataRepository.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A158ABFB240BE89A00B7A40E /* DataSource.framework in Frameworks */,
+				A158ABFB240BE89A00B7A40E /* Data.framework in Frameworks */,
 				FCBB5FA5C73CFB9D6C798205 /* Pods_DataSourceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,8 +151,8 @@
 		A158ABF2240BE89A00B7A40E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A158ABF1240BE89A00B7A40E /* DataSource.framework */,
-				A158ABFA240BE89A00B7A40E /* DataSourceTests.xctest */,
+				A158ABF1240BE89A00B7A40E /* Data.framework */,
+				A158ABFA240BE89A00B7A40E /* DataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,9 +253,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A158ABF0240BE89A00B7A40E /* DataSource */ = {
+		A158ABF0240BE89A00B7A40E /* Data */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSource" */;
+			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "Data" */;
 			buildPhases = (
 				EB847BE676A3CDF0283C6D40 /* [CP] Check Pods Manifest.lock */,
 				A1FFB842243BEF3900120CDB /* SwiftLint */,
@@ -270,14 +270,14 @@
 			);
 			dependencies = (
 			);
-			name = DataSource;
+			name = Data;
 			productName = DataSource;
-			productReference = A158ABF1240BE89A00B7A40E /* DataSource.framework */;
+			productReference = A158ABF1240BE89A00B7A40E /* Data.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A158ABF9240BE89A00B7A40E /* DataSourceTests */ = {
+		A158ABF9240BE89A00B7A40E /* DataTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSourceTests" */;
+			buildConfigurationList = A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataTests" */;
 			buildPhases = (
 				822BC8889F94DFE088FAEC54 /* [CP] Check Pods Manifest.lock */,
 				A158ABF6240BE89A00B7A40E /* Sources */,
@@ -290,9 +290,9 @@
 			dependencies = (
 				A158ABFD240BE89A00B7A40E /* PBXTargetDependency */,
 			);
-			name = DataSourceTests;
+			name = DataTests;
 			productName = DataSourceTests;
-			productReference = A158ABFA240BE89A00B7A40E /* DataSourceTests.xctest */;
+			productReference = A158ABFA240BE89A00B7A40E /* DataTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -314,7 +314,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataSource" */;
+			buildConfigurationList = A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "Data" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -327,8 +327,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A158ABF0240BE89A00B7A40E /* DataSource */,
-				A158ABF9240BE89A00B7A40E /* DataSourceTests */,
+				A158ABF0240BE89A00B7A40E /* Data */,
+				A158ABF9240BE89A00B7A40E /* DataTests */,
 			);
 		};
 /* End PBXProject section */
@@ -486,7 +486,7 @@
 /* Begin PBXTargetDependency section */
 		A158ABFD240BE89A00B7A40E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A158ABF0240BE89A00B7A40E /* DataSource */;
+			target = A158ABF0240BE89A00B7A40E /* Data */;
 			targetProxy = A158ABFC240BE89A00B7A40E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -708,7 +708,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataSource" */ = {
+		A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "Data" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC03240BE89A00B7A40E /* Debug */,
@@ -717,7 +717,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSource" */ = {
+		A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "Data" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC06240BE89A00B7A40E /* Debug */,
@@ -726,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSourceTests" */ = {
+		A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC09240BE89A00B7A40E /* Debug */,
