@@ -16,6 +16,10 @@ Using  [Github Api](https://developer.github.com/v3/search/) para:
 - Componentization 
 - Tests
 
+## Structure
+
+![](Exemplo.png)
+
 ## How works
 ![](https://miro.medium.com/max/2950/1*N3ypUNMUGv87qUL57JyqJA.png)
 Image from [this medium post](https://tech.olx.com/clean-architecture-and-mvvm-on-ios-c9d167d9f5b3 "this post")
