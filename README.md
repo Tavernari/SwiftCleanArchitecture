@@ -20,6 +20,26 @@ Using  [Github Api](https://developer.github.com/v3/search/) para:
 
 ![](example.png)
 
+### Domain
+_This layer is the main, there are all business logics and all model data struct necessary for the application._
+
+* All communications are executed through interfaces like InterfaceAdapter and RepositoryInterface.
+* Models are data necessary to UseCases logic
+* UseCases are the main logic
+
+### DataSource
+_This layer has the reponsability to handle APIs calls and access to DataBases like CoreData for example._
+
+* All repositories here extends RepositoryInterface and implement interfaces to DataSources like APIs or CoreData if necessary
+
+### Presentation
+
+_This layer has the reponsability to show and handle inputs from an interface, so in that example is implemented using like MVVM_
+
+* ViewModel, in this case, extends InterfaceAdapter to receive responses from UseCase and implement UseCase interfaces to execute that logics 
+* ViewController, in that case, was created only to observe ViewModel and modify View without any intelligence there.
+* The view is a view, an only structure like Xib or StoryBoards.
+
 ## How works
 ![](https://miro.medium.com/max/2950/1*N3ypUNMUGv87qUL57JyqJA.png)
 Image from [this medium post](https://tech.olx.com/clean-architecture-and-mvvm-on-ios-c9d167d9f5b3 "this post")
