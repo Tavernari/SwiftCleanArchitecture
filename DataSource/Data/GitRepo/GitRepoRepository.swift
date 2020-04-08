@@ -26,9 +26,9 @@ public class GitRepoRepository: GitRepoRepositoryInterface {
             switch result {
             case let .success(repositories):
                 repositories.forEach { repo in
-                    var gitRepo = repo
+                    var gitRepo = GitRepository(data: repo)
                     dispatchGroup.enter()
-                    self.gitRepoDataSource.stats(repo: repo) { result in
+                    self.gitRepoDataSource.stats(repo: gitRepo) { result in
                         switch result {
                         case let .success(model):
                             gitRepo.stats = model

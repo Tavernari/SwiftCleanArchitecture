@@ -12,13 +12,12 @@ import Domain
 public class GithubRepoDataSource: GitRepoDataSource {
     public init() {}
 
-    public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
+    public func list(term: String, completion: @escaping (Result<[GithubRepositoryData], Error>) -> Void) {
         let request = GithubRequester.request(GithubAPIRouter.search(term: term))
         request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
             switch response.result {
             case let .success(repositories):
-                let result = repositories.items.map(GitRepository.fromGithub)
-                completion(.success(result))
+                completion(.success(repositories.items))
             case let .failure(error):
                 if let underlyingError = error.underlyingError {
                     completion(.failure(underlyingError))

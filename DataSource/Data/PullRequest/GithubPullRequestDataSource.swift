@@ -17,7 +17,7 @@ public class GithubPullRequestDataSource: GitPullRequestDataSource {
         request.responseDecodable { (response: DataResponse<[GithubPullRequestData], AFError>) in
             switch response.result {
             case let .success(pullRequests):
-                let result = pullRequests.map(GitPullRequest.fromGithub)
+                let result = pullRequests.map(GitPullRequest.init)
                 completion(.success(result))
             case let .failure(error):
                 completion(.failure(error))
@@ -35,7 +35,7 @@ public class GithubPullRequestDataSource: GitPullRequestDataSource {
         request.responseDecodable { (response: DataResponse<GithubPullRequestDetailData, AFError>) in
             switch response.result {
             case let .success(pullRequest):
-                let result = GitPullRequest.fromGithub(pullRequest)
+                let result = GitPullRequest(pullRequest)
                 completion(.success(result))
             case let .failure(error):
                 completion(.failure(error))

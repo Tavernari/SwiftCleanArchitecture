@@ -36,7 +36,6 @@ class GithubRequester {
                 switch httpReponse.statusCode {
                 case 200 ..< 300:
                     return .success(())
-
                 default:
                     if let data = data, let errorData = try? JSONDecoder().decode(GithubAPIErrorData.self, from: data) {
                         return .failure(GithubAPIError.error(data: errorData))
