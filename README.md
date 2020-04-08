@@ -18,7 +18,7 @@ Using  [Github Api](https://developer.github.com/v3/search/) para:
 
 ## Structure
 
-![](Exemplo.png)
+![](example.png)
 
 ## How works
 ![](https://miro.medium.com/max/2950/1*N3ypUNMUGv87qUL57JyqJA.png)
