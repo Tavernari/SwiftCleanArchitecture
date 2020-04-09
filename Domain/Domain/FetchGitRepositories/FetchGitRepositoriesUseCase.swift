@@ -17,16 +17,13 @@ public protocol FetchGitRepositoriesUseCaseInterface {
 public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
     public var delegateInterfaceAdapter: FetchGitRepositoriesInterfaceAdapter?
     private let gitRepoRepository: GitRepoRepositoryInterface
-    private let configRepository: ConfigRepositoryInterface
     private let reliabilityCalculatorUseCase: ReliabilityRepoCalculatorUseCase
 
     public init(
         gitRepoRepository: GitRepoRepositoryInterface,
-        configRepository: ConfigRepositoryInterface,
         reliabilityCalculatorUseCase: ReliabilityRepoCalculatorUseCase
     ) {
         self.gitRepoRepository = gitRepoRepository
-        self.configRepository = configRepository
         self.reliabilityCalculatorUseCase = reliabilityCalculatorUseCase
     }
 
@@ -55,7 +52,7 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
     }
 
     private func fetchReliabilityConfig(completion: @escaping (GitRepoReliabilityMultiplier) -> Void) {
-        configRepository.gitRepoReliabilityMultiplier { result in
+        gitRepoRepository.getRepoReliabilityMultiplier { result in
             do {
                 let repoReliabilityMultiplierModel = try result.handle()
                 completion(repoReliabilityMultiplierModel)

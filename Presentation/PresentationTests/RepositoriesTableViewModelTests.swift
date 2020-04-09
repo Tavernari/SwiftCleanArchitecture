@@ -32,12 +32,10 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
         let data = GithubRepositoryData()
         let datasource = MockGitRepoDataSource(result: [data, data])
-        let configDataSource = MemoryConfigDataSource(enable: true, multiplier: 4)
-        let configRepository = ConfigDataRepository(dataSource: configDataSource)
-        let repository = DataLayer.GitRepoRepository(gitRepoDataSource: datasource)
+        let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: true, multiplier: 4)
+        let repository = DataLayer.GitRepoRepository(gitRepoDataSource: datasource, remoteConfigDataSource: configDataSource)
         let useCase = FetchGitRepositoriesUseCase(
             gitRepoRepository: repository,
-            configRepository: configRepository,
             reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
         )
         let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: useCase)
@@ -77,12 +75,10 @@ class RepositoriesTableViewModelTests: XCTestCase {
         data2.owner.login = "repository2DataAuthor"
 
         let datasource = MockGitRepoDataSource(result: [data1, data2])
-        let configDataSource = MemoryConfigDataSource(enable: false, multiplier: 4)
-        let configRepository = ConfigDataRepository(dataSource: configDataSource)
-        let repository = DataLayer.GitRepoRepository(gitRepoDataSource: datasource)
+        let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: false, multiplier: 4)
+        let repository = GitRepoRepository(gitRepoDataSource: datasource, remoteConfigDataSource: configDataSource)
         let useCase = FetchGitRepositoriesUseCase(
             gitRepoRepository: repository,
-            configRepository: configRepository,
             reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
         )
         let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: useCase)

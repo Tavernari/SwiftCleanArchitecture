@@ -27,9 +27,8 @@
 		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
 		A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */; };
 		A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79AF9243E756500DD46B4 /* String+ToDate.swift */; };
-		A1C766E5242A2754009EFA6F /* ConfigDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E4242A2754009EFA6F /* ConfigDataRepository.swift */; };
-		A1C766E8242A2807009EFA6F /* ConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E7242A2807009EFA6F /* ConfigDataSource.swift */; };
-		A1C766EB242A2899009EFA6F /* MemoryConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryConfigDataSource.swift */; };
+		A1C766E8242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */; };
+		A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,9 +84,8 @@
 		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
 		A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositoryResponseModels.swift; sourceTree = "<group>"; };
 		A1B79AF9243E756500DD46B4 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
-		A1C766E4242A2754009EFA6F /* ConfigDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataRepository.swift; sourceTree = "<group>"; };
-		A1C766E7242A2807009EFA6F /* ConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataSource.swift; sourceTree = "<group>"; };
-		A1C766EA242A2899009EFA6F /* MemoryConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryConfigDataSource.swift; sourceTree = "<group>"; };
+		A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
+		A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		A2F4CFD87541931789FCA1E5 /* Pods_DataLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,7 +164,6 @@
 				A158ABF4240BE89A00B7A40E /* DataSource.h */,
 				A158ABF5240BE89A00B7A40E /* Info.plist */,
 				A1B79AF9243E756500DD46B4 /* String+ToDate.swift */,
-				A1B79AFB243E757B00DD46B4 /* ConfigRepository */,
 				A1B79AF7243E6EA900DD46B4 /* GitRepo */,
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Workers */,
@@ -191,6 +188,8 @@
 				A163E59E24153B3700FA0BA2 /* GitRepoDataSource.swift */,
 				A1672C9024133263004CE285 /* GitRepoRepository.swift */,
 				A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */,
+				A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */,
+				A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */,
 			);
 			path = GitRepo;
 			sourceTree = "<group>";
@@ -205,16 +204,6 @@
 				A163E5702413F9C600FA0BA2 /* GitPullRequestDataSource.swift */,
 			);
 			path = PullRequest;
-			sourceTree = "<group>";
-		};
-		A1B79AFB243E757B00DD46B4 /* ConfigRepository */ = {
-			isa = PBXGroup;
-			children = (
-				A1C766E4242A2754009EFA6F /* ConfigDataRepository.swift */,
-				A1C766E7242A2807009EFA6F /* ConfigDataSource.swift */,
-				A1C766EA242A2899009EFA6F /* MemoryConfigDataSource.swift */,
-			);
-			path = ConfigRepository;
 			sourceTree = "<group>";
 		};
 		A1B79AFC243E761100DD46B4 /* Workers */ = {
@@ -442,10 +431,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C766E8242A2807009EFA6F /* ConfigDataSource.swift in Sources */,
+				A1C766E8242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift in Sources */,
 				A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */,
-				A1C766EB242A2899009EFA6F /* MemoryConfigDataSource.swift in Sources */,
-				A1C766E5242A2754009EFA6F /* ConfigDataRepository.swift in Sources */,
+				A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */,
 				A163E5712413F9C600FA0BA2 /* GitPullRequestDataSource.swift in Sources */,
 				A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */,
 				A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */,
