@@ -20,8 +20,7 @@ platform :ios do
     cocoapods(
       clean: true,
       podfile: "Podfile",
-      try_repo_update_on_error: true,
-      use_bundle_exec: false
+      try_repo_update_on_error: true
     )
   end
 
