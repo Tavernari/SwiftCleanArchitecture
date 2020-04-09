@@ -6,7 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import DataSource
+import DataLayer
 import Domain
 import UIKit
 
@@ -23,7 +23,7 @@ class MainCoordinator: NSObject, Coordinator {
     func start() {
         let configDataSource = assembler.resolver.resolve(ConfigDataSource.self)!
         let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSource.self)!
-        let gitRepoRepository = DataSource.GitRepoRepository(gitRepoDataSource: gitRepoDataSource)
+        let gitRepoRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource)
         let reliabilityRepoCalculatorUseCase = ReliabilityRepoCalculator()
         let configRepository = ConfigDataRepository(dataSource: configDataSource)
 

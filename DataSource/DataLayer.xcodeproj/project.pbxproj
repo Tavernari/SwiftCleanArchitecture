@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1398AEF243847CB00A3A0CD /* GithubRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* GithubRequester.swift */; };
-		A158ABFB240BE89A00B7A40E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* Data.framework */; };
+		A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataLayer.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
 		A158AC02240BE89A00B7A40E /* DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A158ABF4240BE89A00B7A40E /* DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A163E56F2413F91700FA0BA2 /* GitPullRequestDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */; };
@@ -63,10 +63,10 @@
 		6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.release.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.release.xcconfig"; sourceTree = "<group>"; };
 		792B3B465FAEF07C60638D0B /* Pods_DataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1398AEE243847CB00A3A0CD /* GithubRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequester.swift; sourceTree = "<group>"; };
-		A158ABF1240BE89A00B7A40E /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158ABF1240BE89A00B7A40E /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABF4240BE89A00B7A40E /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A158ABFA240BE89A00B7A40E /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceTests.swift; sourceTree = "<group>"; };
 		A158AC01240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDataRepository.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A158ABFB240BE89A00B7A40E /* Data.framework in Frameworks */,
+				A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */,
 				FCBB5FA5C73CFB9D6C798205 /* Pods_DataSourceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +135,8 @@
 		A158ABE7240BE89A00B7A40E = {
 			isa = PBXGroup;
 			children = (
-				A158ABF3240BE89A00B7A40E /* Data */,
-				A158ABFE240BE89A00B7A40E /* DataTests */,
+				A158ABF3240BE89A00B7A40E /* DataLayer */,
+				A158ABFE240BE89A00B7A40E /* DataLayerTests */,
 				A158ABF2240BE89A00B7A40E /* Products */,
 				10AFBE3042A83EE721E0BBD3 /* Pods */,
 				5E4546458CD32194F064DA77 /* Frameworks */,
@@ -146,13 +146,13 @@
 		A158ABF2240BE89A00B7A40E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A158ABF1240BE89A00B7A40E /* Data.framework */,
-				A158ABFA240BE89A00B7A40E /* DataTests.xctest */,
+				A158ABF1240BE89A00B7A40E /* DataLayer.framework */,
+				A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A158ABF3240BE89A00B7A40E /* Data */ = {
+		A158ABF3240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
 				A158ABF4240BE89A00B7A40E /* DataSource.h */,
@@ -163,16 +163,16 @@
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Workers */,
 			);
-			path = Data;
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
-		A158ABFE240BE89A00B7A40E /* DataTests */ = {
+		A158ABFE240BE89A00B7A40E /* DataLayerTests */ = {
 			isa = PBXGroup;
 			children = (
 				A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */,
 				A158AC01240BE89A00B7A40E /* Info.plist */,
 			);
-			path = DataTests;
+			path = DataLayerTests;
 			sourceTree = "<group>";
 		};
 		A1B79AF7243E6EA900DD46B4 /* GitRepo */ = {
@@ -232,9 +232,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A158ABF0240BE89A00B7A40E /* Data */ = {
+		A158ABF0240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "Data" */;
+			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayer" */;
 			buildPhases = (
 				EB847BE676A3CDF0283C6D40 /* [CP] Check Pods Manifest.lock */,
 				A1FFB842243BEF3900120CDB /* SwiftLint */,
@@ -249,14 +249,14 @@
 			);
 			dependencies = (
 			);
-			name = Data;
+			name = DataLayer;
 			productName = DataSource;
-			productReference = A158ABF1240BE89A00B7A40E /* Data.framework */;
+			productReference = A158ABF1240BE89A00B7A40E /* DataLayer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A158ABF9240BE89A00B7A40E /* DataTests */ = {
+		A158ABF9240BE89A00B7A40E /* DataLayerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataTests" */;
+			buildConfigurationList = A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayerTests" */;
 			buildPhases = (
 				822BC8889F94DFE088FAEC54 /* [CP] Check Pods Manifest.lock */,
 				A158ABF6240BE89A00B7A40E /* Sources */,
@@ -269,9 +269,9 @@
 			dependencies = (
 				A158ABFD240BE89A00B7A40E /* PBXTargetDependency */,
 			);
-			name = DataTests;
+			name = DataLayerTests;
 			productName = DataSourceTests;
-			productReference = A158ABFA240BE89A00B7A40E /* DataTests.xctest */;
+			productReference = A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -293,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "Data" */;
+			buildConfigurationList = A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataLayer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -306,8 +306,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A158ABF0240BE89A00B7A40E /* Data */,
-				A158ABF9240BE89A00B7A40E /* DataTests */,
+				A158ABF0240BE89A00B7A40E /* DataLayer */,
+				A158ABF9240BE89A00B7A40E /* DataLayerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -466,7 +466,7 @@
 /* Begin PBXTargetDependency section */
 		A158ABFD240BE89A00B7A40E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A158ABF0240BE89A00B7A40E /* Data */;
+			target = A158ABF0240BE89A00B7A40E /* DataLayer */;
 			targetProxy = A158ABFC240BE89A00B7A40E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -603,7 +603,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data/Info.plist;
+				INFOPLIST_FILE = DataLayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -630,7 +630,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Data/Info.plist;
+				INFOPLIST_FILE = DataLayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -652,7 +652,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4REX2KBMNV;
-				INFOPLIST_FILE = DataTests/Info.plist;
+				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -672,7 +672,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4REX2KBMNV;
-				INFOPLIST_FILE = DataTests/Info.plist;
+				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -688,7 +688,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "Data" */ = {
+		A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataLayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC03240BE89A00B7A40E /* Debug */,
@@ -697,7 +697,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "Data" */ = {
+		A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC06240BE89A00B7A40E /* Debug */,
@@ -706,7 +706,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataTests" */ = {
+		A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC09240BE89A00B7A40E /* Debug */,

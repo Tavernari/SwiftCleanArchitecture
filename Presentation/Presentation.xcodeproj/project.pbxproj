@@ -55,10 +55,10 @@
 		A166A951240D596500824CAD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A166A950240D596500824CAD /* R.generated.swift */; };
 		A1672C8B24132DE4004CE285 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C8A24132DE4004CE285 /* Coordinator.swift */; };
 		A1672C8E24132E66004CE285 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C8D24132E66004CE285 /* MainCoordinator.swift */; };
-		A1672CA824134252004CE285 /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1672CA724134252004CE285 /* DataSource.framework */; };
-		A1672CA924134252004CE285 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1672CA724134252004CE285 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1672CB6241357A6004CE285 /* RepositoriesTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */; };
 		A1672CB92413B3B4004CE285 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB82413B3B4004CE285 /* ProgressHUD.swift */; };
+		A1B79B05243F6D0D00DD46B4 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; };
+		A1B79B06243F6D0D00DD46B4 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1E2974D241121EC0020288A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E2974C241121EC0020288A /* Domain.framework */; };
 		A1E2974E241121EC0020288A /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1E2974C241121EC0020288A /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -87,8 +87,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A1B79B06243F6D0D00DD46B4 /* DataLayer.framework in Embed Frameworks */,
 				A1E2974E241121EC0020288A /* Domain.framework in Embed Frameworks */,
-				A1672CA924134252004CE285 /* DataSource.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +156,8 @@
 		A1672CA724134252004CE285 /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewModelTests.swift; sourceTree = "<group>"; };
 		A1672CB82413B3B4004CE285 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		A1B79AFD243E799D00DD46B4 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E2974C241121EC0020288A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6575950721BD7B9481C9F4D /* Pods_Presentation_PresentationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Presentation_PresentationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5236E50692AA857AE593B3 /* Pods_PresentationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,8 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E2974D241121EC0020288A /* Domain.framework in Frameworks */,
-				A1672CA824134252004CE285 /* DataSource.framework in Frameworks */,
 				5BB8E9FF973F7F5F50F963CA /* Pods_Presentation.framework in Frameworks */,
+				A1B79B05243F6D0D00DD46B4 /* DataLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +197,8 @@
 		55FCE9760BE55DC4B33F2FF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */,
+				A1B79AFD243E799D00DD46B4 /* Data.framework */,
 				A1672CA724134252004CE285 /* DataSource.framework */,
 				A1E2974C241121EC0020288A /* Domain.framework */,
 				4C7EB77734B100B758C01131 /* Pods_Presentation.framework */,
