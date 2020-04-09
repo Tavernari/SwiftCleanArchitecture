@@ -13,19 +13,20 @@ public class GithubRepoDataSource: GitRepoDataSource {
     public init() {}
 
     public func list(term: String, completion: @escaping (Result<[GithubRepositoryData], Error>) -> Void) {
-        let request = GithubRequester.request(GithubAPIRouter.search(term: term))
-        request.responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
-            switch response.result {
-            case let .success(repositories):
-                completion(.success(repositories.items))
-            case let .failure(error):
-                if let underlyingError = error.underlyingError {
-                    completion(.failure(underlyingError))
-                } else {
-                    completion(.failure(error))
+        GithubRepoAPIRouter.search(term: term)
+            .request(decodeError: { GithubAPIErrorData.decode(from: $0)?.message })
+            .responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
+                switch response.result {
+                case let .success(repositories):
+                    completion(.success(repositories.items))
+                case let .failure(error):
+                    if let underlyingError = error.underlyingError {
+                        completion(.failure(underlyingError))
+                    } else {
+                        completion(.failure(error))
+                    }
                 }
             }
-        }
     }
 
     public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
