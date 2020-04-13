@@ -6,7 +6,8 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import DataSource
+import DataLayer
+import Foundation
 
 class GithubRepositoryDataReponseFake {
     static func repositoriesData() -> Data {

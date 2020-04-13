@@ -22,5 +22,5 @@ jobs:
     - name: Config Fastlane
       run: export PATH="$HOME/.fastlane/bin:$PATH" 
     - name: Run tests
-      run: fastlane test
+      run: bundle exec fastlane test
     

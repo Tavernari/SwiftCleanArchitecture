@@ -11,8 +11,10 @@ import Domain
 
 public class GitRepoRepository: GitRepoRepositoryInterface {
     private let gitRepoDataSource: GitRepoDataSource
-    public init(gitRepoDataSource: GitRepoDataSource) {
+    private let remoteConfigDataSource: GitRepoRemoteConfigDataSource
+    public init(gitRepoDataSource: GitRepoDataSource, remoteConfigDataSource: GitRepoRemoteConfigDataSource) {
         self.gitRepoDataSource = gitRepoDataSource
+        self.remoteConfigDataSource = remoteConfigDataSource
     }
 
     public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
@@ -26,9 +28,9 @@ public class GitRepoRepository: GitRepoRepositoryInterface {
             switch result {
             case let .success(repositories):
                 repositories.forEach { repo in
-                    var gitRepo = repo
+                    var gitRepo = GitRepository(data: repo)
                     dispatchGroup.enter()
-                    self.gitRepoDataSource.stats(repo: repo) { result in
+                    self.gitRepoDataSource.stats(repo: gitRepo) { result in
                         switch result {
                         case let .success(model):
                             gitRepo.stats = model
@@ -61,5 +63,11 @@ public class GitRepoRepository: GitRepoRepositoryInterface {
 
     public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
         gitRepoDataSource.stats(repo: repo, completion: completion)
+    }
+
+    public func getRepoReliabilityMultiplier(
+        completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>
+        ) -> Void) {
+        remoteConfigDataSource.gitRepoReliabilityMultiplier(completion: completion)
     }
 }

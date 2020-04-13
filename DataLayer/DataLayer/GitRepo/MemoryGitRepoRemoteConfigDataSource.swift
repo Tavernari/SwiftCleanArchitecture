@@ -8,7 +8,7 @@
 
 import Domain
 
-public class MemoryConfigDataSource: ConfigDataSource {
+public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSource {
     var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplier()
     public init(enable: Bool, multiplier: Double) {
         gitRepoReliabilityMultiplierModel.enable = enable

@@ -39,8 +39,8 @@ target 'Domain' do
   end
 end
 
-target 'DataSource' do
-  project 'DataSource/DataSource.xcodeproj'
+target 'DataLayer' do
+  project 'DataLayer/DataLayer.xcodeproj'
   use_frameworks!
 
   # Pods for Presentation
@@ -48,7 +48,7 @@ target 'DataSource' do
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
-  target 'DataSourceTests' do
+  target 'DataLayerTests' do
     inherit! :search_paths
     pod 'Alamofire', '~> 5'
   end

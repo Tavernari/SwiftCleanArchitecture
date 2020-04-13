@@ -7,28 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1398AEF243847CB00A3A0CD /* GithubRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* GithubRequester.swift */; };
-		A158ABFB240BE89A00B7A40E /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataSource.framework */; };
+		6748CB61C987841899790C52 /* Pods_DataLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F4CFD87541931789FCA1E5 /* Pods_DataLayerTests.framework */; };
+		8B808A88C77C34D96B01600E /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D81CA9E7C9F02A6075BB100 /* Pods_DataLayer.framework */; };
+		A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* Requester.swift */; };
+		A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataLayer.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
 		A158AC02240BE89A00B7A40E /* DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A158ABF4240BE89A00B7A40E /* DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A163E56F2413F91700FA0BA2 /* GitPullRequestDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */; };
 		A163E5712413F9C600FA0BA2 /* GitPullRequestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5702413F9C600FA0BA2 /* GitPullRequestDataSource.swift */; };
 		A163E574241431D900FA0BA2 /* GithubPullRequestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E573241431D900FA0BA2 /* GithubPullRequestDataSource.swift */; };
 		A163E5772414328200FA0BA2 /* GithubPullRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5762414328200FA0BA2 /* GithubPullRequestModels.swift */; };
-		A163E5792414349E00FA0BA2 /* GitPullRequest+FromGithub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5782414349E00FA0BA2 /* GitPullRequest+FromGithub.swift */; };
+		A163E5792414349E00FA0BA2 /* GitPullRequest+initWithPullRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5782414349E00FA0BA2 /* GitPullRequest+initWithPullRequestData.swift */; };
 		A163E59F24153B3700FA0BA2 /* GitRepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E59E24153B3700FA0BA2 /* GitRepoDataSource.swift */; };
 		A163E5A124153B9400FA0BA2 /* GithubRepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5A024153B9400FA0BA2 /* GithubRepoDataSource.swift */; };
 		A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C9024133263004CE285 /* GitRepoRepository.swift */; };
 		A1672C932413327C004CE285 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1672C922413327C004CE285 /* Domain.framework */; };
 		A1672C942413327C004CE285 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1672C922413327C004CE285 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A1672C9D241337B7004CE285 /* GithubAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C9C241337B7004CE285 /* GithubAPIRouter.swift */; };
-		A1672CA624134228004CE285 /* GitRepository+FromGithub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+FromGithub.swift */; };
+		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
 		A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */; };
-		A1C766E5242A2754009EFA6F /* ConfigDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E4242A2754009EFA6F /* ConfigDataRepository.swift */; };
-		A1C766E8242A2807009EFA6F /* ConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E7242A2807009EFA6F /* ConfigDataSource.swift */; };
-		A1C766EB242A2899009EFA6F /* MemoryConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryConfigDataSource.swift */; };
-		BBE2E0D9B86A93CB92683942 /* Pods_DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8E15C260BE44E114E9AFC /* Pods_DataSource.framework */; };
-		FCBB5FA5C73CFB9D6C798205 /* Pods_DataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792B3B465FAEF07C60638D0B /* Pods_DataSourceTests.framework */; };
+		A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79AF9243E756500DD46B4 /* String+ToDate.swift */; };
+		A1B79B09243FC71600DD46B4 /* GithubRepoAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B08243FC71600DD46B4 /* GithubRepoAPIRouter.swift */; };
+		A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */; };
+		A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */; };
+		A1C766E8242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */; };
+		A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,32 +59,38 @@
 
 /* Begin PBXFileReference section */
 		1674AA013A57582DEAF7B543 /* Pods-DataSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.debug.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.debug.xcconfig"; sourceTree = "<group>"; };
-		2BF8E15C260BE44E114E9AFC /* Pods_DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		271E5ED10FB40B90A0832B80 /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
+		2971D94BA0AF396252484FFF /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
 		4C88F94646AF4F0ABEF66A9B /* Pods-DataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.debug.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D81CA9E7C9F02A6075BB100 /* Pods_DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.release.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.release.xcconfig"; sourceTree = "<group>"; };
-		792B3B465FAEF07C60638D0B /* Pods_DataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1398AEE243847CB00A3A0CD /* GithubRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequester.swift; sourceTree = "<group>"; };
-		A158ABF1240BE89A00B7A40E /* DataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C8989460A277586B407B0A0 /* Pods-DataLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A1398AEE243847CB00A3A0CD /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		A158ABF1240BE89A00B7A40E /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABF4240BE89A00B7A40E /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A158ABFA240BE89A00B7A40E /* DataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceTests.swift; sourceTree = "<group>"; };
 		A158AC01240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDataRepository.swift; sourceTree = "<group>"; };
 		A163E5702413F9C600FA0BA2 /* GitPullRequestDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestDataSource.swift; sourceTree = "<group>"; };
 		A163E573241431D900FA0BA2 /* GithubPullRequestDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubPullRequestDataSource.swift; sourceTree = "<group>"; };
 		A163E5762414328200FA0BA2 /* GithubPullRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubPullRequestModels.swift; sourceTree = "<group>"; };
-		A163E5782414349E00FA0BA2 /* GitPullRequest+FromGithub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitPullRequest+FromGithub.swift"; sourceTree = "<group>"; };
+		A163E5782414349E00FA0BA2 /* GitPullRequest+initWithPullRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitPullRequest+initWithPullRequestData.swift"; sourceTree = "<group>"; };
 		A163E59E24153B3700FA0BA2 /* GitRepoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoDataSource.swift; sourceTree = "<group>"; };
 		A163E5A024153B9400FA0BA2 /* GithubRepoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoDataSource.swift; sourceTree = "<group>"; };
 		A1672C9024133263004CE285 /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
 		A1672C922413327C004CE285 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1672C9C241337B7004CE285 /* GithubAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIRouter.swift; sourceTree = "<group>"; };
-		A1672CA524134228004CE285 /* GitRepository+FromGithub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+FromGithub.swift"; sourceTree = "<group>"; };
+		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
 		A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositoryResponseModels.swift; sourceTree = "<group>"; };
-		A1C766E4242A2754009EFA6F /* ConfigDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataRepository.swift; sourceTree = "<group>"; };
-		A1C766E7242A2807009EFA6F /* ConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataSource.swift; sourceTree = "<group>"; };
-		A1C766EA242A2899009EFA6F /* MemoryConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryConfigDataSource.swift; sourceTree = "<group>"; };
+		A1B79AF9243E756500DD46B4 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
+		A1B79B08243FC71600DD46B4 /* GithubRepoAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoAPIRouter.swift; sourceTree = "<group>"; };
+		A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubPullRequestAPIRouter.swift; sourceTree = "<group>"; };
+		A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIStructs.swift; sourceTree = "<group>"; };
+		A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
+		A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
+		A2F4CFD87541931789FCA1E5 /* Pods_DataLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1672C932413327C004CE285 /* Domain.framework in Frameworks */,
-				BBE2E0D9B86A93CB92683942 /* Pods_DataSource.framework in Frameworks */,
+				8B808A88C77C34D96B01600E /* Pods_DataLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A158ABFB240BE89A00B7A40E /* DataSource.framework in Frameworks */,
-				FCBB5FA5C73CFB9D6C798205 /* Pods_DataSourceTests.framework in Frameworks */,
+				A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */,
+				6748CB61C987841899790C52 /* Pods_DataLayerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +123,10 @@
 				6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */,
 				4C88F94646AF4F0ABEF66A9B /* Pods-DataSourceTests.debug.xcconfig */,
 				F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */,
+				271E5ED10FB40B90A0832B80 /* Pods-DataLayer.debug.xcconfig */,
+				2971D94BA0AF396252484FFF /* Pods-DataLayer.release.xcconfig */,
+				7C8989460A277586B407B0A0 /* Pods-DataLayerTests.debug.xcconfig */,
+				8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -124,24 +136,17 @@
 			isa = PBXGroup;
 			children = (
 				A1672C922413327C004CE285 /* Domain.framework */,
-				2BF8E15C260BE44E114E9AFC /* Pods_DataSource.framework */,
-				792B3B465FAEF07C60638D0B /* Pods_DataSourceTests.framework */,
+				4D81CA9E7C9F02A6075BB100 /* Pods_DataLayer.framework */,
+				A2F4CFD87541931789FCA1E5 /* Pods_DataLayerTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A147CBEB242B7C840071C972 /* ReliabilityCalculator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ReliabilityCalculator;
 			sourceTree = "<group>";
 		};
 		A158ABE7240BE89A00B7A40E = {
 			isa = PBXGroup;
 			children = (
-				A158ABF3240BE89A00B7A40E /* DataSource */,
-				A158ABFE240BE89A00B7A40E /* DataSourceTests */,
+				A158ABF3240BE89A00B7A40E /* DataLayer */,
+				A158ABFE240BE89A00B7A40E /* DataLayerTests */,
 				A158ABF2240BE89A00B7A40E /* Products */,
 				10AFBE3042A83EE721E0BBD3 /* Pods */,
 				5E4546458CD32194F064DA77 /* Frameworks */,
@@ -151,92 +156,69 @@
 		A158ABF2240BE89A00B7A40E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A158ABF1240BE89A00B7A40E /* DataSource.framework */,
-				A158ABFA240BE89A00B7A40E /* DataSourceTests.xctest */,
+				A158ABF1240BE89A00B7A40E /* DataLayer.framework */,
+				A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A158ABF3240BE89A00B7A40E /* DataSource */ = {
+		A158ABF3240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				A147CBEB242B7C840071C972 /* ReliabilityCalculator */,
-				A1C766E3242A2734009EFA6F /* Config */,
-				A163E5722414307B00FA0BA2 /* GithubAPI */,
-				A163E56D2413F84A00FA0BA2 /* GitPullRequest */,
-				A1672C8F24133240004CE285 /* GitRepository */,
 				A158ABF4240BE89A00B7A40E /* DataSource.h */,
 				A158ABF5240BE89A00B7A40E /* Info.plist */,
+				A1B79AF9243E756500DD46B4 /* String+ToDate.swift */,
+				A1B79AF7243E6EA900DD46B4 /* GitRepo */,
+				A1B79AF8243E72E400DD46B4 /* PullRequest */,
+				A1B79AFC243E761100DD46B4 /* Requester */,
 			);
-			path = DataSource;
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
-		A158ABFE240BE89A00B7A40E /* DataSourceTests */ = {
+		A158ABFE240BE89A00B7A40E /* DataLayerTests */ = {
 			isa = PBXGroup;
 			children = (
 				A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */,
 				A158AC01240BE89A00B7A40E /* Info.plist */,
 			);
-			path = DataSourceTests;
+			path = DataLayerTests;
 			sourceTree = "<group>";
 		};
-		A163E56D2413F84A00FA0BA2 /* GitPullRequest */ = {
+		A1B79AF7243E6EA900DD46B4 /* GitRepo */ = {
 			isa = PBXGroup;
 			children = (
-				A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */,
-				A163E5702413F9C600FA0BA2 /* GitPullRequestDataSource.swift */,
+				A163E5A024153B9400FA0BA2 /* GithubRepoDataSource.swift */,
+				A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */,
+				A163E59E24153B3700FA0BA2 /* GitRepoDataSource.swift */,
+				A1672C9024133263004CE285 /* GitRepoRepository.swift */,
+				A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */,
+				A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */,
+				A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */,
+				A1B79B08243FC71600DD46B4 /* GithubRepoAPIRouter.swift */,
 			);
-			path = GitPullRequest;
+			path = GitRepo;
 			sourceTree = "<group>";
 		};
-		A163E5722414307B00FA0BA2 /* GithubAPI */ = {
-			isa = PBXGroup;
-			children = (
-				A163E59D24153ABF00FA0BA2 /* Repositories */,
-				A163E59C24153A9C00FA0BA2 /* PullRequest */,
-				A1672C9C241337B7004CE285 /* GithubAPIRouter.swift */,
-				A1398AEE243847CB00A3A0CD /* GithubRequester.swift */,
-			);
-			path = GithubAPI;
-			sourceTree = "<group>";
-		};
-		A163E59C24153A9C00FA0BA2 /* PullRequest */ = {
+		A1B79AF8243E72E400DD46B4 /* PullRequest */ = {
 			isa = PBXGroup;
 			children = (
 				A163E573241431D900FA0BA2 /* GithubPullRequestDataSource.swift */,
 				A163E5762414328200FA0BA2 /* GithubPullRequestModels.swift */,
-				A163E5782414349E00FA0BA2 /* GitPullRequest+FromGithub.swift */,
+				A163E5782414349E00FA0BA2 /* GitPullRequest+initWithPullRequestData.swift */,
+				A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */,
+				A163E5702413F9C600FA0BA2 /* GitPullRequestDataSource.swift */,
+				A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */,
 			);
 			path = PullRequest;
 			sourceTree = "<group>";
 		};
-		A163E59D24153ABF00FA0BA2 /* Repositories */ = {
+		A1B79AFC243E761100DD46B4 /* Requester */ = {
 			isa = PBXGroup;
 			children = (
-				A1672CA524134228004CE285 /* GitRepository+FromGithub.swift */,
-				A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */,
-				A163E5A024153B9400FA0BA2 /* GithubRepoDataSource.swift */,
+				A1398AEE243847CB00A3A0CD /* Requester.swift */,
+				A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */,
 			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		A1672C8F24133240004CE285 /* GitRepository */ = {
-			isa = PBXGroup;
-			children = (
-				A1672C9024133263004CE285 /* GitRepoRepository.swift */,
-				A163E59E24153B3700FA0BA2 /* GitRepoDataSource.swift */,
-			);
-			path = GitRepository;
-			sourceTree = "<group>";
-		};
-		A1C766E3242A2734009EFA6F /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				A1C766E4242A2754009EFA6F /* ConfigDataRepository.swift */,
-				A1C766E7242A2807009EFA6F /* ConfigDataSource.swift */,
-				A1C766EA242A2899009EFA6F /* MemoryConfigDataSource.swift */,
-			);
-			path = Config;
+			path = Requester;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,9 +235,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A158ABF0240BE89A00B7A40E /* DataSource */ = {
+		A158ABF0240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSource" */;
+			buildConfigurationList = A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayer" */;
 			buildPhases = (
 				EB847BE676A3CDF0283C6D40 /* [CP] Check Pods Manifest.lock */,
 				A1FFB842243BEF3900120CDB /* SwiftLint */,
@@ -270,14 +252,14 @@
 			);
 			dependencies = (
 			);
-			name = DataSource;
+			name = DataLayer;
 			productName = DataSource;
-			productReference = A158ABF1240BE89A00B7A40E /* DataSource.framework */;
+			productReference = A158ABF1240BE89A00B7A40E /* DataLayer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A158ABF9240BE89A00B7A40E /* DataSourceTests */ = {
+		A158ABF9240BE89A00B7A40E /* DataLayerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSourceTests" */;
+			buildConfigurationList = A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayerTests" */;
 			buildPhases = (
 				822BC8889F94DFE088FAEC54 /* [CP] Check Pods Manifest.lock */,
 				A158ABF6240BE89A00B7A40E /* Sources */,
@@ -290,9 +272,9 @@
 			dependencies = (
 				A158ABFD240BE89A00B7A40E /* PBXTargetDependency */,
 			);
-			name = DataSourceTests;
+			name = DataLayerTests;
 			productName = DataSourceTests;
-			productReference = A158ABFA240BE89A00B7A40E /* DataSourceTests.xctest */;
+			productReference = A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -314,7 +296,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataSource" */;
+			buildConfigurationList = A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataLayer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -327,8 +309,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A158ABF0240BE89A00B7A40E /* DataSource */,
-				A158ABF9240BE89A00B7A40E /* DataSourceTests */,
+				A158ABF0240BE89A00B7A40E /* DataLayer */,
+				A158ABF9240BE89A00B7A40E /* DataLayerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -357,15 +339,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		822BC8889F94DFE088FAEC54 /* [CP] Check Pods Manifest.lock */ = {
@@ -383,7 +365,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DataSourceTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DataLayerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -441,7 +423,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DataSource-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DataLayer-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -455,18 +437,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C766E8242A2807009EFA6F /* ConfigDataSource.swift in Sources */,
-				A1C766EB242A2899009EFA6F /* MemoryConfigDataSource.swift in Sources */,
-				A1C766E5242A2754009EFA6F /* ConfigDataRepository.swift in Sources */,
+				A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */,
+				A1C766E8242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift in Sources */,
+				A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */,
+				A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */,
 				A163E5712413F9C600FA0BA2 /* GitPullRequestDataSource.swift in Sources */,
-				A1672CA624134228004CE285 /* GitRepository+FromGithub.swift in Sources */,
+				A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */,
 				A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */,
-				A1672C9D241337B7004CE285 /* GithubAPIRouter.swift in Sources */,
-				A1398AEF243847CB00A3A0CD /* GithubRequester.swift in Sources */,
+				A1B79B09243FC71600DD46B4 /* GithubRepoAPIRouter.swift in Sources */,
+				A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */,
 				A163E574241431D900FA0BA2 /* GithubPullRequestDataSource.swift in Sources */,
+				A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */,
 				A163E59F24153B3700FA0BA2 /* GitRepoDataSource.swift in Sources */,
 				A163E5A124153B9400FA0BA2 /* GithubRepoDataSource.swift in Sources */,
-				A163E5792414349E00FA0BA2 /* GitPullRequest+FromGithub.swift in Sources */,
+				A163E5792414349E00FA0BA2 /* GitPullRequest+initWithPullRequestData.swift in Sources */,
 				A163E5772414328200FA0BA2 /* GithubPullRequestModels.swift in Sources */,
 				A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */,
 				A163E56F2413F91700FA0BA2 /* GitPullRequestDataRepository.swift in Sources */,
@@ -486,7 +470,7 @@
 /* Begin PBXTargetDependency section */
 		A158ABFD240BE89A00B7A40E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A158ABF0240BE89A00B7A40E /* DataSource */;
+			target = A158ABF0240BE89A00B7A40E /* DataLayer */;
 			targetProxy = A158ABFC240BE89A00B7A40E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -614,7 +598,7 @@
 		};
 		A158AC06240BE89A00B7A40E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1674AA013A57582DEAF7B543 /* Pods-DataSource.debug.xcconfig */;
+			baseConfigurationReference = 271E5ED10FB40B90A0832B80 /* Pods-DataLayer.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -623,7 +607,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DataSource/Info.plist;
+				INFOPLIST_FILE = DataLayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -641,7 +625,7 @@
 		};
 		A158AC07240BE89A00B7A40E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */;
+			baseConfigurationReference = 2971D94BA0AF396252484FFF /* Pods-DataLayer.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,7 +634,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DataSource/Info.plist;
+				INFOPLIST_FILE = DataLayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,12 +651,12 @@
 		};
 		A158AC09240BE89A00B7A40E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C88F94646AF4F0ABEF66A9B /* Pods-DataSourceTests.debug.xcconfig */;
+			baseConfigurationReference = 7C8989460A277586B407B0A0 /* Pods-DataLayerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4REX2KBMNV;
-				INFOPLIST_FILE = DataSourceTests/Info.plist;
+				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,12 +671,12 @@
 		};
 		A158AC0A240BE89A00B7A40E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */;
+			baseConfigurationReference = 8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4REX2KBMNV;
-				INFOPLIST_FILE = DataSourceTests/Info.plist;
+				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -708,7 +692,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataSource" */ = {
+		A158ABEB240BE89A00B7A40E /* Build configuration list for PBXProject "DataLayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC03240BE89A00B7A40E /* Debug */,
@@ -717,7 +701,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSource" */ = {
+		A158AC05240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC06240BE89A00B7A40E /* Debug */,
@@ -726,7 +710,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataSourceTests" */ = {
+		A158AC08240BE89A00B7A40E /* Build configuration list for PBXNativeTarget "DataLayerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC09240BE89A00B7A40E /* Debug */,

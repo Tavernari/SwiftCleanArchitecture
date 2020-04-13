@@ -6,7 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import DataSource
+import DataLayer
 import Domain
 import Swinject
 
@@ -20,10 +20,10 @@ class GithubAssembly: Assembly {
             GithubPullRequestDataSource()
         }
 
-        container.register(ConfigDataSource.self) { _ in
+        container.register(GitRepoRemoteConfigDataSource.self) { _ in
             let isEnable = ProcessInfo.processInfo.environment["remoteConfigReabilityEnabled"] == "true"
             let multiplier = Double(ProcessInfo.processInfo.environment["remoteConfigReabilityMultiplier"] ?? "0")!
-            return MemoryConfigDataSource(enable: isEnable, multiplier: multiplier)
+            return MemoryGitRepoRemoteConfigDataSource(enable: isEnable, multiplier: multiplier)
         }
     }
 }
