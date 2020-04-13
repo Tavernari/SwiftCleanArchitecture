@@ -33,20 +33,16 @@ class ListOfRepositoriesViewModel: ListOfRepositoriesViewModelInterface {
 }
 
 extension ListOfRepositoriesViewModel: FetchGitRepositoriesInterfaceAdapter {
-    func fetching() {
+    func doing() {
         isLoading.value = true
     }
 
-    func fetched(data: [GitRepository]) {
+    func done(data: [GitRepository]) {
         isLoading.value = false
         repositories.value = data
     }
 
-    fileprivate func processURLError(_ urlError: URLError) {
-        failMessage.value = urlError.localizedDescription
-    }
-
-    func fetchFailure(withError error: FetchGitRepositoriesError) {
+    func failure(withError error: FetchGitRepositoriesError) {
         switch error {
         case .termCannotBeEmpty:
             failMessage.value = "Term cannot be empty"

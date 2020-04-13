@@ -12,7 +12,7 @@ import Foundation
 
 // sourcery: AutoMockable
 public protocol FetchGitRepositoriesInterfaceAdapter {
-    func fetching()
-    func fetched(data: [GitRepository])
-    func fetchFailure(withError error: FetchGitRepositoriesError)
+    func doing()
+    func done(data: [GitRepository])
+    func failure(withError error: FetchGitRepositoriesError)
 }

@@ -31,14 +31,14 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
         if let error = error as? URLError {
             switch error.code {
             case URLError.Code.notConnectedToInternet:
-                delegateInterfaceAdapter?.fetchFailure(withError: .common(.noInternetConnection))
+                delegateInterfaceAdapter?.failure(withError: .common(.noInternetConnection))
             case URLError.Code.timedOut:
-                delegateInterfaceAdapter?.fetchFailure(withError: .common(.timeOut))
+                delegateInterfaceAdapter?.failure(withError: .common(.timeOut))
             default:
-                delegateInterfaceAdapter?.fetchFailure(withError: .common(.generic(error.localizedDescription)))
+                delegateInterfaceAdapter?.failure(withError: .common(.generic(error.localizedDescription)))
             }
         } else {
-            delegateInterfaceAdapter?.fetchFailure(withError: .common(.generic(error.localizedDescription)))
+            delegateInterfaceAdapter?.failure(withError: .common(.generic(error.localizedDescription)))
         }
     }
 
@@ -62,11 +62,11 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
 
     public func execute(term: String) {
         guard term.isEmpty == false else {
-            delegateInterfaceAdapter?.fetchFailure(withError: FetchGitRepositoriesError.termCannotBeEmpty)
+            delegateInterfaceAdapter?.failure(withError: FetchGitRepositoriesError.termCannotBeEmpty)
             return
         }
 
-        delegateInterfaceAdapter?.fetching()
+        delegateInterfaceAdapter?.doing()
         fetchRepositories(term: term) { repositories in
             self.fetchReliabilityConfig { repoReliabilityMultiplierModel in
                 let repoResult = repositories.map { repo -> GitRepository in
@@ -79,7 +79,7 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
                                                                                           multiplier: multiplier)
                     return tempRepo
                 }
-                self.delegateInterfaceAdapter?.fetched(data: repoResult)
+                self.delegateInterfaceAdapter?.done(data: repoResult)
             }
         }
     }
