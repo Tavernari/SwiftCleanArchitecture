@@ -31,20 +31,19 @@ DEPENDENCIES:
   - Swinject
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
+    - Alamofire
+    - AlamofireImage
     - CocoaAsyncSocket
     - Criollo
     - R.swift
     - R.swift.Library
     - Sourcery
+    - SwiftFormat
     - SwiftLint
     - SwiftLocalhost
     - SwiftyMocky
     - Swinject
-  trunk:
-    - Alamofire
-    - AlamofireImage
-    - SwiftFormat
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada

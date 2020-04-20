@@ -115,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				A1191B4C243695C400A8FA1F /* FetchGitRepositoriesInterfaceAdapter.swift */,
-				A1191B4D243695C400A8FA1F /* FetchGitRepositoriesUseCase.swift */,
 				A1191B4E243695C400A8FA1F /* FetchGitRepositoriesError.swift */,
 			);
 			path = FetchGitRepositories;
@@ -192,6 +191,7 @@
 		A158AC26240BEDDB00B7A40E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				E306C7A8244E2E3E00280358 /* UseCases */,
 				A1398B3324393CFE00A3A0CD /* FetchPullRequestDetail */,
 				A1398B3224393BF700A3A0CD /* Boundaries */,
 				A1398B2124393A7500A3A0CD /* FetchPullRequests */,
@@ -230,6 +230,14 @@
 			isa = PBXGroup;
 			children = (
 				A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		E306C7A8244E2E3E00280358 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				A1191B4D243695C400A8FA1F /* FetchGitRepositoriesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
