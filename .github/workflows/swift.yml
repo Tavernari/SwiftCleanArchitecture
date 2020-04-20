@@ -24,15 +24,15 @@ jobs:
     - name: Run tests
       run: bundle exec fastlane test
     - uses: actions/upload-artifact@v1
-        with:
-          name: domain_test_report
-          path: ./fastlane/domain/tests/report.junit
+      with:
+        name: domain_test_report
+        path: ./fastlane/domain/tests/report.junit
     - uses: actions/upload-artifact@v1
-        with:
-          name: data_test_report
-          path: ./fastlane/data/tests/report.junit
+      with:
+        name: data_test_report
+        path: ./fastlane/data/tests/report.junit
     - uses: actions/upload-artifact@v1
-        with:
-          name: presentation_test_report
-          path: ./fastlane/presentation/tests/report.junit
+      with:
+        name: presentation_test_report
+        path: ./fastlane/presentation/tests/report.junit
     
