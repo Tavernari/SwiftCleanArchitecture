@@ -9,6 +9,6 @@
 import Foundation
 
 // sourcery: AutoMockable
-public protocol ConfigRepositoryInterface {
+public protocol ConfigRepositoryProtocol {
     func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void)
 }

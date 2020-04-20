@@ -12,10 +12,10 @@ import XCTest
 
 class ListGitRepositoryUseCaseTests: XCTestCase {
     func testFetchRepository() {
-        let repository = GitRepoRepositoryMock()
+        let repository = GitRepoRepositoryInterfaceMock()
         let presenter = FetchGitRepositoriesInterfaceAdapterMock(sequencing: .inWritingOrder, stubbing: .wrap)
         let calculatorUseCase = ReliabilityRepoCalculatorUseCaseMock()
-        let configRemoteRepository = ConfigRepositoryMock()
+        let configRemoteRepository = ConfigRepositoryInterfaceMock()
 
         repository.perform(.list(term: .any, completion: .any, perform: { _, completion in
             completion(.success([GitRepository()]))
@@ -32,16 +32,15 @@ class ListGitRepositoryUseCaseTests: XCTestCase {
 
         let useCase = FetchGitRepositoriesUseCase(
             gitRepoRepository: repository,
-            configRepository: configRemoteRepository,
             reliabilityCalculatorUseCase: calculatorUseCase
         )
         useCase.delegateInterfaceAdapter = presenter
 
         useCase.execute(term: "test")
 
-        presenter.verify(.fetching())
-        presenter.verify(.fetchFailure(withError: .any), count: .never)
-        presenter.verify(.fetched(data: .matching { (repositories) -> Bool in
+        presenter.verify(.doing())
+        presenter.verify(.failure(withError: .any), count: .never)
+        presenter.verify(.done(data: .matching { (repositories) -> Bool in
             let repo = repositories.first
             XCTAssert(repo!.isReliabilityEnabled)
             XCTAssertEqual(50, repo?.reliabilityScore)

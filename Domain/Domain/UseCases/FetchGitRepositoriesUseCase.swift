@@ -10,17 +10,35 @@
 
 import Foundation
 
-public protocol FetchGitRepositoriesUseCaseInterface {
+public enum CommonError: LocalizedError {
+    case noInternetConnection
+    case timeOut
+    case generic(String)
+}
+
+public enum FetchGitRepositoriesError: LocalizedError {
+    case common(CommonError)
+    case termCannotBeEmpty
+}
+
+public protocol FetchGitRepositoriesUseCaseProtocol {
     func execute(term: String)
 }
 
-public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseInterface {
+// sourcery: AutoMockable
+public protocol FetchGitRepositoriesInterfaceAdapter {
+    func doing()
+    func done(data: [GitRepository])
+    func failure(withError error: FetchGitRepositoriesError)
+}
+
+public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
     public var delegateInterfaceAdapter: FetchGitRepositoriesInterfaceAdapter?
-    private let gitRepoRepository: GitRepoRepositoryInterface
+    private let gitRepoRepository: GitRepoRepositoryProtocol
     private let reliabilityCalculatorUseCase: ReliabilityRepoCalculatorUseCase
 
     public init(
-        gitRepoRepository: GitRepoRepositoryInterface,
+        gitRepoRepository: GitRepoRepositoryProtocol,
         reliabilityCalculatorUseCase: ReliabilityRepoCalculatorUseCase
     ) {
         self.gitRepoRepository = gitRepoRepository

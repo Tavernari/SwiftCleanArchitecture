@@ -8,7 +8,7 @@
 
 import Domain
 
-public class GitPullRequestDataRepository: GitPullRequestRepositoryInterface {
+public class GitPullRequestDataRepository: GitPullRequestRepositoryProtocol {
     private let dataSource: GitPullRequestDataSource
     public init(dataSource: GitPullRequestDataSource) {
         self.dataSource = dataSource

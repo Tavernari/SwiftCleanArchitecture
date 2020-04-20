@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol GitPullRequestRepositoryInterface {
+public protocol GitPullRequestRepositoryProtocol {
     func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void)
     func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void)
 }
