@@ -12,16 +12,16 @@ import XCTest
 
 class ListGitRepositoryUseCaseTests: XCTestCase {
     func testFetchRepository() {
-        let repository = GitRepoRepositoryInterfaceMock()
+        let repository = GitRepoRepositoryProtocolMock()
         let presenter = FetchGitRepositoriesInterfaceAdapterMock(sequencing: .inWritingOrder, stubbing: .wrap)
         let calculatorUseCase = ReliabilityRepoCalculatorUseCaseMock()
-        let configRemoteRepository = ConfigRepositoryInterfaceMock()
+        let configRemoteRepository = ConfigRepositoryProtocolMock()
 
         repository.perform(.list(term: .any, completion: .any, perform: { _, completion in
             completion(.success([GitRepository()]))
         }))
 
-        configRemoteRepository.perform(.gitRepoReliabilityMultiplier(completion: .any, perform: { completion in
+        repository.perform(.getRepoReliabilityMultiplier(completion: .any, perform: { completion in
             var gitRepoReliabilityMultiplier = GitRepoReliabilityMultiplier()
             gitRepoReliabilityMultiplier.enable = true
             gitRepoReliabilityMultiplier.multiplier = 1

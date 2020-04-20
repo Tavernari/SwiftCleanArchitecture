@@ -10,14 +10,14 @@
 
 import Foundation
 
-public enum CommonError: LocalizedError {
+public enum URLCommonsError: LocalizedError {
     case noInternetConnection
     case timeOut
     case generic(String)
 }
 
 public enum FetchGitRepositoriesError: LocalizedError {
-    case common(CommonError)
+    case urlError(URLCommonsError)
     case termCannotBeEmpty
 }
 
@@ -45,27 +45,16 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
         self.reliabilityCalculatorUseCase = reliabilityCalculatorUseCase
     }
 
-    private func handleError(_ error: Error) {
-        if let error = error as? URLError {
-            switch error.code {
-            case URLError.Code.notConnectedToInternet:
-                delegateInterfaceAdapter?.failure(withError: .common(.noInternetConnection))
-            case URLError.Code.timedOut:
-                delegateInterfaceAdapter?.failure(withError: .common(.timeOut))
-            default:
-                delegateInterfaceAdapter?.failure(withError: .common(.generic(error.localizedDescription)))
-            }
-        } else {
-            delegateInterfaceAdapter?.failure(withError: .common(.generic(error.localizedDescription)))
-        }
-    }
-
     private func fetchRepositories(term: String, completion: @escaping ([GitRepository]) -> Void) {
         gitRepoRepository.list(term: term) { result in
             do {
                 let repositories = try result.handle()
                 completion(repositories)
-            } catch { self.handleError(error) }
+            } catch let error as URLError {
+                self.delegateInterfaceAdapter?.failure(withError: .urlError(error.makeCommonError()))
+            } catch {
+                self.delegateInterfaceAdapter?.failure(withError: .urlError(.generic(error.localizedDescription)))
+            }
         }
     }
 
@@ -74,7 +63,11 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
             do {
                 let repoReliabilityMultiplierModel = try result.handle()
                 completion(repoReliabilityMultiplierModel)
-            } catch { self.handleError(error) }
+            } catch let error as URLError {
+                self.delegateInterfaceAdapter?.failure(withError: .urlError(error.makeCommonError()))
+            } catch {
+                self.delegateInterfaceAdapter?.failure(withError: .urlError(.generic(error.localizedDescription)))
+            }
         }
     }
 

@@ -46,11 +46,11 @@ extension ListOfRepositoriesViewModel: FetchGitRepositoriesInterfaceAdapter {
         switch error {
         case .termCannotBeEmpty:
             failMessage.value = "Term cannot be empty"
-        case .common(.noInternetConnection):
+        case .urlError(.noInternetConnection):
             failMessage.value = "Caiu a internet"
-        case .common(.timeOut):
+        case .urlError(.timeOut):
             failMessage.value = "Time out"
-        case let .common(.generic(message)):
+        case let .urlError(.generic(message)):
             route.value = .showError(errorMessage: message)
         }
 
