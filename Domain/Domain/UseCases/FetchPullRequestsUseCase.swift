@@ -27,9 +27,9 @@ public protocol FetchPullRequestsInterfaceAdapter {
 public class FetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol {
     public var delegateInterfaceAdapter: FetchPullRequestsInterfaceAdapter?
 
-    private let repository: GitPullRequestRepositoryInterface
+    private let repository: GitPullRequestRepositoryProtocol
 
-    public init(repository: GitPullRequestRepositoryInterface) {
+    public init(repository: GitPullRequestRepositoryProtocol) {
         self.repository = repository
     }
 

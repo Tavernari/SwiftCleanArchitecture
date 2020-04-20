@@ -34,11 +34,11 @@ public protocol FetchGitRepositoriesInterfaceAdapter {
 
 public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
     public var delegateInterfaceAdapter: FetchGitRepositoriesInterfaceAdapter?
-    private let gitRepoRepository: GitRepoRepositoryInterface
+    private let gitRepoRepository: GitRepoRepositoryProtocol
     private let reliabilityCalculatorUseCase: ReliabilityRepoCalculatorUseCase
 
     public init(
-        gitRepoRepository: GitRepoRepositoryInterface,
+        gitRepoRepository: GitRepoRepositoryProtocol,
         reliabilityCalculatorUseCase: ReliabilityRepoCalculatorUseCase
     ) {
         self.gitRepoRepository = gitRepoRepository
