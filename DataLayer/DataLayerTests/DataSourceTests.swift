@@ -6,7 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-@testable import DataSource
+@testable import DataLayer
 import XCTest
 
 class DataSourceTests: XCTestCase {
