@@ -9,7 +9,7 @@
 import Alamofire
 import Domain
 
-public class GitRepoRepository: GitRepoRepositoryInterface {
+public class GitRepoRepository: GitRepoRepositoryProtocol {
     private let gitRepoDataSource: GitRepoDataSource
     private let remoteConfigDataSource: GitRepoRemoteConfigDataSource
     public init(gitRepoDataSource: GitRepoDataSource, remoteConfigDataSource: GitRepoRemoteConfigDataSource) {

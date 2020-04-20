@@ -16,8 +16,8 @@ class ListOfPullRequestsViewModel: ListOfPullRequestsViewModelInterface {
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
 
-    private let listPullRequestsUseCase: FetchPullRequestsUseCaseInterface
-    init(listPullRequestsUseCase: FetchPullRequestsUseCaseInterface) {
+    private let listPullRequestsUseCase: FetchPullRequestsUseCaseProtocol
+    init(listPullRequestsUseCase: FetchPullRequestsUseCaseProtocol) {
         self.listPullRequestsUseCase = listPullRequestsUseCase
     }
 

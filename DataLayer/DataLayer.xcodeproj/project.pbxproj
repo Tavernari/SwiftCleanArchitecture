@@ -12,7 +12,6 @@
 		A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* Requester.swift */; };
 		A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataLayer.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
-		A158AC02240BE89A00B7A40E /* DataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A158ABF4240BE89A00B7A40E /* DataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A163E56F2413F91700FA0BA2 /* GitPullRequestDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56E2413F91700FA0BA2 /* GitPullRequestDataRepository.swift */; };
 		A163E5712413F9C600FA0BA2 /* GitPullRequestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5702413F9C600FA0BA2 /* GitPullRequestDataSource.swift */; };
 		A163E574241431D900FA0BA2 /* GithubPullRequestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E573241431D900FA0BA2 /* GithubPullRequestDataSource.swift */; };
@@ -68,7 +67,6 @@
 		8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1398AEE243847CB00A3A0CD /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		A158ABF1240BE89A00B7A40E /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A158ABF4240BE89A00B7A40E /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceTests.swift; sourceTree = "<group>"; };
@@ -165,9 +163,8 @@
 		A158ABF3240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				A158ABF4240BE89A00B7A40E /* DataSource.h */,
-				A158ABF5240BE89A00B7A40E /* Info.plist */,
-				A1B79AF9243E756500DD46B4 /* String+ToDate.swift */,
+				E306C7AB244E3E3200280358 /* SupportFiles */,
+				E306C7AA244E3E1A00280358 /* Extensions */,
 				A1B79AF7243E6EA900DD46B4 /* GitRepo */,
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
@@ -221,6 +218,22 @@
 			path = Requester;
 			sourceTree = "<group>";
 		};
+		E306C7AA244E3E1A00280358 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1B79AF9243E756500DD46B4 /* String+ToDate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E306C7AB244E3E3200280358 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A158ABF5240BE89A00B7A40E /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -228,7 +241,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A158AC02240BE89A00B7A40E /* DataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,11 +615,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4REX2KBMNV;
+				DEVELOPMENT_TEAM = 57KSFR5UHN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DataLayer/Info.plist;
+				INFOPLIST_FILE = DataLayer/SupportFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -630,11 +642,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4REX2KBMNV;
+				DEVELOPMENT_TEAM = 57KSFR5UHN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DataLayer/Info.plist;
+				INFOPLIST_FILE = DataLayer/SupportFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,7 +667,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4REX2KBMNV;
+				DEVELOPMENT_TEAM = 57KSFR5UHN;
 				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,7 +687,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4REX2KBMNV;
+				DEVELOPMENT_TEAM = 57KSFR5UHN;
 				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

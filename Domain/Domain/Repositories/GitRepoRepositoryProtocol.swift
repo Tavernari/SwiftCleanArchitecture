@@ -9,7 +9,7 @@
 import Foundation
 
 // sourcery: AutoMockable
-public protocol GitRepoRepositoryInterface {
+public protocol GitRepoRepositoryProtocol {
     func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void)
     func getRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void)
 }

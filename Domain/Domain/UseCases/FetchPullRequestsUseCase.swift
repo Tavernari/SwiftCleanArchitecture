@@ -10,12 +10,26 @@
 
 import Foundation
 
-public class FetchPullRequestsUseCase: FetchPullRequestsUseCaseInterface {
+public protocol FetchPullRequestsUseCaseProtocol {
+    func execute(repo: GitRepository)
+}
+
+public enum FetchPullRequestsUseCaseError: Error {
+    case unknowReason
+}
+
+public protocol FetchPullRequestsInterfaceAdapter {
+    func doing()
+    func done(data: [GitPullRequest])
+    func failure(error: Error)
+}
+
+public class FetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol {
     public var delegateInterfaceAdapter: FetchPullRequestsInterfaceAdapter?
 
-    private let repository: GitPullRequestRepositoryInterface
+    private let repository: GitPullRequestRepositoryProtocol
 
-    public init(repository: GitPullRequestRepositoryInterface) {
+    public init(repository: GitPullRequestRepositoryProtocol) {
         self.repository = repository
     }
 

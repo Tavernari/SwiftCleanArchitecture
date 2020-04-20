@@ -16,9 +16,9 @@ class PullRequestDetailsViewModel: PullRequestDetailsViewModelInterface {
     var failMessage = Observable<String?>(nil)
     var pullRequest = Observable<GitPullRequest?>(nil)
 
-    private let useCase: FetchPullRequestDetailUseCaseInterface
+    private let useCase: FetchPullRequestDetailUseCaseProtocol
 
-    init(useCase: FetchPullRequestDetailUseCaseInterface) {
+    init(useCase: FetchPullRequestDetailUseCaseProtocol) {
         self.useCase = useCase
     }
 
