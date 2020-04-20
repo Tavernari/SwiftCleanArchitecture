@@ -123,7 +123,6 @@
 		A1191B522436BD3200A8FA1F /* ReliabilityRepoCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				A1191B542436BD5200A8FA1F /* ReliabilityRepoCalculatorUseCase.swift */,
 			);
 			path = ReliabilityRepoCalculator;
 			sourceTree = "<group>";
@@ -238,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				A1191B4D243695C400A8FA1F /* FetchGitRepositoriesUseCase.swift */,
+				A1191B542436BD5200A8FA1F /* ReliabilityRepoCalculatorUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
