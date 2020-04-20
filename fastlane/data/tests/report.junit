@@ -2,6 +2,6 @@
 <testsuites name='DataLayerTests.xctest' tests='2' failures='0'>
   <testsuite name='DataLayerTests.DataSourceTests' tests='2' failures='0'>
     <testcase classname='DataLayerTests.DataSourceTests' name='testExample' time='0.002'/>
-    <testcase classname='DataLayerTests.DataSourceTests' name='testPerformanceExample' time='0.368'/>
+    <testcase classname='DataLayerTests.DataSourceTests' name='testPerformanceExample' time='0.352'/>
   </testsuite>
 </testsuites>

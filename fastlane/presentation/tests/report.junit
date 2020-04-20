@@ -1,30 +1,30 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <testsuites name='PresentationUITests.xctest' tests='15' failures='0'>
   <testsuite name='PresentationTests.APIErrorViewModelTests' tests='1' failures='0'>
-    <testcase classname='PresentationTests.APIErrorViewModelTests' name='testCreateAndPressOk' time='0.002'/>
+    <testcase classname='PresentationTests.APIErrorViewModelTests' name='testCreateAndPressOk' time='0.001'/>
   </testsuite>
   <testsuite name='PresentationTests.GitPullRequestsViewModelTests' tests='2' failures='0'>
-    <testcase classname='PresentationTests.GitPullRequestsViewModelTests' name='testListPullRequests' time='0.005'/>
+    <testcase classname='PresentationTests.GitPullRequestsViewModelTests' name='testListPullRequests' time='0.002'/>
     <testcase classname='PresentationTests.GitPullRequestsViewModelTests' name='testSelectPullRequest' time='0.001'/>
   </testsuite>
   <testsuite name='PresentationTests.PullRequestDetailViewModelTests' tests='1' failures='0'>
     <testcase classname='PresentationTests.PullRequestDetailViewModelTests' name='testLoadDetail' time='0.001'/>
   </testsuite>
   <testsuite name='PresentationTests.RepositoriesTableViewModelTests' tests='2' failures='0'>
-    <testcase classname='PresentationTests.RepositoriesTableViewModelTests' name='testListRepository' time='0.048'/>
-    <testcase classname='PresentationTests.RepositoriesTableViewModelTests' name='testSelectRepository' time='0.084'/>
+    <testcase classname='PresentationTests.RepositoriesTableViewModelTests' name='testListRepository' time='0.008'/>
+    <testcase classname='PresentationTests.RepositoriesTableViewModelTests' name='testSelectRepository' time='0.103'/>
   </testsuite>
   <testsuite name='PresentationUITests.PresentationUIErrorTests' tests='5' failures='0'>
-    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testErrorOnListOfPullRequests' time='5.681'/>
-    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testErrorOnPullRequestDetail' time='7.685'/>
-    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testGithubErrorOnListOfRepositories' time='8.159'/>
-    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testListOfRepositoriesEmptyTerm' time='4.760'/>
-    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testURLErrorOnListOfRepositories' time='4.434'/>
+    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testErrorOnListOfPullRequests' time='4.951'/>
+    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testErrorOnPullRequestDetail' time='7.522'/>
+    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testGithubErrorOnListOfRepositories' time='6.972'/>
+    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testListOfRepositoriesEmptyTerm' time='4.598'/>
+    <testcase classname='PresentationUITests.PresentationUIErrorTests' name='testURLErrorOnListOfRepositories' time='4.604'/>
   </testsuite>
   <testsuite name='PresentationUITests.PresentationUITests' tests='4' failures='0'>
-    <testcase classname='PresentationUITests.PresentationUITests' name='testLaunchPerformance' time='21.205'/>
-    <testcase classname='PresentationUITests.PresentationUITests' name='testNavigateToPullRequestDetail' time='6.608'/>
-    <testcase classname='PresentationUITests.PresentationUITests' name='testNavigateToPullRequests' time='4.926'/>
-    <testcase classname='PresentationUITests.PresentationUITests' name='testShowListOfRepositories' time='4.484'/>
+    <testcase classname='PresentationUITests.PresentationUITests' name='testLaunchPerformance' time='23.100'/>
+    <testcase classname='PresentationUITests.PresentationUITests' name='testNavigateToPullRequestDetail' time='7.159'/>
+    <testcase classname='PresentationUITests.PresentationUITests' name='testNavigateToPullRequests' time='5.294'/>
+    <testcase classname='PresentationUITests.PresentationUITests' name='testShowListOfRepositories' time='4.560'/>
   </testsuite>
 </testsuites>
