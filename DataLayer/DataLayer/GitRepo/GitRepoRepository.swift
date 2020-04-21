@@ -26,8 +26,8 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         dispatchGroup.enter()
         gitRepoDataSource.list(term: term) { result in
             switch result {
-            case let .success(repositories):
-                repositories.forEach { repo in
+            case let .success(data):
+                data.items.forEach { repo in
                     var gitRepo = GitRepository(data: repo)
                     dispatchGroup.enter()
                     self.gitRepoDataSource.stats(repo: gitRepo) { result in

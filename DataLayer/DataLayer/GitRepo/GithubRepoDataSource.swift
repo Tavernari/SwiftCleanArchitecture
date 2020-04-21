@@ -6,27 +6,15 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Alamofire
 import Domain
 
 public class GithubRepoDataSource: GitRepoDataSource {
     public init() {}
 
-    public func list(term: String, completion: @escaping (Result<[GithubRepositoryData], Error>) -> Void) {
+    public func list(term: String, completion: @escaping (Result<GithubResponseData, Error>) -> Void) {
         GithubRepoAPIRouter.search(term: term)
             .request(decodeError: { GithubAPIError.make(data: $0) })
-            .responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
-                switch response.result {
-                case let .success(repositories):
-                    completion(.success(repositories.items))
-                case let .failure(error):
-                    if let underlyingError = error.underlyingError {
-                        completion(.failure(underlyingError))
-                    } else {
-                        completion(.failure(error))
-                    }
-                }
-            }
+            .processResponse(completion: completion)
     }
 
     public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {

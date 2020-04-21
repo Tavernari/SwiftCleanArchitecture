@@ -15,7 +15,9 @@ public class GitPullRequestDataRepository: GitPullRequestRepositoryProtocol {
     }
 
     public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
-        dataSource.list(repo: repo, completion: completion)
+        dataSource.list(repo: repo) { result in
+            result.handle(decodeSuccess: { $0.map(GitPullRequest.init) }, completion: completion)
+        }
     }
 
     public func get(
@@ -23,6 +25,8 @@ public class GitPullRequestDataRepository: GitPullRequestRepositoryProtocol {
         fromRepo repo: GitRepository,
         completion: @escaping (Result<GitPullRequest, Error>) -> Void
     ) {
-        dataSource.get(id: id, fromRepo: repo, completion: completion)
+        dataSource.get(id: id, fromRepo: repo) { result in
+            result.handle(decodeSuccess: { GitPullRequest($0) }, completion: completion)
+        }
     }
 }

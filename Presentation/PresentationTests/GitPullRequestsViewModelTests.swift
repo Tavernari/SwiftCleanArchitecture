@@ -15,7 +15,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
     func testListPullRequests() {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
-        let data = GitPullRequest()
+        let data = GithubPullRequestData()
         let dataSource = MockGitPullRequestDataSource(result: [data])
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
@@ -46,12 +46,14 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let repo = GitRepository()
-        var data1 = GitPullRequest()
-        data1.author = "data1"
-        data1.id = 400
-        var data2 = GitPullRequest()
-        data2.author = "data2"
-        data2.id = 500
+        var data1 = GithubPullRequestData()
+        data1.user = .init()
+        data1.user.login = "data1"
+        data1.number = 400
+        var data2 = GithubPullRequestData()
+        data2.user = .init()
+        data2.user.login = "data2"
+        data2.number = 500
 
         let dataSource = MockGitPullRequestDataSource(result: [data1, data2])
         let repository = GitPullRequestDataRepository(dataSource: dataSource)
@@ -68,7 +70,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
             XCTAssertEqual(viewModel.pullRequests.value.count, 2)
 
             viewModel.select(index: 0)
-            XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.id, repo: repo))
+            XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.number, repo: repo))
         }
 
         viewModel.isLoading.observe { isLoading in

@@ -12,12 +12,12 @@ import Domain
 import XCTest
 
 class MockGitRepoDataSource: GitRepoDataSource {
-    private let result: [GithubRepositoryData]
-    init(result: [GithubRepositoryData]) {
+    private let result: GithubResponseData
+    init(result: GithubResponseData) {
         self.result = result
     }
 
-    func list(term _: String, completion: @escaping (Result<[GithubRepositoryData], Error>) -> Void) {
+    func list(term _: String, completion: @escaping (Result<GithubResponseData, Error>) -> Void) {
         completion(.success(result))
     }
 
@@ -30,8 +30,10 @@ class RepositoriesTableViewModelTests: XCTestCase {
     func testListRepository() {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
+        var responseData = GithubResponseData()
         let data = GithubRepositoryData()
-        let datasource = MockGitRepoDataSource(result: [data, data])
+        responseData.items = [data, data]
+        let datasource = MockGitRepoDataSource(result: responseData)
         let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: true, multiplier: 4)
         let repository = DataLayer.GitRepoRepository(gitRepoDataSource: datasource, remoteConfigDataSource: configDataSource)
         let useCase = FetchGitRepositoriesUseCase(
@@ -64,6 +66,8 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
 
+        var responseData = GithubResponseData()
+
         var data1 = GithubRepositoryData()
         data1.name = "repository1DataName"
         data1.owner = .init()
@@ -74,7 +78,9 @@ class RepositoriesTableViewModelTests: XCTestCase {
         data2.owner = .init()
         data2.owner.login = "repository2DataAuthor"
 
-        let datasource = MockGitRepoDataSource(result: [data1, data2])
+        responseData.items = [data1, data2]
+
+        let datasource = MockGitRepoDataSource(result: responseData)
         let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: false, multiplier: 4)
         let repository = GitRepoRepository(gitRepoDataSource: datasource, remoteConfigDataSource: configDataSource)
         let useCase = FetchGitRepositoriesUseCase(

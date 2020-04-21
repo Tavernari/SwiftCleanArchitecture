@@ -39,6 +39,7 @@ platform :ios do
   end
 
   def generate_mock
+    puts 'Generate mock'
     sh("swiftymocky generate")
   end
 

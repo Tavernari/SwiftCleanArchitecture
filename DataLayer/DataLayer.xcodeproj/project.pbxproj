@@ -24,6 +24,8 @@
 		A1672C942413327C004CE285 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1672C922413327C004CE285 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
 		A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */; };
+		A1B3B197244F46B400E8F1A4 /* Result+handleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */; };
+		A1B3B199244F46FF00E8F1A4 /* DataRequest+processResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3B198244F46FF00E8F1A4 /* DataRequest+processResponse.swift */; };
 		A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79AF9243E756500DD46B4 /* String+ToDate.swift */; };
 		A1B79B09243FC71600DD46B4 /* GithubRepoAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B08243FC71600DD46B4 /* GithubRepoAPIRouter.swift */; };
 		A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */; };
@@ -82,6 +84,8 @@
 		A1672C922413327C004CE285 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
 		A1672CB324134A86004CE285 /* GithubRepositoryResponseModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepositoryResponseModels.swift; sourceTree = "<group>"; };
+		A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handleResult.swift"; sourceTree = "<group>"; };
+		A1B3B198244F46FF00E8F1A4 /* DataRequest+processResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+processResponse.swift"; sourceTree = "<group>"; };
 		A1B79AF9243E756500DD46B4 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
 		A1B79B08243FC71600DD46B4 /* GithubRepoAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoAPIRouter.swift; sourceTree = "<group>"; };
 		A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubPullRequestAPIRouter.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				A1B79AF9243E756500DD46B4 /* String+ToDate.swift */,
+				A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */,
+				A1B3B198244F46FF00E8F1A4 /* DataRequest+processResponse.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,12 +464,14 @@
 				A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */,
 				A1B79B09243FC71600DD46B4 /* GithubRepoAPIRouter.swift in Sources */,
 				A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */,
+				A1B3B197244F46B400E8F1A4 /* Result+handleResult.swift in Sources */,
 				A163E574241431D900FA0BA2 /* GithubPullRequestDataSource.swift in Sources */,
 				A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */,
 				A163E59F24153B3700FA0BA2 /* GitRepoDataSource.swift in Sources */,
 				A163E5A124153B9400FA0BA2 /* GithubRepoDataSource.swift in Sources */,
 				A163E5792414349E00FA0BA2 /* GitPullRequest+initWithPullRequestData.swift in Sources */,
 				A163E5772414328200FA0BA2 /* GithubPullRequestModels.swift in Sources */,
+				A1B3B199244F46FF00E8F1A4 /* DataRequest+processResponse.swift in Sources */,
 				A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */,
 				A163E56F2413F91700FA0BA2 /* GitPullRequestDataRepository.swift in Sources */,
 			);
