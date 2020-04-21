@@ -14,7 +14,7 @@ public class GithubRepoDataSource: GitRepoDataSource {
 
     public func list(term: String, completion: @escaping (Result<[GithubRepositoryData], Error>) -> Void) {
         GithubRepoAPIRouter.search(term: term)
-            .request(decodeError: { GithubAPIErrorData.decode(from: $0)?.message })
+            .request(decodeError: { GithubAPIError.make(data: $0) })
             .responseDecodable { (response: DataResponse<GithubResponseData, AFError>) in
                 switch response.result {
                 case let .success(repositories):

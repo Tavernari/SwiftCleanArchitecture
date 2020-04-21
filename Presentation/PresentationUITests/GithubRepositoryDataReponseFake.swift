@@ -80,7 +80,7 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func errorData(message: String) -> Data {
-        let error = GithubAPIErrorData(message: message)
+        let error = GithubAPIError(message: message)
 
         guard let responseJsonData = try? JSONEncoder().encode(error) else {
             fatalError()

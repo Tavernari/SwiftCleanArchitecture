@@ -22,7 +22,7 @@ extension URLRequestConvertible {
         return Requester.request(self)
     }
 
-    func request(decodeError: @escaping (Data?) -> String?) -> DataRequest {
+    func request<DecodedType: Error>(decodeError: @escaping (Data?) -> DecodedType?) -> DataRequest {
         return Requester.request(self, decodeError: decodeError)
     }
 }
@@ -34,9 +34,9 @@ class Requester {
             .validate(contentType: ["application/json"])
     }
 
-    static func request(
+    static func request<DecodedType: Error>(
         _ value: URLRequestConvertible,
-        decodeError: @escaping (Data?) -> String?
+        decodeError: @escaping (Data?) -> DecodedType?
     ) -> DataRequest {
         return AF.request(value)
             .validate(contentType: ["application/json"])
@@ -45,8 +45,8 @@ class Requester {
                 case 200 ..< 300:
                     return .success(())
                 default:
-                    if let message = decodeError(data) {
-                        return .failure(GenericError(message: message))
+                    if let errorDecoded = decodeError(data) {
+                        return .failure(errorDecoded)
                     }
 
                     let error = URLError(.init(rawValue: httpReponse.statusCode))

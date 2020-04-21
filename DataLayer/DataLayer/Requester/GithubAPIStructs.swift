@@ -8,18 +8,20 @@
 
 import Foundation
 
-public struct GithubAPIErrorData: Codable {
+public struct GithubAPIError: Codable, LocalizedError {
     public let message: String
     public init(message: String) {
         self.message = message
     }
 
-    public static func decode(from data: Data?) -> GithubAPIErrorData? {
+    public var errorDescription: String? { message }
+
+    public static func make(data: Data?) -> GithubAPIError? {
         guard let data = data else {
             return nil
         }
 
-        return try? JSONDecoder().decode(GithubAPIErrorData.self, from: data)
+        return try? JSONDecoder().decode(GithubAPIError.self, from: data)
     }
 }
 

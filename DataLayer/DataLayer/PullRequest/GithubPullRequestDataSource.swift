@@ -15,7 +15,7 @@ public class GithubPullRequestDataSource: GitPullRequestDataSource {
     public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
         GithubAPIRouter
             .listPullRequest(owner: repo.author, repoName: repo.name)
-            .request(decodeError: { GithubAPIErrorData.decode(from: $0)?.message })
+            .request(decodeError: { GithubAPIError.make(data: $0) })
             .responseDecodable { (response: DataResponse<[GithubPullRequestData], AFError>) in
                 switch response.result {
                 case let .success(pullRequests):
@@ -34,7 +34,7 @@ public class GithubPullRequestDataSource: GitPullRequestDataSource {
     ) {
         GithubAPIRouter
             .getPullRequest(owner: repo.author, repoName: repo.name, pullNumber: id)
-            .request(decodeError: { GithubAPIErrorData.decode(from: $0)?.message })
+            .request(decodeError: { GithubAPIError.make(data: $0) })
             .responseDecodable { (response: DataResponse<GithubPullRequestDetailData, AFError>) in
                 switch response.result {
                 case let .success(pullRequest):

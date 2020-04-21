@@ -26,13 +26,13 @@ jobs:
     - uses: actions/upload-artifact@v1
         with:
           name: domain_test_report
-          path: ./fastlane/domain/tests/report.junit
+          path: ./fastlane/report/domain/report.junit
     - uses: actions/upload-artifact@v1
         with:
           name: data_test_report
-          path: ./fastlane/data/tests/report.junit
+          path: ./fastlane/report/data/report.junit
     - uses: actions/upload-artifact@v1
         with:
           name: presentation_test_report
-          path: ./fastlane/presentation/tests/report.junit
+          path: ./fastlane/report/presentation/report.junit
     
