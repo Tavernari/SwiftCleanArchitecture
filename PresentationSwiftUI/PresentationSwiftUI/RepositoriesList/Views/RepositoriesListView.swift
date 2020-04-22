@@ -16,10 +16,13 @@ struct RepositoriesListView: View {
     var body: some View {
         List {
             ForEach(viewModel.items) { item in
-                RepositoriesListItemView(repo: item)
-                    .listRowInsets(EdgeInsets())
-                    .padding(.vertical, 7)
-                    .padding(.horizontal, 15)
+                NavigationLink(destination: PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: item.ghRepository))) {
+                    RepositoriesListItemView(repo: item)
+                        .listRowInsets(EdgeInsets())
+                        .padding(.leading, 20)
+                        .padding(.vertical, 6)
+                }
+                .padding(.trailing, 10)
             }
             .padding(.top, 10)
             .navigationBarTitle("Repos")

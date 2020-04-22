@@ -21,16 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
 
-        let useCase = UseCaseFacade.fetchGitRepositoryUseCase()
-
-        let viewModel = RepositoriesListViewModel(useCase: useCase)
-
-        let contentView = RepositoriesListView(viewModel: viewModel)
+        let startView = StartView()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: startView)
             self.window = window
             window.makeKeyAndVisible()
         }

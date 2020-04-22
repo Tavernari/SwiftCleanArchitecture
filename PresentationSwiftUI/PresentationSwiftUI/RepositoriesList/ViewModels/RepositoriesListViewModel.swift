@@ -38,7 +38,7 @@ extension RepositoriesListViewModel: FetchGitRepositoriesInterfaceAdapter {
 
 class GHRepositoryViewModel: Identifiable, ObservableObject {
     let id = UUID()
-    private var ghRepository: GitRepository
+    var ghRepository: GitRepository
 
     init(ghRepository: GitRepository) {
         self.ghRepository = ghRepository

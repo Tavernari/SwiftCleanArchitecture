@@ -8,7 +8,6 @@
 
 import DataLayer
 import Domain
-import Foundation
 
 class UseCaseFacade {
     private init() {}
@@ -21,5 +20,11 @@ class UseCaseFacade {
         let calculatorUseCase = ReliabilityRepoCalculator()
 
         return FetchGitRepositoriesUseCase(gitRepoRepository: gitRepository, reliabilityCalculatorUseCase: calculatorUseCase)
+    }
+
+    static func fetchPullRequestsUseCase() -> FetchPullRequestsUseCaseProtocol {
+        let gitPullRequestDataSource = GithubPullRequestDataSource()
+        let gitPullRepository = GitPullRequestDataRepository(dataSource: gitPullRequestDataSource)
+        return FetchPullRequestsUseCase(repository: gitPullRepository)
     }
 }
