@@ -18,9 +18,8 @@ struct RepositoriesListView: View {
             ForEach(viewModel.items) { item in
                 RepositoriesListItemView(repo: item)
                     .listRowInsets(EdgeInsets())
-                    .padding(.leading, 20)
-                    .padding(.vertical, 6)
-                    .padding(.trailing, 10)
+                    .padding(.vertical, 7)
+                    .padding(.horizontal, 15)
             }
             .padding(.top, 10)
             .navigationBarTitle("Repos")
