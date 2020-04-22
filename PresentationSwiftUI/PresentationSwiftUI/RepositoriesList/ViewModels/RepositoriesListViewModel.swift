@@ -40,11 +40,8 @@ class GHRepositoryViewModel: Identifiable, ObservableObject {
     let id = UUID()
     private var ghRepository: GitRepository
 
-    @Published var image = R.image.icnAcompanhar()
-
     init(ghRepository: GitRepository) {
         self.ghRepository = ghRepository
-        fetchImage(fromURL: self.ghRepository.image)
     }
 
     var name: String {
@@ -79,13 +76,7 @@ class GHRepositoryViewModel: Identifiable, ObservableObject {
         return ghRepository.reliabilityScore
     }
 
-    private func fetchImage(fromURL url: String) {
-        guard let fetchURLImage = URL(string: url) else { return }
-
-        URLSession.shared.dataTask(with: fetchURLImage) { data, _, _ in
-            guard let data = data else { return }
-
-            self.image = UIImage(data: data)!
-        }.resume()
+    var avatarURL: String {
+        return ghRepository.image
     }
 }

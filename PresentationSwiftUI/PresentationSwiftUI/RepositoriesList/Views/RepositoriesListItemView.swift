@@ -14,7 +14,7 @@ struct RepositoriesListItemView: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            CardView(title: repo.name, subtitle: repo.login, description: repo.description, image: repo.image!,
+            CardView(title: repo.name, subtitle: repo.login, description: repo.description, avatarURL: repo.avatarURL,
                      primary_icon: "info.circle", primary_counter: repo.issues.description,
                      second_icon: "star.fill", second_counter: repo.stargazers.description,
                      thirty_icon: "tuningfork", thirty_counter: repo.forks.description)

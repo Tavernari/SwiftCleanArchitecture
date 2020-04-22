@@ -12,7 +12,7 @@ struct CardView: View {
     var title: String
     var subtitle: String
     var description: String
-    var image: UIImage
+    var avatarURL: String
     var primary_icon: String
     var primary_counter: String
     var second_icon: String
@@ -28,8 +28,7 @@ struct CardView: View {
 
             VStack(alignment: .leading) {
                 HStack(alignment: .top) {
-                    Image(uiImage: image)
-                        .resizable()
+                    ImageURL(url: avatarURL)
                         .frame(width: 60, height: 60)
                         .clipShape(Circle())
                         .padding(.top, 20)
@@ -94,7 +93,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(title: String(), subtitle: String(), description: String(), image: UIImage(),
+        CardView(title: String(), subtitle: String(), description: String(), avatarURL: "http://someurl.com",
                  primary_icon: String(), primary_counter: String(),
                  second_icon: String(), second_counter: String(),
                  thirty_icon: String(), thirty_counter: String())
