@@ -72,34 +72,3 @@ class GHPullRequestsViewModel: Identifiable {
         return ghPullRequest.image
     }
 }
-
-extension Date {
-    func ghDateFormat() -> String {
-        // get formatter
-        let printDateFormatter = DateFormatter()
-        printDateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-
-        let formatedDate = printDateFormatter.string(from: self)
-
-        return formatedDate.description
-    }
-}
-
-extension String {
-    func ghDateFormat() -> String {
-        // get formatter
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale(identifier: "pt_BR")
-
-        let date: Date = dateFormatter.date(from: self)!
-
-        // get formatter
-        let printDateFormatter = DateFormatter()
-        printDateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
-
-        let formatedDate = printDateFormatter.string(from: date)
-
-        return formatedDate.description
-    }
-}
