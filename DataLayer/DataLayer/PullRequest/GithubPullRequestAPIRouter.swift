@@ -23,7 +23,9 @@ enum GithubAPIRouter: URLRequestConvertible {
 
     func asURLRequest() throws -> URLRequest {
         let url = try "\(GithubServerURL.path)\(path)".asURL()
-        let urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("token e814d42dcac8925efa8ae4704dbc028843e3aac2", forHTTPHeaderField: "Authorization")
+
         return urlRequest
     }
 }

@@ -22,6 +22,7 @@ public enum FetchGitRepositoriesError: LocalizedError {
 }
 
 public protocol FetchGitRepositoriesUseCaseProtocol {
+    var delegateInterfaceAdapter: FetchGitRepositoriesInterfaceAdapter? { get set }
     func execute(term: String)
 }
 

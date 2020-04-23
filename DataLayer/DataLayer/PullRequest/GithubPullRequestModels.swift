@@ -11,6 +11,7 @@ public struct GithubPullRequestData: Codable {
     public var body: String = ""
     public var user: GithubPullRequestUser = .init()
     public var created_at: String = ""
+    public var updated_at: String = ""
     public var number: Int = 0
     public init() {}
 }
@@ -20,6 +21,7 @@ public struct GithubPullRequestDetailData: Codable {
     public var body: String = ""
     public var user: GithubPullRequestUser = .init()
     public var created_at: String = ""
+    public var updated_at: String = ""
     public var number: Int = 0
     public var comments: Int = 0
     public var additions: Int = 0

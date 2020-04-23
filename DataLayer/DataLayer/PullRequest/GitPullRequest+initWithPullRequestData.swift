@@ -16,7 +16,8 @@ extension GitPullRequest {
         description = data.body
         image = data.user.avatar_url
         title = data.title
-        date = data.created_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
+        createdAt = data.created_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
+        updatedAt = data.updated_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
     }
 
     init(_ data: GithubPullRequestDetailData) {
@@ -27,7 +28,8 @@ extension GitPullRequest {
         description = data.body
         image = data.user.avatar_url
         title = data.title
-        date = data.created_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
+        createdAt = data.created_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
+        updatedAt = data.updated_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
         additionsCount = data.additions
         commentsCount = data.comments
         commitsCount = data.commits

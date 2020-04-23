@@ -11,6 +11,7 @@
 import Foundation
 
 public protocol FetchPullRequestsUseCaseProtocol {
+    var delegateInterfaceAdapter: FetchPullRequestsInterfaceAdapter? { get set }
     func execute(repo: GitRepository)
 }
 
