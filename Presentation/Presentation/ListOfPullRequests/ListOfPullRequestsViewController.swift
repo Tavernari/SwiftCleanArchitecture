@@ -39,7 +39,7 @@ class ListOfPullRequestsViewController: UIViewController {
         cell.pullRequestImage = pullRequests.image
         cell.pullRequestTitle = pullRequests.title
         cell.pullRequestDescription = pullRequests.description
-        cell.pullRequestDate = pullRequests.date?.string(format: .ddMMyyyyHHmmss) ?? ""
+        cell.pullRequestDate = pullRequests.createdAt?.string(format: .ddMMyyyyHHmmss) ?? ""
     }
 
     fileprivate func showError(message: String?) {

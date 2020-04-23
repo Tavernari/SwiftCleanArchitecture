@@ -51,7 +51,7 @@ class PullRequestDetailsViewController: UIViewController {
         additionsLabel.text = "Additions: \(data.additionsCount)"
         deletionsLabel.text = "Deletions: \(data.deletionsCount)"
         changedFilesLabel.text = "Changed Files: \(data.changedFilesCount)"
-        dateLabel.text = data.date!.string(format: .ddMMyyyyHHmmss)
+        dateLabel.text = data.createdAt!.string(format: .ddMMyyyyHHmmss)
 
         if let url = try? data.image.asURL() {
             imageView.loadCircleImage(url: url)
