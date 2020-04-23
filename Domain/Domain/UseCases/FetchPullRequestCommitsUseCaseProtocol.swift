@@ -8,8 +8,8 @@
 
 import Foundation
 
-public protocol FetchCommitsUseCaseProtocol {
-    var delegateInterfaceAdapter: FetchCommitsInterfaceAdapter? { get set }
+public protocol FetchPullRequestCommitsUseCaseProtocol {
+    var delegateInterfaceAdapter: FetchPullRequestCommitsInterfaceAdapter? { get set }
     func execute(repoName: String, ownerName: String)
 }
 
@@ -17,18 +17,18 @@ public protocol FetchCommitsUseCaseProtocol {
 //    case unknowReason
 // }
 
-public protocol FetchCommitsInterfaceAdapter {
+public protocol FetchPullRequestCommitsInterfaceAdapter {
     func doing()
     func done(data: [GitCommit])
     func failure(error: Error)
 }
 
-public class FetchCommitsUseCase: FetchCommitsUseCaseProtocol {
-    public var delegateInterfaceAdapter: FetchCommitsInterfaceAdapter?
+public class FetchPullRequestCommitsUseCase: FetchPullRequestCommitsUseCaseProtocol {
+    public var delegateInterfaceAdapter: FetchPullRequestCommitsInterfaceAdapter?
 
-    private let repository: GitCommitsPullRequestProtocol
+    private let repository: GitPullRequestCommitsProtocol
 
-    public init(respository: GitCommitsPullRequestProtocol) {
+    public init(respository: GitPullRequestCommitsProtocol) {
         repository = respository
     }
 
