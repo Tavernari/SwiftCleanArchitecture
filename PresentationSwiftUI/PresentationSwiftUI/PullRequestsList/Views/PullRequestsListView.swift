@@ -6,8 +6,8 @@
 //  Copyright © 2020 blu. All rights reserved.
 //
 
-import SwiftUI
 import Domain
+import SwiftUI
 
 struct PullRequestsListView: View {
     @ObservedObject var viewModel: PullRequestsListViewModel
@@ -42,8 +42,8 @@ struct PullRequestsListView: View {
     }
 }
 
- struct PullRequestsListView_Previews: PreviewProvider {
+struct PullRequestsListView_Previews: PreviewProvider {
     static var previews: some View {
         PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: GitRepository()))
     }
- }
+}
