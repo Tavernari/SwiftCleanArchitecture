@@ -1,4 +1,4 @@
-//
+ //
 //  PullRequestDetailsViewModelInterface.swift
 //  Presentation
 //

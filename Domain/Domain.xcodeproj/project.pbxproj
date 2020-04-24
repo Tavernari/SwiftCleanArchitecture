@@ -26,7 +26,7 @@
 		BFB596E274F866EC66972A68 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06484D37BD9A11200301736F /* Pods_DomainTests.framework */; };
 		D33EABD65A836FC5F8100ACB /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107C63A9AD1086393874BE60 /* Pods_Domain.framework */; };
 		E33C21B62451C5310006BAC7 /* GitCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21B52451C5310006BAC7 /* GitCommit.swift */; };
-		E33C21B82451C6D90006BAC7 /* GitPullRequestCommitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21B72451C6D90006BAC7 /* GitPullRequestCommitsProtocol.swift */; };
+		E33C21B82451C6D90006BAC7 /* GitPullRequestCommitsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21B72451C6D90006BAC7 /* GitPullRequestCommitsRepositoryProtocol.swift */; };
 		E33C21BA2451CC9F0006BAC7 /* FetchPullRequestCommitsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21B92451CC9F0006BAC7 /* FetchPullRequestCommitsUseCaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 		E33C21B52451C5310006BAC7 /* GitCommit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommit.swift; sourceTree = "<group>"; };
-		E33C21B72451C6D90006BAC7 /* GitPullRequestCommitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestCommitsProtocol.swift; sourceTree = "<group>"; };
+		E33C21B72451C6D90006BAC7 /* GitPullRequestCommitsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestCommitsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E33C21B92451CC9F0006BAC7 /* FetchPullRequestCommitsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequestCommitsUseCaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E2973E2410646A0020288A /* GitRepoRepositoryProtocol.swift */,
-				E33C21B72451C6D90006BAC7 /* GitPullRequestCommitsProtocol.swift */,
+				E33C21B72451C6D90006BAC7 /* GitPullRequestCommitsRepositoryProtocol.swift */,
 				A163E56B2413F71D00FA0BA2 /* GitPullRequestRepositoryProtocol.swift */,
 				A1C766DF242A1CED009EFA6F /* ConfigRepositoryProtocol.swift */,
 			);
@@ -441,7 +441,7 @@
 				A1398B3924393D1600A3A0CD /* FetchPullRequestDetailUseCase.swift in Sources */,
 				A1C766DC242A18FB009EFA6F /* GitRepoStatsModel.swift in Sources */,
 				A1398B2F24393AF800A3A0CD /* FetchPullRequestsUseCase.swift in Sources */,
-				E33C21B82451C6D90006BAC7 /* GitPullRequestCommitsProtocol.swift in Sources */,
+				E33C21B82451C6D90006BAC7 /* GitPullRequestCommitsRepositoryProtocol.swift in Sources */,
 				A163E56C2413F71D00FA0BA2 /* GitPullRequestRepositoryProtocol.swift in Sources */,
 				A1C766E0242A1CED009EFA6F /* ConfigRepositoryProtocol.swift in Sources */,
 				A163E56A2413F5DD00FA0BA2 /* GitPullRequest.swift in Sources */,

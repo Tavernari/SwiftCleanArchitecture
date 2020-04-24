@@ -27,4 +27,10 @@ class UseCaseFacade {
         let gitPullRepository = GitPullRequestDataRepository(dataSource: gitPullRequestDataSource)
         return FetchPullRequestsUseCase(repository: gitPullRepository)
     }
+
+    static func fetchPullRequestCommitsUseCase() -> FetchPullRequestCommitsUseCaseProtocol {
+        let ghPullRequestCommitsDataSource = GithubPullRequestCommitsDataSource()
+        let ghPullRequestCommitsRepository = GitPullRequestCommitsDataRepository(dataSource: ghPullRequestCommitsDataSource)
+        return FetchPullRequestCommitsUseCase(respository: ghPullRequestCommitsRepository)
+    }
 }

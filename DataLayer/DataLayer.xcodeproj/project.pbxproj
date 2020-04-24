@@ -32,6 +32,11 @@
 		A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */; };
 		A1C766E8242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */; };
 		A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */; };
+		E33C21C6245208C70006BAC7 /* GitPullRequestCommitsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21C5245208C70006BAC7 /* GitPullRequestCommitsDataSource.swift */; };
+		E33C21C8245209460006BAC7 /* GitPullRequestCommitsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21C7245209460006BAC7 /* GitPullRequestCommitsModels.swift */; };
+		E33C21CA24520AED0006BAC7 /* GitPullRequestCommitsDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21C924520AED0006BAC7 /* GitPullRequestCommitsDataRepository.swift */; };
+		E33C21CC2452101D0006BAC7 /* GithubPullRequestCommitsAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21CB2452101D0006BAC7 /* GithubPullRequestCommitsAPIRouter.swift */; };
+		E33C21CE245222040006BAC7 /* GitPullRequestCommits+initWithCommitsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C21CD245222040006BAC7 /* GitPullRequestCommits+initWithCommitsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,11 @@
 		A1C766E7242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		A2F4CFD87541931789FCA1E5 /* Pods_DataLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33C21C5245208C70006BAC7 /* GitPullRequestCommitsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestCommitsDataSource.swift; sourceTree = "<group>"; };
+		E33C21C7245209460006BAC7 /* GitPullRequestCommitsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestCommitsModels.swift; sourceTree = "<group>"; };
+		E33C21C924520AED0006BAC7 /* GitPullRequestCommitsDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestCommitsDataRepository.swift; sourceTree = "<group>"; };
+		E33C21CB2452101D0006BAC7 /* GithubPullRequestCommitsAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubPullRequestCommitsAPIRouter.swift; sourceTree = "<group>"; };
+		E33C21CD245222040006BAC7 /* GitPullRequestCommits+initWithCommitsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitPullRequestCommits+initWithCommitsData.swift"; sourceTree = "<group>"; };
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +181,7 @@
 				E306C7AA244E3E1A00280358 /* Extensions */,
 				A1B79AF7243E6EA900DD46B4 /* GitRepo */,
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
+				E33C21C4245208930006BAC7 /* PullRequestCommits */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
 			);
 			path = DataLayer;
@@ -238,6 +249,18 @@
 				A158ABF5240BE89A00B7A40E /* Info.plist */,
 			);
 			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		E33C21C4245208930006BAC7 /* PullRequestCommits */ = {
+			isa = PBXGroup;
+			children = (
+				E33C21C5245208C70006BAC7 /* GitPullRequestCommitsDataSource.swift */,
+				E33C21C7245209460006BAC7 /* GitPullRequestCommitsModels.swift */,
+				E33C21CD245222040006BAC7 /* GitPullRequestCommits+initWithCommitsData.swift */,
+				E33C21C924520AED0006BAC7 /* GitPullRequestCommitsDataRepository.swift */,
+				E33C21CB2452101D0006BAC7 /* GithubPullRequestCommitsAPIRouter.swift */,
+			);
+			path = PullRequestCommits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,11 +479,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */,
+				E33C21CE245222040006BAC7 /* GitPullRequestCommits+initWithCommitsData.swift in Sources */,
+				E33C21CC2452101D0006BAC7 /* GithubPullRequestCommitsAPIRouter.swift in Sources */,
 				A1C766E8242A2807009EFA6F /* GitRepoRemoteConfigDataSource.swift in Sources */,
 				A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */,
+				E33C21C8245209460006BAC7 /* GitPullRequestCommitsModels.swift in Sources */,
 				A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */,
 				A163E5712413F9C600FA0BA2 /* GitPullRequestDataSource.swift in Sources */,
+				E33C21C6245208C70006BAC7 /* GitPullRequestCommitsDataSource.swift in Sources */,
 				A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */,
+				E33C21CA24520AED0006BAC7 /* GitPullRequestCommitsDataRepository.swift in Sources */,
 				A1672CB424134A86004CE285 /* GithubRepositoryResponseModels.swift in Sources */,
 				A1B79B09243FC71600DD46B4 /* GithubRepoAPIRouter.swift in Sources */,
 				A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */,

@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol GitPullRequestCommitsProtocol {
+public protocol GitPullRequestCommitsRepositoryProtocol {
     func list(repoName: String, prOwner: String, completion: @escaping (Result<[GitCommit], Error>) -> Void)
 }

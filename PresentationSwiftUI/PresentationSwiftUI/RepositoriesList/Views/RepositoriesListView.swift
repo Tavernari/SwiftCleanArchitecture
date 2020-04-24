@@ -16,7 +16,7 @@ struct RepositoriesListView: View {
     var body: some View {
         List {
             ForEach(viewModel.items) { item in
-                NavigationLink(destination: PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: item.ghRepository))) {
+                NavigationLink(destination: PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: item.ghRepository), repo: item)) {
                     RepositoriesListItemView(repo: item)
                         .listRowInsets(EdgeInsets())
                         .padding(.leading, 20)
