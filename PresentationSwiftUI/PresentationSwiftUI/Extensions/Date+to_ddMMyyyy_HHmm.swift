@@ -1,5 +1,5 @@
 //
-//  Date+ghDateFormat.swift
+//  Date+to_ddMMyyyy_HHmm.swift
 //  PresentationSwiftUI
 //
 //  Created by Lucas Silveira on 23/04/20.
@@ -9,8 +9,7 @@
 import Foundation
 
 extension Date {
-    func ghDateFormat() -> String {
-        // get formatter
+    func to_ddMMyyyy_HHmm() -> String {
         let printDateFormatter = DateFormatter()
         printDateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
 

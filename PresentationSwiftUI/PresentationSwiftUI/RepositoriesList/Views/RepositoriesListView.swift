@@ -11,12 +11,12 @@ import Domain
 import SwiftUI
 
 struct RepositoriesListView: View {
-    @ObservedObject var viewModel: RepositoriesListViewModel
+    @ObservedObject var viewModel: GitRepositoriesListViewModel
 
     var body: some View {
         List {
             ForEach(viewModel.items) { item in
-                NavigationLink(destination: PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: item.ghRepository), repo: item)) {
+                NavigationLink(destination: PullRequestsListView(viewModel: .init(fetchPullRequestsUseCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: item.ghRepository), repo: item)) {
                     RepositoriesListItemView(repo: item)
                         .listRowInsets(EdgeInsets())
                         .padding(.leading, 20)
@@ -33,7 +33,7 @@ struct RepositoriesListView: View {
 
 struct RepositoriesListView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = RepositoriesListViewModel(useCase: UseCaseFacade.fetchGitRepositoryUseCase())
+        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: UseCaseFacade.fetchGitRepositoryUseCase())
 
         return RepositoriesListView(viewModel: viewModel)
     }

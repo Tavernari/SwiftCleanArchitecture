@@ -10,8 +10,8 @@ import Domain
 import SwiftUI
 
 struct PullRequestsListView: View {
-    @ObservedObject var viewModel: PullRequestsListViewModel
-    var repo: GHRepositoryViewModel
+    @ObservedObject var viewModel: GitPullRequestsListViewModel
+    var repo: GitRepositoryUIModel
 
     var body: some View {
         VStack {
@@ -21,11 +21,11 @@ struct PullRequestsListView: View {
                 List {
                     ForEach(viewModel.pullRequests) { pr in
                         NavigationLink(destination: PullRequestShowView(viewModel: .init(
-                            prUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(),
-                            commitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(),
+                            fetchPullRequestDetailUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(),
+                            fetchPullRequestCommitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(),
                             repo: self.viewModel.repository,
-                            prID: pr.number,
-                            prName: pr.title,
+                            pullRequestId: pr.number,
+                            pullRequestName: pr.title,
                             repoName: self.repo.name,
                             ownerName: self.repo.login
                         ), repo: self.repo)) {
@@ -52,6 +52,6 @@ struct PullRequestsListView: View {
 
 struct PullRequestsListView_Previews: PreviewProvider {
     static var previews: some View {
-        PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: GitRepositoryModel()), repo: GHRepositoryViewModel(ghRepository: GitRepositoryModel()))
+        PullRequestsListView(viewModel: .init(fetchPullRequestsUseCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: GitRepositoryModel()), repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
     }
 }

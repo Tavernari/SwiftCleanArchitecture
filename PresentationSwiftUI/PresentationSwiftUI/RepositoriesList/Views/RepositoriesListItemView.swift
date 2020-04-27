@@ -10,7 +10,7 @@ import Domain
 import SwiftUI
 
 struct RepositoriesListItemView: View {
-    var repo: GHRepositoryViewModel
+    var repo: GitRepositoryUIModel
 
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -35,6 +35,6 @@ struct RepositoriesListItemView: View {
 
 struct RepositoriesListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoriesListItemView(repo: GHRepositoryViewModel(ghRepository: GitRepositoryModel()))
+        RepositoriesListItemView(repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
     }
 }

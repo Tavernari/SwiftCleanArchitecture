@@ -10,8 +10,8 @@ import Domain
 import SwiftUI
 
 struct PullRequestShowView: View {
-    @ObservedObject var viewModel: PullRequestShowViewModel
-    var repo: GHRepositoryViewModel
+    @ObservedObject var viewModel: GitPullRequestDetailViewModel
+    var repo: GitRepositoryUIModel
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -63,13 +63,13 @@ struct PullRequestShowView: View {
                 }
             }
             .padding(.top, 20)
-            .navigationBarTitle("\(viewModel.prName!.prefix(10).description) (\(viewModel.commits.count.description))", displayMode: .inline)
+            .navigationBarTitle("\(viewModel.pullRequestName!.prefix(10).description) (\(viewModel.commits.count.description))", displayMode: .inline)
         }
     }
 }
 
 struct PullRequestShowView_Previews: PreviewProvider {
     static var previews: some View {
-        PullRequestShowView(viewModel: .init(prUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), commitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepositoryModel(), prID: 12, prName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GHRepositoryViewModel(ghRepository: GitRepositoryModel()))
+        PullRequestShowView(viewModel: .init(fetchPullRequestDetailUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), fetchPullRequestCommitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepositoryModel(), pullRequestId: 12, pullRequestName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
     }
 }

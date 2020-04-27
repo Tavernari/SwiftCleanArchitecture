@@ -9,31 +9,31 @@
 import Domain
 import UIKit
 
-class PullRequestsListViewModel: ObservableObject {
+class GitPullRequestsListViewModel: ObservableObject {
     @Published var repository: GitRepositoryModel
-    private var useCase: FetchPullRequestsUseCaseProtocol
+    private var fetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol
 
-    @Published var pullRequests: [GHPullRequestsViewModel] = []
+    @Published var pullRequests: [GitPullRequestUIModel] = []
     @Published var error: String? = nil
 
-    init(useCase: FetchPullRequestsUseCaseProtocol, gitRepository: GitRepositoryModel) {
+    init(fetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol, gitRepository: GitRepositoryModel) {
         repository = gitRepository
-        self.useCase = useCase
-        self.useCase.delegateInterfaceAdapter = self
+        self.fetchPullRequestsUseCase = fetchPullRequestsUseCase
+        self.fetchPullRequestsUseCase.delegateInterfaceAdapter = self
     }
 
     func fetch() {
-        useCase.execute(repo: repository)
+        fetchPullRequestsUseCase.execute(repo: repository)
     }
 }
 
-extension PullRequestsListViewModel: FetchPullRequestsInterfaceAdapter {
+extension GitPullRequestsListViewModel: FetchPullRequestsInterfaceAdapter {
     func doing() {
         //
     }
 
     func done(data: [GitPullRequestModel]) {
-        pullRequests = data.map(GHPullRequestsViewModel.init)
+        pullRequests = data.map(GitPullRequestUIModel.init)
     }
 
     func failure(error: Error) {
@@ -41,7 +41,7 @@ extension PullRequestsListViewModel: FetchPullRequestsInterfaceAdapter {
     }
 }
 
-class GHPullRequestsViewModel: Identifiable {
+class GitPullRequestUIModel: Identifiable {
     var ghPullRequest: GitPullRequestModel
 
     init(ghPullRequest: GitPullRequestModel) {
@@ -61,11 +61,11 @@ class GHPullRequestsViewModel: Identifiable {
     }
 
     var createdAt: String {
-        return ghPullRequest.createdAt!.ghDateFormat()
+        return ghPullRequest.createdAt!.to_ddMMyyyy_HHmm()
     }
 
     var updatedAt: String {
-        return ghPullRequest.updatedAt!.ghDateFormat()
+        return ghPullRequest.updatedAt!.to_ddMMyyyy_HHmm()
     }
 
     var avatarURL: String {
