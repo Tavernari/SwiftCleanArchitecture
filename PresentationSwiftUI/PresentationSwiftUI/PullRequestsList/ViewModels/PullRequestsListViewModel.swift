@@ -10,7 +10,7 @@ import Domain
 import UIKit
 
 class PullRequestsListViewModel: ObservableObject {
-    private let repository: GitRepository
+    @Published var repository: GitRepository
     private var useCase: FetchPullRequestsUseCaseProtocol
 
     @Published var pullRequests: [GHPullRequestsViewModel] = []

@@ -20,7 +20,15 @@ struct PullRequestsListView: View {
             } else {
                 List {
                     ForEach(viewModel.pullRequests) { pr in
-                        NavigationLink(destination: PullRequestShowView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), prName: pr.title, repoName: self.repo.name, ownerName: self.repo.login), repo: self.repo)) {
+                        NavigationLink(destination: PullRequestShowView(viewModel: .init(
+                            prUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(),
+                            commitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(),
+                            repo: self.viewModel.repository,
+                            prID: pr.number,
+                            prName: pr.title,
+                            repoName: self.repo.name,
+                            ownerName: self.repo.login
+                        ), repo: self.repo)) {
                             CardView(title: pr.title, subtitle: pr.description, description: "created: \(pr.createdAt) | updated: \(pr.updatedAt)", avatarURL: pr.avatarURL,
                                      primary_icon: String(), primary_counter: String(),
                                      second_icon: String(), second_counter: String(),
