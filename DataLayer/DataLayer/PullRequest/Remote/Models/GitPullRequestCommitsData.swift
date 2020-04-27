@@ -10,16 +10,5 @@ import Foundation
 
 public struct GitPullRequestCommitsData: Codable {
     public var sha = ""
-    public var commit = GitCommit()
-}
-
-public struct GitCommit: Codable {
-    public var author = GitAuthor()
-    public var message = ""
-}
-
-public struct GitAuthor: Codable {
-    public var name = ""
-    public var email = ""
-    public var date = ""
+    public var commit = GitCommitData()
 }

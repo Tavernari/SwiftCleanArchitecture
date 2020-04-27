@@ -13,7 +13,7 @@ import Domain
 class ListOfRepositoriesViewModel: ListOfRepositoriesViewModelInterface {
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
-    var repositories = Observable<[GitRepository]>([])
+    var repositories = Observable<[GitRepositoryModel]>([])
     var route = Observable<ListOfRepositoriesViewModelRoute>(.none)
 
     private let fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCase
@@ -37,7 +37,7 @@ extension ListOfRepositoriesViewModel: FetchGitRepositoriesInterfaceAdapter {
         isLoading.value = true
     }
 
-    func done(data: [GitRepository]) {
+    func done(data: [GitRepositoryModel]) {
         isLoading.value = false
         repositories.value = data
     }

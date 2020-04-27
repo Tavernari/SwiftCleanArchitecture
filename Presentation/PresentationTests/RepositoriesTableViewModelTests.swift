@@ -12,16 +12,16 @@ import Domain
 import XCTest
 
 class MockGitRepoDataSource: GitRepoDataSourceProtocol {
-    private let result: GithubResponseData
-    init(result: GithubResponseData) {
+    private let result: GitReposResponseData
+    init(result: GitReposResponseData) {
         self.result = result
     }
 
-    func list(term _: String, completion: @escaping (Result<GithubResponseData, Error>) -> Void) {
+    func list(term _: String, completion: @escaping (Result<GitReposResponseData, Error>) -> Void) {
         completion(.success(result))
     }
 
-    func stats(repo _: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+    func stats(repo _: GitRepositoryModel, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
         completion(.success(.init()))
     }
 }
@@ -30,8 +30,8 @@ class RepositoriesTableViewModelTests: XCTestCase {
     func testListRepository() {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
-        var responseData = GithubResponseData()
-        let data = GithubRepositoryData()
+        var responseData = GitReposResponseData()
+        let data = GitbRepositoryData()
         responseData.items = [data, data]
         let datasource = MockGitRepoDataSource(result: responseData)
         let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: true, multiplier: 4)
@@ -66,14 +66,14 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
 
-        var responseData = GithubResponseData()
+        var responseData = GitReposResponseData()
 
-        var data1 = GithubRepositoryData()
+        var data1 = GitbRepositoryData()
         data1.name = "repository1DataName"
         data1.owner = .init()
         data1.owner.login = "repository1DataAuthor"
 
-        var data2 = GithubRepositoryData()
+        var data2 = GitbRepositoryData()
         data2.name = "repository2DataName"
         data2.owner = .init()
         data2.owner.login = "repository2DataAuthor"

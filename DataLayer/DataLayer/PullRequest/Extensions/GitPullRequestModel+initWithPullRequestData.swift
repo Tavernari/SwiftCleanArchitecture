@@ -8,7 +8,7 @@
 
 import Domain
 
-extension GitPullRequest {
+extension GitPullRequestModel {
     init(_ data: GitPullRequestData) {
         self.init()
         id = data.number

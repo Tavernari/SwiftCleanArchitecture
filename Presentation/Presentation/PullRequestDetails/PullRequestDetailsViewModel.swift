@@ -14,7 +14,7 @@ class PullRequestDetailsViewModel: PullRequestDetailsViewModelInterface {
     var route = Observable<PullRequestDetailsViewModelRoute>(.none)
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
-    var pullRequest = Observable<GitPullRequest?>(nil)
+    var pullRequest = Observable<GitPullRequestModel?>(nil)
 
     private let useCase: FetchPullRequestDetailUseCaseProtocol
 
@@ -22,7 +22,7 @@ class PullRequestDetailsViewModel: PullRequestDetailsViewModelInterface {
         self.useCase = useCase
     }
 
-    func load(pullRequestid: Int, fromRepo repo: GitRepository) {
+    func load(pullRequestid: Int, fromRepo repo: GitRepositoryModel) {
         useCase.execute(id: pullRequestid, fromRepo: repo)
     }
 }
@@ -32,7 +32,7 @@ extension PullRequestDetailsViewModel: FetchPullRequestDetailInterfaceAdapter {
         isLoading.value = true
     }
 
-    func done(data: GitPullRequest) {
+    func done(data: GitPullRequestModel) {
         pullRequest.value = data
         isLoading.value = false
     }

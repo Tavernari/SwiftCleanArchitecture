@@ -11,19 +11,19 @@ import Foundation
 
 class GithubRepositoryDataReponseFake {
     static func repositoriesData() -> Data {
-        var githubResponseData = GithubResponseData()
+        var githubResponseData = GitReposResponseData()
 
-        var owner = GithubRepositoryOwner()
+        var owner = GitRepositoryOwnerData()
         owner.login = "Tavernari"
         owner.avatar_url = "https://picsum.photos/id/15/200/300"
 
-        var githubRepositoryData1 = GithubRepositoryData()
+        var githubRepositoryData1 = GitbRepositoryData()
         githubRepositoryData1.name = "IOSArchitecture"
         githubRepositoryData1.owner = owner
         githubRepositoryData1.description = "Studying about Architecture for iOS Projects"
         githubResponseData.items.append(githubRepositoryData1)
 
-        var githubRepositoryData2 = GithubRepositoryData()
+        var githubRepositoryData2 = GitbRepositoryData()
         githubRepositoryData2.name = "ReSwiftMiddleware"
         githubRepositoryData2.owner = owner
         githubRepositoryData2.forks_count = 1

@@ -14,19 +14,25 @@ public class GitPullRequestRepository: GitPullRequestRepositoryProtocol {
         self.dataSource = dataSource
     }
 
-    public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void) {
+    public func list(repo: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestModel], Error>) -> Void) {
         dataSource.list(repo: repo) { result in
-            result.handle(decodeSuccess: { $0.map(GitPullRequest.init) }, completion: completion)
+            result.handle(decodeSuccess: { $0.map(GitPullRequestModel.init) }, completion: completion)
         }
     }
 
     public func get(
         id: Int,
-        fromRepo repo: GitRepository,
-        completion: @escaping (Result<GitPullRequest, Error>) -> Void
+        fromRepo repo: GitRepositoryModel,
+        completion: @escaping (Result<GitPullRequestModel, Error>) -> Void
     ) {
         dataSource.get(id: id, fromRepo: repo) { result in
-            result.handle(decodeSuccess: { GitPullRequest($0) }, completion: completion)
+            result.handle(decodeSuccess: { GitPullRequestModel($0) }, completion: completion)
+        }
+    }
+
+    public func commits(repoName: String, owner: String, completion: @escaping (Result<[Domain.GitCommitModel], Error>) -> Void) {
+        dataSource.commits(repoName: repoName, prOwner: owner) { result in
+            result.handle(decodeSuccess: { $0.map(GitCommitModel.init) }, completion: completion)
         }
     }
 }

@@ -21,7 +21,7 @@ class ListOfRepositoriesViewController: UIViewController {
     var viewModel: ListOfRepositoriesViewModel!
 
     @IBOutlet private var tableView: UITableView!
-    private var dataSource: [GitRepository] { viewModel.repositories.value }
+    private var dataSource: [GitRepositoryModel] { viewModel.repositories.value }
 
     fileprivate func configTableView() {
         tableView.register(R.nib.repositoriesTableViewCell)
@@ -31,7 +31,7 @@ class ListOfRepositoriesViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    fileprivate func populateCell(index _: Int, repository: GitRepository, cell: RepositoriesTableViewCell) {
+    fileprivate func populateCell(index _: Int, repository: GitRepositoryModel, cell: RepositoriesTableViewCell) {
         cell.repositoryAuthor = repository.author
         cell.repositoryName = repository.name
         cell.repositoryDescription = repository.description

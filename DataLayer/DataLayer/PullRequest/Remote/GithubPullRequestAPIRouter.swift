@@ -11,6 +11,7 @@ import Alamofire
 enum GithubAPIRouter: URLRequestConvertible {
     case listPullRequest(owner: String, repoName: String)
     case getPullRequest(owner: String, repoName: String, pullNumber: Int)
+    case commits(owner: String, repoName: String)
 
     private var path: String {
         switch self {
@@ -18,6 +19,8 @@ enum GithubAPIRouter: URLRequestConvertible {
             return "/repos/\(owner)/\(repoName)/pulls"
         case let .getPullRequest(owner, repoName, pullNumber):
             return "/repos/\(owner)/\(repoName)/pulls/\(pullNumber)"
+        case let .commits(owner, repoName):
+            return "/repos/\(owner)/\(repoName)/commits"
         }
     }
 

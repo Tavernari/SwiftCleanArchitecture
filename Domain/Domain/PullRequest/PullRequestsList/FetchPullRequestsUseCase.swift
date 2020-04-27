@@ -12,7 +12,7 @@ import Foundation
 
 public protocol FetchPullRequestsUseCaseProtocol {
     var delegateInterfaceAdapter: FetchPullRequestsInterfaceAdapter? { get set }
-    func execute(repo: GitRepository)
+    func execute(repo: GitRepositoryModel)
 }
 
 public enum FetchPullRequestsUseCaseError: Error {
@@ -21,7 +21,7 @@ public enum FetchPullRequestsUseCaseError: Error {
 
 public protocol FetchPullRequestsInterfaceAdapter {
     func doing()
-    func done(data: [GitPullRequest])
+    func done(data: [GitPullRequestModel])
     func failure(error: Error)
 }
 
@@ -34,7 +34,7 @@ public class FetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol {
         self.repository = repository
     }
 
-    public func execute(repo: GitRepository) {
+    public func execute(repo: GitRepositoryModel) {
         delegateInterfaceAdapter?.doing()
         repository.list(repo: repo) { result in
             do {

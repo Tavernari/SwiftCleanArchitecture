@@ -10,13 +10,13 @@ import Domain
 import UIKit
 
 class PullRequestsListViewModel: ObservableObject {
-    @Published var repository: GitRepository
+    @Published var repository: GitRepositoryModel
     private var useCase: FetchPullRequestsUseCaseProtocol
 
     @Published var pullRequests: [GHPullRequestsViewModel] = []
     @Published var error: String? = nil
 
-    init(useCase: FetchPullRequestsUseCaseProtocol, gitRepository: GitRepository) {
+    init(useCase: FetchPullRequestsUseCaseProtocol, gitRepository: GitRepositoryModel) {
         repository = gitRepository
         self.useCase = useCase
         self.useCase.delegateInterfaceAdapter = self
@@ -32,7 +32,7 @@ extension PullRequestsListViewModel: FetchPullRequestsInterfaceAdapter {
         //
     }
 
-    func done(data: [GitPullRequest]) {
+    func done(data: [GitPullRequestModel]) {
         pullRequests = data.map(GHPullRequestsViewModel.init)
     }
 
@@ -42,9 +42,9 @@ extension PullRequestsListViewModel: FetchPullRequestsInterfaceAdapter {
 }
 
 class GHPullRequestsViewModel: Identifiable {
-    var ghPullRequest: GitPullRequest
+    var ghPullRequest: GitPullRequestModel
 
-    init(ghPullRequest: GitPullRequest) {
+    init(ghPullRequest: GitPullRequestModel) {
         self.ghPullRequest = ghPullRequest
     }
 

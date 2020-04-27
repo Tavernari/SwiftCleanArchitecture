@@ -52,6 +52,6 @@ struct PullRequestsListView: View {
 
 struct PullRequestsListView_Previews: PreviewProvider {
     static var previews: some View {
-        PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: GitRepository()), repo: GHRepositoryViewModel(ghRepository: GitRepository()))
+        PullRequestsListView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestsUseCase(), gitRepository: GitRepositoryModel()), repo: GHRepositoryViewModel(ghRepository: GitRepositoryModel()))
     }
 }

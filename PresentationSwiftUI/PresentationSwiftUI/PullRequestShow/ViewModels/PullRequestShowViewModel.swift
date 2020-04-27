@@ -11,9 +11,9 @@ import Foundation
 
 class GHCommitsViewModel: Identifiable {
     let id = UUID()
-    var ghCommit: GitCommit
+    var ghCommit: GitCommitModel
 
-    init(ghCommit: GitCommit) {
+    init(ghCommit: GitCommitModel) {
         self.ghCommit = ghCommit
     }
 
@@ -31,9 +31,9 @@ class GHCommitsViewModel: Identifiable {
 }
 
 class GHPullRequestShowUIModel: Identifiable {
-    var ghPullRequest: GitPullRequest
+    var ghPullRequest: GitPullRequestModel
 
-    init(ghPullRequest: GitPullRequest) {
+    init(ghPullRequest: GitPullRequestModel) {
         self.ghPullRequest = ghPullRequest
     }
 
@@ -82,13 +82,13 @@ class PullRequestShowViewModel: ObservableObject {
     private var prUseCase: FetchPullRequestDetailUseCaseProtocol
     private var commitsUseCase: FetchPullRequestCommitsUseCaseProtocol
 
-    var repo: GitRepository
+    var repo: GitRepositoryModel
     @Published var prName: String? = ""
     @Published var pullRequest: GHPullRequestShowUIModel? = nil
     @Published var commits: [GHCommitsViewModel] = []
     @Published var error: String? = nil
 
-    init(prUseCase: FetchPullRequestDetailUseCaseProtocol, commitsUseCase: FetchPullRequestCommitsUseCaseProtocol, repo: GitRepository, prID: Int, prName: String, repoName: String, ownerName: String) {
+    init(prUseCase: FetchPullRequestDetailUseCaseProtocol, commitsUseCase: FetchPullRequestCommitsUseCaseProtocol, repo: GitRepositoryModel, prID: Int, prName: String, repoName: String, ownerName: String) {
         self.prUseCase = prUseCase
         self.commitsUseCase = commitsUseCase
 
@@ -108,11 +108,11 @@ extension PullRequestShowViewModel: FetchPullRequestDetailInterfaceAdapter, Fetc
         //
     }
 
-    func done(data: GitPullRequest) {
+    func done(data: GitPullRequestModel) {
         pullRequest = .init(ghPullRequest: data)
     }
 
-    func done(data: [GitCommit]) {
+    func done(data: [GitCommitModel]) {
         commits = data.map(GHCommitsViewModel.init)
     }
 

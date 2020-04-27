@@ -12,7 +12,7 @@ import Domain
 import UIKit
 
 class ListOfPullRequestsViewController: UIViewController {
-    final class func initWith(withViewModel viewModel: ListOfPullRequestsViewModel, andRepo repo: GitRepository) -> ListOfPullRequestsViewController {
+    final class func initWith(withViewModel viewModel: ListOfPullRequestsViewModel, andRepo repo: GitRepositoryModel) -> ListOfPullRequestsViewController {
         let vc = ListOfPullRequestsViewController()
         vc.viewModel = viewModel
         vc.repo = repo
@@ -20,9 +20,9 @@ class ListOfPullRequestsViewController: UIViewController {
     }
 
     private(set) var viewModel: ListOfPullRequestsViewModel!
-    private(set) var repo: GitRepository!
+    private(set) var repo: GitRepositoryModel!
 
-    private var dataSource: [GitPullRequest] = []
+    private var dataSource: [GitPullRequestModel] = []
 
     @IBOutlet private var tableView: UITableView!
 
@@ -34,7 +34,7 @@ class ListOfPullRequestsViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    fileprivate func populateCell(index _: Int, pullRequests: GitPullRequest, cell: GitPullRequestsTableViewCell) {
+    fileprivate func populateCell(index _: Int, pullRequests: GitPullRequestModel, cell: GitPullRequestsTableViewCell) {
         cell.pullRequestAuthor = pullRequests.author
         cell.pullRequestImage = pullRequests.image
         cell.pullRequestTitle = pullRequests.title
@@ -64,7 +64,7 @@ class ListOfPullRequestsViewController: UIViewController {
         }
     }
 
-    fileprivate func setDataSource(_ data: [GitPullRequest]) {
+    fileprivate func setDataSource(_ data: [GitPullRequestModel]) {
         dataSource = data
         tableView.reloadData()
     }

@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol GitPullRequestRepositoryProtocol {
-    func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequest], Error>) -> Void)
-    func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequest, Error>) -> Void)
+    func list(repo: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestModel], Error>) -> Void)
+    func commits(repoName: String, owner: String, completion: @escaping (Result<[GitCommitModel], Error>) -> Void)
+    func get(id: Int, fromRepo repo: GitRepositoryModel, completion: @escaping (Result<GitPullRequestModel, Error>) -> Void)
 }

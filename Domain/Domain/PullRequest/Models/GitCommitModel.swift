@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GitCommit: Equatable {
+public struct GitCommitModel: Equatable {
     public var sha = ""
     public var name = ""
     public var email = ""

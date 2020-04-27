@@ -1,4 +1,4 @@
- //
+//
 //  PullRequestDetailsViewModelInterface.swift
 //  Presentation
 //
@@ -14,7 +14,7 @@ protocol PullRequestDetailsViewModelInterface {
     var route: Observable<PullRequestDetailsViewModelRoute> { get }
     var isLoading: Observable<Bool> { get }
     var failMessage: Observable<String?> { get }
-    var pullRequest: Observable<GitPullRequest?> { get }
+    var pullRequest: Observable<GitPullRequestModel?> { get }
 
-    func load(pullRequestid: Int, fromRepo repo: GitRepository)
+    func load(pullRequestid: Int, fromRepo repo: GitRepositoryModel)
 }

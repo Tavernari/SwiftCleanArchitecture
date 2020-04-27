@@ -35,6 +35,6 @@ struct RepositoriesListItemView: View {
 
 struct RepositoriesListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoriesListItemView(repo: GHRepositoryViewModel(ghRepository: GitRepository()))
+        RepositoriesListItemView(repo: GHRepositoryViewModel(ghRepository: GitRepositoryModel()))
     }
 }

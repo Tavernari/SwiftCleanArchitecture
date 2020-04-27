@@ -29,7 +29,7 @@ public protocol FetchGitRepositoriesUseCaseProtocol {
 // sourcery: AutoMockable
 public protocol FetchGitRepositoriesInterfaceAdapter {
     func doing()
-    func done(data: [GitRepository])
+    func done(data: [GitRepositoryModel])
     func failure(withError error: FetchGitRepositoriesError)
 }
 
@@ -46,7 +46,7 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
         self.reliabilityCalculatorUseCase = reliabilityCalculatorUseCase
     }
 
-    private func fetchRepositories(term: String, completion: @escaping ([GitRepository]) -> Void) {
+    private func fetchRepositories(term: String, completion: @escaping ([GitRepositoryModel]) -> Void) {
         gitRepoRepository.list(term: term) { result in
             do {
                 let repositories = try result.handle()
@@ -59,7 +59,7 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
         }
     }
 
-    private func fetchReliabilityConfig(completion: @escaping (GitRepoReliabilityMultiplier) -> Void) {
+    private func fetchReliabilityConfig(completion: @escaping (GitRepoReliabilityMultiplierModel) -> Void) {
         gitRepoRepository.getRepoReliabilityMultiplier { result in
             do {
                 let repoReliabilityMultiplierModel = try result.handle()
@@ -81,7 +81,7 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
         delegateInterfaceAdapter?.doing()
         fetchRepositories(term: term) { repositories in
             self.fetchReliabilityConfig { repoReliabilityMultiplierModel in
-                let repoResult = repositories.map { repo -> GitRepository in
+                let repoResult = repositories.map { repo -> GitRepositoryModel in
                     var tempRepo = repo
                     let multiplier = repoReliabilityMultiplierModel.multiplier
                     let enable = repoReliabilityMultiplierModel.enable

@@ -11,11 +11,11 @@
 import Domain
 
 protocol ListOfPullRequestsViewModelInterface {
-    var pullRequests: Observable<[GitPullRequest]> { get }
+    var pullRequests: Observable<[GitPullRequestModel]> { get }
     var route: Observable<ListOfPullRequestsViewModelRoute> { get }
     var isLoading: Observable<Bool> { get }
     var failMessage: Observable<String?> { get }
 
     func select(index: Int)
-    func load(repo: GitRepository)
+    func load(repo: GitRepositoryModel)
 }

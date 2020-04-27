@@ -11,13 +11,13 @@ import Domain
 public class GitRepoDataSource: GitRepoDataSourceProtocol {
     public init() {}
 
-    public func list(term: String, completion: @escaping (Result<GithubResponseData, Error>) -> Void) {
+    public func list(term: String, completion: @escaping (Result<GitReposResponseData, Error>) -> Void) {
         GithubRepoAPIRouter.search(term: term)
             .request(decodeError: { GithubAPIError.make(data: $0) })
             .processResponse(completion: completion)
     }
 
-    public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+    public func stats(repo: GitRepositoryModel, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
         var gitRepoStatsModel = GitRepoStatsModel()
         gitRepoStatsModel.name = repo.name
         gitRepoStatsModel.closedIssues = Int.random(in: 0 ... 1000)

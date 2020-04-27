@@ -18,11 +18,11 @@ class ListGitRepositoryUseCaseTests: XCTestCase {
         let configRemoteRepository = ConfigRepositoryProtocolMock()
 
         repository.perform(.list(term: .any, completion: .any, perform: { _, completion in
-            completion(.success([GitRepository()]))
+            completion(.success([GitRepositoryModel()]))
         }))
 
         repository.perform(.getRepoReliabilityMultiplier(completion: .any, perform: { completion in
-            var gitRepoReliabilityMultiplier = GitRepoReliabilityMultiplier()
+            var gitRepoReliabilityMultiplier = GitRepoReliabilityMultiplierModel()
             gitRepoReliabilityMultiplier.enable = true
             gitRepoReliabilityMultiplier.multiplier = 1
             completion(.success(gitRepoReliabilityMultiplier))

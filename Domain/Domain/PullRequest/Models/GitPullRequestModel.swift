@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GitPullRequest: Equatable {
+public struct GitPullRequestModel: Equatable {
     public var id = 0
     public var author = ""
     public var title = ""

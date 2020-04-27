@@ -70,6 +70,6 @@ struct PullRequestShowView: View {
 
 struct PullRequestShowView_Previews: PreviewProvider {
     static var previews: some View {
-        PullRequestShowView(viewModel: .init(prUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), commitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepository(), prID: 12, prName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GHRepositoryViewModel(ghRepository: GitRepository()))
+        PullRequestShowView(viewModel: .init(prUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), commitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepositoryModel(), prID: 12, prName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GHRepositoryViewModel(ghRepository: GitRepositoryModel()))
     }
 }

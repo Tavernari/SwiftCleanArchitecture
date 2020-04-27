@@ -26,7 +26,7 @@ class PullRequestDetailsViewController: UIViewController {
     @IBOutlet private var deletionsLabel: UILabel!
     @IBOutlet private var changedFilesLabel: UILabel!
 
-    final class func initWith(viewModel: PullRequestDetailsViewModelInterface, id: Int, repo: GitRepository) -> PullRequestDetailsViewController {
+    final class func initWith(viewModel: PullRequestDetailsViewModelInterface, id: Int, repo: GitRepositoryModel) -> PullRequestDetailsViewController {
         let vc = PullRequestDetailsViewController()
         vc.viewModel = viewModel
         vc.id = id
@@ -36,9 +36,9 @@ class PullRequestDetailsViewController: UIViewController {
 
     private(set) var viewModel: PullRequestDetailsViewModelInterface!
     private(set) var id: Int!
-    private(set) var repo: GitRepository!
+    private(set) var repo: GitRepositoryModel!
 
-    fileprivate func populateView(data: GitPullRequest?) {
+    fileprivate func populateView(data: GitPullRequestModel?) {
         guard let data = data else {
             return
         }

@@ -27,7 +27,7 @@ extension RepositoriesListViewModel: FetchGitRepositoriesInterfaceAdapter {
         //
     }
 
-    func done(data: [GitRepository]) {
+    func done(data: [GitRepositoryModel]) {
         items = data.map(GHRepositoryViewModel.init)
     }
 
@@ -38,9 +38,9 @@ extension RepositoriesListViewModel: FetchGitRepositoriesInterfaceAdapter {
 
 class GHRepositoryViewModel: Identifiable, ObservableObject {
     let id = UUID()
-    var ghRepository: GitRepository
+    var ghRepository: GitRepositoryModel
 
-    init(ghRepository: GitRepository) {
+    init(ghRepository: GitRepositoryModel) {
         self.ghRepository = ghRepository
     }
 

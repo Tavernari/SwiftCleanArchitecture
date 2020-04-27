@@ -11,7 +11,7 @@ import Domain
 public class GitPullRequestDataSource: GitPullRequestDataSourceProtocol {
     public init() {}
 
-    public func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void) {
+    public func list(repo: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void) {
         GithubAPIRouter
             .listPullRequest(owner: repo.author, repoName: repo.name)
             .request(decodeError: { GithubAPIError.make(data: $0) })
@@ -20,12 +20,19 @@ public class GitPullRequestDataSource: GitPullRequestDataSourceProtocol {
 
     public func get(
         id: Int,
-        fromRepo repo: GitRepository,
+        fromRepo repo: GitRepositoryModel,
         completion: @escaping (Result<GitPullRequestDetailData, Error>) -> Void
     ) {
         GithubAPIRouter
             .getPullRequest(owner: repo.author, repoName: repo.name, pullNumber: id)
             .request(decodeError: { GithubAPIError.make(data: $0) })
+            .processResponse(completion: completion)
+    }
+
+    public func commits(repoName: String, prOwner: String, completion: @escaping (Result<[GitPullRequestCommitsData], Error>) -> Void) {
+        GithubAPIRouter
+            .commits(owner: prOwner, repoName: repoName)
+            .request()
             .processResponse(completion: completion)
     }
 }

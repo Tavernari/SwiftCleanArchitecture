@@ -64,7 +64,7 @@ class MainCoordinator: NSObject, Coordinator {
         }
     }
 
-    func showPullRequests(repo: GitRepository) {
+    func showPullRequests(repo: GitRepositoryModel) {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSourceProtocol.self)!
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
@@ -81,7 +81,7 @@ class MainCoordinator: NSObject, Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    func showPullRequestDetail(id: Int, repo: GitRepository) {
+    func showPullRequestDetail(id: Int, repo: GitRepositoryModel) {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSourceProtocol.self)!
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestDetailUseCase(repository: repository)

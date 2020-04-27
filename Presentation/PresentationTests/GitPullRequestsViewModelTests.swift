@@ -37,7 +37,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
             }
         }
 
-        viewModel.load(repo: GitRepository())
+        viewModel.load(repo: GitRepositoryModel())
 
         wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
@@ -45,7 +45,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
     func testSelectPullRequest() {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
-        let repo = GitRepository()
+        let repo = GitRepositoryModel()
         var data1 = GitPullRequestData()
         data1.user = .init()
         data1.user.login = "data1"

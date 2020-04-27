@@ -9,5 +9,5 @@
 import Domain
 
 public protocol GitRepoRemoteConfigDataSourceProtocol {
-    func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void)
+    func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void)
 }

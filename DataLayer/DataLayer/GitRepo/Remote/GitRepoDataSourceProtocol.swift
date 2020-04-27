@@ -10,6 +10,6 @@ import Domain
 
 // sourcery: AutoMockable
 public protocol GitRepoDataSourceProtocol {
-    func list(term: String, completion: @escaping (Result<GithubResponseData, Error>) -> Void)
-    func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void)
+    func list(term: String, completion: @escaping (Result<GitReposResponseData, Error>) -> Void)
+    func stats(repo: GitRepositoryModel, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void)
 }

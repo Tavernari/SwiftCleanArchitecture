@@ -12,7 +12,7 @@ import Domain
 
 class ListOfPullRequestsViewModel: ListOfPullRequestsViewModelInterface {
     var route = Observable<ListOfPullRequestsViewModelRoute>(.none)
-    var pullRequests = Observable<[GitPullRequest]>([])
+    var pullRequests = Observable<[GitPullRequestModel]>([])
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
 
@@ -21,9 +21,9 @@ class ListOfPullRequestsViewModel: ListOfPullRequestsViewModelInterface {
         self.listPullRequestsUseCase = listPullRequestsUseCase
     }
 
-    private var gitRepository: GitRepository!
+    private var gitRepository: GitRepositoryModel!
 
-    func load(repo: GitRepository) {
+    func load(repo: GitRepositoryModel) {
         gitRepository = repo
         listPullRequestsUseCase.execute(repo: repo)
     }
@@ -39,7 +39,7 @@ extension ListOfPullRequestsViewModel: FetchPullRequestsInterfaceAdapter {
         isLoading.value = true
     }
 
-    func done(data: [GitPullRequest]) {
+    func done(data: [GitPullRequestModel]) {
         pullRequests.value = data
         isLoading.value = false
     }

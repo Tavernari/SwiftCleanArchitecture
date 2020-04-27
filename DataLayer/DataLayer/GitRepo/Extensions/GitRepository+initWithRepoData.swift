@@ -8,8 +8,8 @@
 
 import Domain
 
-extension GitRepository {
-    init(data: GithubRepositoryData) {
+extension GitRepositoryModel {
+    init(data: GitbRepositoryData) {
         self.init()
         author = data.owner.login
         description = data.description ?? ""
@@ -20,7 +20,7 @@ extension GitRepository {
         starCount = data.stargazers_count
     }
 
-    static func retornaNovo() -> GitRepository {
-        return GitRepository()
+    static func retornaNovo() -> GitRepositoryModel {
+        return GitRepositoryModel()
     }
 }

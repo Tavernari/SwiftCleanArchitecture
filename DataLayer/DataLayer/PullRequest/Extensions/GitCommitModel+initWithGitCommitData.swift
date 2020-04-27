@@ -1,5 +1,5 @@
 //
-//  GitPullRequestCommits+initWithCommitsData.swift
+//  GitCommitModel+initWithGitCommitData.swift
 //  DataLayer
 //
 //  Created by Lucas Silveira on 23/04/20.
@@ -8,7 +8,7 @@
 
 import Domain
 
-extension GitCommit {
+extension GitCommitModel {
     init(data: GitPullRequestCommitsData) {
         self.init()
         sha = data.sha

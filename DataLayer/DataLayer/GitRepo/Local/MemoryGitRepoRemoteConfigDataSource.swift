@@ -9,14 +9,14 @@
 import Domain
 
 public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
-    var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplier()
+    var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplierModel()
     public init(enable: Bool, multiplier: Double) {
         gitRepoReliabilityMultiplierModel.enable = enable
         gitRepoReliabilityMultiplierModel.multiplier = multiplier
     }
 
     public func gitRepoReliabilityMultiplier(
-        completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void
+        completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void
     ) {
         completion(.success(gitRepoReliabilityMultiplierModel))
     }

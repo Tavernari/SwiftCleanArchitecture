@@ -19,22 +19,22 @@ public protocol FetchPullRequestCommitsUseCaseProtocol {
 
 public protocol FetchPullRequestCommitsInterfaceAdapter {
     func doing()
-    func done(data: [GitCommit])
+    func done(data: [GitCommitModel])
     func failure(error: Error)
 }
 
 public class FetchPullRequestCommitsUseCase: FetchPullRequestCommitsUseCaseProtocol {
     public var delegateInterfaceAdapter: FetchPullRequestCommitsInterfaceAdapter?
 
-    private let repository: GitPullRequestCommitsRepositoryProtocol
+    private let repository: GitPullRequestRepositoryProtocol
 
-    public init(respository: GitPullRequestCommitsRepositoryProtocol) {
+    public init(respository: GitPullRequestRepositoryProtocol) {
         repository = respository
     }
 
     public func execute(repoName: String, ownerName: String) {
         delegateInterfaceAdapter?.doing()
-        repository.list(repoName: repoName, prOwner: ownerName) { result in
+        repository.commits(repoName: repoName, owner: ownerName) { result in
             do {
                 let commits = try result.handle()
                 self.delegateInterfaceAdapter?.done(data: commits)

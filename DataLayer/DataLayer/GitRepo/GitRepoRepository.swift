@@ -17,10 +17,10 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         self.remoteConfigDataSource = remoteConfigDataSource
     }
 
-    public func list(term: String, completion: @escaping (Result<[GitRepository], Error>) -> Void) {
+    public func list(term: String, completion: @escaping (Result<[GitRepositoryModel], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
 
-        var gitRepoRepositoriesResult: [GitRepository] = []
+        var gitRepoRepositoriesResult: [GitRepositoryModel] = []
         var error: Error?
 
         dispatchGroup.enter()
@@ -28,7 +28,7 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
             switch result {
             case let .success(data):
                 data.items.forEach { repo in
-                    var gitRepo = GitRepository(data: repo)
+                    var gitRepo = GitRepositoryModel(data: repo)
                     dispatchGroup.enter()
                     self.gitRepoDataSource.stats(repo: gitRepo) { result in
                         switch result {
@@ -61,12 +61,12 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         }
     }
 
-    public func stats(repo: GitRepository, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
+    public func stats(repo: GitRepositoryModel, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
         gitRepoDataSource.stats(repo: repo, completion: completion)
     }
 
     public func getRepoReliabilityMultiplier(
-        completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>
+        completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>
         ) -> Void) {
         remoteConfigDataSource.gitRepoReliabilityMultiplier(completion: completion)
     }

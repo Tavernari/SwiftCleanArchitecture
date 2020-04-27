@@ -12,6 +12,6 @@ import Domain
 
 enum ListOfRepositoriesViewModelRoute: Equatable {
     case none
-    case showPullRequests(repo: GitRepository)
+    case showPullRequests(repo: GitRepositoryModel)
     case showError(errorMessage: String)
 }

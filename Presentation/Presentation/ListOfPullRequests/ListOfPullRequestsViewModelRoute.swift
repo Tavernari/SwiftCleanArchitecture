@@ -12,5 +12,5 @@ import Domain
 
 enum ListOfPullRequestsViewModelRoute: Equatable {
     case none
-    case showPullRequestDetail(id: Int, repo: GitRepository)
+    case showPullRequestDetail(id: Int, repo: GitRepositoryModel)
 }
