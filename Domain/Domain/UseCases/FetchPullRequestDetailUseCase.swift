@@ -21,6 +21,7 @@ public enum FetchPullRequestDetailUseCaseError: Error {
 }
 
 public protocol FetchPullRequestDetailUseCaseProtocol {
+    var delegateInterfaceAdapter: FetchPullRequestDetailInterfaceAdapter? { get set }
     func execute(id: Int, fromRepo repo: GitRepository)
 }
 

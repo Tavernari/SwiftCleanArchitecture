@@ -25,6 +25,21 @@ struct PullRequestShowView: View {
                 .padding(.top, 20)
                 .padding(.leading, 22)
             }
+
+            VStack(alignment: .leading, spacing: 15) {
+                Text(viewModel.pullRequest!.title).foregroundColor(.black).font(.title)
+                Text(viewModel.pullRequest!.description)
+                Text("comments: \(viewModel.pullRequest!.comments)")
+                Text("additions: \(viewModel.pullRequest!.additions)")
+                Text("commits: \(viewModel.pullRequest!.commits)")
+                Text("deletions: \(viewModel.pullRequest!.deletions)")
+                Text("data: \(viewModel.pullRequest!.createdAt)")
+            }
+            .padding(.top, 20)
+            .padding(.horizontal, 22)
+            .font(.caption)
+            .foregroundColor(.gray)
+
             List {
                 ForEach(viewModel.commits) { commit in
                     VStack(alignment: .leading, spacing: 10) {
@@ -55,6 +70,6 @@ struct PullRequestShowView: View {
 
 struct PullRequestShowView_Previews: PreviewProvider {
     static var previews: some View {
-        PullRequestShowView(viewModel: .init(useCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), prName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GHRepositoryViewModel(ghRepository: GitRepository()))
+        PullRequestShowView(viewModel: .init(prUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), commitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepository(), prID: 12, prName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GHRepositoryViewModel(ghRepository: GitRepository()))
     }
 }

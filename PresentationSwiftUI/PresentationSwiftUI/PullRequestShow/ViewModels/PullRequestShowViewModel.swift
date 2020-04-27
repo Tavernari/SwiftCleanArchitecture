@@ -30,25 +30,86 @@ class GHCommitsViewModel: Identifiable {
     }
 }
 
-class PullRequestShowViewModel: ObservableObject {
-    private var useCase: FetchPullRequestCommitsUseCaseProtocol
+class GHPullRequestShowUIModel: Identifiable {
+    var ghPullRequest: GitPullRequest
 
-    @Published var prName: String? = ""
-    @Published var commits: [GHCommitsViewModel] = []
-    @Published var error: String? = nil
+    init(ghPullRequest: GitPullRequest) {
+        self.ghPullRequest = ghPullRequest
+    }
 
-    init(useCase: FetchPullRequestCommitsUseCaseProtocol, prName: String, repoName: String, ownerName: String) {
-        self.useCase = useCase
-        self.useCase.delegateInterfaceAdapter = self
+    var number: Int {
+        return ghPullRequest.id
+    }
 
-        self.prName = prName
-        self.useCase.execute(repoName: repoName, ownerName: ownerName)
+    var title: String {
+        return ghPullRequest.title
+    }
+
+    var description: String {
+        return ghPullRequest.description
+    }
+
+    var comments: Int {
+        return ghPullRequest.commitsCount
+    }
+
+    var commits: Int {
+        return ghPullRequest.commitsCount
+    }
+
+    var additions: Int {
+        return ghPullRequest.additionsCount
+    }
+
+    var deletions: Int {
+        return ghPullRequest.deletionsCount
+    }
+
+    var createdAt: String {
+        return ghPullRequest.createdAt!.ghDateFormat()
+    }
+
+    var updatedAt: String {
+        return ghPullRequest.updatedAt!.ghDateFormat()
+    }
+
+    var avatarURL: String {
+        return ghPullRequest.image
     }
 }
 
-extension PullRequestShowViewModel: FetchPullRequestCommitsInterfaceAdapter {
+class PullRequestShowViewModel: ObservableObject {
+    private var prUseCase: FetchPullRequestDetailUseCaseProtocol
+    private var commitsUseCase: FetchPullRequestCommitsUseCaseProtocol
+
+    var repo: GitRepository
+    @Published var prName: String? = ""
+    @Published var pullRequest: GHPullRequestShowUIModel? = nil
+    @Published var commits: [GHCommitsViewModel] = []
+    @Published var error: String? = nil
+
+    init(prUseCase: FetchPullRequestDetailUseCaseProtocol, commitsUseCase: FetchPullRequestCommitsUseCaseProtocol, repo: GitRepository, prID: Int, prName: String, repoName: String, ownerName: String) {
+        self.prUseCase = prUseCase
+        self.commitsUseCase = commitsUseCase
+
+        self.repo = repo
+        self.prName = prName
+
+        self.prUseCase.delegateInterfaceAdapter = self
+        self.commitsUseCase.delegateInterfaceAdapter = self
+
+        self.prUseCase.execute(id: prID, fromRepo: repo)
+        self.commitsUseCase.execute(repoName: repoName, ownerName: ownerName)
+    }
+}
+
+extension PullRequestShowViewModel: FetchPullRequestDetailInterfaceAdapter, FetchPullRequestCommitsInterfaceAdapter {
     func doing() {
         //
+    }
+
+    func done(data: GitPullRequest) {
+        pullRequest = .init(ghPullRequest: data)
     }
 
     func done(data: [GitCommit]) {
