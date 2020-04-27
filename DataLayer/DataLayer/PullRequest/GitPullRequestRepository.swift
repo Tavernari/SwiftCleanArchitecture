@@ -6,7 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Domain
+import DomainLayer
 
 public class GitPullRequestRepository: GitPullRequestRepositoryProtocol {
     private let dataSource: GitPullRequestDataSourceProtocol
@@ -30,7 +30,7 @@ public class GitPullRequestRepository: GitPullRequestRepositoryProtocol {
         }
     }
 
-    public func commits(repoName: String, owner: String, completion: @escaping (Result<[Domain.GitCommitModel], Error>) -> Void) {
+    public func commits(repoName: String, owner: String, completion: @escaping (Result<[GitCommitModel], Error>) -> Void) {
         dataSource.commits(repoName: repoName, prOwner: owner) { result in
             result.handle(decodeSuccess: { $0.map(GitCommitModel.init) }, completion: completion)
         }

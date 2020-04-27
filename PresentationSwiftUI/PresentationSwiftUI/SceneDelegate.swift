@@ -7,7 +7,7 @@
 //
 
 import DataLayer
-import Domain
+import DomainLayer
 import SwiftUI
 import UIKit
 

@@ -7,7 +7,7 @@
 //
 
 // sourcery: AutoMockable
-import Domain
+import DomainLayer
 
 public protocol GitPullRequestDataSourceProtocol {
     func list(repo: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void)

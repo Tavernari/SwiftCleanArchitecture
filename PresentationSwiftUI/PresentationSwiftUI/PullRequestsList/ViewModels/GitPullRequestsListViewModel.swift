@@ -6,7 +6,7 @@
 //  Copyright © 2020 blu. All rights reserved.
 //
 
-import Domain
+import DomainLayer
 import UIKit
 
 class GitPullRequestsListViewModel: ObservableObject {

@@ -7,7 +7,7 @@
 //
 
 import Alamofire
-import Domain
+import DomainLayer
 
 public class GitRepoRepository: GitRepoRepositoryProtocol {
     private let gitRepoDataSource: GitRepoDataSourceProtocol

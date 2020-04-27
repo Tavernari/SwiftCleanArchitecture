@@ -6,7 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Domain
+import DomainLayer
 
 public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
     var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplierModel()

@@ -18,9 +18,9 @@
 		A163E59F24153B3700FA0BA2 /* GitRepoDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E59E24153B3700FA0BA2 /* GitRepoDataSourceProtocol.swift */; };
 		A163E5A124153B9400FA0BA2 /* GitRepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5A024153B9400FA0BA2 /* GitRepoDataSource.swift */; };
 		A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C9024133263004CE285 /* GitRepoRepository.swift */; };
-		A1672C932413327C004CE285 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1672C922413327C004CE285 /* Domain.framework */; };
-		A1672C942413327C004CE285 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1672C922413327C004CE285 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
+		A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; };
+		A18D4DDE245792C300783A65 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1B3B197244F46B400E8F1A4 /* Result+handleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */; };
 		A1B3B199244F46FF00E8F1A4 /* DataRequest+processResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3B198244F46FF00E8F1A4 /* DataRequest+processResponse.swift */; };
 		A1B79AFA243E756500DD46B4 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79AF9243E756500DD46B4 /* String+ToDate.swift */; };
@@ -53,13 +53,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A1672C952413327C004CE285 /* Embed Frameworks */ = {
+		A18D4DDF245792C300783A65 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A1672C942413327C004CE285 /* Domain.framework in Embed Frameworks */,
+				A18D4DDE245792C300783A65 /* DomainLayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +89,7 @@
 		A1672C9024133263004CE285 /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
 		A1672C922413327C004CE285 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
+		A18D4DDC245792C300783A65 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handleResult.swift"; sourceTree = "<group>"; };
 		A1B3B198244F46FF00E8F1A4 /* DataRequest+processResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+processResponse.swift"; sourceTree = "<group>"; };
 		A1B79AF9243E756500DD46B4 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
@@ -117,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1672C932413327C004CE285 /* Domain.framework in Frameworks */,
+				A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */,
 				8B808A88C77C34D96B01600E /* Pods_DataLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +154,7 @@
 		5E4546458CD32194F064DA77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A18D4DDC245792C300783A65 /* DomainLayer.framework */,
 				A1672C922413327C004CE285 /* Domain.framework */,
 				4D81CA9E7C9F02A6075BB100 /* Pods_DataLayer.framework */,
 				A2F4CFD87541931789FCA1E5 /* Pods_DataLayerTests.framework */,
@@ -344,7 +346,7 @@
 				A158ABED240BE89A00B7A40E /* Sources */,
 				A158ABEE240BE89A00B7A40E /* Frameworks */,
 				A158ABEF240BE89A00B7A40E /* Resources */,
-				A1672C952413327C004CE285 /* Embed Frameworks */,
+				A18D4DDF245792C300783A65 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

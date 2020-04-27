@@ -3,8 +3,8 @@
 
 workspace 'IOSArchitecture'
 
-target 'Presentation' do
-  project 'Presentation/Presentation.xcodeproj'
+target 'PresentationLayer' do
+  project 'PresentationLayer/PresentationLayer.xcodeproj'
   use_frameworks!
 
   # Pods for Presentation
@@ -15,11 +15,11 @@ target 'Presentation' do
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
-  target 'PresentationTests' do
+  target 'PresentationLayerTests' do
     inherit! :search_paths
   end
 
-  target 'PresentationUITests' do
+  target 'PresentationLayerUITests' do
     pod 'SwiftLocalhost'
   end
 
@@ -46,15 +46,15 @@ target 'PresentationSwiftUI' do
 
 end
 
-target 'Domain' do
-  project 'Domain/Domain.xcodeproj'
+target 'DomainLayer' do
+  project 'DomainLayer/DomainLayer.xcodeproj'
   use_frameworks!
 
   # Pods for Presentation
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
   
-  target 'DomainTests' do
+  target 'DomainLayerTests' do
     inherit! :search_paths
     pod "SwiftyMocky"
   end
