@@ -12,15 +12,15 @@ import Swinject
 
 class GithubAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(GitRepoDataSource.self) { _ in
-            GithubRepoDataSource()
+        container.register(GitRepoDataSourceProtocol.self) { _ in
+            GitRepoDataSource()
         }
 
-        container.register(GitPullRequestDataSource.self) { _ in
-            GithubPullRequestDataSource()
+        container.register(GitPullRequestDataSourceProtocol.self) { _ in
+            GitPullRequestDataSource()
         }
 
-        container.register(GitRepoRemoteConfigDataSource.self) { _ in
+        container.register(GitRepoRemoteConfigDataSourceProtocol.self) { _ in
             let isEnable = ProcessInfo.processInfo.environment["remoteConfigReabilityEnabled"] == "true"
             let multiplier = Double(ProcessInfo.processInfo.environment["remoteConfigReabilityMultiplier"] ?? "0")!
             return MemoryGitRepoRemoteConfigDataSource(enable: isEnable, multiplier: multiplier)

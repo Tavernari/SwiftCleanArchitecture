@@ -21,8 +21,8 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func start() {
-        let remoteConfigDataSource = assembler.resolver.resolve(GitRepoRemoteConfigDataSource.self)!
-        let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSource.self)!
+        let remoteConfigDataSource = assembler.resolver.resolve(GitRepoRemoteConfigDataSourceProtocol.self)!
+        let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSourceProtocol.self)!
         let gitRepoRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource, remoteConfigDataSource: remoteConfigDataSource)
         let reliabilityRepoCalculatorUseCase = ReliabilityRepoCalculator()
 
@@ -65,7 +65,7 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func showPullRequests(repo: GitRepository) {
-        let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
+        let dataSource = assembler.resolver.resolve(GitPullRequestDataSourceProtocol.self)!
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
@@ -82,7 +82,7 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func showPullRequestDetail(id: Int, repo: GitRepository) {
-        let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
+        let dataSource = assembler.resolver.resolve(GitPullRequestDataSourceProtocol.self)!
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestDetailUseCase(repository: repository)
         let viewModel = PullRequestDetailsViewModel(useCase: useCase)

@@ -9,11 +9,11 @@
 import Alamofire
 import Foundation
 
-public protocol GitPullRequestCommitsDataSource {
+public protocol GitPullRequestCommitsDataSourceProtocol {
     func list(repoName: String, ownerName: String, completion: @escaping (Result<[GithubPullRequestCommitsData], Error>) -> Void)
 }
 
-public class GithubPullRequestCommitsDataSource: GitPullRequestCommitsDataSource {
+public class GitPullRequestCommitsDataSource: GitPullRequestCommitsDataSourceProtocol {
     public func list(repoName: String, ownerName: String, completion: @escaping (Result<[GithubPullRequestCommitsData], Error>) -> Void) {
         GithubPullRequestCommitsAPIRouter.listPullRequestCommits(owner: ownerName, repoName: repoName).request().processResponse(completion: completion)
     }

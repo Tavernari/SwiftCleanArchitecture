@@ -8,6 +8,6 @@
 
 import Domain
 
-public protocol GitRepoRemoteConfigDataSource {
+public protocol GitRepoRemoteConfigDataSourceProtocol {
     func gitRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplier, Error>) -> Void)
 }

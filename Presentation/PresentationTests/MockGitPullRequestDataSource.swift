@@ -9,7 +9,7 @@
 import DataLayer
 import Domain
 
-class MockGitPullRequestDataSource: GitPullRequestDataSource {
+class MockGitPullRequestDataSource: GitPullRequestDataSourceProtocol {
     private let result: Any
     init(result: Any) {
         self.result = result

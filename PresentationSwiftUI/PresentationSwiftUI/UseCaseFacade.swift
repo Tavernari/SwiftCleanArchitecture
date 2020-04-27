@@ -13,7 +13,7 @@ class UseCaseFacade {
     private init() {}
 
     static func fetchGitRepositoryUseCase(enableStats: Bool = true) -> FetchGitRepositoriesUseCaseProtocol {
-        let gitRepoDataSource = GithubRepoDataSource()
+        let gitRepoDataSource = GitRepoDataSource()
         let gitRepoRemoteConfigDataSource = MemoryGitRepoRemoteConfigDataSource(enable: enableStats, multiplier: 4)
         let gitRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource, remoteConfigDataSource: gitRepoRemoteConfigDataSource)
 
@@ -23,19 +23,19 @@ class UseCaseFacade {
     }
 
     static func fetchPullRequestsUseCase() -> FetchPullRequestsUseCaseProtocol {
-        let gitPullRequestDataSource = GithubPullRequestDataSource()
+        let gitPullRequestDataSource = GitPullRequestDataSource()
         let gitPullRepository = GitPullRequestRepository(dataSource: gitPullRequestDataSource)
         return FetchPullRequestsUseCase(repository: gitPullRepository)
     }
 
     static func fetchPullRequestCommitsUseCase() -> FetchPullRequestCommitsUseCaseProtocol {
-        let gitPullRequestCommitsDataSource = GithubPullRequestCommitsDataSource()
+        let gitPullRequestCommitsDataSource = GitPullRequestCommitsDataSource()
         let gitPullRequestCommitsRepository = GitPullRequestCommitsRepository(dataSource: gitPullRequestCommitsDataSource)
         return FetchPullRequestCommitsUseCase(respository: gitPullRequestCommitsRepository)
     }
 
     static func fetchPullRequestDetailUseCase() -> FetchPullRequestDetailUseCaseProtocol {
-        let gitPullRequestDataSource = GithubPullRequestDataSource()
+        let gitPullRequestDataSource = GitPullRequestDataSource()
         let gitPullRequestDetailRepository = GitPullRequestRepository(dataSource: gitPullRequestDataSource)
         return FetchPullRequestDetailUseCase(repository: gitPullRequestDetailRepository)
     }

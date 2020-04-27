@@ -11,7 +11,7 @@ import Domain
 @testable import Presentation
 import XCTest
 
-class MockGitRepoDataSource: GitRepoDataSource {
+class MockGitRepoDataSource: GitRepoDataSourceProtocol {
     private let result: GithubResponseData
     init(result: GithubResponseData) {
         self.result = result

@@ -9,8 +9,8 @@
 import Domain
 
 public class GitPullRequestCommitsRepository: GitPullRequestCommitsRepositoryProtocol {
-    private let dataSource: GitPullRequestCommitsDataSource
-    public init(dataSource: GitPullRequestCommitsDataSource) {
+    private let dataSource: GitPullRequestCommitsDataSourceProtocol
+    public init(dataSource: GitPullRequestCommitsDataSourceProtocol) {
         self.dataSource = dataSource
     }
 
