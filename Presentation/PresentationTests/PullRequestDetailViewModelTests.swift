@@ -16,7 +16,7 @@ class PullRequestDetailViewModelTests: XCTestCase {
         let resultExpectation = XCTestExpectation(description: "Waiting result")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
 
-        var data = GithubPullRequestDetailData()
+        var data = GitPullRequestDetailData()
         data.user = .init()
         data.user.login = "author"
         data.number = 10

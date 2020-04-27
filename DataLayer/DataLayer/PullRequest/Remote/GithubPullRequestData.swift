@@ -1,25 +1,25 @@
 //
-//  GithubPullRequestModels.swift
+//  GithubPullRequestData.swift
 //  DataSource
 //
 //  Created by Victor C Tavernari on 07/03/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-public struct GithubPullRequestData: Codable {
+public struct GitPullRequestData: Codable {
     public var title: String = ""
     public var body: String = ""
-    public var user: GithubPullRequestUser = .init()
+    public var user: GitPullRequestUser = .init()
     public var created_at: String = ""
     public var updated_at: String = ""
     public var number: Int = 0
     public init() {}
 }
 
-public struct GithubPullRequestDetailData: Codable {
+public struct GitPullRequestDetailData: Codable {
     public var title: String = ""
     public var body: String = ""
-    public var user: GithubPullRequestUser = .init()
+    public var user: GitPullRequestUser = .init()
     public var created_at: String = ""
     public var updated_at: String = ""
     public var number: Int = 0
@@ -31,7 +31,7 @@ public struct GithubPullRequestDetailData: Codable {
     public init() {}
 }
 
-public struct GithubPullRequestUser: Codable {
+public struct GitPullRequestUser: Codable {
     public var login: String = ""
     public var avatar_url: String = ""
     public init() {}

@@ -38,11 +38,11 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func listOfPullsData() -> Data {
-        var user = GithubPullRequestUser()
+        var user = GitPullRequestUser()
         user.avatar_url = "https://picsum.photos/id/5/200/300"
         user.login = "Luis"
 
-        var response = GithubPullRequestData()
+        var response = GitPullRequestData()
         response.title = "Title of pull request"
         response.body = "Description of pull request"
         response.created_at = "2020-04-05T03:31:27Z"
@@ -57,11 +57,11 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func pullDetailData() -> Data {
-        var user = GithubPullRequestUser()
+        var user = GitPullRequestUser()
         user.avatar_url = "https://picsum.photos/id/5/200/300"
         user.login = "Luis"
 
-        var response = GithubPullRequestDetailData()
+        var response = GitPullRequestDetailData()
         response.additions = 10
         response.body = "Description of pull request"
         response.changed_files = 100

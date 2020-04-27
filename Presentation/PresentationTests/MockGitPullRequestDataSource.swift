@@ -15,16 +15,16 @@ class MockGitPullRequestDataSource: GitPullRequestDataSourceProtocol {
         self.result = result
     }
 
-    func list(repo _: GitRepository, completion: @escaping (Result<[GithubPullRequestData], Error>) -> Void) {
-        guard let result = self.result as? [GithubPullRequestData] else {
+    func list(repo _: GitRepository, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void) {
+        guard let result = self.result as? [GitPullRequestData] else {
             fatalError()
         }
 
         completion(.success(result))
     }
 
-    func get(id _: Int, fromRepo _: GitRepository, completion: @escaping (Result<GithubPullRequestDetailData, Error>) -> Void) {
-        guard let result = self.result as? GithubPullRequestDetailData else {
+    func get(id _: Int, fromRepo _: GitRepository, completion: @escaping (Result<GitPullRequestDetailData, Error>) -> Void) {
+        guard let result = self.result as? GitPullRequestDetailData else {
             fatalError()
         }
 

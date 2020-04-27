@@ -1,5 +1,5 @@
 //
-//  GitPullRequestCommitsModels.swift
+//  GitPullRequestCommitsData.swift
 //  DataLayer
 //
 //  Created by Lucas Silveira on 23/04/20.
@@ -8,17 +8,17 @@
 
 import Foundation
 
-public struct GithubPullRequestCommitsData: Codable {
+public struct GitPullRequestCommitsData: Codable {
     public var sha = ""
-    public var commit = Commit()
+    public var commit = GitCommit()
 }
 
-public struct Commit: Codable {
-    public var author = Author()
+public struct GitCommit: Codable {
+    public var author = GitAuthor()
     public var message = ""
 }
 
-public struct Author: Codable {
+public struct GitAuthor: Codable {
     public var name = ""
     public var email = ""
     public var date = ""

@@ -9,7 +9,7 @@
 import Domain
 
 extension GitPullRequest {
-    init(_ data: GithubPullRequestData) {
+    init(_ data: GitPullRequestData) {
         self.init()
         id = data.number
         author = data.user.login
@@ -20,7 +20,7 @@ extension GitPullRequest {
         updatedAt = data.updated_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
     }
 
-    init(_ data: GithubPullRequestDetailData) {
+    init(_ data: GitPullRequestDetailData) {
         self.init()
 
         id = data.number

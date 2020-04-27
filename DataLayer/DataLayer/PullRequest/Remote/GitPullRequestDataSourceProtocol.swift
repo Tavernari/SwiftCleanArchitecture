@@ -10,6 +10,6 @@
 import Domain
 
 public protocol GitPullRequestDataSourceProtocol {
-    func list(repo: GitRepository, completion: @escaping (Result<[GithubPullRequestData], Error>) -> Void)
-    func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GithubPullRequestDetailData, Error>) -> Void)
+    func list(repo: GitRepository, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void)
+    func get(id: Int, fromRepo repo: GitRepository, completion: @escaping (Result<GitPullRequestDetailData, Error>) -> Void)
 }

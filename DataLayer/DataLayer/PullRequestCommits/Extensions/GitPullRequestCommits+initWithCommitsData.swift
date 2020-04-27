@@ -9,7 +9,7 @@
 import Domain
 
 extension GitCommit {
-    init(data: GithubPullRequestCommitsData) {
+    init(data: GitPullRequestCommitsData) {
         self.init()
         sha = data.sha
         name = data.commit.author.name
