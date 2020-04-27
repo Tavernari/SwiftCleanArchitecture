@@ -1,5 +1,5 @@
 //
-//  RepositoriesTableViewCell.swift
+//  GitRepositoriesTableViewCell.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 02/03/20.
@@ -10,7 +10,7 @@ import Alamofire
 import AlamofireImage
 import UIKit
 
-class RepositoriesTableViewCell: UITableViewCell {
+class GitRepositoriesTableViewCell: UITableViewCell {
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var repositoryImageView: UIImageView!
     @IBOutlet private var repositoryNameLabel: UILabel!

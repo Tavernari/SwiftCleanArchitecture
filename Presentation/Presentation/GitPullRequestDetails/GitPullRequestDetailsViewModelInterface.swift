@@ -1,5 +1,5 @@
 //
-//  PullRequestDetailsViewModelInterface.swift
+//  GitPullRequestDetailsViewModelInterface.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 05/04/20.
@@ -10,8 +10,8 @@
 
 import Domain
 
-protocol PullRequestDetailsViewModelInterface {
-    var route: Observable<PullRequestDetailsViewModelRoute> { get }
+protocol GitPullRequestDetailsViewModelInterface {
+    var route: Observable<GitPullRequestDetailsViewModelRoute> { get }
     var isLoading: Observable<Bool> { get }
     var failMessage: Observable<String?> { get }
     var pullRequest: Observable<GitPullRequestModel?> { get }

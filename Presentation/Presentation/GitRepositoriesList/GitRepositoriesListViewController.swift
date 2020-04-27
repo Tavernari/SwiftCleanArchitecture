@@ -1,5 +1,5 @@
 //
-//  ListOfRepositoriesViewController.swift
+//  GitRepositoriesListViewController.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -11,27 +11,27 @@
 import Domain
 import UIKit
 
-class ListOfRepositoriesViewController: UIViewController {
-    final class func initWith(viewModel: ListOfRepositoriesViewModel) -> ListOfRepositoriesViewController {
-        let vc = ListOfRepositoriesViewController()
+class GitRepositoriesListViewController: UIViewController {
+    final class func initWith(viewModel: GitRepositoriesListViewModel) -> GitRepositoriesListViewController {
+        let vc = GitRepositoriesListViewController()
         vc.viewModel = viewModel
         return vc
     }
 
-    var viewModel: ListOfRepositoriesViewModel!
+    var viewModel: GitRepositoriesListViewModel!
 
     @IBOutlet private var tableView: UITableView!
     private var dataSource: [GitRepositoryModel] { viewModel.repositories.value }
 
     fileprivate func configTableView() {
-        tableView.register(R.nib.repositoriesTableViewCell)
+        tableView.register(R.nib.gitRepositoriesTableViewCell)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    fileprivate func populateCell(index _: Int, repository: GitRepositoryModel, cell: RepositoriesTableViewCell) {
+    fileprivate func populateCell(index _: Int, repository: GitRepositoryModel, cell: GitRepositoriesTableViewCell) {
         cell.repositoryAuthor = repository.author
         cell.repositoryName = repository.name
         cell.repositoryDescription = repository.description
@@ -94,14 +94,14 @@ class ListOfRepositoriesViewController: UIViewController {
     }
 }
 
-extension ListOfRepositoriesViewController: UITableViewDelegate {
+extension GitRepositoriesListViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         deselectRow(indexPath: indexPath)
         viewModel.select(index: indexPath.row)
     }
 }
 
-extension ListOfRepositoriesViewController: UITableViewDataSource {
+extension GitRepositoriesListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return dataSource.count
     }

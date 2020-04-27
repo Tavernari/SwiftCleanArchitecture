@@ -1,5 +1,5 @@
 //
-//  PullRequestDetailsViewModelRoute.swift
+//  GitPullRequestDetailsViewModelRoute.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 05/04/20.
@@ -10,6 +10,6 @@
 
 import Foundation
 
-enum PullRequestDetailsViewModelRoute: Equatable {
+enum GitPullRequestDetailsViewModelRoute: Equatable {
     case none
 }

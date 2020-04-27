@@ -1,5 +1,5 @@
 //
-//  ListOfRepositoriesViewModel.swift
+//  GitRepositoriesListViewModel.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -10,11 +10,11 @@
 
 import Domain
 
-class ListOfRepositoriesViewModel: ListOfRepositoriesViewModelInterface {
+class GitRepositoriesListViewModel: GitRepositoriesListViewModelInterface {
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
     var repositories = Observable<[GitRepositoryModel]>([])
-    var route = Observable<ListOfRepositoriesViewModelRoute>(.none)
+    var route = Observable<GitRepositoriesListViewModelRoute>(.none)
 
     private let fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCase
 
@@ -32,7 +32,7 @@ class ListOfRepositoriesViewModel: ListOfRepositoriesViewModelInterface {
     }
 }
 
-extension ListOfRepositoriesViewModel: FetchGitRepositoriesInterfaceAdapter {
+extension GitRepositoriesListViewModel: FetchGitRepositoriesInterfaceAdapter {
     func doing() {
         isLoading.value = true
     }

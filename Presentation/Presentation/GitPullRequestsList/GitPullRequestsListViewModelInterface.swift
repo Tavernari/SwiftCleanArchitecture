@@ -1,5 +1,5 @@
 //
-//  ListOfPullRequestsViewModelInterface.swift
+//  GitPullRequestsListViewModelInterface.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -10,9 +10,9 @@
 
 import Domain
 
-protocol ListOfPullRequestsViewModelInterface {
+protocol GitPullRequestsListViewModelInterface {
     var pullRequests: Observable<[GitPullRequestModel]> { get }
-    var route: Observable<ListOfPullRequestsViewModelRoute> { get }
+    var route: Observable<GitPullRequestsListViewModelRoute> { get }
     var isLoading: Observable<Bool> { get }
     var failMessage: Observable<String?> { get }
 

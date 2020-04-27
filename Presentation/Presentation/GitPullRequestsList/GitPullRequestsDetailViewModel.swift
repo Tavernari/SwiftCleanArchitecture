@@ -1,5 +1,5 @@
 //
-//  ListOfPullRequestsViewModel.swift
+//  GitPullRequestsDetailViewModel.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -10,22 +10,22 @@
 
 import Domain
 
-class ListOfPullRequestsViewModel: ListOfPullRequestsViewModelInterface {
-    var route = Observable<ListOfPullRequestsViewModelRoute>(.none)
+class GitPullRequestsListViewModel: GitPullRequestsListViewModelInterface {
+    var route = Observable<GitPullRequestsListViewModelRoute>(.none)
     var pullRequests = Observable<[GitPullRequestModel]>([])
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
 
-    private let listPullRequestsUseCase: FetchPullRequestsUseCaseProtocol
-    init(listPullRequestsUseCase: FetchPullRequestsUseCaseProtocol) {
-        self.listPullRequestsUseCase = listPullRequestsUseCase
+    private let fetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol
+    init(fetchPullRequestsUseCase: FetchPullRequestsUseCaseProtocol) {
+        self.fetchPullRequestsUseCase = fetchPullRequestsUseCase
     }
 
     private var gitRepository: GitRepositoryModel!
 
     func load(repo: GitRepositoryModel) {
         gitRepository = repo
-        listPullRequestsUseCase.execute(repo: repo)
+        fetchPullRequestsUseCase.execute(repo: repo)
     }
 
     func select(index: Int) {
@@ -34,7 +34,7 @@ class ListOfPullRequestsViewModel: ListOfPullRequestsViewModelInterface {
     }
 }
 
-extension ListOfPullRequestsViewModel: FetchPullRequestsInterfaceAdapter {
+extension GitPullRequestsListViewModel: FetchPullRequestsInterfaceAdapter {
     func doing() {
         isLoading.value = true
     }

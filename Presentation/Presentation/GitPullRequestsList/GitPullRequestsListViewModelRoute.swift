@@ -1,5 +1,5 @@
 //
-//  ListOfPullRequestsViewModelRoute.swift
+//  GitPullRequestsListViewModelRoute.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -10,7 +10,7 @@
 
 import Domain
 
-enum ListOfPullRequestsViewModelRoute: Equatable {
+enum GitPullRequestsListViewModelRoute: Equatable {
     case none
     case showPullRequestDetail(id: Int, repo: GitRepositoryModel)
 }

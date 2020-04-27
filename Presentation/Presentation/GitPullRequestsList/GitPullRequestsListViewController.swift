@@ -1,5 +1,5 @@
 //
-//  ListOfPullRequestsViewController.swift
+//  GitPullRequestsListViewController.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -11,15 +11,15 @@
 import Domain
 import UIKit
 
-class ListOfPullRequestsViewController: UIViewController {
-    final class func initWith(withViewModel viewModel: ListOfPullRequestsViewModel, andRepo repo: GitRepositoryModel) -> ListOfPullRequestsViewController {
-        let vc = ListOfPullRequestsViewController()
+class GitPullRequestsListViewController: UIViewController {
+    final class func initWith(withViewModel viewModel: GitPullRequestsListViewModel, andRepo repo: GitRepositoryModel) -> GitPullRequestsListViewController {
+        let vc = GitPullRequestsListViewController()
         vc.viewModel = viewModel
         vc.repo = repo
         return vc
     }
 
-    private(set) var viewModel: ListOfPullRequestsViewModel!
+    private(set) var viewModel: GitPullRequestsListViewModel!
     private(set) var repo: GitRepositoryModel!
 
     private var dataSource: [GitPullRequestModel] = []
@@ -96,7 +96,7 @@ class ListOfPullRequestsViewController: UIViewController {
     }
 }
 
-extension ListOfPullRequestsViewController: UITableViewDelegate {
+extension GitPullRequestsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.select(index: indexPath.row)
@@ -104,7 +104,7 @@ extension ListOfPullRequestsViewController: UITableViewDelegate {
     }
 }
 
-extension ListOfPullRequestsViewController: UITableViewDataSource {
+extension GitPullRequestsListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return dataSource.count
     }

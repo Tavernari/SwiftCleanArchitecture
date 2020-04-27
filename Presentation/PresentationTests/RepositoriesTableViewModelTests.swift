@@ -40,7 +40,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
             gitRepoRepository: repository,
             reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
         )
-        let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: useCase)
+        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
         viewModel.search(term: "Java")
 
@@ -87,7 +87,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
             gitRepoRepository: repository,
             reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
         )
-        let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: useCase)
+        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
         viewModel.search(term: "Java")
 
@@ -116,7 +116,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
             XCTAssertEqual(viewModel.repositories.value.count, 2)
             expectationRepositories.fulfill()
             viewModel.select(index: index)
-            XCTAssertEqual(viewModel.route.value, ListOfRepositoriesViewModelRoute.showPullRequests(repo: gitRepo))
+            XCTAssertEqual(viewModel.route.value, GitRepositoriesListViewModelRoute.showPullRequests(repo: gitRepo))
         }
 
         wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)

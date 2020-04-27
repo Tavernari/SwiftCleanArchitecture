@@ -31,7 +31,7 @@ class MainCoordinator: NSObject, Coordinator {
             reliabilityCalculatorUseCase: reliabilityRepoCalculatorUseCase
         )
 
-        let viewModel = ListOfRepositoriesViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories)
+        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories)
 
         fetchGitRepositories.delegateInterfaceAdapter = viewModel
 
@@ -46,7 +46,7 @@ class MainCoordinator: NSObject, Coordinator {
             }
         }
 
-        let vc = ListOfRepositoriesViewController.initWith(viewModel: viewModel)
+        let vc = GitRepositoriesListViewController.initWith(viewModel: viewModel)
         navigationController.viewControllers = [vc]
     }
 
@@ -68,7 +68,7 @@ class MainCoordinator: NSObject, Coordinator {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSourceProtocol.self)!
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
-        let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
+        let viewModel = GitPullRequestsListViewModel(fetchPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
         viewModel.route.observe { route in
@@ -77,7 +77,7 @@ class MainCoordinator: NSObject, Coordinator {
             }
         }
 
-        let vc = ListOfPullRequestsViewController.initWith(withViewModel: viewModel, andRepo: repo)
+        let vc = GitPullRequestsListViewController.initWith(withViewModel: viewModel, andRepo: repo)
         navigationController.pushViewController(vc, animated: true)
     }
 
@@ -85,9 +85,9 @@ class MainCoordinator: NSObject, Coordinator {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSourceProtocol.self)!
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestDetailUseCase(repository: repository)
-        let viewModel = PullRequestDetailsViewModel(useCase: useCase)
+        let viewModel = GitPullRequestDetailsViewModel(fetchPullRequestDetailUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
-        let vc = PullRequestDetailsViewController.initWith(viewModel: viewModel, id: id, repo: repo)
+        let vc = GitPullRequestDetailsViewController.initWith(viewModel: viewModel, id: id, repo: repo)
         navigationController.pushViewController(vc, animated: true)
     }
 }

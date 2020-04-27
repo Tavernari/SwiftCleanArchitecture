@@ -30,4 +30,12 @@ class MockGitPullRequestDataSource: GitPullRequestDataSourceProtocol {
 
         completion(.success(result))
     }
+
+    func commits(repoName _: String, prOwner _: String, completion: @escaping (Result<[GitPullRequestCommitsData], Error>) -> Void) {
+        guard let result = self.result as? [GitPullRequestCommitsData] else {
+            fatalError()
+        }
+
+        completion(.success(result))
+    }
 }

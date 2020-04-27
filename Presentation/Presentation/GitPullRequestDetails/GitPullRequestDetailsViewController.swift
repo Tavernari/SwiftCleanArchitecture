@@ -13,7 +13,7 @@ import AlamofireImage
 import Domain
 import UIKit
 
-class PullRequestDetailsViewController: UIViewController {
+class GitPullRequestDetailsViewController: UIViewController {
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var authorLabel: UILabel!
     @IBOutlet private var titleLabel: UILabel!
@@ -26,15 +26,15 @@ class PullRequestDetailsViewController: UIViewController {
     @IBOutlet private var deletionsLabel: UILabel!
     @IBOutlet private var changedFilesLabel: UILabel!
 
-    final class func initWith(viewModel: PullRequestDetailsViewModelInterface, id: Int, repo: GitRepositoryModel) -> PullRequestDetailsViewController {
-        let vc = PullRequestDetailsViewController()
+    final class func initWith(viewModel: GitPullRequestDetailsViewModelInterface, id: Int, repo: GitRepositoryModel) -> GitPullRequestDetailsViewController {
+        let vc = GitPullRequestDetailsViewController()
         vc.viewModel = viewModel
         vc.id = id
         vc.repo = repo
         return vc
     }
 
-    private(set) var viewModel: PullRequestDetailsViewModelInterface!
+    private(set) var viewModel: GitPullRequestDetailsViewModelInterface!
     private(set) var id: Int!
     private(set) var repo: GitRepositoryModel!
 

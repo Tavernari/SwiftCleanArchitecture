@@ -1,5 +1,5 @@
 //
-//  ListOfRepositoriesViewModelInterface.swift
+//  GitRepositoriesListViewModelInterface.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 04/04/20.
@@ -10,6 +10,6 @@
 
 import Foundation
 
-protocol ListOfRepositoriesViewModelInterface {
-    var route: Observable<ListOfRepositoriesViewModelRoute> { get }
+protocol GitRepositoriesListViewModelInterface {
+    var route: Observable<GitRepositoriesListViewModelRoute> { get }
 }

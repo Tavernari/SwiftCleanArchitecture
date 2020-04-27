@@ -19,7 +19,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let dataSource = MockGitPullRequestDataSource(result: [data])
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
-        let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
+        let viewModel = GitPullRequestsListViewModel(fetchPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
         viewModel.pullRequests.observe { pullRequests in
@@ -58,7 +58,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let dataSource = MockGitPullRequestDataSource(result: [data1, data2])
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
-        let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
+        let viewModel = GitPullRequestsListViewModel(fetchPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
 
         viewModel.pullRequests.observe { pullRequests in

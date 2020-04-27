@@ -1,5 +1,5 @@
 //
-//  PullRequestDetailsViewModel.swift
+//  GitPullRequestDetailsViewModel.swift
 //  Presentation
 //
 //  Created by Victor C Tavernari on 05/04/20.
@@ -10,24 +10,24 @@
 
 import Domain
 
-class PullRequestDetailsViewModel: PullRequestDetailsViewModelInterface {
-    var route = Observable<PullRequestDetailsViewModelRoute>(.none)
+class GitPullRequestDetailsViewModel: GitPullRequestDetailsViewModelInterface {
+    var route = Observable<GitPullRequestDetailsViewModelRoute>(.none)
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
     var pullRequest = Observable<GitPullRequestModel?>(nil)
 
-    private let useCase: FetchPullRequestDetailUseCaseProtocol
+    private let fetchPullRequestDetailUseCase: FetchPullRequestDetailUseCaseProtocol
 
-    init(useCase: FetchPullRequestDetailUseCaseProtocol) {
-        self.useCase = useCase
+    init(fetchPullRequestDetailUseCase: FetchPullRequestDetailUseCaseProtocol) {
+        self.fetchPullRequestDetailUseCase = fetchPullRequestDetailUseCase
     }
 
     func load(pullRequestid: Int, fromRepo repo: GitRepositoryModel) {
-        useCase.execute(id: pullRequestid, fromRepo: repo)
+        fetchPullRequestDetailUseCase.execute(id: pullRequestid, fromRepo: repo)
     }
 }
 
-extension PullRequestDetailsViewModel: FetchPullRequestDetailInterfaceAdapter {
+extension GitPullRequestDetailsViewModel: FetchPullRequestDetailInterfaceAdapter {
     func doing() {
         isLoading.value = true
     }
