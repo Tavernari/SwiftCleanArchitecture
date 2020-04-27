@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5A2436BE9300A8FA1F /* Result+handle.swift */; };
 		A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */; };
-		A158AC2E240BEDDB00B7A40E /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* Domain.framework */; };
+		A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */; };
 		A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */; };
 		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
 		BFB596E274F866EC66972A68 /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06484D37BD9A11200301736F /* Pods_DomainTests.framework */; };
@@ -47,9 +47,9 @@
 		93C989238C3867A1CEAEFB7E /* Pods-DomainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1191B5A2436BE9300A8FA1F /* Result+handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handle.swift"; sourceTree = "<group>"; };
 		A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
-		A158AC24240BEDDB00B7A40E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158AC24240BEDDB00B7A40E /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158AC28240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A158AC2D240BEDDB00B7A40E /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A158AC2D240BEDDB00B7A40E /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158AC34240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+makeURLCommonsError.swift"; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A158AC2E240BEDDB00B7A40E /* Domain.framework in Frameworks */,
+				A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */,
 				BFB596E274F866EC66972A68 /* Pods_DomainTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,8 +122,8 @@
 		A158AC25240BEDDB00B7A40E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A158AC24240BEDDB00B7A40E /* Domain.framework */,
-				A158AC2D240BEDDB00B7A40E /* DomainTests.xctest */,
+				A158AC24240BEDDB00B7A40E /* DomainLayer.framework */,
+				A158AC2D240BEDDB00B7A40E /* DomainLayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,9 +281,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A158AC23240BEDDB00B7A40E /* Domain */ = {
+		A158AC23240BEDDB00B7A40E /* DomainLayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC38240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "Domain" */;
+			buildConfigurationList = A158AC38240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "DomainLayer" */;
 			buildPhases = (
 				1D26620BB2D8E7BD4E454678 /* [CP] Check Pods Manifest.lock */,
 				A1FFB840243BEDFB00120CDB /* SwiftLint */,
@@ -297,14 +297,14 @@
 			);
 			dependencies = (
 			);
-			name = Domain;
+			name = DomainLayer;
 			productName = Domain;
-			productReference = A158AC24240BEDDB00B7A40E /* Domain.framework */;
+			productReference = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A158AC2C240BEDDB00B7A40E /* DomainTests */ = {
+		A158AC2C240BEDDB00B7A40E /* DomainLayerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A158AC3B240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "DomainTests" */;
+			buildConfigurationList = A158AC3B240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "DomainLayerTests" */;
 			buildPhases = (
 				4E708D396221DB1688680E43 /* [CP] Check Pods Manifest.lock */,
 				A158AC29240BEDDB00B7A40E /* Sources */,
@@ -317,9 +317,9 @@
 			dependencies = (
 				A158AC30240BEDDB00B7A40E /* PBXTargetDependency */,
 			);
-			name = DomainTests;
+			name = DomainLayerTests;
 			productName = DomainTests;
-			productReference = A158AC2D240BEDDB00B7A40E /* DomainTests.xctest */;
+			productReference = A158AC2D240BEDDB00B7A40E /* DomainLayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +342,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A158AC1E240BEDDB00B7A40E /* Build configuration list for PBXProject "Domain" */;
+			buildConfigurationList = A158AC1E240BEDDB00B7A40E /* Build configuration list for PBXProject "DomainLayer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -355,8 +355,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A158AC23240BEDDB00B7A40E /* Domain */,
-				A158AC2C240BEDDB00B7A40E /* DomainTests */,
+				A158AC23240BEDDB00B7A40E /* DomainLayer */,
+				A158AC2C240BEDDB00B7A40E /* DomainLayerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -515,7 +515,7 @@
 /* Begin PBXTargetDependency section */
 		A158AC30240BEDDB00B7A40E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A158AC23240BEDDB00B7A40E /* Domain */;
+			target = A158AC23240BEDDB00B7A40E /* DomainLayer */;
 			targetProxy = A158AC2F240BEDDB00B7A40E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -746,7 +746,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A158AC1E240BEDDB00B7A40E /* Build configuration list for PBXProject "Domain" */ = {
+		A158AC1E240BEDDB00B7A40E /* Build configuration list for PBXProject "DomainLayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC36240BEDDB00B7A40E /* Debug */,
@@ -755,7 +755,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC38240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "Domain" */ = {
+		A158AC38240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "DomainLayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC39240BEDDB00B7A40E /* Debug */,
@@ -764,7 +764,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A158AC3B240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "DomainTests" */ = {
+		A158AC3B240BEDDB00B7A40E /* Build configuration list for PBXNativeTarget "DomainLayerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A158AC3C240BEDDB00B7A40E /* Debug */,
