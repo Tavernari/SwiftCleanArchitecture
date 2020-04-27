@@ -66,7 +66,7 @@ class MainCoordinator: NSObject, Coordinator {
 
     func showPullRequests(repo: GitRepository) {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
-        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
@@ -83,7 +83,7 @@ class MainCoordinator: NSObject, Coordinator {
 
     func showPullRequestDetail(id: Int, repo: GitRepository) {
         let dataSource = assembler.resolver.resolve(GitPullRequestDataSource.self)!
-        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestDetailUseCase(repository: repository)
         let viewModel = PullRequestDetailsViewModel(useCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel

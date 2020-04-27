@@ -1,5 +1,5 @@
 //
-//  GitPullRequestDataRepository.swift
+//  GitPullRequestRepository.swift
 //  DataSource
 //
 //  Created by Victor C Tavernari on 07/03/20.
@@ -8,7 +8,7 @@
 
 import Domain
 
-public class GitPullRequestDataRepository: GitPullRequestRepositoryProtocol {
+public class GitPullRequestRepository: GitPullRequestRepositoryProtocol {
     private let dataSource: GitPullRequestDataSource
     public init(dataSource: GitPullRequestDataSource) {
         self.dataSource = dataSource

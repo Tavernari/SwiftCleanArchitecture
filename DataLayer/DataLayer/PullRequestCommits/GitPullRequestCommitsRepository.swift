@@ -1,5 +1,5 @@
 //
-//  GitPullRequestCommitsDataRepository.swift
+//  GitPullRequestCommitsRepository.swift
 //  DataLayer
 //
 //  Created by Lucas Silveira on 23/04/20.
@@ -8,7 +8,7 @@
 
 import Domain
 
-public class GitPullRequestCommitsDataRepository: GitPullRequestCommitsRepositoryProtocol {
+public class GitPullRequestCommitsRepository: GitPullRequestCommitsRepositoryProtocol {
     private let dataSource: GitPullRequestCommitsDataSource
     public init(dataSource: GitPullRequestCommitsDataSource) {
         self.dataSource = dataSource

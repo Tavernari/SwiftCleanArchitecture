@@ -17,7 +17,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let data = GithubPullRequestData()
         let dataSource = MockGitPullRequestDataSource(result: [data])
-        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
@@ -56,7 +56,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         data2.number = 500
 
         let dataSource = MockGitPullRequestDataSource(result: [data1, data2])
-        let repository = GitPullRequestDataRepository(dataSource: dataSource)
+        let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
         let viewModel = ListOfPullRequestsViewModel(listPullRequestsUseCase: useCase)
         useCase.delegateInterfaceAdapter = viewModel
