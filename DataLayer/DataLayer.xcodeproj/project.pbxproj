@@ -40,6 +40,7 @@
 		FCEADB917D3B52E4C390531D /* GitbRepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD925CCAA7B816E1840B2 /* GitbRepositoryData.swift */; };
 		FCEADF0164FBB0566243B7CE /* GitPullRequestDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD6E5DF2F9D8219D1490E /* GitPullRequestDetailData.swift */; };
 		FCEADF359B6B11FE3257D55C /* GitAuthorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADB5CA5B32DBF560025D6 /* GitAuthorData.swift */; };
+		FCEADFF2D2D5E8BCF0C1E28A /* RemoteConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD4786425F98AB363A8F9 /* RemoteConfigData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCEAD3791725FC81DA637DE6 /* GitRepositoryOwnerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepositoryOwnerData.swift; sourceTree = "<group>"; };
 		FCEAD38B0FF7A47FDFA8985A /* GitCommitData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitCommitData.swift; sourceTree = "<group>"; };
+		FCEAD4786425F98AB363A8F9 /* RemoteConfigData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigData.swift; sourceTree = "<group>"; };
 		FCEAD64A102FAE4C5946DB32 /* GitReposResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitReposResponseData.swift; sourceTree = "<group>"; };
 		FCEAD6E5DF2F9D8219D1490E /* GitPullRequestDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestDetailData.swift; sourceTree = "<group>"; };
 		FCEAD82E575083F66844F31D /* GitPullRequestUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestUser.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				FCEAD3791725FC81DA637DE6 /* GitRepositoryOwnerData.swift */,
 				FCEAD925CCAA7B816E1840B2 /* GitbRepositoryData.swift */,
 				FCEAD64A102FAE4C5946DB32 /* GitReposResponseData.swift */,
+				FCEAD4786425F98AB363A8F9 /* RemoteConfigData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				FCEAD4682E4EB4E6813FCE0D /* GitRepositoryOwnerData.swift in Sources */,
 				FCEADB917D3B52E4C390531D /* GitbRepositoryData.swift in Sources */,
 				FCEAD6F7D47E79579ADD10C4 /* GitReposResponseData.swift in Sources */,
+				FCEADFF2D2D5E8BCF0C1E28A /* RemoteConfigData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
