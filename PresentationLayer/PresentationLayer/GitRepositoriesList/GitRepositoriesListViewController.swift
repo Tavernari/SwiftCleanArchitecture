@@ -39,8 +39,8 @@ class GitRepositoriesListViewController: UIViewController {
         cell.repositoryForkCount = "\(repository.forkCount)"
         cell.repositoryStarCount = "\(repository.starCount)"
         cell.repositoryIssueCount = "\(repository.issuesCount)"
-        cell.repositoryReliabilityIndicatorEnabled = repository.isReliabilityEnabled
-        cell.repositoryReliabilityIndicator = "\(Int(repository.reliabilityScore))"
+        cell.repositoryReliabilityIndicatorEnabled = repository.reliability.isEnable
+        cell.repositoryReliabilityIndicator = "\(Int(repository.reliability.score))"
     }
 
     fileprivate func showError(message: String?) {

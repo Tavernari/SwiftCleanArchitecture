@@ -5,7 +5,8 @@ workspace 'IOSArchitecture'
 
 target 'PresentationLayer' do
   project 'PresentationLayer/PresentationLayer.xcodeproj'
-  use_frameworks!
+#  use_frameworks!
+  use_modular_headers!
 
   pod 'R.swift'
   pod 'Alamofire', '~> 5.0'
@@ -26,7 +27,8 @@ end
 
 target 'PresentationSwiftUI' do
   project 'PresentationSwiftUI/PresentationSwiftUI.xcodeproj'
-  use_frameworks!
+#  use_frameworks!
+  use_modular_headers!
 
   pod 'R.swift'
   pod 'Alamofire', '~> 5.0'
@@ -35,7 +37,6 @@ target 'PresentationSwiftUI' do
   pod 'SwiftFormat/CLI'
 
   target 'PresentationSwiftUITests' do
-    inherit! :search_paths
   end
 
   target 'PresentationSwiftUIUITests' do
@@ -46,7 +47,8 @@ end
 
 target 'DomainLayer' do
   project 'DomainLayer/DomainLayer.xcodeproj'
-  use_frameworks!
+#  use_frameworks!
+  use_modular_headers!
 
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
@@ -59,7 +61,8 @@ end
 
 target 'DataLayer' do
   project 'DataLayer/DataLayer.xcodeproj'
-  use_frameworks!
+#  use_frameworks!
+  use_modular_headers!
 
   pod 'Alamofire', '~> 5'
   pod 'SwiftLint'

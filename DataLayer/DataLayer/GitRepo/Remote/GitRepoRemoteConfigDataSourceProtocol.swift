@@ -5,6 +5,6 @@
 
 import Foundation
 
-public protocol FirebaseRemoteConfigDataSourceProtocol {
+public protocol GitRepoRemoteConfigDataSourceProtocol {
     func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<Double>, Error>) -> Void)
 }

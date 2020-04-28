@@ -42,59 +42,9 @@ class ListGitRepositoryUseCaseTests: XCTestCase {
         presenter.verify(.failure(withError: .any), count: .never)
         presenter.verify(.done(data: .matching { (repositories) -> Bool in
             let repo = repositories.first
-            XCTAssert(repo!.isReliabilityEnabled)
-            XCTAssertEqual(50, repo?.reliabilityScore)
-            return repo!.isReliabilityEnabled
+            XCTAssert(repo!.reliability.isEnable)
+            XCTAssertEqual(50, repo?.reliability.score)
+            return repo!.reliability.isEnable
         }))
     }
-
-//    func testListRepositoryWithFetchRepositoryError() {
-//        let error = ListGitRepositoryUseCaseError.failWhenFetchRepository(message: "Test error")
-//        let expectation = XCTestExpectation(description: "Waiting results")
-//        let repository = MockRepoRepository(result: [], error: error)
-//        let configRemoteRepository = MockConfigRepository(enable: true, error: nil)
-//        let calculator = MockRelibilityCalculator()
-//        let listRepository = DoListGitRepositoryUseCase(
-//            gitRepoRepository: repository,
-//            configRepository: configRemoteRepository, reliabilityCalculatorRepository: calculator)
-//        listRepository.execute(term: "") { (result) in
-//            guard case .failure(let failureError) = result else{
-//                return
-//            }
-//
-//            guard case .failWhenFetchRepository(let errorMessage) = failureError else {
-//                return
-//            }
-//
-//            XCTAssertEqual("Test error", errorMessage)
-//            expectation.fulfill()
-//        }
-//
-//        self.wait(for: [expectation], timeout: 2)
-//    }
-//
-//    func testListRepositoryWithFetchConfigRepositoryError() {
-//        let error = ListGitRepositoryUseCaseError.failWhenGetReliabilityMultiplier(message: "Multiplier error")
-//        let expectation = XCTestExpectation(description: "Waiting results")
-//        let repository = MockRepoRepository(result: [.init()], error: nil)
-//        let configRemoteRepository = MockConfigRepository(enable: true, error: error)
-//        let calculator = MockRelibilityCalculator()
-//        let listRepository = DoListGitRepositoryUseCase(
-//            gitRepoRepository: repository,
-//            configRepository: configRemoteRepository, reliabilityCalculatorRepository: calculator)
-//        listRepository.execute(term: "") { (result) in
-//            guard case .failure(let failureError) = result else{
-//                return
-//            }
-//
-//            guard case .failWhenGetReliabilityMultiplier(let errorMessage) = failureError else {
-//                return
-//            }
-//
-//            XCTAssertEqual("Multiplier error", errorMessage)
-//            expectation.fulfill()
-//        }
-//
-//        self.wait(for: [expectation], timeout: 2)
-//    }
 }

@@ -21,7 +21,7 @@ class MainCoordinator: NSObject, Coordinator {
     }
 
     func start() {
-        let remoteConfigDataSource = assembler.resolver.resolve(FirebaseRemoteConfigDataSourceProtocol.self)!
+        let remoteConfigDataSource = assembler.resolver.resolve(GitRepoRemoteConfigDataSourceProtocol.self)!
         let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSourceProtocol.self)!
         let gitRepoRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource, remoteConfigDataSource: remoteConfigDataSource)
         let reliabilityRepoCalculatorUseCase = ReliabilityRepoCalculator()

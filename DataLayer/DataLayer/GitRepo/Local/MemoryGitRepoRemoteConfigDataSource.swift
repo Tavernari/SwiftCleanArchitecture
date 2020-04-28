@@ -8,7 +8,7 @@
 
 import DomainLayer
 
-public class MemoryGitRepoRemoteConfigDataSource: FirebaseRemoteConfigDataSourceProtocol {
+public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
     var remoteConfigData: RemoteConfigData<Double>
     public init(enable: Bool, multiplier: Double) {
         remoteConfigData = RemoteConfigData<Double>(isEnable: enable, data: multiplier)

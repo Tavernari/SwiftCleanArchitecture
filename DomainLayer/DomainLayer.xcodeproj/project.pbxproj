@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DEA49B42E1E67C2C4217295 /* Pods_DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3A06B50AD0EDC69C337295 /* Pods_DomainLayer.framework */; };
-		A0FAC12132DA9929DAD2563C /* Pods_DomainLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E01B8F4EDB6816D13B686AF /* Pods_DomainLayerTests.framework */; };
 		A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5A2436BE9300A8FA1F /* Result+handle.swift */; };
 		A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */; };
 		A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */; };
 		A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */; };
 		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
+		A7480915C1644D95B4E46B1F /* libPods-DomainLayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D296D87F7135C75A51F64D8 /* libPods-DomainLayerTests.a */; };
+		BD39AB949C4FA2D0A8D73107 /* libPods-DomainLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
 		FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */; };
 		FCEAD10563370861AE5C9FDF /* GitRepoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7DC59AF06D8BA2BFEA2 /* GitRepoRepositoryProtocol.swift */; };
@@ -21,6 +21,7 @@
 		FCEAD170DA4232A96B08BCE3 /* FetchGitRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD53E3CCDD0AF8634EF14 /* FetchGitRepositoriesUseCase.swift */; };
 		FCEAD299AF7AD529C4C7D9C0 /* GitRepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD6D6384A3E3667AC33E4 /* GitRepositoryModel.swift */; };
 		FCEAD307254E3F7D48649F6E /* GitPullRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADAF0896C4F52357332FF /* GitPullRequestModel.swift */; };
+		FCEAD40CA4FAC944B2F0C7AA /* GitRepoReliabilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD98F0D6344CD2BBEA5F3 /* GitRepoReliabilityModel.swift */; };
 		FCEAD49A310A4767C4A74505 /* FetchPullRequestCommitsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADD2D8E14D271C6CC340C /* FetchPullRequestCommitsUseCaseProtocol.swift */; };
 		FCEAD87B76CEB8B6CDEAD995 /* GitRepoReliabilityMultiplierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADD51BBD692EDD563D14A /* GitRepoReliabilityMultiplierModel.swift */; };
 		FCEAD970CE26DB8642EFFFDF /* FetchPullRequestDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD409605400C7A9B0B55A /* FetchPullRequestDetailUseCase.swift */; };
@@ -40,13 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A3A06B50AD0EDC69C337295 /* Pods_DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		298587CEAB0D7F52FB4ED0EE /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
+		2D296D87F7135C75A51F64D8 /* libPods-DomainLayerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DomainLayerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33768A2249965E57B62C61DC /* Pods-DomainLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DomainLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3863EC29E777D65DB1D3E334 /* Pods-DomainLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayer.debug.xcconfig"; path = "Target Support Files/Pods-DomainLayer/Pods-DomainLayer.debug.xcconfig"; sourceTree = "<group>"; };
 		4DC5A63EE69BBD634663946C /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		5D76D5514B639891D4574622 /* Pods-DomainLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests.release.xcconfig"; sourceTree = "<group>"; };
-		7E01B8F4EDB6816D13B686AF /* Pods_DomainLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C989238C3867A1CEAEFB7E /* Pods-DomainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1191B5A2436BE9300A8FA1F /* Result+handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handle.swift"; sourceTree = "<group>"; };
 		A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		FCEAD6D6384A3E3667AC33E4 /* GitRepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepositoryModel.swift; sourceTree = "<group>"; };
 		FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitCommitModel.swift; sourceTree = "<group>"; };
 		FCEAD7DC59AF06D8BA2BFEA2 /* GitRepoRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRepositoryProtocol.swift; sourceTree = "<group>"; };
+		FCEAD98F0D6344CD2BBEA5F3 /* GitRepoReliabilityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoReliabilityModel.swift; sourceTree = "<group>"; };
 		FCEADAF0896C4F52357332FF /* GitPullRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestModel.swift; sourceTree = "<group>"; };
 		FCEADD080DBD4A38B5407ACA /* GitRepoStatsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoStatsModel.swift; sourceTree = "<group>"; };
 		FCEADD2D8E14D271C6CC340C /* FetchPullRequestCommitsUseCaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPullRequestCommitsUseCaseProtocol.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DEA49B42E1E67C2C4217295 /* Pods_DomainLayer.framework in Frameworks */,
+				BD39AB949C4FA2D0A8D73107 /* libPods-DomainLayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */,
-				A0FAC12132DA9929DAD2563C /* Pods_DomainLayerTests.framework in Frameworks */,
+				A7480915C1644D95B4E46B1F /* libPods-DomainLayerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +99,8 @@
 		1195FCD59E7A7E36A4EC2FCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0A3A06B50AD0EDC69C337295 /* Pods_DomainLayer.framework */,
-				7E01B8F4EDB6816D13B686AF /* Pods_DomainLayerTests.framework */,
+				35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */,
+				2D296D87F7135C75A51F64D8 /* libPods-DomainLayerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,6 +250,7 @@
 			children = (
 				FCEAD6D6384A3E3667AC33E4 /* GitRepositoryModel.swift */,
 				FCEADD080DBD4A38B5407ACA /* GitRepoStatsModel.swift */,
+				FCEAD98F0D6344CD2BBEA5F3 /* GitRepoReliabilityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,7 +313,7 @@
 				A158AC29240BEDDB00B7A40E /* Sources */,
 				A158AC2A240BEDDB00B7A40E /* Frameworks */,
 				A158AC2B240BEDDB00B7A40E /* Resources */,
-				79650E8CE8D2F6B6DA544C6F /* [CP] Embed Pods Frameworks */,
+				13D82E83B3891884BAA3D5C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,6 +382,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13D82E83B3891884BAA3D5C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1D26620BB2D8E7BD4E454678 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,23 +441,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		79650E8CE8D2F6B6DA544C6F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A1FFB840243BEDFB00120CDB /* SwiftLint */ = {
@@ -498,6 +501,7 @@
 				FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */,
 				FCEAD307254E3F7D48649F6E /* GitPullRequestModel.swift in Sources */,
 				FCEAD87B76CEB8B6CDEAD995 /* GitRepoReliabilityMultiplierModel.swift in Sources */,
+				FCEAD40CA4FAC944B2F0C7AA /* GitRepoReliabilityModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -85,10 +85,10 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
                     var tempRepo = repo
                     let multiplier = repoReliabilityMultiplierModel.multiplier
                     let enable = repoReliabilityMultiplierModel.enable
-                    tempRepo.isReliabilityEnabled = enable
+                    tempRepo.reliability.isEnable = enable
                     let stats = repo.stats
-                    tempRepo.reliabilityScore = self.reliabilityCalculatorUseCase.execute(repoStats: stats,
-                                                                                          multiplier: multiplier)
+                    tempRepo.reliability.score = self.reliabilityCalculatorUseCase.execute(repoStats: stats,
+                                                                                           multiplier: multiplier)
                     return tempRepo
                 }
                 self.delegateInterfaceAdapter?.done(data: repoResult)

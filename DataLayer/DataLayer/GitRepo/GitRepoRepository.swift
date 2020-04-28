@@ -11,8 +11,8 @@ import DomainLayer
 
 public class GitRepoRepository: GitRepoRepositoryProtocol {
     private let gitRepoDataSource: GitRepoDataSourceProtocol
-    private let remoteConfigDataSource: FirebaseRemoteConfigDataSourceProtocol
-    public init(gitRepoDataSource: GitRepoDataSourceProtocol, remoteConfigDataSource: FirebaseRemoteConfigDataSourceProtocol) {
+    private let remoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol
+    public init(gitRepoDataSource: GitRepoDataSourceProtocol, remoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol) {
         self.gitRepoDataSource = gitRepoDataSource
         self.remoteConfigDataSource = remoteConfigDataSource
     }
@@ -65,9 +65,7 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         gitRepoDataSource.stats(repo: repo, completion: completion)
     }
 
-    public func getRepoReliabilityMultiplier(
-        completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>
-        ) -> Void) {
+    public func getRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void) {
         remoteConfigDataSource.gitRepoReliability { result in
             result.handle(decodeSuccess: GitRepoReliabilityMultiplierModel.init, completion: completion)
         }

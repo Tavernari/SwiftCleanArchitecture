@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class FirebaseRemoteConfigDataSource: FirebaseRemoteConfigDataSourceProtocol {
+public class GitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
     public init() {}
 
     public func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<Double>, Error>) -> Void) {

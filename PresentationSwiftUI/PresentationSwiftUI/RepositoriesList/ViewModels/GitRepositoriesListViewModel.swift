@@ -69,11 +69,11 @@ class GitRepositoryUIModel: Identifiable, ObservableObject {
     }
 
     var showStats: Bool {
-        return ghRepository.isReliabilityEnabled
+        return ghRepository.reliability.isEnable
     }
 
     var stats: Double {
-        return ghRepository.reliabilityScore
+        return ghRepository.reliability.score
     }
 
     var avatarURL: String {
