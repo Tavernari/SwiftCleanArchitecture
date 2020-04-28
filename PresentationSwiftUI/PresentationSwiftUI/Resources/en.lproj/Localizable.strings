@@ -1,0 +1,10 @@
+"Hello World" = "Hello World";
+
+"Hello, %@.withName" = "Hello, %@";
+
+"welcome.withName" = "Welcome, %@";
+
+"client.notFound" = "Não encontramos o cliente %@.";
+
+// PullRequestsList
+"pullRequestsList.message.empty" = "Este repositório ainda não contém pull requests";
