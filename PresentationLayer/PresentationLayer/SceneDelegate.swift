@@ -6,6 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

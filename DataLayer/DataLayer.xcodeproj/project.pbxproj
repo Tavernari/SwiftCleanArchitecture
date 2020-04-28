@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* Requester.swift */; };
+		A13FB8C22458BD110000633C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13FB8C12458BD110000633C /* RemoteConfigDefaults.plist */; };
 		A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataLayer.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
 		A163E56F2413F91700FA0BA2 /* GitPullRequestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56E2413F91700FA0BA2 /* GitPullRequestRepository.swift */; };
@@ -26,8 +27,8 @@
 		A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */; };
 		A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */; };
 		A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */; };
-		AD5D74661A59D99303044CF2 /* libPods-DataLayer-DataLayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDBAA84DCED60D7801B22FBD /* libPods-DataLayer-DataLayerTests.a */; };
-		C55E85C0CF62F13FE67157FD /* libPods-DataLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AABF4ED704CB09788DCB82 /* libPods-DataLayer.a */; };
+		A395181291A6E9C76ACEA1C8 /* libPods-DataLayer-DataLayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEFFA2D73BF505589CE9B84 /* libPods-DataLayer-DataLayerTests.a */; };
+		B964D4A54347197EDD4CA565 /* libPods-DataLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEDBD8E42FCD35D6584B74B /* libPods-DataLayer.a */; };
 		FCEAD04196666277FBD0C1D1 /* GitCommitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD38B0FF7A47FDFA8985A /* GitCommitData.swift */; };
 		FCEAD0C0E1B4C6087BC1D9BC /* GitRepoRemoteConfigDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADE3537940DC878574371 /* GitRepoRemoteConfigDataSourceProtocol.swift */; };
 		FCEAD16402830F0DA0AD1904 /* GitPullRequestCommitsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADC0BA81D9EF072BEC353 /* GitPullRequestCommitsData.swift */; };
@@ -75,12 +76,13 @@
 		271E5ED10FB40B90A0832B80 /* Pods-DataLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.debug.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.debug.xcconfig"; sourceTree = "<group>"; };
 		2971D94BA0AF396252484FFF /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
 		4C88F94646AF4F0ABEF66A9B /* Pods-DataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.debug.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
-		67AABF4ED704CB09788DCB82 /* libPods-DataLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DataLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.release.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.release.xcconfig"; sourceTree = "<group>"; };
+		7BEFFA2D73BF505589CE9B84 /* libPods-DataLayer-DataLayerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DataLayer-DataLayerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8989460A277586B407B0A0 /* Pods-DataLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		90A088DA5BE73EA0E2436412 /* Pods-DataLayer-DataLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer-DataLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1398AEE243847CB00A3A0CD /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		A13FB8C12458BD110000633C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		A158ABF1240BE89A00B7A40E /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +105,7 @@
 		A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIStructs.swift; sourceTree = "<group>"; };
 		A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		A6AB24B6FA9B8B11E2764146 /* Pods-DataLayer-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
-		BDBAA84DCED60D7801B22FBD /* libPods-DataLayer-DataLayerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DataLayer-DataLayerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEEDBD8E42FCD35D6584B74B /* libPods-DataLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DataLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCEAD2E7185ACBCC0A599208 /* GitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		FCEAD3791725FC81DA637DE6 /* GitRepositoryOwnerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepositoryOwnerData.swift; sourceTree = "<group>"; };
@@ -129,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */,
-				C55E85C0CF62F13FE67157FD /* libPods-DataLayer.a in Frameworks */,
+				B964D4A54347197EDD4CA565 /* libPods-DataLayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */,
-				AD5D74661A59D99303044CF2 /* libPods-DataLayer-DataLayerTests.a in Frameworks */,
+				A395181291A6E9C76ACEA1C8 /* libPods-DataLayer-DataLayerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,8 +170,8 @@
 			children = (
 				A18D4DDC245792C300783A65 /* DomainLayer.framework */,
 				A1672C922413327C004CE285 /* Domain.framework */,
-				67AABF4ED704CB09788DCB82 /* libPods-DataLayer.a */,
-				BDBAA84DCED60D7801B22FBD /* libPods-DataLayer-DataLayerTests.a */,
+				BEEDBD8E42FCD35D6584B74B /* libPods-DataLayer.a */,
+				7BEFFA2D73BF505589CE9B84 /* libPods-DataLayer-DataLayerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
 				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
+				A13FB8C12458BD110000633C /* RemoteConfigDefaults.plist */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13FB8C22458BD110000633C /* RemoteConfigDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,5 +6,5 @@
 import Foundation
 
 public protocol GitRepoRemoteConfigDataSourceProtocol {
-    func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<Double>, Error>) -> Void)
+    func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<RepoReliabilityConfigData>, Error>) -> Void)
 }

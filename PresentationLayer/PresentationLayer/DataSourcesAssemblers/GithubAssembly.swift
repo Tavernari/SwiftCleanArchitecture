@@ -21,9 +21,11 @@ class GithubAssembly: Assembly {
         }
 
         container.register(GitRepoRemoteConfigDataSourceProtocol.self) { _ in
-            let isEnable = ProcessInfo.processInfo.environment["remoteConfigReabilityEnabled"] == "true"
-            let multiplier = Double(ProcessInfo.processInfo.environment["remoteConfigReabilityMultiplier"] ?? "0")!
-            return MemoryGitRepoRemoteConfigDataSource(enable: isEnable, multiplier: multiplier)
+//            let isEnable = ProcessInfo.processInfo.environment["remoteConfigReabilityEnabled"] == "true"
+//            let multiplier = Double(ProcessInfo.processInfo.environment["remoteConfigReabilityMultiplier"] ?? "0")!
+//            return MemoryGitRepoRemoteConfigDataSource(enable: isEnable, multiplier: multiplier)
+
+            GitRepoRemoteConfigDataSource()
         }
     }
 }

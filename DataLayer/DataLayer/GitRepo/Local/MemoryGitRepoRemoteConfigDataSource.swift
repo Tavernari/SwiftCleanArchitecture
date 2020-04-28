@@ -9,12 +9,12 @@
 import DomainLayer
 
 public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
-    var remoteConfigData: RemoteConfigData<Double>
+    var remoteConfigData: RemoteConfigData<RepoReliabilityConfigData>
     public init(enable: Bool, multiplier: Double) {
-        remoteConfigData = RemoteConfigData<Double>(isEnable: enable, data: multiplier)
+        remoteConfigData = RemoteConfigData(isEnable: enable, data: RepoReliabilityConfigData(multiplier: multiplier))
     }
 
-    public func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<Double>, Error>) -> Void) {
+    public func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<RepoReliabilityConfigData>, Error>) -> Void) {
         completion(.success(remoteConfigData))
     }
 }

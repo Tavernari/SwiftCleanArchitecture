@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,7 @@
 		A1398B49243A1C7A00A3A0CD /* APIErrorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B48243A1C7A00A3A0CD /* APIErrorViewModelTests.swift */; };
 		A1398B4D243A4A5A00A3A0CD /* GithubRepositoryDataReponseFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4C243A4A5900A3A0CD /* GithubRepositoryDataReponseFake.swift */; };
 		A1398B4F243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */; };
+		A13FB8C42458C1B30000633C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13FB8C32458C1B30000633C /* GoogleService-Info.plist */; };
 		A163E5832414375900FA0BA2 /* GitPullRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5812414375900FA0BA2 /* GitPullRequestsTableViewCell.swift */; };
 		A163E5842414375900FA0BA2 /* GitPullRequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A163E5822414375900FA0BA2 /* GitPullRequestsTableViewCell.xib */; };
 		A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5922415270500FA0BA2 /* Date+ToString.swift */; };
@@ -128,6 +129,7 @@
 		A1398B48243A1C7A00A3A0CD /* APIErrorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorViewModelTests.swift; sourceTree = "<group>"; };
 		A1398B4C243A4A5900A3A0CD /* GithubRepositoryDataReponseFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryDataReponseFake.swift; sourceTree = "<group>"; };
 		A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIErrorsTests.swift; sourceTree = "<group>"; };
+		A13FB8C32458C1B30000633C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A163E5812414375900FA0BA2 /* GitPullRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		A163E5822414375900FA0BA2 /* GitPullRequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitPullRequestsTableViewCell.xib; sourceTree = "<group>"; };
 		A163E5922415270500FA0BA2 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				A1398AE12438391E00A3A0CD /* APIErrorAlert */,
 				A1073F1224223C3700770450 /* DataSourcesAssemblers */,
 				A166A915240D506000824CAD /* Info.plist */,
+				A13FB8C32458C1B30000633C /* GoogleService-Info.plist */,
 				A166A904240D505800824CAD /* AppDelegate.swift */,
 				A166A906240D505800824CAD /* SceneDelegate.swift */,
 				A166A910240D506000824CAD /* Assets.xcassets */,
@@ -530,6 +533,7 @@
 			files = (
 				A1398B1E24392C5800A3A0CD /* GitPullRequestsListViewController.xib in Resources */,
 				A166A914240D506000824CAD /* LaunchScreen.storyboard in Resources */,
+				A13FB8C42458C1B30000633C /* GoogleService-Info.plist in Resources */,
 				A1398B082438B4D300A3A0CD /* GitRepositoriesListViewController.xib in Resources */,
 				A166A94A240D52BE00824CAD /* GitRepositoriesTableViewCell.xib in Resources */,
 				A166A911240D506000824CAD /* Assets.xcassets in Resources */,
@@ -636,7 +640,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -894,7 +898,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.tavernapps.Presentation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blu.BluGithubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -913,7 +917,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.tavernapps.Presentation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blu.BluGithubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

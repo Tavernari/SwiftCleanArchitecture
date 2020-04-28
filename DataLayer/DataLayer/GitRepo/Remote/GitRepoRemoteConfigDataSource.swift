@@ -8,10 +8,14 @@ import Foundation
 public class GitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
     public init() {}
 
-    public func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<Double>, Error>) -> Void) {
-        // implementar Firebase chamada
-
-        let configData = RemoteConfigData<Double>(isEnable: true, data: 4.0)
-        completion(.success(configData))
+    public func gitRepoReliability(
+        completion: @escaping (Result<RemoteConfigData<RepoReliabilityConfigData>, Error>) -> Void
+    ) {
+        do {
+            let data: RemoteConfigData<RepoReliabilityConfigData> = try FirebaseRemoteConfig.instance.get(key: "repoReliability")!
+            completion(.success(data))
+        } catch {
+            completion(.failure(error))
+        }
     }
 }

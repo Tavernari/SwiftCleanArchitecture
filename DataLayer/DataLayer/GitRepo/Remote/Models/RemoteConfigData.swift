@@ -9,3 +9,7 @@ public struct RemoteConfigData<DataType: Codable>: Codable {
     public let isEnable: Bool
     public let data: DataType
 }
+
+public struct RepoReliabilityConfigData: Codable {
+    public let multiplier: Double
+}

@@ -15,6 +15,9 @@ target 'PresentationLayer' do
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
+  pod 'Firebase'
+  pod 'Firebase/Analytics'
+
   target 'PresentationLayerTests' do
     inherit! :search_paths
   end
@@ -63,12 +66,13 @@ target 'DataLayer' do
   project 'DataLayer/DataLayer.xcodeproj'
 #  use_frameworks!
   use_modular_headers!
+  inherit! :search_paths
 
   pod 'Alamofire', '~> 5'
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
-  pod "Firebase/RemoteConfig"
+  pod 'Firebase/RemoteConfig'
 
   target 'DataLayerTests' do
   end
