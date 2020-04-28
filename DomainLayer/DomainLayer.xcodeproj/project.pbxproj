@@ -136,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				A1191B592436BE7900A8FA1F /* Extensions */,
-				A158AC42240BEE0E00B7A40E /* Models */,
 				E306C7A9244E3D3400280358 /* SupportFiles */,
 				FCEAD60A5EB5AF8858F8D736 /* GitRepo */,
 				FCEAD56ACD3910F2CD4C95C0 /* PullRequest */,
@@ -153,13 +152,6 @@
 				A158AC34240BEDDB00B7A40E /* Info.plist */,
 			);
 			path = DomainLayerTests;
-			sourceTree = "<group>";
-		};
-		A158AC42240BEE0E00B7A40E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A1E2974224106A710020288A /* UseCases */ = {

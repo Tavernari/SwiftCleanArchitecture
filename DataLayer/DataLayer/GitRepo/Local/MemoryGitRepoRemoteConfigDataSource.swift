@@ -8,16 +8,13 @@
 
 import DomainLayer
 
-public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
-    var gitRepoReliabilityMultiplierModel = GitRepoReliabilityMultiplierModel()
+public class MemoryGitRepoRemoteConfigDataSource: FirebaseRemoteConfigDataSourceProtocol {
+    var remoteConfigData: RemoteConfigData<Double>
     public init(enable: Bool, multiplier: Double) {
-        gitRepoReliabilityMultiplierModel.enable = enable
-        gitRepoReliabilityMultiplierModel.multiplier = multiplier
+        remoteConfigData = RemoteConfigData<Double>(isEnable: enable, data: multiplier)
     }
 
-    public func gitRepoReliabilityMultiplier(
-        completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void
-    ) {
-        completion(.success(gitRepoReliabilityMultiplierModel))
+    public func gitRepoReliability(completion: @escaping (Result<RemoteConfigData<Double>, Error>) -> Void) {
+        completion(.success(remoteConfigData))
     }
 }
