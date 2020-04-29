@@ -40,6 +40,8 @@ class FirebaseRemoteConfig {
                         completion(.success(true))
                     }
                 })
+            } else {
+                completion(.success(false))
             }
         }
     }
