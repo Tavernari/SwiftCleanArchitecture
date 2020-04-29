@@ -20,7 +20,7 @@ struct PullRequestsListView: View {
             } else {
                 List {
                     ForEach(viewModel.pullRequests) { pr in
-                        NavigationLink(destination: PullRequestShowView(viewModel: .init(
+                        NavigationLink(destination: GitPullRequestDetailView(viewModel: .init(
                             fetchPullRequestDetailUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(),
                             fetchPullRequestCommitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(),
                             repo: self.viewModel.repository,

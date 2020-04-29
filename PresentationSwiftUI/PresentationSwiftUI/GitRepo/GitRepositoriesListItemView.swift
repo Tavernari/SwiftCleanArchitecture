@@ -9,7 +9,7 @@
 import DomainLayer
 import SwiftUI
 
-struct RepositoriesListItemView: View {
+struct GitRepositoriesListItemView: View {
     var repo: GitRepositoryUIModel
 
     var body: some View {
@@ -35,6 +35,6 @@ struct RepositoriesListItemView: View {
 
 struct RepositoriesListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoriesListItemView(repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
+        GitRepositoriesListItemView(repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
     }
 }

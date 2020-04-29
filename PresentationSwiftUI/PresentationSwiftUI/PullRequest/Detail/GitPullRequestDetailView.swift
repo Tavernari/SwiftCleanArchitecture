@@ -9,7 +9,7 @@
 import DomainLayer
 import SwiftUI
 
-struct PullRequestShowView: View {
+struct GitPullRequestDetailView: View {
     @ObservedObject var viewModel: GitPullRequestDetailViewModel
     var repo: GitRepositoryUIModel
 
@@ -70,6 +70,6 @@ struct PullRequestShowView: View {
 
 struct PullRequestShowView_Previews: PreviewProvider {
     static var previews: some View {
-        PullRequestShowView(viewModel: .init(fetchPullRequestDetailUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), fetchPullRequestCommitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepositoryModel(), pullRequestId: 12, pullRequestName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
+        GitPullRequestDetailView(viewModel: .init(fetchPullRequestDetailUseCase: UseCaseFacade.fetchPullRequestDetailUseCase(), fetchPullRequestCommitsUseCase: UseCaseFacade.fetchPullRequestCommitsUseCase(), repo: GitRepositoryModel(), pullRequestId: 12, pullRequestName: "Some name..", repoName: "foo", ownerName: "bar"), repo: GitRepositoryUIModel(ghRepository: GitRepositoryModel()))
     }
 }

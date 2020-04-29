@@ -11,7 +11,7 @@ import SwiftUI
 struct StartView: View {
     var body: some View {
         NavigationView {
-            RepositoriesListView(viewModel: .init(fetchGitRepositoriesUseCase: UseCaseFacade.fetchGitRepositoryUseCase()))
+            GitRepositoriesListView(viewModel: .init(fetchGitRepositoriesUseCase: UseCaseFacade.fetchGitRepositoryUseCase()))
         }
     }
 }
