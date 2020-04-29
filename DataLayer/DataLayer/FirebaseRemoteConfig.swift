@@ -28,27 +28,23 @@ class FirebaseRemoteConfig {
         remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
         remoteConfig.fetch { status, error in
             guard error == nil else {
-                print(error)
-                completion(.failure(error!))
+                DispatchQueue.main.async {
+                    completion(.failure(error!))
+                }
                 return
             }
 
             if status == .success {
-                print("Config fetched!")
                 self.remoteConfig.activate(completionHandler: { _ in
-                    completion(.success(true))
+                    DispatchQueue.main.async {
+                        completion(.success(true))
+                    }
                 })
             }
         }
     }
 
-    func get<T: Decodable>(key: String) throws -> T? {
-        guard let jsonValue = remoteConfig.configValue(forKey: key).jsonValue else {
-            throw FirebaseRemoteConfigError.keyDoesNotReturnValidReponse
-        }
-        print(jsonValue)
-        let jsonData = try JSONSerialization.data(withJSONObject: jsonValue, options: .prettyPrinted)
-        let decodedData = try JSONDecoder().decode(T.self, from: jsonData)
-        return decodedData
+    func data(key: String) throws -> Data {
+        return remoteConfig.configValue(forKey: key).dataValue
     }
 }

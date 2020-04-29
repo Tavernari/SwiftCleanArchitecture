@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		493CBE69BB3B0C89F06B927C /* Pods_DomainLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38A6FD3C50F9A1A622B711F /* Pods_DomainLayerTests.framework */; };
 		A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5A2436BE9300A8FA1F /* Result+handle.swift */; };
 		A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */; };
 		A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */; };
 		A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */; };
 		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
-		A7480915C1644D95B4E46B1F /* libPods-DomainLayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D296D87F7135C75A51F64D8 /* libPods-DomainLayerTests.a */; };
-		BD39AB949C4FA2D0A8D73107 /* libPods-DomainLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */; };
+		C44E5480B0F32D29B122D16F /* Pods_DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
 		FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */; };
 		FCEAD125D9912BDCD4085BF5 /* ConfigRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADF73957A9C3827FCB47C /* ConfigRepositoryProtocol.swift */; };
@@ -42,9 +42,7 @@
 
 /* Begin PBXFileReference section */
 		298587CEAB0D7F52FB4ED0EE /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
-		2D296D87F7135C75A51F64D8 /* libPods-DomainLayerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DomainLayerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33768A2249965E57B62C61DC /* Pods-DomainLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DomainLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3863EC29E777D65DB1D3E334 /* Pods-DomainLayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayer.debug.xcconfig"; path = "Target Support Files/Pods-DomainLayer/Pods-DomainLayer.debug.xcconfig"; sourceTree = "<group>"; };
 		4DC5A63EE69BBD634663946C /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		5D76D5514B639891D4574622 /* Pods-DomainLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,7 +56,9 @@
 		A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+makeURLCommonsError.swift"; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
+		B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B9C45DB2F2A0C45D04C561 /* Pods-DomainLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayer.release.xcconfig"; path = "Target Support Files/Pods-DomainLayer/Pods-DomainLayer.release.xcconfig"; sourceTree = "<group>"; };
+		E38A6FD3C50F9A1A622B711F /* Pods_DomainLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FCEAD409605400C7A9B0B55A /* FetchPullRequestDetailUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPullRequestDetailUseCase.swift; sourceTree = "<group>"; };
 		FCEAD4B91ED893F00EFECDBC /* GitRepoRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD39AB949C4FA2D0A8D73107 /* libPods-DomainLayer.a in Frameworks */,
+				C44E5480B0F32D29B122D16F /* Pods_DomainLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */,
-				A7480915C1644D95B4E46B1F /* libPods-DomainLayerTests.a in Frameworks */,
+				493CBE69BB3B0C89F06B927C /* Pods_DomainLayerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,8 +99,8 @@
 		1195FCD59E7A7E36A4EC2FCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */,
-				2D296D87F7135C75A51F64D8 /* libPods-DomainLayerTests.a */,
+				B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */,
+				E38A6FD3C50F9A1A622B711F /* Pods_DomainLayerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 				A158AC29240BEDDB00B7A40E /* Sources */,
 				A158AC2A240BEDDB00B7A40E /* Frameworks */,
 				A158AC2B240BEDDB00B7A40E /* Resources */,
-				13D82E83B3891884BAA3D5C6 /* [CP] Copy Pods Resources */,
+				2E81E38982C47427E792A35E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -382,23 +382,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13D82E83B3891884BAA3D5C6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1D26620BB2D8E7BD4E454678 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +402,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E81E38982C47427E792A35E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4E708D396221DB1688680E43 /* [CP] Check Pods Manifest.lock */ = {
