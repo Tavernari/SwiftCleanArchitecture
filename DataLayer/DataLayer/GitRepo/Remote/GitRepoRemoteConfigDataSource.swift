@@ -13,8 +13,9 @@ public class GitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtoco
     ) {
         FirebaseRemoteConfig.instance.initialize { _ in
             do {
-                let data: FlagableConfig<RepoReliabilityConfigData> = try FirebaseRemoteConfig.instance.data(key: "repoReliability").decode()
-                completion(.success(data))
+                let data = try FirebaseRemoteConfig.instance.data(key: "repoReliability")
+                let flagableConfig: FlagableConfig<RepoReliabilityConfigData> = try data.decode()
+                completion(.success(flagableConfig))
             } catch {
                 completion(.failure(error))
             }
