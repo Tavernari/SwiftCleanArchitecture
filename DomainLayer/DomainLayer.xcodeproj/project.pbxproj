@@ -16,11 +16,11 @@
 		BD39AB949C4FA2D0A8D73107 /* libPods-DomainLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D46D5BAE36B84BBDDED783 /* libPods-DomainLayer.a */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
 		FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */; };
-		FCEAD10563370861AE5C9FDF /* GitRepoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7DC59AF06D8BA2BFEA2 /* GitRepoRepositoryProtocol.swift */; };
 		FCEAD125D9912BDCD4085BF5 /* ConfigRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADF73957A9C3827FCB47C /* ConfigRepositoryProtocol.swift */; };
 		FCEAD170DA4232A96B08BCE3 /* FetchGitRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD53E3CCDD0AF8634EF14 /* FetchGitRepositoriesUseCase.swift */; };
 		FCEAD299AF7AD529C4C7D9C0 /* GitRepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD6D6384A3E3667AC33E4 /* GitRepositoryModel.swift */; };
 		FCEAD307254E3F7D48649F6E /* GitPullRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADAF0896C4F52357332FF /* GitPullRequestModel.swift */; };
+		FCEAD328D1BC65CC6497DA38 /* GitRepoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD4B91ED893F00EFECDBC /* GitRepoRepositoryProtocol.swift */; };
 		FCEAD40CA4FAC944B2F0C7AA /* GitRepoReliabilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD98F0D6344CD2BBEA5F3 /* GitRepoReliabilityModel.swift */; };
 		FCEAD49A310A4767C4A74505 /* FetchPullRequestCommitsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADD2D8E14D271C6CC340C /* FetchPullRequestCommitsUseCaseProtocol.swift */; };
 		FCEAD87B76CEB8B6CDEAD995 /* GitRepoReliabilityMultiplierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADD51BBD692EDD563D14A /* GitRepoReliabilityMultiplierModel.swift */; };
@@ -61,10 +61,10 @@
 		C3B9C45DB2F2A0C45D04C561 /* Pods-DomainLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayer.release.xcconfig"; path = "Target Support Files/Pods-DomainLayer/Pods-DomainLayer.release.xcconfig"; sourceTree = "<group>"; };
 		FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FCEAD409605400C7A9B0B55A /* FetchPullRequestDetailUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPullRequestDetailUseCase.swift; sourceTree = "<group>"; };
+		FCEAD4B91ED893F00EFECDBC /* GitRepoRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FCEAD53E3CCDD0AF8634EF14 /* FetchGitRepositoriesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchGitRepositoriesUseCase.swift; path = DomainLayer/GitRepo/FetchGitRepositoriesUseCase.swift; sourceTree = SOURCE_ROOT; };
 		FCEAD6D6384A3E3667AC33E4 /* GitRepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepositoryModel.swift; sourceTree = "<group>"; };
 		FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitCommitModel.swift; sourceTree = "<group>"; };
-		FCEAD7DC59AF06D8BA2BFEA2 /* GitRepoRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FCEAD98F0D6344CD2BBEA5F3 /* GitRepoReliabilityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoReliabilityModel.swift; sourceTree = "<group>"; };
 		FCEADAF0896C4F52357332FF /* GitPullRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestModel.swift; sourceTree = "<group>"; };
 		FCEADD080DBD4A38B5407ACA /* GitRepoStatsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoStatsModel.swift; sourceTree = "<group>"; };
@@ -221,9 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				FCEAD53E3CCDD0AF8634EF14 /* FetchGitRepositoriesUseCase.swift */,
-				FCEAD7DC59AF06D8BA2BFEA2 /* GitRepoRepositoryProtocol.swift */,
 				FCEADF73957A9C3827FCB47C /* ConfigRepositoryProtocol.swift */,
 				FCEAD815A560AA7E32D2B79A /* Models */,
+				FCEAD4B91ED893F00EFECDBC /* GitRepoRepositoryProtocol.swift */,
 			);
 			path = GitRepo;
 			sourceTree = "<group>";
@@ -489,7 +489,6 @@
 				A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */,
 				A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */,
 				FCEAD170DA4232A96B08BCE3 /* FetchGitRepositoriesUseCase.swift in Sources */,
-				FCEAD10563370861AE5C9FDF /* GitRepoRepositoryProtocol.swift in Sources */,
 				FCEAD125D9912BDCD4085BF5 /* ConfigRepositoryProtocol.swift in Sources */,
 				FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */,
 				FCEAD970CE26DB8642EFFFDF /* FetchPullRequestDetailUseCase.swift in Sources */,
@@ -502,6 +501,7 @@
 				FCEAD307254E3F7D48649F6E /* GitPullRequestModel.swift in Sources */,
 				FCEAD87B76CEB8B6CDEAD995 /* GitRepoReliabilityMultiplierModel.swift in Sources */,
 				FCEAD40CA4FAC944B2F0C7AA /* GitRepoReliabilityModel.swift in Sources */,
+				FCEAD328D1BC65CC6497DA38 /* GitRepoRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

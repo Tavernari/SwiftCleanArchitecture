@@ -6,7 +6,7 @@
 import Foundation
 
 public struct RemoteConfigData<DataType: Codable>: Codable {
-    public let isEnable: Bool
+    public let enable: Bool
     public let data: DataType
 }
 

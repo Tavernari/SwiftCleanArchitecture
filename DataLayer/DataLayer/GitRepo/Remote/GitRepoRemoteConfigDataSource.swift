@@ -11,11 +11,15 @@ public class GitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtoco
     public func gitRepoReliability(
         completion: @escaping (Result<RemoteConfigData<RepoReliabilityConfigData>, Error>) -> Void
     ) {
-        do {
-            let data: RemoteConfigData<RepoReliabilityConfigData> = try FirebaseRemoteConfig.instance.get(key: "repoReliability")!
-            completion(.success(data))
-        } catch {
-            completion(.failure(error))
+        FirebaseRemoteConfig.instance.initialize { _ in
+            DispatchQueue.main.async {
+                do {
+                    let data: RemoteConfigData<RepoReliabilityConfigData> = try FirebaseRemoteConfig.instance.get(key: "repoReliability")!
+                    completion(.success(data))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
         }
     }
 }

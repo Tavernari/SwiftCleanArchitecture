@@ -91,6 +91,7 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
                                                                                            multiplier: multiplier)
                     return tempRepo
                 }
+
                 self.delegateInterfaceAdapter?.done(data: repoResult)
             }
         }

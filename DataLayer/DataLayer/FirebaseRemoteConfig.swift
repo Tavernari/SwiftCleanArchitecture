@@ -6,7 +6,7 @@
 import Firebase
 
 enum FirebaseRemoteConfigError: Error {
-    case failureOnProcessRemoteConfig
+    case keyDoesNotReturnValidReponse
 }
 
 class FirebaseRemoteConfig {
@@ -14,24 +14,41 @@ class FirebaseRemoteConfig {
 
     private let remoteConfig: RemoteConfig
     private init() {
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+
         remoteConfig = RemoteConfig.remoteConfig()
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
+    }
+
+    func initialize(completion: @escaping (Result<Bool, Error>) -> Void) {
         remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
         remoteConfig.fetch { status, error in
-            print(error)
-            print(status)
+            guard error == nil else {
+                print(error)
+                completion(.failure(error!))
+                return
+            }
+
+            if status == .success {
+                print("Config fetched!")
+                self.remoteConfig.activate(completionHandler: { _ in
+                    completion(.success(true))
+                })
+            }
         }
     }
 
     func get<T: Decodable>(key: String) throws -> T? {
-        if let remoteData = remoteConfig.value(forKey: key) {
-            let jsonData = try JSONSerialization.data(withJSONObject: remoteData, options: .prettyPrinted)
-            let decodedData = try JSONDecoder().decode(T.self, from: jsonData)
-            return decodedData
+        guard let jsonValue = remoteConfig.configValue(forKey: key).jsonValue else {
+            throw FirebaseRemoteConfigError.keyDoesNotReturnValidReponse
         }
-
-        throw FirebaseRemoteConfigError.failureOnProcessRemoteConfig
+        print(jsonValue)
+        let jsonData = try JSONSerialization.data(withJSONObject: jsonValue, options: .prettyPrinted)
+        let decodedData = try JSONDecoder().decode(T.self, from: jsonData)
+        return decodedData
     }
 }

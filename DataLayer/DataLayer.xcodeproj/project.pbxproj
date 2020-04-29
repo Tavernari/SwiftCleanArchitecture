@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* Requester.swift */; };
-		A13FB8C22458BD110000633C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13FB8C12458BD110000633C /* RemoteConfigDefaults.plist */; };
+		A13FB8CD2459087A0000633C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */; };
 		A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataLayer.framework */; };
 		A158AC00240BE89A00B7A40E /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A158ABFF240BE89A00B7A40E /* DataSourceTests.swift */; };
 		A163E56F2413F91700FA0BA2 /* GitPullRequestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E56E2413F91700FA0BA2 /* GitPullRequestRepository.swift */; };
@@ -82,7 +82,7 @@
 		8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		90A088DA5BE73EA0E2436412 /* Pods-DataLayer-DataLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer-DataLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1398AEE243847CB00A3A0CD /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
-		A13FB8C12458BD110000633C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		A158ABF1240BE89A00B7A40E /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158ABF5240BE89A00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A158ABFA240BE89A00B7A40E /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +205,7 @@
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
 				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
-				A13FB8C12458BD110000633C /* RemoteConfigDefaults.plist */,
+				A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -438,7 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13FB8C22458BD110000633C /* RemoteConfigDefaults.plist in Resources */,
+				A13FB8CD2459087A0000633C /* RemoteConfigDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
