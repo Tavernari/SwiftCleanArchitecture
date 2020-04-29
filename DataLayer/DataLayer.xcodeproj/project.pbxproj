@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DC327A4CFDB15674DB6F7F5 /* Pods_DataLayer_DataLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905A931DC76B72DACAE80E24 /* Pods_DataLayer_DataLayerTests.framework */; };
+		529E0653583A9EF63075963D /* libPods-DataLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A987DAA206C208AFFC8510 /* libPods-DataLayer.a */; };
+		6C6FFCC5FE71EB579701A145 /* libPods-DataLayer-DataLayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C64AC58F44797604E3AD6CB /* libPods-DataLayer-DataLayerTests.a */; };
 		A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AEE243847CB00A3A0CD /* Requester.swift */; };
 		A13FB8CD2459087A0000633C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */; };
 		A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158ABF1240BE89A00B7A40E /* DataLayer.framework */; };
@@ -19,6 +20,8 @@
 		A163E5A124153B9400FA0BA2 /* GitRepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5A024153B9400FA0BA2 /* GitRepoDataSource.swift */; };
 		A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C9024133263004CE285 /* GitRepoRepository.swift */; };
 		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
+		A187C794245A0AF500D8D9A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */; };
+		A187C798245A0E5500D8D9A6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A187C797245A0E5500D8D9A6 /* APIRouter.swift */; };
 		A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; };
 		A18D4DDE245792C300783A65 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1B3B197244F46B400E8F1A4 /* Result+handleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */; };
@@ -28,7 +31,6 @@
 		A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */; };
 		A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */; };
 		A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */; };
-		EB90B5045CB873CA09CC4843 /* Pods_DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E350E2E5CABFFFB37EAC9D06 /* Pods_DataLayer.framework */; };
 		FCEAD04196666277FBD0C1D1 /* GitCommitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD38B0FF7A47FDFA8985A /* GitCommitData.swift */; };
 		FCEAD0C0E1B4C6087BC1D9BC /* GitRepoRemoteConfigDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADE3537940DC878574371 /* GitRepoRemoteConfigDataSourceProtocol.swift */; };
 		FCEAD13C404FCBBFB003A603 /* RepoReliabilityConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADFC694A44E99972781A4 /* RepoReliabilityConfigData.swift */; };
@@ -79,9 +81,10 @@
 		2971D94BA0AF396252484FFF /* Pods-DataLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer.release.xcconfig"; path = "Target Support Files/Pods-DataLayer/Pods-DataLayer.release.xcconfig"; sourceTree = "<group>"; };
 		4C88F94646AF4F0ABEF66A9B /* Pods-DataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.debug.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E28101E32A8FAFB8D4AB02A /* Pods-DataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSource.release.xcconfig"; path = "Target Support Files/Pods-DataSource/Pods-DataSource.release.xcconfig"; sourceTree = "<group>"; };
+		75A987DAA206C208AFFC8510 /* libPods-DataLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DataLayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C64AC58F44797604E3AD6CB /* libPods-DataLayer-DataLayerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DataLayer-DataLayerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8989460A277586B407B0A0 /* Pods-DataLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8A3CB981EA11EA2AACA563C7 /* Pods-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayerTests/Pods-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
-		905A931DC76B72DACAE80E24 /* Pods_DataLayer_DataLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayer_DataLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A088DA5BE73EA0E2436412 /* Pods-DataLayer-DataLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer-DataLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1398AEE243847CB00A3A0CD /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 		A1672C9024133263004CE285 /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
 		A1672C922413327C004CE285 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
+		A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A187C797245A0E5500D8D9A6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		A18D4DDC245792C300783A65 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handleResult.swift"; sourceTree = "<group>"; };
 		A1B3B198244F46FF00E8F1A4 /* DataRequest+processResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+processResponse.swift"; sourceTree = "<group>"; };
@@ -107,7 +112,6 @@
 		A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIStructs.swift; sourceTree = "<group>"; };
 		A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		A6AB24B6FA9B8B11E2764146 /* Pods-DataLayer-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
-		E350E2E5CABFFFB37EAC9D06 /* Pods_DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCEAD2E7185ACBCC0A599208 /* GitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
 		FCEAD3791725FC81DA637DE6 /* GitRepositoryOwnerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepositoryOwnerData.swift; sourceTree = "<group>"; };
@@ -135,7 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */,
-				EB90B5045CB873CA09CC4843 /* Pods_DataLayer.framework in Frameworks */,
+				529E0653583A9EF63075963D /* libPods-DataLayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A158ABFB240BE89A00B7A40E /* DataLayer.framework in Frameworks */,
-				1DC327A4CFDB15674DB6F7F5 /* Pods_DataLayer_DataLayerTests.framework in Frameworks */,
+				6C6FFCC5FE71EB579701A145 /* libPods-DataLayer-DataLayerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,8 +178,8 @@
 			children = (
 				A18D4DDC245792C300783A65 /* DomainLayer.framework */,
 				A1672C922413327C004CE285 /* Domain.framework */,
-				E350E2E5CABFFFB37EAC9D06 /* Pods_DataLayer.framework */,
-				905A931DC76B72DACAE80E24 /* Pods_DataLayer_DataLayerTests.framework */,
+				75A987DAA206C208AFFC8510 /* libPods-DataLayer.a */,
+				7C64AC58F44797604E3AD6CB /* libPods-DataLayer-DataLayerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,14 +207,15 @@
 		A158ABF3240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				E306C7AB244E3E3200280358 /* SupportFiles */,
+				A187C796245A0E3D00D8D9A6 /* AlamofireRouter */,
 				E306C7AA244E3E1A00280358 /* Extensions */,
+				FCEADDF36DA7EE06A342BD8B /* FlagableConfig */,
 				A1B79AF7243E6EA900DD46B4 /* GitRepo */,
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
-				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
-				A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */,
-				FCEADDF36DA7EE06A342BD8B /* FlagableConfig */,
+				E306C7AB244E3E3200280358 /* SupportFiles */,
+				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
+				A187C795245A0E2500D8D9A6 /* Firebase */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -222,6 +227,23 @@
 				A158AC01240BE89A00B7A40E /* Info.plist */,
 			);
 			path = DataLayerTests;
+			sourceTree = "<group>";
+		};
+		A187C795245A0E2500D8D9A6 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */,
+				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		A187C796245A0E3D00D8D9A6 /* AlamofireRouter */ = {
+			isa = PBXGroup;
+			children = (
+				A187C797245A0E5500D8D9A6 /* APIRouter.swift */,
+			);
+			path = AlamofireRouter;
 			sourceTree = "<group>";
 		};
 		A188016924576D4900C8EE4D /* Remote */ = {
@@ -398,7 +420,6 @@
 				A158ABF6240BE89A00B7A40E /* Sources */,
 				A158ABF7240BE89A00B7A40E /* Frameworks */,
 				A158ABF8240BE89A00B7A40E /* Resources */,
-				1B80D371395F60563D20A6C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -454,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A13FB8CD2459087A0000633C /* RemoteConfigDefaults.plist in Resources */,
+				A187C794245A0AF500D8D9A6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,23 +489,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B80D371395F60563D20A6C4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		822BC8889F94DFE088FAEC54 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,6 +585,7 @@
 				A1B3B197244F46B400E8F1A4 /* Result+handleResult.swift in Sources */,
 				A163E574241431D900FA0BA2 /* GitPullRequestDataSource.swift in Sources */,
 				A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */,
+				A187C798245A0E5500D8D9A6 /* APIRouter.swift in Sources */,
 				A163E59F24153B3700FA0BA2 /* GitRepoDataSourceProtocol.swift in Sources */,
 				A163E5A124153B9400FA0BA2 /* GitRepoDataSource.swift in Sources */,
 				A163E5792414349E00FA0BA2 /* GitPullRequestModel+initWithPullRequestData.swift in Sources */,
