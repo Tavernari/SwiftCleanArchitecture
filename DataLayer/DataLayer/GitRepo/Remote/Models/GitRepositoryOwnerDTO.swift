@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GitRepositoryOwnerData: Codable {
+public struct GitRepositoryOwnerDTO: Codable {
     public var login: String = ""
     public var avatar_url: String = ""
     public init() {}

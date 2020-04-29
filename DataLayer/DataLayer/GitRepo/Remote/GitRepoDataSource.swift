@@ -11,7 +11,7 @@ import DomainLayer
 public class GitRepoDataSource: GitRepoDataSourceProtocol {
     public init() {}
 
-    public func list(term: String, completion: @escaping (Result<GitReposResponseData, Error>) -> Void) {
+    public func list(term: String, completion: @escaping (Result<GitReposResponseDTO, Error>) -> Void) {
         GithubRepoAPIRouter.search(term: term)
             .request(decodeError: { GithubAPIError.make(data: $0) })
             .processResponse(completion: completion)

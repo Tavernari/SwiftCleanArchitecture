@@ -6,7 +6,7 @@
 import DomainLayer
 
 extension GitRepoReliabilityMultiplierModel {
-    init(remoteConfigData: FlagableConfig<RepoReliabilityConfigData>) {
+    init(remoteConfigData: FlagableConfig<RepoReliabilityConfigDTO>) {
         self.init()
         enable = remoteConfigData.enable
         multiplier = remoteConfigData.data.multiplier

@@ -5,6 +5,6 @@
 
 import Foundation
 
-public struct RepoReliabilityConfigData: Codable {
+public struct RepoReliabilityConfigDTO: Codable {
     public let multiplier: Double
 }

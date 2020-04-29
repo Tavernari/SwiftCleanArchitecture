@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GitPullRequestCommitsData: Codable {
+public struct GitPullRequestCommitsDTO: Codable {
     public var sha = ""
-    public var commit = GitCommitData()
+    public var commit = GitCommitDTO()
 }

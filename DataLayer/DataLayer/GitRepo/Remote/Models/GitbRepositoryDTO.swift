@@ -5,12 +5,12 @@
 
 import Foundation
 
-public struct GitbRepositoryData: Codable {
+public struct GitbRepositoryDTO: Codable {
     public var name: String = ""
     public var description: String? = ""
     public var stargazers_count: Int = 0
     public var forks_count: Int = 0
     public var open_issues_count: Int = 0
-    public var owner: GitRepositoryOwnerData = .init()
+    public var owner: GitRepositoryOwnerDTO = .init()
     public init() {}
 }

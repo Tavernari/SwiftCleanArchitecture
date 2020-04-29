@@ -11,19 +11,19 @@ import Foundation
 
 class GithubRepositoryDataReponseFake {
     static func repositoriesData() -> Data {
-        var githubResponseData = GitReposResponseData()
+        var githubResponseData = GitReposResponseDTO()
 
-        var owner = GitRepositoryOwnerData()
+        var owner = GitRepositoryOwnerDTO()
         owner.login = "Tavernari"
         owner.avatar_url = "https://picsum.photos/id/15/200/300"
 
-        var githubRepositoryData1 = GitbRepositoryData()
+        var githubRepositoryData1 = GitbRepositoryDTO()
         githubRepositoryData1.name = "IOSArchitecture"
         githubRepositoryData1.owner = owner
         githubRepositoryData1.description = "Studying about Architecture for iOS Projects"
         githubResponseData.items.append(githubRepositoryData1)
 
-        var githubRepositoryData2 = GitbRepositoryData()
+        var githubRepositoryData2 = GitbRepositoryDTO()
         githubRepositoryData2.name = "ReSwiftMiddleware"
         githubRepositoryData2.owner = owner
         githubRepositoryData2.forks_count = 1
@@ -38,11 +38,11 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func listOfPullsData() -> Data {
-        var user = GitPullRequestUser()
+        var user = GitPullRequestUserDTO()
         user.avatar_url = "https://picsum.photos/id/5/200/300"
         user.login = "Luis"
 
-        var response = GitPullRequestData()
+        var response = GitPullRequestDTO()
         response.title = "Title of pull request"
         response.body = "Description of pull request"
         response.created_at = "2020-04-05T03:31:27Z"
@@ -57,11 +57,11 @@ class GithubRepositoryDataReponseFake {
     }
 
     static func pullDetailData() -> Data {
-        var user = GitPullRequestUser()
+        var user = GitPullRequestUserDTO()
         user.avatar_url = "https://picsum.photos/id/5/200/300"
         user.login = "Luis"
 
-        var response = GitPullRequestDetailData()
+        var response = GitPullRequestDetailDTO()
         response.additions = 10
         response.body = "Description of pull request"
         response.changed_files = 100

@@ -12,12 +12,12 @@ import DomainLayer
 import XCTest
 
 class MockGitRepoDataSource: GitRepoDataSourceProtocol {
-    private let result: GitReposResponseData
-    init(result: GitReposResponseData) {
+    private let result: GitReposResponseDTO
+    init(result: GitReposResponseDTO) {
         self.result = result
     }
 
-    func list(term _: String, completion: @escaping (Result<GitReposResponseData, Error>) -> Void) {
+    func list(term _: String, completion: @escaping (Result<GitReposResponseDTO, Error>) -> Void) {
         completion(.success(result))
     }
 
@@ -30,8 +30,8 @@ class RepositoriesTableViewModelTests: XCTestCase {
     func testListRepository() {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
-        var responseData = GitReposResponseData()
-        let data = GitbRepositoryData()
+        var responseData = GitReposResponseDTO()
+        let data = GitbRepositoryDTO()
         responseData.items = [data, data]
         let datasource = MockGitRepoDataSource(result: responseData)
         let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: true, multiplier: 4)
@@ -66,14 +66,14 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
 
-        var responseData = GitReposResponseData()
+        var responseData = GitReposResponseDTO()
 
-        var data1 = GitbRepositoryData()
+        var data1 = GitbRepositoryDTO()
         data1.name = "repository1DataName"
         data1.owner = .init()
         data1.owner.login = "repository1DataAuthor"
 
-        var data2 = GitbRepositoryData()
+        var data2 = GitbRepositoryDTO()
         data2.name = "repository2DataName"
         data2.owner = .init()
         data2.owner.login = "repository2DataAuthor"

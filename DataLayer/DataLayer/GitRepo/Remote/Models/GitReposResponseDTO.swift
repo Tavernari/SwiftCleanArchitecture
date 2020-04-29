@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct GitCommitData: Codable {
-    public var author = GitAuthorData()
-    public var message = ""
+public struct GitReposResponseDTO: Codable {
+    public var items: [GitbRepositoryDTO] = []
+    public init() {}
 }

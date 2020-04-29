@@ -5,10 +5,10 @@
 
 import Foundation
 
-public struct GitPullRequestDetailData: Codable {
+public struct GitPullRequestDetailDTO: Codable {
     public var title: String = ""
     public var body: String = ""
-    public var user: GitPullRequestUser = .init()
+    public var user: GitPullRequestUserDTO = .init()
     public var created_at: String = ""
     public var updated_at: String = ""
     public var number: Int = 0

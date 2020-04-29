@@ -9,7 +9,7 @@
 import DomainLayer
 
 extension GitCommitModel {
-    init(data: GitPullRequestCommitsData) {
+    init(data: GitPullRequestCommitsDTO) {
         self.init()
         sha = data.sha
         name = data.commit.author.name
