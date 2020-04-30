@@ -20,7 +20,6 @@
 		A163E5A124153B9400FA0BA2 /* GitRepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5A024153B9400FA0BA2 /* GitRepoDataSource.swift */; };
 		A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C9024133263004CE285 /* GitRepoRepository.swift */; };
 		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
-		A187C794245A0AF500D8D9A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */; };
 		A187C798245A0E5500D8D9A6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A187C797245A0E5500D8D9A6 /* APIRouter.swift */; };
 		A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; };
 		A18D4DDE245792C300783A65 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -101,7 +100,6 @@
 		A1672C9024133263004CE285 /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
 		A1672C922413327C004CE285 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
-		A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A187C797245A0E5500D8D9A6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		A18D4DDC245792C300783A65 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handleResult.swift"; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 		A187C795245A0E2500D8D9A6 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
 				A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */,
 				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
 			);
@@ -475,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A13FB8CD2459087A0000633C /* RemoteConfigDefaults.plist in Resources */,
-				A187C794245A0AF500D8D9A6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

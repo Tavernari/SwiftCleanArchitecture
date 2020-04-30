@@ -15,7 +15,11 @@ target 'PresentationLayer' do
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.14.0'
+
   pod 'Firebase'
+  pod 'Firebase/Analytics'
 
   target 'PresentationLayerTests' do
     inherit! :search_paths
