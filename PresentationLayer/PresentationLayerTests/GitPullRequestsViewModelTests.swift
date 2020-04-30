@@ -15,7 +15,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
     func testListPullRequests() {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
-        let data = GitPullRequestData()
+        let data = GitPullRequestDTO()
         let dataSource = MockGitPullRequestDataSource(result: [data])
         let repository = GitPullRequestRepository(dataSource: dataSource)
         let useCase = FetchPullRequestsUseCase(repository: repository)
@@ -46,11 +46,11 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let repo = GitRepositoryModel()
-        var data1 = GitPullRequestData()
+        var data1 = GitPullRequestDTO()
         data1.user = .init()
         data1.user.login = "data1"
         data1.number = 400
-        var data2 = GitPullRequestData()
+        var data2 = GitPullRequestDTO()
         data2.user = .init()
         data2.user.login = "data2"
         data2.number = 500

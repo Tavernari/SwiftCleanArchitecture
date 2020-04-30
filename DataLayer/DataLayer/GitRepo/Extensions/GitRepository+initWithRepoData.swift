@@ -9,7 +9,7 @@
 import DomainLayer
 
 extension GitRepositoryModel {
-    init(data: GitbRepositoryData) {
+    init(data: GitbRepositoryDTO) {
         self.init()
         author = data.owner.login
         description = data.description ?? ""

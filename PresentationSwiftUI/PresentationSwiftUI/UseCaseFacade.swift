@@ -12,9 +12,9 @@ import DomainLayer
 class UseCaseFacade {
     private init() {}
 
-    static func fetchGitRepositoryUseCase(enableStats: Bool = true) -> FetchGitRepositoriesUseCaseProtocol {
+    static func fetchGitRepositoryUseCase(enableStats _: Bool = true) -> FetchGitRepositoriesUseCaseProtocol {
         let gitRepoDataSource = GitRepoDataSource()
-        let gitRepoRemoteConfigDataSource = MemoryGitRepoRemoteConfigDataSource(enable: enableStats, multiplier: 4)
+        let gitRepoRemoteConfigDataSource = GitRepoRemoteConfigDataSource()
         let gitRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource, remoteConfigDataSource: gitRepoRemoteConfigDataSource)
 
         let calculatorUseCase = ReliabilityRepoCalculator()

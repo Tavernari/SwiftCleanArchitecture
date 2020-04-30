@@ -84,6 +84,16 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "config_reliability_enable"
+            value = "true"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "config_reliability_multiplier"
+            value = "4.0"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "githubTerm"
             value = "swift"
             isEnabled = "YES">

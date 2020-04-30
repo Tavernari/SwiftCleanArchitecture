@@ -15,24 +15,24 @@ class MockGitPullRequestDataSource: GitPullRequestDataSourceProtocol {
         self.result = result
     }
 
-    func list(repo _: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void) {
-        guard let result = self.result as? [GitPullRequestData] else {
+    func list(repo _: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestDTO], Error>) -> Void) {
+        guard let result = self.result as? [GitPullRequestDTO] else {
             fatalError()
         }
 
         completion(.success(result))
     }
 
-    func get(id _: Int, fromRepo _: GitRepositoryModel, completion: @escaping (Result<GitPullRequestDetailData, Error>) -> Void) {
-        guard let result = self.result as? GitPullRequestDetailData else {
+    func get(id _: Int, fromRepo _: GitRepositoryModel, completion: @escaping (Result<GitPullRequestDetailDTO, Error>) -> Void) {
+        guard let result = self.result as? GitPullRequestDetailDTO else {
             fatalError()
         }
 
         completion(.success(result))
     }
 
-    func commits(repoName _: String, prOwner _: String, completion: @escaping (Result<[GitPullRequestCommitsData], Error>) -> Void) {
-        guard let result = self.result as? [GitPullRequestCommitsData] else {
+    func commits(repoName _: String, prOwner _: String, completion: @escaping (Result<[GitPullRequestCommitsDTO], Error>) -> Void) {
+        guard let result = self.result as? [GitPullRequestCommitsDTO] else {
             fatalError()
         }
 

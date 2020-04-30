@@ -6,21 +6,19 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Alamofire
+import Foundation
 
-enum GithubRepoAPIRouter: URLRequestConvertible {
+enum GithubRepoAPIRouter: APIRouter {
     case search(term: String)
 
-    private var path: String {
+    var path: String {
         switch self {
         case let .search(term):
             return "/search/repositories?q=\(term)"
         }
     }
 
-    func asURLRequest() throws -> URLRequest {
-        let url = try "\(GithubServerURL.path)\(path)".asURL()
-        let urlRequest = URLRequest(url: url)
-        return urlRequest
+    var method: APIRouterHttpMethod {
+        return .get
     }
 }

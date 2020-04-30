@@ -93,6 +93,7 @@ class PresentationUIErrorTests: XCTestCase {
         app.launchArguments.append("ui-testing")
         app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
+        sleep(2)
         let tablesQuery = app.tables
         sleep(1)
         tablesQuery.cells.firstMatch.tap()
@@ -126,6 +127,7 @@ class PresentationUIErrorTests: XCTestCase {
         app.launchArguments.append("ui-testing")
         app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
+        sleep(2)
         let tablesQuery = app.tables
         sleep(1)
         tablesQuery.cells.firstMatch.tap()

@@ -9,7 +9,7 @@
 import DomainLayer
 
 extension GitPullRequestModel {
-    init(_ data: GitPullRequestData) {
+    init(_ data: GitPullRequestDTO) {
         self.init()
         id = data.number
         author = data.user.login
@@ -20,7 +20,7 @@ extension GitPullRequestModel {
         updatedAt = data.updated_at.toYYYY_MM_DD_T_HH_mm_SS_Z()
     }
 
-    init(_ data: GitPullRequestDetailData) {
+    init(_ data: GitPullRequestDetailDTO) {
         self.init()
 
         id = data.number

@@ -11,7 +11,7 @@ import DomainLayer
 public class GitPullRequestDataSource: GitPullRequestDataSourceProtocol {
     public init() {}
 
-    public func list(repo: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestData], Error>) -> Void) {
+    public func list(repo: GitRepositoryModel, completion: @escaping (Result<[GitPullRequestDTO], Error>) -> Void) {
         GithubAPIRouter
             .listPullRequest(owner: repo.author, repoName: repo.name)
             .request(decodeError: { GithubAPIError.make(data: $0) })
@@ -21,7 +21,7 @@ public class GitPullRequestDataSource: GitPullRequestDataSourceProtocol {
     public func get(
         id: Int,
         fromRepo repo: GitRepositoryModel,
-        completion: @escaping (Result<GitPullRequestDetailData, Error>) -> Void
+        completion: @escaping (Result<GitPullRequestDetailDTO, Error>) -> Void
     ) {
         GithubAPIRouter
             .getPullRequest(owner: repo.author, repoName: repo.name, pullNumber: id)
@@ -29,7 +29,7 @@ public class GitPullRequestDataSource: GitPullRequestDataSourceProtocol {
             .processResponse(completion: completion)
     }
 
-    public func commits(repoName: String, prOwner: String, completion: @escaping (Result<[GitPullRequestCommitsData], Error>) -> Void) {
+    public func commits(repoName: String, prOwner: String, completion: @escaping (Result<[GitPullRequestCommitsDTO], Error>) -> Void) {
         GithubAPIRouter
             .commits(owner: prOwner, repoName: repoName)
             .request()

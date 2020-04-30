@@ -65,9 +65,9 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         gitRepoDataSource.stats(repo: repo, completion: completion)
     }
 
-    public func getRepoReliabilityMultiplier(
-        completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>
-        ) -> Void) {
-        remoteConfigDataSource.gitRepoReliabilityMultiplier(completion: completion)
+    public func getRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void) {
+        remoteConfigDataSource.gitRepoReliability { result in
+            result.handle(decodeSuccess: { GitRepoReliabilityMultiplierModel(remoteConfigData: $0) }, completion: completion)
+        }
     }
 }
