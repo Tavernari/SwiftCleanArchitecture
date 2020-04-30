@@ -214,8 +214,8 @@
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
 				E306C7AB244E3E3200280358 /* SupportFiles */,
-				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
 				A187C795245A0E2500D8D9A6 /* Firebase */,
+				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";

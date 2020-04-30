@@ -198,19 +198,17 @@
 		E306C7B72450729400280358 /* PresentationSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				E33C21B22450D3C10006BAC7 /* Resources */,
-				E33C21BF2451E22C0006BAC7 /* Extensions */,
 				E35E67DF245083AC001863BE /* Components */,
+				E33C21BF2451E22C0006BAC7 /* Extensions */,
 				E35E67D7245081EE001863BE /* GitRepo */,
-				E35E67EE2450C6E9001863BE /* PullRequestsList */,
-				E33C21C22451E3B70006BAC7 /* PullRequestShow */,
-				E35E67E32450905D001863BE /* UseCaseFacade.swift */,
-				E306C7B82450729400280358 /* AppDelegate.swift */,
-				E306C7BA2450729400280358 /* SceneDelegate.swift */,
-				E306C7C62450729900280358 /* Info.plist */,
-				E33C21B32450D41D0006BAC7 /* StartView.swift */,
 				E306C7C02450729900280358 /* Preview Content */,
 				FCEAD9B931E3B4C5679FE2D1 /* PullRequest */,
+				E33C21B22450D3C10006BAC7 /* Resources */,
+				E306C7C62450729900280358 /* Info.plist */,
+				E306C7B82450729400280358 /* AppDelegate.swift */,
+				E306C7BA2450729400280358 /* SceneDelegate.swift */,
+				E33C21B32450D41D0006BAC7 /* StartView.swift */,
+				E35E67E32450905D001863BE /* UseCaseFacade.swift */,
 			);
 			path = PresentationSwiftUI;
 			sourceTree = "<group>";
@@ -260,29 +258,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E33C21C22451E3B70006BAC7 /* PullRequestShow */ = {
-			isa = PBXGroup;
-			children = (
-				E33C21C32451E3E80006BAC7 /* ViewModels */,
-				E358899024523B050098172D /* Views */,
-			);
-			path = PullRequestShow;
-			sourceTree = "<group>";
-		};
-		E33C21C32451E3E80006BAC7 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		E358899024523B050098172D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		E35E67D7245081EE001863BE /* GitRepo */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,29 +295,6 @@
 				E35E67EA2450B2C0001863BE /* ImageURL.swift */,
 			);
 			path = ImageURL;
-			sourceTree = "<group>";
-		};
-		E35E67EE2450C6E9001863BE /* PullRequestsList */ = {
-			isa = PBXGroup;
-			children = (
-				E35E67F22450C7B3001863BE /* ViewModels */,
-				E35E67F12450C7AA001863BE /* Views */,
-			);
-			path = PullRequestsList;
-			sourceTree = "<group>";
-		};
-		E35E67F12450C7AA001863BE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		E35E67F22450C7B3001863BE /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		FBC2178DCF6E8AFA781FFD81 /* Frameworks */ = {

@@ -304,18 +304,18 @@
 		A166A903240D505800824CAD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				FCEADB70EF92E2DD3FCA31F8 /* APIErrorAlert */,
 				A1672CB72413B397004CE285 /* Components */,
-				A1398AFF2438B4BD00A3A0CD /* GitRepo */,
+				A1672C8924132DC9004CE285 /* Coordinator */,
 				A1073F1224223C3700770450 /* DataSourcesAssemblers */,
+				A166A94B240D538300824CAD /* Extensions */,
+				A1398AFF2438B4BD00A3A0CD /* GitRepo */,
+				FCEADA107F9115D3EC99D838 /* PullRequest */,
+				A166A94F240D587B00824CAD /* SupportFiles */,
 				A166A915240D506000824CAD /* Info.plist */,
 				A166A904240D505800824CAD /* AppDelegate.swift */,
 				A166A906240D505800824CAD /* SceneDelegate.swift */,
 				A166A910240D506000824CAD /* Assets.xcassets */,
-				A1672C8924132DC9004CE285 /* Coordinator */,
-				A166A94B240D538300824CAD /* Extensions */,
-				A166A94F240D587B00824CAD /* SupportFiles */,
-				FCEADA107F9115D3EC99D838 /* PullRequest */,
-				FCEADB70EF92E2DD3FCA31F8 /* APIErrorAlert */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
