@@ -49,4 +49,12 @@ class FirebaseRemoteConfig {
     func data(key: String) throws -> Data {
         return remoteConfig.configValue(forKey: key).dataValue
     }
+
+    func string(key: String) -> String? {
+        return remoteConfig.configValue(forKey: key).stringValue
+    }
+
+    func json(key: String) -> Any? {
+        return remoteConfig.configValue(forKey: key).jsonValue
+    }
 }

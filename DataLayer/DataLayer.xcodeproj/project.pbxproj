@@ -215,7 +215,6 @@
 				A1B79AFC243E761100DD46B4 /* Requester */,
 				E306C7AB244E3E3200280358 /* SupportFiles */,
 				A187C795245A0E2500D8D9A6 /* Firebase */,
-				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 		A187C795245A0E2500D8D9A6 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
 				A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */,
 				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
 			);
@@ -249,10 +249,10 @@
 		A188016924576D4900C8EE4D /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				FCEAD11C301A3D64DC603194 /* Models */,
 				A1B79B08243FC71600DD46B4 /* GithubRepoAPIRouter.swift */,
 				A163E5A024153B9400FA0BA2 /* GitRepoDataSource.swift */,
 				A163E59E24153B3700FA0BA2 /* GitRepoDataSourceProtocol.swift */,
-				FCEAD11C301A3D64DC603194 /* Models */,
 				FCEADE3537940DC878574371 /* GitRepoRemoteConfigDataSourceProtocol.swift */,
 				FCEAD2E7185ACBCC0A599208 /* GitRepoRemoteConfigDataSource.swift */,
 			);

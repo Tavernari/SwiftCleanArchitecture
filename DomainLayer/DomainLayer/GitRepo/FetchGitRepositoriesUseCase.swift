@@ -81,15 +81,18 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
         delegateInterfaceAdapter?.doing()
         fetchRepositories(term: term) { repositories in
             self.fetchReliabilityConfig { repoReliabilityMultiplierModel in
-                let repoResult = repositories.map { repo -> GitRepositoryModel in
-                    var tempRepo = repo
-                    let multiplier = repoReliabilityMultiplierModel.multiplier
-                    let enable = repoReliabilityMultiplierModel.enable
-                    tempRepo.reliability.isEnable = enable
-                    let stats = repo.stats
-                    tempRepo.reliability.score = self.reliabilityCalculatorUseCase.execute(repoStats: stats,
-                                                                                           multiplier: multiplier)
-                    return tempRepo
+                var repoResult = repositories
+                if repoReliabilityMultiplierModel.enable {
+                    repoResult = repoResult.map { repo -> GitRepositoryModel in
+                        var tempRepo = repo
+                        let multiplier = repoReliabilityMultiplierModel.multiplier
+                        let enable = repoReliabilityMultiplierModel.enable
+                        tempRepo.reliability.isEnable = enable
+                        let stats = repo.stats
+                        tempRepo.reliability.score = self.reliabilityCalculatorUseCase.execute(repoStats: stats,
+                                                                                               multiplier: multiplier)
+                        return tempRepo
+                    }
                 }
 
                 self.delegateInterfaceAdapter?.done(data: repoResult)
