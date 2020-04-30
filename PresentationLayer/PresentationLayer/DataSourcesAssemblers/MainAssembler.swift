@@ -12,6 +12,12 @@ class MainAssembler {
     private let assembler: Assembler
     var resolver: Resolver { assembler.resolver }
     init() {
-        assembler = Assembler([GithubAssembly()])
+        assembler = Assembler([DataSourceAssembler()])
+        print("MainAssembler \(AppLaunchArguments.uiTesting.exist)")
+        if AppLaunchArguments.uiTesting.exist {
+            assembler.apply(assembly: UITestRemoteConfigAssembly())
+        } else {
+            assembler.apply(assembly: RemoteConfigAssembly())
+        }
     }
 }

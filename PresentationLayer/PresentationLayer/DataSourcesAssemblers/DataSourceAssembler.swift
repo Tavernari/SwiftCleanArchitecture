@@ -10,7 +10,7 @@ import DataLayer
 import DomainLayer
 import Swinject
 
-class GithubAssembly: Assembly {
+class DataSourceAssembler: Assembly {
     func assemble(container: Container) {
         container.register(GitRepoDataSourceProtocol.self) { _ in
             GitRepoDataSource()
@@ -18,10 +18,6 @@ class GithubAssembly: Assembly {
 
         container.register(GitPullRequestDataSourceProtocol.self) { _ in
             GitPullRequestDataSource()
-        }
-
-        container.register(GitRepoRemoteConfigDataSourceProtocol.self) { _ in
-            GitRepoRemoteConfigDataSource()
         }
     }
 }

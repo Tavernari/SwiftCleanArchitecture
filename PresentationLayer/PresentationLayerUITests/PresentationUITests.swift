@@ -12,6 +12,7 @@ import XCTest
 
 class PresentationUITests: XCTestCase {
     var localhostServer: LocalhostServer!
+    var app: XCUIApplication!
 //    var app: XCUIApplication!
     var portNumber: UInt!
     override func setUp() {
@@ -40,16 +41,34 @@ class PresentationUITests: XCTestCase {
             let data = GithubRepositoryDataReponseFake.pullDetailData()
             return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
         })
+
+        app = XCUIApplication()
+        app.launchArguments.append(AppLaunchArguments.uiTesting.rawValue)
+        app.launchEnvironment[AppEnvironment.localhostPort.rawValue] = "\(portNumber!)"
     }
 
     override func tearDown() {
         localhostServer.stopListening()
     }
 
+    func testDisableReliabilityScoreWithMultiplier() {
+        app.launchEnvironment[AppEnvironment.configReliabilityEnable.rawValue] = "0"
+        app.launch()
+        let tablesQuery = app.tables
+        sleep(1)
+        XCTAssertFalse(app.images["RepositoryTableViewCell.ReliabilityIcon"].exists)
+    }
+
+    func testEnableReliabilityScoreWithMultiplier() {
+        app.launchEnvironment[AppEnvironment.configReliabilityEnable.rawValue] = "1"
+        app.launchEnvironment[AppEnvironment.configReliabilityMultipler.rawValue] = "1.0"
+        app.launch()
+        let tablesQuery = app.tables
+        sleep(1)
+        XCTAssertTrue(app.images["RepositoryTableViewCell.ReliabilityIcon"].exists)
+    }
+
     func testShowListOfRepositories() {
-        let app = XCUIApplication()
-        app.launchArguments.append("ui-testing")
-        app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
         let tablesQuery = app.tables
         sleep(1)
@@ -60,9 +79,6 @@ class PresentationUITests: XCTestCase {
     }
 
     func testNavigateToPullRequests() {
-        let app = XCUIApplication()
-        app.launchArguments.append("ui-testing")
-        app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
         let tablesQuery = app.tables
         tablesQuery.cells.firstMatch.tap()
@@ -74,9 +90,6 @@ class PresentationUITests: XCTestCase {
     }
 
     func testNavigateToPullRequestDetail() {
-        let app = XCUIApplication()
-        app.launchArguments.append("ui-testing")
-        app.launchEnvironment["localhostPort"] = "\(portNumber!)"
         app.launch()
         let tablesQuery = app.tables
         tablesQuery.cells.firstMatch.tap()
@@ -92,7 +105,7 @@ class PresentationUITests: XCTestCase {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
+                app.launch()
             }
         }
     }

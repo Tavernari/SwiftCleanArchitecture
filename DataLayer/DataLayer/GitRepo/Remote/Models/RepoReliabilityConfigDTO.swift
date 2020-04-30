@@ -7,4 +7,8 @@ import Foundation
 
 public struct RepoReliabilityConfigDTO: Codable {
     public let multiplier: Double
+
+    public init(multiplier: Double) {
+        self.multiplier = multiplier
+    }
 }

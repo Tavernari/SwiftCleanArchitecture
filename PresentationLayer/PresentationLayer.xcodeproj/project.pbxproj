@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		28BDF987B802E359C356FC77 /* Pods_PresentationLayer_PresentationLayerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F372FB16385BD776CF8371 /* Pods_PresentationLayer_PresentationLayerUITests.framework */; };
 		35D735D40C869DECE6D490D7 /* Pods_PresentationLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C588C1DBF6B07D4E568B83A3 /* Pods_PresentationLayer.framework */; };
-		A1073F1424223C5200770450 /* GithubAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1324223C5200770450 /* GithubAssembly.swift */; };
+		A101CAA5245B071100CB57EA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAA4245B071100CB57EA /* AppEnvironment.swift */; };
+		A101CAA6245B094E00CB57EA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAA4245B071100CB57EA /* AppEnvironment.swift */; };
+		A101CAA8245B0DE000CB57EA /* RemoteConfigAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAA7245B0DE000CB57EA /* RemoteConfigAssembly.swift */; };
+		A101CAAC245B0E1600CB57EA /* UITestRemoteConfigAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAAB245B0E1600CB57EA /* UITestRemoteConfigAssembly.swift */; };
+		A101CAAE245B136D00CB57EA /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAAD245B136D00CB57EA /* AppLaunchArguments.swift */; };
+		A1073F1424223C5200770450 /* DataSourceAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1324223C5200770450 /* DataSourceAssembler.swift */; };
 		A1073F1824223F3300770450 /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1724223F3300770450 /* MainAssembler.swift */; };
+		A1289C40245B14F50077D694 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAAD245B136D00CB57EA /* AppLaunchArguments.swift */; };
 		A1398AE924383E0400A3A0CD /* UILabel+bindObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AE824383E0400A3A0CD /* UILabel+bindObservable.swift */; };
 		A1398B052438B4D300A3A0CD /* GitRepositoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B002438B4D300A3A0CD /* GitRepositoriesListViewController.swift */; };
 		A1398B062438B4D300A3A0CD /* GitRepositoriesListViewModelRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B012438B4D300A3A0CD /* GitRepositoriesListViewModelRoute.swift */; };
@@ -106,7 +112,11 @@
 		73CB7F3EF1C752BEC08F6613 /* Pods_PresentationLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801014D231640E6CE687202D /* Pods-PresentationLayer-PresentationLayerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationLayer-PresentationLayerUITests.release.xcconfig"; path = "Target Support Files/Pods-PresentationLayer-PresentationLayerUITests/Pods-PresentationLayer-PresentationLayerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8C941EE83833F9174BE98261 /* Pods-Presentation-PresentationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation-PresentationUITests.release.xcconfig"; path = "Target Support Files/Pods-Presentation-PresentationUITests/Pods-Presentation-PresentationUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A1073F1324223C5200770450 /* GithubAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAssembly.swift; sourceTree = "<group>"; };
+		A101CAA4245B071100CB57EA /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		A101CAA7245B0DE000CB57EA /* RemoteConfigAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigAssembly.swift; sourceTree = "<group>"; };
+		A101CAAB245B0E1600CB57EA /* UITestRemoteConfigAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestRemoteConfigAssembly.swift; sourceTree = "<group>"; };
+		A101CAAD245B136D00CB57EA /* AppLaunchArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchArguments.swift; sourceTree = "<group>"; };
+		A1073F1324223C5200770450 /* DataSourceAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAssembler.swift; sourceTree = "<group>"; };
 		A1073F1724223F3300770450 /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		A1398AE824383E0400A3A0CD /* UILabel+bindObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+bindObservable.swift"; sourceTree = "<group>"; };
 		A1398B002438B4D300A3A0CD /* GitRepositoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesListViewController.swift; sourceTree = "<group>"; };
@@ -239,8 +249,10 @@
 		A1073F1224223C3700770450 /* DataSourcesAssemblers */ = {
 			isa = PBXGroup;
 			children = (
-				A1073F1324223C5200770450 /* GithubAssembly.swift */,
+				A1073F1324223C5200770450 /* DataSourceAssembler.swift */,
 				A1073F1724223F3300770450 /* MainAssembler.swift */,
+				A101CAA7245B0DE000CB57EA /* RemoteConfigAssembly.swift */,
+				A101CAAB245B0E1600CB57EA /* UITestRemoteConfigAssembly.swift */,
 			);
 			path = DataSourcesAssemblers;
 			sourceTree = "<group>";
@@ -349,6 +361,8 @@
 				A163E5A52415A5CA00FA0BA2 /* Observable.swift */,
 				A166A950240D596500824CAD /* R.generated.swift */,
 				A166A912240D506000824CAD /* LaunchScreen.storyboard */,
+				A101CAA4245B071100CB57EA /* AppEnvironment.swift */,
+				A101CAAD245B136D00CB57EA /* AppLaunchArguments.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -734,6 +748,7 @@
 				A1398B072438B4D300A3A0CD /* GitRepositoriesListViewModel.swift in Sources */,
 				A166A951240D596500824CAD /* R.generated.swift in Sources */,
 				A166A949240D52BE00824CAD /* GitRepositoriesTableViewCell.swift in Sources */,
+				A101CAA5245B071100CB57EA /* AppEnvironment.swift in Sources */,
 				A1672C8E24132E66004CE285 /* MainCoordinator.swift in Sources */,
 				A1398B092438B4D300A3A0CD /* GitRepositoriesListViewModelInterface.swift in Sources */,
 				A166A94D240D539300824CAD /* UIView+Utils.swift in Sources */,
@@ -742,14 +757,17 @@
 				A1398B052438B4D300A3A0CD /* GitRepositoriesListViewController.swift in Sources */,
 				A1398B062438B4D300A3A0CD /* GitRepositoriesListViewModelRoute.swift in Sources */,
 				A1073F1824223F3300770450 /* MainAssembler.swift in Sources */,
+				A101CAAC245B0E1600CB57EA /* UITestRemoteConfigAssembly.swift in Sources */,
 				A166A905240D505800824CAD /* AppDelegate.swift in Sources */,
-				A1073F1424223C5200770450 /* GithubAssembly.swift in Sources */,
+				A1073F1424223C5200770450 /* DataSourceAssembler.swift in Sources */,
+				A101CAA8245B0DE000CB57EA /* RemoteConfigAssembly.swift in Sources */,
 				A166A907240D505800824CAD /* SceneDelegate.swift in Sources */,
 				A1672C8B24132DE4004CE285 /* Coordinator.swift in Sources */,
 				A1398AE924383E0400A3A0CD /* UILabel+bindObservable.swift in Sources */,
 				FCEAD052138259582C05A566 /* GitPullRequestsListViewController.swift in Sources */,
 				FCEAD1F18F688494101C51C6 /* GitPullRequestsListViewModel.swift in Sources */,
 				FCEAD7FB4236D5E8ABA71681 /* GitPullRequestsListViewModelRoute.swift in Sources */,
+				A101CAAE245B136D00CB57EA /* AppLaunchArguments.swift in Sources */,
 				FCEAD513458133794737F212 /* GitPullRequestsTableViewCell.swift in Sources */,
 				FCEAD832F155B2477CF65622 /* GitPullRequestsListViewModelInterface.swift in Sources */,
 				FCEAD1FE3FCECB32D6EE3B36 /* GitPullRequestDetailsViewController.swift in Sources */,
@@ -780,8 +798,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1398B4F243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift in Sources */,
+				A101CAA6245B094E00CB57EA /* AppEnvironment.swift in Sources */,
 				A1398B4D243A4A5A00A3A0CD /* GithubRepositoryDataReponseFake.swift in Sources */,
 				A166A92A240D506000824CAD /* PresentationUITests.swift in Sources */,
+				A1289C40245B14F50077D694 /* AppLaunchArguments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

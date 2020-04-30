@@ -8,4 +8,9 @@ import Foundation
 public struct FlagableConfig<DataType: Codable>: Codable {
     public let enable: Bool
     public let data: DataType
+
+    public init(enable: Bool, data: DataType) {
+        self.enable = enable
+        self.data = data
+    }
 }
