@@ -12,6 +12,8 @@
 		A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */; };
 		A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */; };
 		A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */; };
+		A1D256EB2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D256EA2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift */; };
+		A1D256ED2460B531003D3B64 /* RecoverPasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D256EC2460B531003D3B64 /* RecoverPasswordUseCase.swift */; };
 		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
 		C44E5480B0F32D29B122D16F /* Pods_DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
@@ -54,6 +56,8 @@
 		A158AC2D240BEDDB00B7A40E /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158AC34240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+makeURLCommonsError.swift"; sourceTree = "<group>"; };
+		A1D256EA2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUseCaseTests.swift; sourceTree = "<group>"; };
+		A1D256EC2460B531003D3B64 /* RecoverPasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUseCase.swift; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 		B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +141,7 @@
 		A158AC26240BEDDB00B7A40E /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				A1D256E82460B45B003D3B64 /* SignIn */,
 				A1191B592436BE7900A8FA1F /* Extensions */,
 				E306C7A9244E3D3400280358 /* SupportFiles */,
 				FCEAD60A5EB5AF8858F8D736 /* GitRepo */,
@@ -156,10 +161,27 @@
 			path = DomainLayerTests;
 			sourceTree = "<group>";
 		};
+		A1D256E82460B45B003D3B64 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				A1D256E92460B473003D3B64 /* RecoverPassword */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		A1D256E92460B473003D3B64 /* RecoverPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A1D256EC2460B531003D3B64 /* RecoverPasswordUseCase.swift */,
+			);
+			path = RecoverPassword;
+			sourceTree = "<group>";
+		};
 		A1E2974224106A710020288A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */,
+				A1D256EA2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -490,6 +512,7 @@
 				A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */,
 				FCEAD170DA4232A96B08BCE3 /* FetchGitRepositoriesUseCase.swift in Sources */,
 				FCEAD125D9912BDCD4085BF5 /* ConfigRepositoryProtocol.swift in Sources */,
+				A1D256ED2460B531003D3B64 /* RecoverPasswordUseCase.swift in Sources */,
 				FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */,
 				FCEAD970CE26DB8642EFFFDF /* FetchPullRequestDetailUseCase.swift in Sources */,
 				FCEADE9415B6E00C53AC50A4 /* FetchPullRequestsUseCase.swift in Sources */,
@@ -509,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D256EB2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift in Sources */,
 				A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */,
 				A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */,
 			);
