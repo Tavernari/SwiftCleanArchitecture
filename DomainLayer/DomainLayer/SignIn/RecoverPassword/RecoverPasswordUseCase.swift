@@ -19,7 +19,8 @@ public protocol SignInRepositoryProtocol {
 public protocol RecoverPasswordUseCaseInterfaceAdapter {
     func startedRecover()
     func recovered()
-    func failtureOnRecover()
+    func failureOnRecover()
+    func invalidEmail()
 }
 
 public class RecoverPasswordUseCase {
@@ -31,7 +32,19 @@ public class RecoverPasswordUseCase {
         self.repository = repository
     }
 
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+
     public func execute(email: String) {
+        guard isValidEmail(email) else {
+            delegateInterfaceAdapter?.invalidEmail()
+            return
+        }
+
         delegateInterfaceAdapter?.startedRecover()
         repository.recoverPassword(email: email) { result in
             switch result {
@@ -40,10 +53,10 @@ public class RecoverPasswordUseCase {
                 if value {
                     delegateInterfaceAdapter?.recovered()
                 } else {
-                    delegateInterfaceAdapter?.failtureOnRecover()
+                    delegateInterfaceAdapter?.failureOnRecover()
                 }
             case .failure:
-                delegateInterfaceAdapter?.failtureOnRecover()
+                delegateInterfaceAdapter?.failureOnRecover()
             }
         }
     }
