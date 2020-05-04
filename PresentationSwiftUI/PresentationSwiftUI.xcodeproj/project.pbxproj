@@ -10,6 +10,7 @@
 		765CC1DCE0CB8946E4FDF050 /* Pods_PresentationSwiftUI_PresentationSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F906E35D5CC95442F9DEAF6 /* Pods_PresentationSwiftUI_PresentationSwiftUITests.framework */; };
 		A187C791245A0A4300D8D9A6 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A187C790245A0A4300D8D9A6 /* DomainLayer.framework */; };
 		A187C792245A0A4300D8D9A6 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A187C790245A0A4300D8D9A6 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1D256E624608DD3003D3B64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D256E524608DD2003D3B64 /* GoogleService-Info.plist */; };
 		E0E88F688B833943C06CD7E5 /* Pods_PresentationSwiftUI_PresentationSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A58593EC3748F54D16C8CD /* Pods_PresentationSwiftUI_PresentationSwiftUIUITests.framework */; };
 		E306C7B92450729400280358 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E306C7B82450729400280358 /* AppDelegate.swift */; };
 		E306C7BB2450729400280358 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E306C7BA2450729400280358 /* SceneDelegate.swift */; };
@@ -87,6 +88,7 @@
 		95A58593EC3748F54D16C8CD /* Pods_PresentationSwiftUI_PresentationSwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationSwiftUI_PresentationSwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9A840F416856F9533523D0 /* Pods-PresentationSwiftUI-PresentationSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationSwiftUI-PresentationSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-PresentationSwiftUI-PresentationSwiftUIUITests/Pods-PresentationSwiftUI-PresentationSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A187C790245A0A4300D8D9A6 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D256E524608DD2003D3B64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E306C7B52450729400280358 /* PresentationSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentationSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E306C7B82450729400280358 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E306C7BA2450729400280358 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				E306C7BA2450729400280358 /* SceneDelegate.swift */,
 				E33C21B32450D41D0006BAC7 /* StartView.swift */,
 				E35E67E32450905D001863BE /* UseCaseFacade.swift */,
+				A1D256E524608DD2003D3B64 /* GoogleService-Info.plist */,
 			);
 			path = PresentationSwiftUI;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			files = (
 				E306C7C52450729900280358 /* LaunchScreen.storyboard in Resources */,
 				E35E67D424507A59001863BE /* Localizable.strings in Resources */,
+				A1D256E624608DD3003D3B64 /* GoogleService-Info.plist in Resources */,
 				E306C7C22450729900280358 /* Preview Assets.xcassets in Resources */,
 				E306C7BF2450729900280358 /* Assets.xcassets in Resources */,
 			);
