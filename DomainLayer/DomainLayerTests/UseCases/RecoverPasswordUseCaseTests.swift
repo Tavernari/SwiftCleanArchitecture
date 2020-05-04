@@ -9,77 +9,53 @@
 @testable import DomainLayer
 import XCTest
 
-class MockFalseSiginRepository: SignInRepositoryProtocol {
+class MockSignInRepository: SignInRepositoryProtocol {
+    private let result: Result<Bool, Error>
+    init(result: Result<Bool, Error>) {
+        self.result = result
+    }
+
     func recoverPassword(email _: String, completion: (Result<Bool, Error>) -> Void) {
-        completion(.success(false))
+        completion(result)
     }
 }
 
-class MockTrueSiginRepository: SignInRepositoryProtocol {
-    func recoverPassword(email _: String, completion: (Result<Bool, Error>) -> Void) {
-        completion(.success(true))
+class MockViewModel: RecoverPasswordUseCaseInterfaceAdapter {
+    let startedRecoverAssert, recoveredAssert, failtureOnRecoverAssert: Bool
+    init(startedRecover: Bool, recovered: Bool, failtureOnRecover: Bool) {
+        startedRecoverAssert = startedRecover
+        recoveredAssert = recovered
+        failtureOnRecoverAssert = failtureOnRecover
     }
-}
 
-class MockStartedPresenterAdapter: RecoverPasswordUseCaseInterfaceAdapter {
     func startedRecover() {
-        XCTAssertTrue(true)
-    }
-
-    func recovered() {}
-
-    func failtureOnRecover() {}
-}
-
-class MockFailurePresenterAdapter: RecoverPasswordUseCaseInterfaceAdapter {
-    func startedRecover() {
-        XCTAssertTrue(true)
+        XCTAssertTrue(startedRecoverAssert)
     }
 
     func recovered() {
-        XCTFail()
+        XCTAssertTrue(recoveredAssert)
     }
 
     func failtureOnRecover() {
-        XCTAssertTrue(true)
-    }
-}
-
-class MockSuccessPresenterAdapter: RecoverPasswordUseCaseInterfaceAdapter {
-    func startedRecover() {
-        XCTAssertTrue(true)
-    }
-
-    func recovered() {
-        XCTAssertTrue(true)
-    }
-
-    func failtureOnRecover() {
-        XCTFail()
+        XCTAssertTrue(failtureOnRecoverAssert)
     }
 }
 
 class RecoverPasswordUseCaseTests: XCTestCase {
     func testRecoverWithValidEmail_shouldReturnTrue() {
-        let repository = MockTrueSiginRepository()
+        let repository = MockSignInRepository(result: .success(true))
         let useCase = RecoverPasswordUseCase(repository: repository)
-        useCase.delegateInterfaceAdapter = MockSuccessPresenterAdapter()
+        let viewModel = MockViewModel(startedRecover: true, recovered: true, failtureOnRecover: false)
+        useCase.delegateInterfaceAdapter = viewModel
 
         useCase.execute(email: "lucas@teste.com")
     }
 
     func testRecoverWithWrongEmail_shouldReturnFalse() {
-        let repository = MockFalseSiginRepository()
+        let repository = MockSignInRepository(result: .success(false))
         let useCase = RecoverPasswordUseCase(repository: repository)
-        useCase.delegateInterfaceAdapter = MockFailurePresenterAdapter()
-
-        useCase.execute(email: "lucas@teste.com")
-    }
-
-    func testRecoverPassword_shouldNotifyIfStartedProcess() {
-        let repository = MockFalseSiginRepository()
-        let useCase = RecoverPasswordUseCase(repository: repository)
-        useCase.delegateInterfaceAdapter = MockStartedPresenterAdapter()
+        let viewModel = MockViewModel(startedRecover: true, recovered: false, failtureOnRecover: true)
+        useCase.delegateInterfaceAdapter = viewModel
 
         useCase.execute(email: "lucas@teste.com")
     }
