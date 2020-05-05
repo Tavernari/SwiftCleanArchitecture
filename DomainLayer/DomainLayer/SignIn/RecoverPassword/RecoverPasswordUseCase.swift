@@ -13,7 +13,7 @@ public enum RecoverPasswordUseCaseError: Error, Equatable {
 }
 
 public protocol SignInRepositoryProtocol {
-    func recoverPassword(email: String, completion: (Result<Bool, Error>) -> Void)
+    func recoverPassword(email: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 public protocol RecoverPasswordUseCaseInterfaceAdapter {
@@ -51,12 +51,12 @@ public class RecoverPasswordUseCase {
             case let .success(value):
 
                 if value {
-                    delegateInterfaceAdapter?.recovered()
+                    self.delegateInterfaceAdapter?.recovered()
                 } else {
-                    delegateInterfaceAdapter?.failureOnRecover()
+                    self.delegateInterfaceAdapter?.failureOnRecover()
                 }
             case .failure:
-                delegateInterfaceAdapter?.failureOnRecover()
+                self.delegateInterfaceAdapter?.failureOnRecover()
             }
         }
     }

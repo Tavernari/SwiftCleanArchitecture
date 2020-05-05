@@ -18,11 +18,12 @@ enum APIRouterHttpMethod: String {
 protocol APIRouter: URLRequestConvertible {
     var path: String { get }
     var method: APIRouterHttpMethod { get }
+    var baseURL: String { get }
 }
 
 extension APIRouter {
     func asURLRequest() throws -> URLRequest {
-        let url = try "\(GithubServerURL.path)\(path)".asURL()
+        let url = try "\(baseURL)\(path)".asURL()
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
         return urlRequest
