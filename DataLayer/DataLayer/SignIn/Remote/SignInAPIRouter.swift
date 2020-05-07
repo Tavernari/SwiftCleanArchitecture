@@ -12,11 +12,14 @@ enum SignInAPIRouter: APIRouter {
     var baseURL: String { "http://www.mocky.io/v2/" }
 
     case recover(email: String)
+    case login(email: String, password: String)
 
     var path: String {
         switch self {
         case .recover:
             return "5eb17969320000700028f78e"
+        case .login:
+            return "5eb401b20e0000610008182d"
         }
     }
 

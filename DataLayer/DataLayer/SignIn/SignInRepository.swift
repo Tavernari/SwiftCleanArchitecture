@@ -25,4 +25,15 @@ class SignInRepository: SignInRepositoryProtocol {
             }
         }
     }
+
+    func login(email: String, password: String, completion: @escaping (Result<LoginModel, Error>) -> Void) {
+        signInDataSource.login(email: email, password: password) { result in
+            switch result {
+            case let .success(model):
+                completion(.success(LoginModel(data: model)))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

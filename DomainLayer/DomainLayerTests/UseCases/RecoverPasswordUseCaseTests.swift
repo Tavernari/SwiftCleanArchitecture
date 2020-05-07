@@ -9,17 +9,6 @@
 @testable import DomainLayer
 import XCTest
 
-class MockSignInRepository: SignInRepositoryProtocol {
-    private let result: Result<Bool, Error>
-    init(result: Result<Bool, Error>) {
-        self.result = result
-    }
-
-    func recoverPassword(email _: String, completion: (Result<Bool, Error>) -> Void) {
-        completion(result)
-    }
-}
-
 class MockViewModel: RecoverPasswordUseCaseInterfaceAdapter {
     let startedRecoverAssert, recoveredAssert, failtureOnRecoverAssert, invalidEmailAssert: Bool
     init(startedRecover: Bool, recovered: Bool, failureOnRecover: Bool, invalidEmail: Bool) {
@@ -48,18 +37,6 @@ class MockViewModel: RecoverPasswordUseCaseInterfaceAdapter {
 
 class RecoverPasswordUseCaseTests: XCTestCase {
     func testRecoverWithValidEmail_shouldReturnTrue() {
-        let repository = MockSignInRepository(result: .success(true))
-        let useCase = RecoverPasswordUseCase(repository: repository)
-        let viewModel = MockViewModel(startedRecover: true,
-                                      recovered: true,
-                                      failureOnRecover: false,
-                                      invalidEmail: false)
-        useCase.delegateInterfaceAdapter = viewModel
-
-        useCase.execute(email: "lucas@teste.com")
-    }
-
-    func testRecoverWithValidEmail_shouldReturnTrue2() {
         let repository = MockSignInRepository(result: .success(true))
         let useCase = RecoverPasswordUseCase(repository: repository)
         let viewModel = MockViewModel(startedRecover: true,
