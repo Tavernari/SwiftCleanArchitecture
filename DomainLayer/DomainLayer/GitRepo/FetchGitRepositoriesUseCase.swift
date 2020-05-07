@@ -21,6 +21,7 @@ public enum FetchGitRepositoriesError: LocalizedError {
     case termCannotBeEmpty
 }
 
+// sourcery: AutoMockable
 public protocol FetchGitRepositoriesUseCaseProtocol {
     var delegateInterfaceAdapter: FetchGitRepositoriesInterfaceAdapter? { get set }
     func execute(term: String)

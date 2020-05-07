@@ -30,6 +30,7 @@
 		A16054F624648AC6000C53AD /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F524648AC6000C53AD /* Analytics.swift */; };
 		A16054F824648ADB000C53AD /* AnalyticsIdentifiable+eventDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F724648ADB000C53AD /* AnalyticsIdentifiable+eventDispatch.swift */; };
 		A16054FA24648B01000C53AD /* AnalyticsIdentifiable+screenDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F924648B01000C53AD /* AnalyticsIdentifiable+screenDispatch.swift */; };
+		A160550124648D20000C53AD /* AnalyticsProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550024648D20000C53AD /* AnalyticsProviderType.swift */; };
 		E47F431777C3632BEF9211C4 /* libPods-Analytics-AnalyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4A05D3937F43F2457B1CBD /* libPods-Analytics-AnalyticsTests.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		A16054F524648AC6000C53AD /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		A16054F724648ADB000C53AD /* AnalyticsIdentifiable+eventDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnalyticsIdentifiable+eventDispatch.swift"; sourceTree = "<group>"; };
 		A16054F924648B01000C53AD /* AnalyticsIdentifiable+screenDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnalyticsIdentifiable+screenDispatch.swift"; sourceTree = "<group>"; };
+		A160550024648D20000C53AD /* AnalyticsProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsProviderType.swift; sourceTree = "<group>"; };
 		AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.release.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.release.xcconfig"; sourceTree = "<group>"; };
 		CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics-AnalyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Analytics-AnalyticsTests/Pods-Analytics-AnalyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7F733691F7FD8687E255CEE /* Pods-Analytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.debug.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				A16054E6246489A8000C53AD /* AnalyticsBrokerType.swift */,
 				A16054E8246489B8000C53AD /* AnalyticsEventType.swift */,
 				A16054ED24648A55000C53AD /* AnalyticsScreenEventType.swift */,
+				A160550024648D20000C53AD /* AnalyticsProviderType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				A16054F024648A67000C53AD /* AnalyticsEventProviders+screen.swift in Sources */,
 				A16054E22464897D000C53AD /* AnalyticsData.swift in Sources */,
 				A16054E7246489A8000C53AD /* AnalyticsBrokerType.swift in Sources */,
+				A160550124648D20000C53AD /* AnalyticsProviderType.swift in Sources */,
 				A16054E42464898D000C53AD /* AnalyticsFlagable.swift in Sources */,
 				A16054DC2464894F000C53AD /* AnalyticsUserIdentificationDispatcher.swift in Sources */,
 				A16054EE24648A55000C53AD /* AnalyticsScreenEventType.swift in Sources */,
@@ -532,6 +536,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Analytics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +563,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Analytics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

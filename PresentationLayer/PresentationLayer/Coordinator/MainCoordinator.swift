@@ -32,6 +32,7 @@ class MainCoordinator: NSObject, Coordinator {
         )
 
         let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories)
+        viewModel.delegateAnalyticsInterface = GitRepositoriesListViewModelAnalytics()
 
         fetchGitRepositories.delegateInterfaceAdapter = viewModel
 

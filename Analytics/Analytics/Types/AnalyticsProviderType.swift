@@ -1,5 +1,5 @@
 //
-//  AnalyticsEventType.swift
+//  AnalyticsProviderType.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias AnalyticsEventType = AnalyticsIdentifiable & AnalyticsData
+public typealias AnalyticsProviderType =  AnalyticsIdentifiable & AnalyticsFlagable

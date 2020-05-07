@@ -10,15 +10,22 @@
 
 import DomainLayer
 
+// sourcery: AutoMockable
+protocol GitRepositoriesListViewModelAnalyticsProtocol {
+    func itemSelected(name: String)
+}
+
 class GitRepositoriesListViewModel: GitRepositoriesListViewModelInterface {
     var isLoading = Observable<Bool>(false)
     var failMessage = Observable<String?>(nil)
     var repositories = Observable<[GitRepositoryModel]>([])
     var route = Observable<GitRepositoriesListViewModelRoute>(.none)
 
-    private let fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCase
+    var delegateAnalyticsInterface: GitRepositoriesListViewModelAnalyticsProtocol?
 
-    init(fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCase) {
+    private let fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol
+
+    init(fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol) {
         self.fetchGitRepositoriesUseCase = fetchGitRepositoriesUseCase
     }
 
@@ -28,6 +35,7 @@ class GitRepositoriesListViewModel: GitRepositoriesListViewModelInterface {
 
     func select(index: Int) {
         let repository = repositories.value[index]
+        delegateAnalyticsInterface?.itemSelected(name: repository.name)
         route.value = .showPullRequests(repo: repository)
     }
 }

@@ -16,9 +16,10 @@ target 'PresentationLayer' do
 	pod 'SwiftFormat/CLI'
 
   pod 'Firebase'
+  pod 'Firebase/Analytics'
 
   target 'PresentationLayerTests' do
-    inherit! :search_paths
+    pod "SwiftyMocky"
   end
 
   target 'PresentationLayerUITests' do
@@ -73,7 +74,6 @@ target 'DataLayer' do
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
-  pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
 
   target 'DataLayerTests' do
