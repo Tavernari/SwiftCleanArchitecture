@@ -12,4 +12,8 @@ class SignInDataSource: SignInDataSourceProtocol {
     func recover(email: String, completion: @escaping (Result<RecoveryPasswordDTO, Error>) -> Void) {
         SignInAPIRouter.recover(email: email).request().processResponse(completion: completion)
     }
+
+    func login(email: String, password: String, completion: @escaping (Result<LoginDTO, Error>) -> Void) {
+        SignInAPIRouter.login(email: email, password: password).request().processResponse(completion: completion)
+    }
 }

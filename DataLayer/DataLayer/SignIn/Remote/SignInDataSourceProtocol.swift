@@ -10,4 +10,5 @@ import Foundation
 
 protocol SignInDataSourceProtocol {
     func recover(email: String, completion: @escaping (Result<RecoveryPasswordDTO, Error>) -> Void)
+    func login(email: String, password: String, completion: @escaping (Result<LoginDTO, Error>) -> Void)
 }

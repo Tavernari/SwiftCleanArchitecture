@@ -11,13 +11,20 @@ import XCTest
 
 class MockDataSource: SignInDataSourceProtocol {
     var recovered: Bool
+    var logedIn: Bool
 
-    init(recovered: Bool) {
-        self.recovered = recovered
+    init(recovered: Bool? = false, logedIn: Bool? = false) {
+        self.recovered = recovered!
+        self.logedIn = logedIn!
     }
 
     func recover(email _: String, completion: (Result<RecoveryPasswordDTO, Error>) -> Void) {
         let dto = RecoveryPasswordDTO(data: RecoveryPasswordResponseData(recovered: recovered))
+        completion(.success(dto))
+    }
+
+    func login(email _: String, password _: String, completion: (Result<LoginDTO, Error>) -> Void) {
+        let dto = LoginDTO(data: LoginResponseData(token: "token123XXX99"))
         completion(.success(dto))
     }
 }
@@ -71,6 +78,47 @@ class DataSourceTests: XCTestCase {
                 expectation.fulfill()
             default:
                 XCTFail("failed waiting for success response")
+            }
+        }
+
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testLogin_returnTrue() {
+        let repository = SignInRepository(signInDataSource: MockDataSource(logedIn: true))
+        repository.login(email: "lucas@email.com", password: "pass123") { result in
+            switch result {
+            case let .success(value):
+                XCTAssertNotNil(value)
+            default:
+                XCTFail("failed waiting for success response")
+            }
+        }
+    }
+
+    func testLogin_returnFalse() {
+        let repository = SignInRepository(signInDataSource: MockDataSource(logedIn: false))
+        repository.login(email: "lucas@email.com", password: "pass123") { result in
+            switch result {
+            case let .success(value):
+                XCTAssertNotNil(value)
+            default:
+                XCTFail("failed waiting for success response")
+            }
+        }
+    }
+
+    func testIntegrationLoginRepository() {
+        let expectation = XCTestExpectation(description: "waiting login result")
+
+        let repository = SignInRepository(signInDataSource: MockDataSource(logedIn: true))
+        repository.login(email: "lucas@email.com", password: "pass123") { result in
+            switch result {
+            case let .success(response):
+                XCTAssertEqual(response.token, "token123XXX99")
+                expectation.fulfill()
+            default:
+                XCTFail("failed waiting success response from login api")
             }
         }
 

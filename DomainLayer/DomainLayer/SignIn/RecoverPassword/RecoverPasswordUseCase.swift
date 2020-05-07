@@ -12,10 +12,6 @@ public enum RecoverPasswordUseCaseError: Error, Equatable {
     case defaultError
 }
 
-public protocol SignInRepositoryProtocol {
-    func recoverPassword(email: String, completion: @escaping (Result<Bool, Error>) -> Void)
-}
-
 public protocol RecoverPasswordUseCaseInterfaceAdapter {
     func startedRecover()
     func recovered()
