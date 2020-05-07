@@ -79,3 +79,16 @@ target 'DataLayer' do
   target 'DataLayerTests' do
   end
 end
+
+target 'Analytics' do
+  project 'Analytics/Analytics.xcodeproj'
+  # use_frameworks!
+  use_modular_headers!
+  inherit! :search_paths
+
+  pod 'SwiftLint'
+  pod 'SwiftFormat/CLI'
+
+  target 'AnalyticsTests' do
+  end
+end
