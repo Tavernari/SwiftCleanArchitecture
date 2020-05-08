@@ -17,6 +17,7 @@ target 'PresentationLayer' do
 
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.0.2'
 
   pod 'Firebase'
   pod 'Firebase/Analytics'
