@@ -12,7 +12,7 @@ import DomainLayer
 class UseCaseFacade {
     private init() {}
 
-    static func fetchGitRepositoryUseCase(enableStats _: Bool = true) -> FetchGitRepositoriesUseCaseProtocol {
+    static func fetchGitRepositoryUseCase() -> FetchGitRepositoriesUseCaseProtocol {
         let gitRepoDataSource = GitRepoDataSource()
         let gitRepoRemoteConfigDataSource = GitRepoRemoteConfigDataSource()
         let gitRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource, remoteConfigDataSource: gitRepoRemoteConfigDataSource)

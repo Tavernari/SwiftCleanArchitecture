@@ -20,7 +20,6 @@
 		A163E5A124153B9400FA0BA2 /* GitRepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5A024153B9400FA0BA2 /* GitRepoDataSource.swift */; };
 		A1672C9124133263004CE285 /* GitRepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672C9024133263004CE285 /* GitRepoRepository.swift */; };
 		A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */; };
-		A187C794245A0AF500D8D9A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */; };
 		A187C798245A0E5500D8D9A6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A187C797245A0E5500D8D9A6 /* APIRouter.swift */; };
 		A18D4DDD245792C300783A65 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; };
 		A18D4DDE245792C300783A65 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DDC245792C300783A65 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -31,6 +30,8 @@
 		A1B79B0B243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */; };
 		A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */; };
 		A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */; };
+		A1D256E024606689003D3B64 /* AppRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D256DF24606689003D3B64 /* AppRemoteConfig.swift */; };
+		A1D256E2246067DE003D3B64 /* AppRemoteConfigMaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D256E1246067DE003D3B64 /* AppRemoteConfigMaking.swift */; };
 		FCEAD04196666277FBD0C1D1 /* GitCommitDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD38B0FF7A47FDFA8985A /* GitCommitDTO.swift */; };
 		FCEAD0C0E1B4C6087BC1D9BC /* GitRepoRemoteConfigDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADE3537940DC878574371 /* GitRepoRemoteConfigDataSourceProtocol.swift */; };
 		FCEAD13C404FCBBFB003A603 /* RepoReliabilityConfigDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADFC694A44E99972781A4 /* RepoReliabilityConfigDTO.swift */; };
@@ -101,7 +102,6 @@
 		A1672C9024133263004CE285 /* GitRepoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepoRepository.swift; sourceTree = "<group>"; };
 		A1672C922413327C004CE285 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1672CA524134228004CE285 /* GitRepository+initWithRepoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitRepository+initWithRepoData.swift"; sourceTree = "<group>"; };
-		A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A187C797245A0E5500D8D9A6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		A18D4DDC245792C300783A65 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B3B196244F46B400E8F1A4 /* Result+handleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handleResult.swift"; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		A1B79B0A243FC86900DD46B4 /* GithubPullRequestAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubPullRequestAPIRouter.swift; sourceTree = "<group>"; };
 		A1B79B0C243FCB4B00DD46B4 /* GithubAPIStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIStructs.swift; sourceTree = "<group>"; };
 		A1C766EA242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
+		A1D256DF24606689003D3B64 /* AppRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRemoteConfig.swift; sourceTree = "<group>"; };
+		A1D256E1246067DE003D3B64 /* AppRemoteConfigMaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRemoteConfigMaking.swift; sourceTree = "<group>"; };
 		A6AB24B6FA9B8B11E2764146 /* Pods-DataLayer-DataLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataLayer-DataLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DataLayer-DataLayerTests/Pods-DataLayer-DataLayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2DBD215B8AEC985FA0EBDC0 /* Pods-DataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceTests.release.xcconfig"; path = "Target Support Files/Pods-DataSourceTests/Pods-DataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCEAD2E7185ACBCC0A599208 /* GitRepoRemoteConfigDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRemoteConfigDataSource.swift; sourceTree = "<group>"; };
@@ -207,9 +209,9 @@
 		A158ABF3240BE89A00B7A40E /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				A1D256DE24606672003D3B64 /* AppRemoteConfig */,
 				A187C796245A0E3D00D8D9A6 /* AlamofireRouter */,
 				E306C7AA244E3E1A00280358 /* Extensions */,
-				FCEADDF36DA7EE06A342BD8B /* FlagableConfig */,
 				A1B79AF7243E6EA900DD46B4 /* GitRepo */,
 				A1B79AF8243E72E400DD46B4 /* PullRequest */,
 				A1B79AFC243E761100DD46B4 /* Requester */,
@@ -231,7 +233,6 @@
 		A187C795245A0E2500D8D9A6 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				A187C793245A0AF500D8D9A6 /* GoogleService-Info.plist */,
 				A13FB8CC245908790000633C /* RemoteConfigDefaults.plist */,
 				FCEAD4AB7EA6044637A5CF70 /* FirebaseRemoteConfig.swift */,
 			);
@@ -255,6 +256,7 @@
 				A163E59E24153B3700FA0BA2 /* GitRepoDataSourceProtocol.swift */,
 				FCEADE3537940DC878574371 /* GitRepoRemoteConfigDataSourceProtocol.swift */,
 				FCEAD2E7185ACBCC0A599208 /* GitRepoRemoteConfigDataSource.swift */,
+				A1D256E1246067DE003D3B64 /* AppRemoteConfigMaking.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -326,6 +328,15 @@
 			path = Requester;
 			sourceTree = "<group>";
 		};
+		A1D256DE24606672003D3B64 /* AppRemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				A1D256DF24606689003D3B64 /* AppRemoteConfig.swift */,
+				FCEAD69AF4A9B6DE10C692CA /* FlagableConfig.swift */,
+			);
+			path = AppRemoteConfig;
+			sourceTree = "<group>";
+		};
 		E306C7AA244E3E1A00280358 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,14 +378,6 @@
 				FCEADB5CA5B32DBF560025D6 /* GitAuthorDTO.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		FCEADDF36DA7EE06A342BD8B /* FlagableConfig */ = {
-			isa = PBXGroup;
-			children = (
-				FCEAD69AF4A9B6DE10C692CA /* FlagableConfig.swift */,
-			);
-			path = FlagableConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,7 +478,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A13FB8CD2459087A0000633C /* RemoteConfigDefaults.plist in Resources */,
-				A187C794245A0AF500D8D9A6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,10 +583,12 @@
 				A1C766EB242A2899009EFA6F /* MemoryGitRepoRemoteConfigDataSource.swift in Sources */,
 				A1672CA624134228004CE285 /* GitRepository+initWithRepoData.swift in Sources */,
 				A1B79B09243FC71600DD46B4 /* GithubRepoAPIRouter.swift in Sources */,
+				A1D256E2246067DE003D3B64 /* AppRemoteConfigMaking.swift in Sources */,
 				A1398AEF243847CB00A3A0CD /* Requester.swift in Sources */,
 				A1B3B197244F46B400E8F1A4 /* Result+handleResult.swift in Sources */,
 				A163E574241431D900FA0BA2 /* GitPullRequestDataSource.swift in Sources */,
 				A1B79B0D243FCB4B00DD46B4 /* GithubAPIStructs.swift in Sources */,
+				A1D256E024606689003D3B64 /* AppRemoteConfig.swift in Sources */,
 				A187C798245A0E5500D8D9A6 /* APIRouter.swift in Sources */,
 				A163E59F24153B3700FA0BA2 /* GitRepoDataSourceProtocol.swift in Sources */,
 				A163E5A124153B9400FA0BA2 /* GitRepoDataSource.swift in Sources */,

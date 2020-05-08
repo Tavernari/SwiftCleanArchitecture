@@ -5,56 +5,36 @@
 
 import Firebase
 
-enum FirebaseRemoteConfigError: Error {
-    case keyDoesNotReturnValidReponse
-}
-
-class FirebaseRemoteConfig {
+class FirebaseRemoteConfig: RemoteConfig {
     static let instance = FirebaseRemoteConfig()
 
-    private let remoteConfig: RemoteConfig
+    private let remoteConfig: Firebase.RemoteConfig
     private init() {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
 
-        remoteConfig = RemoteConfig.remoteConfig()
+        remoteConfig = Firebase.RemoteConfig.remoteConfig()
+
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
-    }
-
-    func initialize(completion: @escaping (Result<Bool, Error>) -> Void) {
         remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
-        remoteConfig.fetch { status, error in
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    completion(.failure(error!))
-                }
-                return
-            }
+        remoteConfig.fetchAndActivate(completionHandler: nil)
+    }
 
-            if status == .success {
-                self.remoteConfig.activate(completionHandler: { _ in
-                    DispatchQueue.main.async {
-                        completion(.success(true))
-                    }
-                })
-            } else {
-                completion(.success(false))
-            }
+    subscript<T>(key: String) -> T? {
+        switch T.self {
+        case is String.Type:
+            return remoteConfig.configValue(forKey: key).stringValue as? T
+        case is Bool.Type:
+            return remoteConfig.configValue(forKey: key).boolValue as? T
+        case is NSNumber.Type:
+            return remoteConfig.configValue(forKey: key).numberValue as? T
+        case is Data.Type:
+            return remoteConfig.configValue(forKey: key).dataValue as? T
+        default:
+            return remoteConfig.configValue(forKey: key).jsonValue as? T
         }
-    }
-
-    func data(key: String) throws -> Data {
-        return remoteConfig.configValue(forKey: key).dataValue
-    }
-
-    func string(key: String) -> String? {
-        return remoteConfig.configValue(forKey: key).stringValue
-    }
-
-    func json(key: String) -> Any? {
-        return remoteConfig.configValue(forKey: key).jsonValue
     }
 }
