@@ -21,11 +21,11 @@ target 'PresentationLayer' do
 
   pod 'Firebase'
   pod 'Firebase/Analytics'
-
   pod 'Firebase/Performance'
 
+
   target 'PresentationLayerTests' do
-    inherit! :search_paths
+    pod "SwiftyMocky"
   end
 
   target 'PresentationLayerUITests' do
@@ -93,5 +93,18 @@ target 'DataLayer' do
   pod 'Crashlytics', '~> 3.14.0'
 
   target 'DataLayerTests' do
+  end
+end
+
+target 'Analytics' do
+  project 'Analytics/Analytics.xcodeproj'
+  # use_frameworks!
+  use_modular_headers!
+  inherit! :search_paths
+
+  pod 'SwiftLint'
+  pod 'SwiftFormat/CLI'
+
+  target 'AnalyticsTests' do
   end
 end

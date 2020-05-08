@@ -19,6 +19,7 @@ included: # paths to include during linting. `--path` is ignored if present.
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - R.generated.swift
+  - PresentationLayerTests/Mock.generated.swift
   - DomainLayerTests/Mock.generated.swift
 
 # configurable rules can be customized from this configuration file

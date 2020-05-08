@@ -10,3 +10,19 @@ DomainTests:
   - DomainLayer
   import:
   - Foundation
+
+PresentationTests:
+  sources:
+    include:
+    - ./PresentationLayer
+    - ./DomainLayer
+    - ./DataLayer
+  output: ./PresentationLayer/PresentationLayerTests/Mock.generated.swift
+  targets:
+  - PresentationLayerTests
+  testable:
+  - PresentationLayer
+  import:
+  - Foundation
+  - DomainLayer
+  - DataLayer

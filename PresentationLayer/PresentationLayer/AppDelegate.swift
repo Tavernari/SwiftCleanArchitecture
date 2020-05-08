@@ -6,6 +6,7 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
+import Analytics
 import CoreData
 import Crashlytics
 import Firebase
@@ -16,6 +17,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+
         FirebaseApp.initialize()
         Crashlytics.initialize()
         SentrySDK.start(options: [
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "sessionTrackingIntervalMillis": 60000,
             "debug": true,
         ])
+
+        Analytics.register(provider: FirebaseAnalyticsProvider())
 
         return true
     }

@@ -8,41 +8,30 @@
 
 import DataLayer
 import DomainLayer
+import Firebase
 @testable import PresentationLayer
 import XCTest
 
-class MockGitRepoDataSource: GitRepoDataSourceProtocol {
-    private let result: GitReposResponseDTO
-    init(result: GitReposResponseDTO) {
-        self.result = result
-    }
-
-    func list(term _: String, completion: @escaping (Result<GitReposResponseDTO, Error>) -> Void) {
-        completion(.success(result))
-    }
-
-    func stats(repo _: GitRepositoryModel, completion: @escaping (Result<GitRepoStatsModel, Error>) -> Void) {
-        completion(.success(.init()))
-    }
-}
-
 class RepositoriesTableViewModelTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+    }
+
     func testListRepository() {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
-        var responseData = GitReposResponseDTO()
-        let data = GitbRepositoryDTO()
-        responseData.items = [data, data]
-        let datasource = MockGitRepoDataSource(result: responseData)
-        let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: true, multiplier: 4)
-        let repository = DataLayer.GitRepoRepository(gitRepoDataSource: datasource, remoteConfigDataSource: configDataSource)
-        let useCase = FetchGitRepositoriesUseCase(
-            gitRepoRepository: repository,
-            reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
+        let useCase = FetchGitRepositoriesUseCaseProtocolMock()
+        useCase.perform(.execute(term: .any, perform: { _ in
+            useCase.delegateInterfaceAdapter?.doing()
+            useCase.delegateInterfaceAdapter?.done(data: [GitRepositoryModel(), GitRepositoryModel()])
+        }))
+
+        let analyticsInterface = GitRepositoriesListViewModelAnalyticsProtocolMock()
+        let viewModel = GitRepositoriesListViewModel(
+            fetchGitRepositoriesUseCase: useCase,
+            delegateAnalyticsInterface: analyticsInterface
         )
-        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: useCase)
-        useCase.delegateInterfaceAdapter = viewModel
-        viewModel.search(term: "Java")
+        useCase.given(.delegateInterfaceAdapter(getter: viewModel))
 
         viewModel.repositories.observe { repositories in
             guard repositories.isEmpty == false else {
@@ -59,6 +48,12 @@ class RepositoriesTableViewModelTests: XCTestCase {
             }
         }
 
+        viewModel.search(term: "Java")
+
+        analyticsInterface.verify(.screen())
+        analyticsInterface.verify(.itemSelected(name: .any), count: .never)
+        analyticsInterface.verify(.searched(term: .value("Java")))
+
         wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
     }
 
@@ -66,30 +61,27 @@ class RepositoriesTableViewModelTests: XCTestCase {
         let expectationLoadingStatus = XCTestExpectation(description: "Wait for loading status")
         let expectationRepositories = XCTestExpectation(description: "Wait for repositories results")
 
-        var responseData = GitReposResponseDTO()
-
-        var data1 = GitbRepositoryDTO()
+        var data1 = GitRepositoryModel()
         data1.name = "repository1DataName"
-        data1.owner = .init()
-        data1.owner.login = "repository1DataAuthor"
+        data1.author = "repository1DataAuthor"
 
-        var data2 = GitbRepositoryDTO()
+        var data2 = GitRepositoryModel()
         data2.name = "repository2DataName"
-        data2.owner = .init()
-        data2.owner.login = "repository2DataAuthor"
+        data2.author = "repository2DataAuthor"
 
-        responseData.items = [data1, data2]
+        let analyticsInterfaceMock = GitRepositoriesListViewModelAnalyticsProtocolMock()
 
-        let datasource = MockGitRepoDataSource(result: responseData)
-        let configDataSource = MemoryGitRepoRemoteConfigDataSource(enable: false, multiplier: 4)
-        let repository = GitRepoRepository(gitRepoDataSource: datasource, remoteConfigDataSource: configDataSource)
-        let useCase = FetchGitRepositoriesUseCase(
-            gitRepoRepository: repository,
-            reliabilityCalculatorUseCase: ReliabilityRepoCalculator()
+        let useCaseMock = FetchGitRepositoriesUseCaseProtocolMock()
+        useCaseMock.perform(.execute(term: .any, perform: { _ in
+            useCaseMock.delegateInterfaceAdapter?.doing()
+            useCaseMock.delegateInterfaceAdapter?.done(data: [data1, data2])
+        }))
+
+        let viewModel = GitRepositoriesListViewModel(
+            fetchGitRepositoriesUseCase: useCaseMock,
+            delegateAnalyticsInterface: analyticsInterfaceMock
         )
-        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: useCase)
-        useCase.delegateInterfaceAdapter = viewModel
-        viewModel.search(term: "Java")
+        useCaseMock.given(.delegateInterfaceAdapter(getter: viewModel))
 
         viewModel.repositories.observe { repositories in
             guard repositories.isEmpty == false else {
@@ -118,6 +110,12 @@ class RepositoriesTableViewModelTests: XCTestCase {
             viewModel.select(index: index)
             XCTAssertEqual(viewModel.route.value, GitRepositoriesListViewModelRoute.showPullRequests(repo: gitRepo))
         }
+
+        viewModel.search(term: "Swift")
+
+        analyticsInterfaceMock.verify(.screen())
+        analyticsInterfaceMock.verify(.searched(term: .value("Swift")))
+        analyticsInterfaceMock.verify(.itemSelected(name: .value(data2.name)))
 
         wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)
     }
