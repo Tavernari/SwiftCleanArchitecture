@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "sessionTrackingIntervalMillis": 60000,
             "debug": true,
         ])
-      
+
         Analytics.register(provider: FirebaseAnalyticsProvider())
 
         return true
