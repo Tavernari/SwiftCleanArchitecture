@@ -31,8 +31,8 @@ class MainCoordinator: NSObject, Coordinator {
             reliabilityCalculatorUseCase: reliabilityRepoCalculatorUseCase
         )
 
-        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories)
-        viewModel.delegateAnalyticsInterface = GitRepositoriesListViewModelAnalytics()
+        let analyticsInterface = GitRepositoriesListViewModelAnalytics()
+        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories, delegateAnalyticsInterface: analyticsInterface)
 
         fetchGitRepositories.delegateInterfaceAdapter = viewModel
 

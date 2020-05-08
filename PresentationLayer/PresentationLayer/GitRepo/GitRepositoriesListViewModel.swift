@@ -13,6 +13,8 @@ import DomainLayer
 // sourcery: AutoMockable
 protocol GitRepositoriesListViewModelAnalyticsProtocol {
     func itemSelected(name: String)
+    func searched(term: String)
+    func screen()
 }
 
 class GitRepositoriesListViewModel: GitRepositoriesListViewModelInterface {
@@ -21,21 +23,27 @@ class GitRepositoriesListViewModel: GitRepositoriesListViewModelInterface {
     var repositories = Observable<[GitRepositoryModel]>([])
     var route = Observable<GitRepositoriesListViewModelRoute>(.none)
 
-    var delegateAnalyticsInterface: GitRepositoriesListViewModelAnalyticsProtocol?
+    let delegateAnalyticsInterface: GitRepositoriesListViewModelAnalyticsProtocol
 
     private let fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol
 
-    init(fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol) {
+    init(fetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol,
+         delegateAnalyticsInterface: GitRepositoriesListViewModelAnalyticsProtocol) {
         self.fetchGitRepositoriesUseCase = fetchGitRepositoriesUseCase
+        self.delegateAnalyticsInterface = delegateAnalyticsInterface
+
+        // NAO ESTOU CONVENCIDO DESTA SER A MELHOR MANEIRA DE TRACK DE SCREEN
+        self.delegateAnalyticsInterface.screen()
     }
 
     func search(term: String) {
+        delegateAnalyticsInterface.searched(term: term)
         fetchGitRepositoriesUseCase.execute(term: term)
     }
 
     func select(index: Int) {
         let repository = repositories.value[index]
-        delegateAnalyticsInterface?.itemSelected(name: repository.name)
+        delegateAnalyticsInterface.itemSelected(name: repository.name)
         route.value = .showPullRequests(repo: repository)
     }
 }

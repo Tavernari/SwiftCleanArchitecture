@@ -32,6 +32,8 @@
 		A160550324649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */; };
 		A160550524649904000C53AD /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550424649904000C53AD /* Mock.generated.swift */; };
 		A160550724649DC6000C53AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A160550624649DC6000C53AD /* GoogleService-Info.plist */; };
+		A160550B2465821E000C53AD /* AppEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550A2465821E000C53AD /* AppEvents.swift */; };
+		A160550D246582E1000C53AD /* ScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550C246582E1000C53AD /* ScreenEvents.swift */; };
 		A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E5922415270500FA0BA2 /* Date+ToString.swift */; };
 		A163E59524152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */; };
 		A163E597241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */; };
@@ -140,6 +142,8 @@
 		A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesListViewModelAnalytics.swift; sourceTree = "<group>"; };
 		A160550424649904000C53AD /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		A160550624649DC6000C53AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "PresentationLayer/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A160550A2465821E000C53AD /* AppEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvents.swift; sourceTree = "<group>"; };
+		A160550C246582E1000C53AD /* ScreenEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEvents.swift; sourceTree = "<group>"; };
 		A163E5922415270500FA0BA2 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
 		A163E59424152EFF00FA0BA2 /* UIImageView+LoadCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadCircleImage.swift"; sourceTree = "<group>"; };
 		A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequestsViewModelTests.swift; sourceTree = "<group>"; };
@@ -298,6 +302,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A1605509246581F8000C53AD /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */,
+				A160550A2465821E000C53AD /* AppEvents.swift */,
+				A160550C246582E1000C53AD /* ScreenEvents.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		A166A8F8240D505800824CAD = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +337,7 @@
 		A166A903240D505800824CAD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				A1605509246581F8000C53AD /* Analytics */,
 				FCEADB70EF92E2DD3FCA31F8 /* APIErrorAlert */,
 				A1672CB72413B397004CE285 /* Components */,
 				A1672C8924132DC9004CE285 /* Coordinator */,
@@ -335,7 +350,6 @@
 				A166A904240D505800824CAD /* AppDelegate.swift */,
 				A166A906240D505800824CAD /* SceneDelegate.swift */,
 				A166A910240D506000824CAD /* Assets.xcassets */,
-				A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -718,7 +732,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -811,6 +825,7 @@
 				FCEAD1F18F688494101C51C6 /* GitPullRequestsListViewModel.swift in Sources */,
 				FCEAD7FB4236D5E8ABA71681 /* GitPullRequestsListViewModelRoute.swift in Sources */,
 				A101CAAE245B136D00CB57EA /* AppLaunchArguments.swift in Sources */,
+				A160550D246582E1000C53AD /* ScreenEvents.swift in Sources */,
 				FCEAD513458133794737F212 /* GitPullRequestsTableViewCell.swift in Sources */,
 				FCEAD832F155B2477CF65622 /* GitPullRequestsListViewModelInterface.swift in Sources */,
 				FCEAD1FE3FCECB32D6EE3B36 /* GitPullRequestDetailsViewController.swift in Sources */,
@@ -818,6 +833,7 @@
 				FCEAD72F03E8259248833390 /* GitPullRequestDetailsViewModel.swift in Sources */,
 				FCEAD01357146DF09269E59E /* GitPullRequestDetailsViewModelInterface.swift in Sources */,
 				FCEAD406510ECB9AAC13F3B9 /* APIErrorViewController.swift in Sources */,
+				A160550B2465821E000C53AD /* AppEvents.swift in Sources */,
 				FCEAD28F27435D54C8BA9E62 /* APIErrorViewModel.swift in Sources */,
 				FCEAD983207B236701B1570D /* APIErrorViewModelInterface.swift in Sources */,
 				FCEADF8C67744BD18F4D6606 /* APIErrorViewModelRoute.swift in Sources */,
