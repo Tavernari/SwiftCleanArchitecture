@@ -24,8 +24,9 @@ class MockLoginViewModel: LoginUseCaseInterfaceAdapter {
         XCTAssert(startedAuthAssert)
     }
 
-    func logedIn(loginModel _: LoginModel) {
+    func logedIn(loginModel: LoginModel) {
         XCTAssert(logedInAssert)
+        XCTAssertNotNil(loginModel.token.isEmpty == !logedInAssert)
     }
 
     func failureOnLogin() {

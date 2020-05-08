@@ -24,7 +24,7 @@ class MockDataSource: SignInDataSourceProtocol {
     }
 
     func login(email _: String, password _: String, completion: (Result<LoginDTO, Error>) -> Void) {
-        let dto = LoginDTO(data: LoginResponseData(token: "token123XXX99"))
+        let dto = LoginDTO(data: LoginResponseData(token: logedIn ? "token123XXX99" : ""))
         completion(.success(dto))
     }
 }
@@ -90,6 +90,7 @@ class DataSourceTests: XCTestCase {
             switch result {
             case let .success(value):
                 XCTAssertNotNil(value)
+                XCTAssertEqual(value.token.isEmpty, false)
             default:
                 XCTFail("failed waiting for success response")
             }
@@ -102,6 +103,7 @@ class DataSourceTests: XCTestCase {
             switch result {
             case let .success(value):
                 XCTAssertNotNil(value)
+                XCTAssertEqual(value.token.isEmpty, true)
             default:
                 XCTFail("failed waiting for success response")
             }
@@ -111,7 +113,7 @@ class DataSourceTests: XCTestCase {
     func testIntegrationLoginRepository() {
         let expectation = XCTestExpectation(description: "waiting login result")
 
-        let repository = SignInRepository(signInDataSource: MockDataSource(logedIn: true))
+        let repository = SignInRepository(signInDataSource: SignInDataSource())
         repository.login(email: "lucas@email.com", password: "pass123") { result in
             switch result {
             case let .success(response):
