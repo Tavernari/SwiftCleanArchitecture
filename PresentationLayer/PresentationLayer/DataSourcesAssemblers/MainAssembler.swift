@@ -13,9 +13,6 @@ class MainAssembler {
     var resolver: Resolver { assembler.resolver }
     init() {
         assembler = Assembler([DataSourceAssembler()])
-
-        print("MainAssembler \(AppLaunchArguments.uiTesting.exist)")
-
         if AppLaunchArguments.uiTesting.exist {
             assembler.apply(assembly: UITestRemoteConfigAssembly())
         } else {

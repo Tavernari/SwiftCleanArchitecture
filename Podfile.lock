@@ -3,8 +3,11 @@ PODS:
   - AlamofireImage (4.0.2):
     - Alamofire (< 6.0.0, >= 5.0.2)
   - CocoaAsyncSocket (7.6.4)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - Criollo (0.5.5):
     - CocoaAsyncSocket (~> 7.6)
+  - Fabric (1.10.2)
   - Firebase (6.23.0):
     - Firebase/Core (= 6.23.0)
   - Firebase/Analytics (6.23.0):
@@ -14,6 +17,9 @@ PODS:
     - FirebaseAnalytics (= 6.4.2)
   - Firebase/CoreOnly (6.23.0):
     - FirebaseCore (= 6.6.7)
+  - Firebase/Performance (6.23.0):
+    - Firebase/CoreOnly
+    - FirebasePerformance (~> 3.1.11)
   - Firebase/RemoteConfig (6.23.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 4.4.9)
@@ -53,6 +59,17 @@ PODS:
     - FirebaseInstallations (~> 1.0)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/UserDefaults (~> 6.5)
+  - FirebasePerformance (3.1.11):
+    - FirebaseCore (~> 6.6)
+    - FirebaseInstallations (~> 1.1)
+    - FirebaseRemoteConfig (~> 4.4)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/ISASwizzler (~> 6.2)
+    - GoogleUtilities/MethodSwizzler (~> 6.2)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - Protobuf (~> 3.9)
   - FirebaseRemoteConfig (4.4.9):
     - FirebaseABTesting (~> 3.1)
     - FirebaseAnalyticsInterop (~> 1.4)
@@ -71,12 +88,18 @@ PODS:
   - GoogleDataTransportCCTSupport (3.0.0):
     - GoogleDataTransport (~> 6.0)
     - nanopb (~> 0.3.901)
+  - GoogleToolboxForMac/Defines (2.2.2)
+  - GoogleToolboxForMac/Logger (2.2.2):
+    - GoogleToolboxForMac/Defines (= 2.2.2)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
+    - GoogleToolboxForMac/Defines (= 2.2.2)
   - GoogleUtilities/AppDelegateSwizzler (6.6.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
   - GoogleUtilities/Environment (6.6.0):
     - PromisesObjC (~> 1.2)
+  - GoogleUtilities/ISASwizzler (6.6.0)
   - GoogleUtilities/Logger (6.6.0):
     - GoogleUtilities/Environment
   - GoogleUtilities/MethodSwizzler (6.6.0):
@@ -90,6 +113,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.3.1)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -100,6 +124,9 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
+  - Sentry (5.0.2):
+    - Sentry/Core (= 5.0.2)
+  - Sentry/Core (5.0.2)
   - Sourcery (0.17.0)
   - SwiftFormat/CLI (0.44.7)
   - SwiftLint (0.39.1)
@@ -115,10 +142,14 @@ DEPENDENCIES:
   - Alamofire (~> 5)
   - Alamofire (~> 5.0)
   - AlamofireImage (~> 4.0)
+  - Crashlytics (~> 3.14.0)
+  - Fabric (~> 1.10.2)
   - Firebase
   - Firebase/Analytics
+  - Firebase/Performance
   - Firebase/RemoteConfig
   - R.swift
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `5.0.2`)
   - SwiftFormat/CLI
   - SwiftLint
   - SwiftLocalhost
@@ -130,7 +161,9 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - CocoaAsyncSocket
+    - Crashlytics
     - Criollo
+    - Fabric
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -140,11 +173,14 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseInstallations
     - FirebaseInstanceID
+    - FirebasePerformance
     - FirebaseRemoteConfig
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleToolboxForMac
     - GoogleUtilities
+    - GTMSessionFetcher
     - nanopb
     - PromisesObjC
     - Protobuf
@@ -157,11 +193,23 @@ SPEC REPOS:
     - SwiftyMocky
     - Swinject
 
+EXTERNAL SOURCES:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 5.0.2
+
+CHECKOUT OPTIONS:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 5.0.2
+
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
   AlamofireImage: ca7325440303d041a80b7caa55066ba945522378
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Criollo: 617173837c296ca4248b0b058f36ce9b91e5c25b
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 585ae467b3edda6a5444e788fda6888f024d8d6f
   FirebaseABTesting: 821a3a3e4a145987e80fee3657c4de1cb9adf693
   FirebaseAnalytics: 558f7a03d19de451093032c806f39d5f9dff096e
@@ -171,22 +219,27 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
   FirebaseInstallations: 2119fb3e46b0a88bfdbf12562f855ee3252462fa
   FirebaseInstanceID: cef67c4967c7cecb56ea65d8acbb4834825c587b
+  FirebasePerformance: 5652d2004001e886da6dca04f478c695f87c4702
   FirebaseRemoteConfig: 47abf7a04a9082091955ea555aa79cfdd249b19c
   GoogleAppMeasurement: 2253e99c1f22638cf234c059144660c338ad76c3
   GoogleDataTransport: 061fe7d9b476710e3cd8ea51e8e07d8b67c2b420
   GoogleDataTransportCCTSupport: 0f39025e8cf51f168711bd3fb773938d7e62ddb5
+  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
+  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Sentry: 5cec6146fff65c11080f78e8128582727c076e12
   Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
   SwiftFormat: fd97e27b8de5a46c9d1988bf1db1dc92e79f86a3
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
   SwiftLocalhost: 78ad6ca707ef2162aa9ab29407321226d44f5027
   SwiftyMocky: f277174040db328a9da04ce8efa81b6d6d5b9d7d
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+
 
 PODFILE CHECKSUM: a1efbca5bfeead89c4c7ae4107dc0c773b61cefd
 

@@ -81,7 +81,7 @@
          <EnvironmentVariable
             key = "remoteConfigReabilityEnabled"
             value = "true"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "config_reliability_enable"
