@@ -6,12 +6,23 @@
 //  Copyright © 2020 blu. All rights reserved.
 //
 
+import Crashlytics
+import Firebase
+import Sentry
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        FirebaseApp.initialize()
+        Crashlytics.initialize()
+        SentrySDK.start(options: [
+            "dsn": "https://e9ffdf1077ae48ada023975dda78567a@o163739.ingest.sentry.io/5218118",
+            "enableAutoSessionTracking": true,
+            "sessionTrackingIntervalMillis": 60000,
+            "debug": true,
+        ])
         return true
     }
 
