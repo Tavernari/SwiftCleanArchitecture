@@ -43,6 +43,9 @@ class GitRepositoriesListViewModel: GitRepositoriesListViewModelInterface {
 
     func select(index: Int) {
         let repository = repositories.value[index]
+
+        AppEvents.gitRepoSelected(repoName: repository.name).dispatch()
+
         delegateAnalyticsInterface.itemSelected(name: repository.name)
         route.value = .showPullRequests(repo: repository)
     }

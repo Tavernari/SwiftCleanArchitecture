@@ -50,6 +50,7 @@ class RepositoriesTableViewModelTests: XCTestCase {
 
         viewModel.search(term: "Java")
 
+        analyticsInterface.verify(.screen())
         analyticsInterface.verify(.itemSelected(name: .any), count: .never)
         analyticsInterface.verify(.searched(term: .value("Java")))
 
@@ -110,8 +111,10 @@ class RepositoriesTableViewModelTests: XCTestCase {
             XCTAssertEqual(viewModel.route.value, GitRepositoriesListViewModelRoute.showPullRequests(repo: gitRepo))
         }
 
-        viewModel.search(term: "Java")
+        viewModel.search(term: "Swift")
 
+        analyticsInterfaceMock.verify(.screen())
+        analyticsInterfaceMock.verify(.searched(term: .value("Swift")))
         analyticsInterfaceMock.verify(.itemSelected(name: .value(data2.name)))
 
         wait(for: [expectationRepositories, expectationLoadingStatus], timeout: 1)

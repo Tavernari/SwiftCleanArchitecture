@@ -166,15 +166,9 @@
 		A16054D2246488F0000C53AD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A16054D324648902000C53AD /* AnalyticsEventProviders.swift */,
-				A16054D52464891A000C53AD /* AnalyticsEventDispatcher.swift */,
-				A16054D72464892E000C53AD /* AnalyticsScreenEventDispatcher.swift */,
-				A16054D92464893F000C53AD /* AnalyticsUserPropertiesDispatcher.swift */,
-				A16054DB2464894F000C53AD /* AnalyticsUserIdentificationDispatcher.swift */,
-				A16054DD2464895B000C53AD /* AnalyticsIdentifiable.swift */,
-				A16054DF2464896D000C53AD /* AnalyticsClass.swift */,
-				A16054E12464897D000C53AD /* AnalyticsData.swift */,
-				A16054E32464898D000C53AD /* AnalyticsFlagable.swift */,
+				A160551024659EB1000C53AD /* Events */,
+				A160550F24659E9C000C53AD /* Provider */,
+				A160550E24659E8F000C53AD /* Providers */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -201,6 +195,36 @@
 				A16054F924648B01000C53AD /* AnalyticsIdentifiable+screenDispatch.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A160550E24659E8F000C53AD /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				A16054D324648902000C53AD /* AnalyticsEventProviders.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		A160550F24659E9C000C53AD /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A16054D52464891A000C53AD /* AnalyticsEventDispatcher.swift */,
+				A16054D72464892E000C53AD /* AnalyticsScreenEventDispatcher.swift */,
+				A16054D92464893F000C53AD /* AnalyticsUserPropertiesDispatcher.swift */,
+				A16054DB2464894F000C53AD /* AnalyticsUserIdentificationDispatcher.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		A160551024659EB1000C53AD /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A16054DD2464895B000C53AD /* AnalyticsIdentifiable.swift */,
+				A16054DF2464896D000C53AD /* AnalyticsClass.swift */,
+				A16054E12464897D000C53AD /* AnalyticsData.swift */,
+				A16054E32464898D000C53AD /* AnalyticsFlagable.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
