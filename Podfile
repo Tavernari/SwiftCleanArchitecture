@@ -22,6 +22,8 @@ target 'PresentationLayer' do
   pod 'Firebase'
   pod 'Firebase/Analytics'
 
+  pod 'Firebase/Performance'
+
   target 'PresentationLayerTests' do
     inherit! :search_paths
   end
@@ -78,7 +80,6 @@ target 'DataLayer' do
   pod 'SwiftLint'
 	pod 'SwiftFormat/CLI'
 
-  pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
 
   pod 'Fabric', '~> 1.10.2'
