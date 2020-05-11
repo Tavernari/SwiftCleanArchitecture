@@ -58,6 +58,7 @@
 		A1B79B05243F6D0D00DD46B4 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; };
 		A1B79B06243F6D0D00DD46B4 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE718078F5AB22723B91C87D /* Pods_PresentationLayer_PresentationLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911B68DFCFB09373A4EC85CC /* Pods_PresentationLayer_PresentationLayerTests.framework */; };
+		E3D258022469E147001972D7 /* FirebaseCrashlyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D258012469E147001972D7 /* FirebaseCrashlyticsProvider.swift */; };
 		FCEAD01357146DF09269E59E /* GitPullRequestDetailsViewModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD1779301AAA9A811FFA3 /* GitPullRequestDetailsViewModelInterface.swift */; };
 		FCEAD052138259582C05A566 /* GitPullRequestsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADEAD4EB52357AF5A250C /* GitPullRequestsListViewController.swift */; };
 		FCEAD12867B156C567FC9EC2 /* APIErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCEAD1F7D42A0D8869DCB448 /* APIErrorViewController.xib */; };
@@ -179,6 +180,7 @@
 		BB0778822B99BAAEEB20F97D /* Pods-PresentationLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationLayer.release.xcconfig"; path = "Target Support Files/Pods-PresentationLayer/Pods-PresentationLayer.release.xcconfig"; sourceTree = "<group>"; };
 		C588C1DBF6B07D4E568B83A3 /* Pods_PresentationLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A11C5CBBCA2DC15256BED6 /* Pods-Presentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Presentation.release.xcconfig"; path = "Target Support Files/Pods-Presentation/Pods-Presentation.release.xcconfig"; sourceTree = "<group>"; };
+		E3D258012469E147001972D7 /* FirebaseCrashlyticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCrashlyticsProvider.swift; sourceTree = "<group>"; };
 		E3F372FB16385BD776CF8371 /* Pods_PresentationLayer_PresentationLayerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PresentationLayer_PresentationLayerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEAD03445AA93649858994C /* GitPullRequestDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestDetailsViewController.swift; sourceTree = "<group>"; };
 		FCEAD0C4DA5B797B1D271C70 /* APIErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */,
+				E3D258012469E147001972D7 /* FirebaseCrashlyticsProvider.swift */,
 				A160550A2465821E000C53AD /* AppEvents.swift */,
 				A160550C246582E1000C53AD /* ScreenEvents.swift */,
 			);
@@ -751,7 +754,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -828,6 +831,7 @@
 				A1398B092438B4D300A3A0CD /* GitRepositoriesListViewModelInterface.swift in Sources */,
 				A166A94D240D539300824CAD /* UIView+Utils.swift in Sources */,
 				A1672CB92413B3B4004CE285 /* ProgressHUD.swift in Sources */,
+				E3D258022469E147001972D7 /* FirebaseCrashlyticsProvider.swift in Sources */,
 				A16054FC24648CC2000C53AD /* FirebaseAnalyticsProvider.swift in Sources */,
 				A163E5932415270500FA0BA2 /* Date+ToString.swift in Sources */,
 				A1398B052438B4D300A3A0CD /* GitRepositoriesListViewController.swift in Sources */,
@@ -1032,7 +1036,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6B36S74UH9;
 				INFOPLIST_FILE = PresentationLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1051,7 +1055,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6B36S74UH9;
 				INFOPLIST_FILE = PresentationLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

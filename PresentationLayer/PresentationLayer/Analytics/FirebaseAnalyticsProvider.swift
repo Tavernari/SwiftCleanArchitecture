@@ -45,7 +45,7 @@ extension FirebaseAnalyticsProvider: AnalyticsUserPropertiesDispatcher {
 }
 
 extension FirebaseAnalyticsProvider: AnalyticsUserIdentificationDispatcher {
-    func user(id: String) {
+    func user(id: String?, name _: String?, email _: String?) {
         Firebase.Analytics.setUserID(id)
     }
 }

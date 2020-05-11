@@ -24,7 +24,7 @@ public extension AnalyticsEventProviders {
         }
     }
 
-    static func user(id: String) {
+    static func user(id: String?, name: String?, email: String?) {
         providers.forEach { provider in
             guard provider.enable else {
                 return
@@ -34,7 +34,7 @@ public extension AnalyticsEventProviders {
                 return
             }
 
-            provider.user(id: id)
+            provider.user(id: id, name: name, email: email)
 
         }
     }

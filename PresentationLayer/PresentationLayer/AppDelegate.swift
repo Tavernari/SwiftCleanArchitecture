@@ -15,7 +15,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
         FirebaseApp.initialize()
@@ -28,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ])
 
         Analytics.register(provider: FirebaseAnalyticsProvider())
+        Analytics.register(provider: FirebaseCrashlyticsProvider())
+
+        Analytics.user(id: "123ID", name: "LUCAS TESTE", email: "LUCAS@TESTE.COM")
+        Analytics.user(properties: ["teste": "123ID2"])
 
         return true
     }

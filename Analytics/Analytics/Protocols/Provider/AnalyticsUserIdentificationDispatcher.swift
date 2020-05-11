@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol AnalyticsUserIdentificationDispatcher {
-    func user(id: String)
+    func user(id: String?, name: String?, email: String?)
 }
