@@ -1,5 +1,5 @@
 //
-//  AnalyticsIdentifiable.swift
+//  ScreenEventType.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,8 +8,4 @@
 
 import Foundation
 
-public protocol AnalyticsIdentifiable {
-    var name: String { get }
-}
-
-
+public typealias ScreenEventType = LyticsBase & Identifiable & ClassContainer

@@ -1,5 +1,5 @@
 //
-//  AnalyticsProviderType.swift
+//  AnalyticsEventProviders.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,4 +8,6 @@
 
 import Foundation
 
-public typealias AnalyticsProviderType =  LyticsBase & AnalyticsIdentifiable & AnalyticsFlagable
+public protocol ProvidersContainer {
+    static var providers: [ProviderType] { get set }
+}

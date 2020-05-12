@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol AnalyticsUserIdentificationDispatcher {
+public protocol UserIdentificationDispatcher {
     func user(id: String?, name: String?, email: String?)
 }

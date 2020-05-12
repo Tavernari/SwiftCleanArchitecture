@@ -1,5 +1,5 @@
 //
-//  AnalyticsEventProviders+register.swift
+//  LyticsBase+registerProvider.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AnalyticsEventProviders {
-    static func register(provider: AnalyticsProviderType) {
+public extension LyticsBase where Self: ProvidersContainerType {
+    static func register(provider: ProviderType) {
         providers.append(provider)
     }
 }

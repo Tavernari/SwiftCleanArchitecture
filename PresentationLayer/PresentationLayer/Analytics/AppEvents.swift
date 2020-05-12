@@ -8,7 +8,7 @@
 
 import Analytics
 
-enum AppEvents: AnalyticsEventType {
+enum AppEvents: EventType {
     case gitRepoSelected(repoName: String)
     case gitRepoTermSearched(term: String)
 

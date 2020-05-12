@@ -1,5 +1,5 @@
 //
-//  AnalyticsBrokerType.swift
+//  AnalyticsIdentifiable.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,4 +8,8 @@
 
 import Foundation
 
-public typealias AnalyticsBrokerType = LyticsBase & AnalyticsEventProviders
+public protocol Identifiable {
+    var name: String { get }
+}
+
+

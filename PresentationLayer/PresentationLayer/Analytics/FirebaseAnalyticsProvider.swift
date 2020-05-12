@@ -9,28 +9,28 @@
 import Analytics
 import Firebase
 
-class FirebaseAnalyticsProvider: AnalyticsProviderType {
+class FirebaseAnalyticsProvider: ProviderType {
     var name: String = "FirebaseAnalytics"
     var enable: Bool = true
 }
 
-extension FirebaseAnalyticsProvider: AnalyticsEventDispatcher {
-    func event(event: AnalyticsEventType) {
+extension FirebaseAnalyticsProvider: EventDispatcher {
+    func event(event: EventType) {
         let eventName = event.name
         let params = event.data
         Firebase.Analytics.logEvent(eventName, parameters: params)
     }
 }
 
-extension FirebaseAnalyticsProvider: AnalyticsScreenEventDispatcher {
-    func screen(event: AnalyticsScreenEventType) {
+extension FirebaseAnalyticsProvider: ScreenEventDispatcher {
+    func screen(event: ScreenEventType) {
         let screenName = event.name
         let className = String(describing: event.classValue)
         Firebase.Analytics.setScreenName(screenName, screenClass: className)
     }
 }
 
-extension FirebaseAnalyticsProvider: AnalyticsUserPropertiesDispatcher {
+extension FirebaseAnalyticsProvider: UserPropertiesDispatcher {
     func user(properties: [String: Any]) {
         properties.forEach { key, value in
 
@@ -44,7 +44,7 @@ extension FirebaseAnalyticsProvider: AnalyticsUserPropertiesDispatcher {
     }
 }
 
-extension FirebaseAnalyticsProvider: AnalyticsUserIdentificationDispatcher {
+extension FirebaseAnalyticsProvider: UserIdentificationDispatcher {
     func user(id: String?, name _: String?, email _: String?) {
         Firebase.Analytics.setUserID(id)
     }

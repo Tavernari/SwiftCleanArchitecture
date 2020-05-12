@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol AnalyticsRecognizable {
+public protocol Recognizable {
     var emailValue: String? { get }
     var nameValue: String? { get }
     var idValue: String? { get }

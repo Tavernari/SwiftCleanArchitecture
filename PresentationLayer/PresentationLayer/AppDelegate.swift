@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "debug": true,
         ])
 
-        Analytics.register(provider: FirebaseAnalyticsProvider())
-        Analytics.register(provider: FirebaseCrashlyticsProvider())
+        Lytics.register(provider: FirebaseAnalyticsProvider())
+        Lytics.register(provider: FirebaseCrashlyticsProvider())
 
         Analytics.user(id: "123ID", name: "LUCAS TESTE", email: "LUCAS@TESTE.COM")
         Analytics.user(properties: ["teste": "123ID2"])

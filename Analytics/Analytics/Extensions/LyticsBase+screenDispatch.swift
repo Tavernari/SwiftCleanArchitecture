@@ -1,5 +1,5 @@
 //
-//  AnalyticsIdentifiable+screenDispatch.swift
+//  LyticsBase+screenDispatch.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AnalyticsIdentifiable  where Self: AnalyticsScreenEventType {
+public extension LyticsBase  where Self: ScreenEventType {
     func dispatch() {
-        Analytics.screen(event: self)
+        Lytics.screen(event: self)
     }
 }

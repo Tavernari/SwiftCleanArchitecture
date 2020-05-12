@@ -9,7 +9,29 @@
 import XCTest
 @testable import Analytics
 
-class AnalyticsTests: XCTestCase {
+enum TestEvent: EventType {
+
+    case withoutData
+    case withData(data: String)
+
+    var name: String {
+        switch self {
+        case .withData: return "withData"
+        case .withoutData: return "withoutData"
+        }
+    }
+
+    var data: [String : Any]? {
+        switch self {
+        case let .withData(data): return ["data": data]
+        case .withoutData: return nil
+        }
+    }
+}
+
+class LyticsEventTests: XCTestCase {
+
+
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

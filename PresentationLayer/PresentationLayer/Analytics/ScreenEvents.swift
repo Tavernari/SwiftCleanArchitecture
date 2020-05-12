@@ -8,7 +8,7 @@
 
 import Analytics
 
-enum ScreenEvents: AnalyticsScreenEventType {
+enum ScreenEvents: ScreenEventType {
     case gitRepositoriesList
     case gitPullRequestList
     case gitPullRequestDetails

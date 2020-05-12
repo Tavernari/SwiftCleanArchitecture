@@ -1,5 +1,5 @@
 //
-//  AnalyticsEventDispatcher.swift
+//  EventType.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,4 @@
 
 import Foundation
 
-public protocol AnalyticsEventDispatcher {
-    func event(event: AnalyticsEventType)
-}
+public typealias EventType = LyticsBase & Identifiable & DataContainer

@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias UserPropertiesType = LyticsBase & AnalyticsRecognizable & AnalyticsData
+public typealias UserPropertiesType = LyticsBase & Recognizable & DataContainer

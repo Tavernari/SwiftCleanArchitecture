@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension AnalyticsIdentifiable where Self: AnalyticsEventType {
+public extension LyticsBase where Self: EventType {
     func dispatch() {
-        Analytics.event(event: self)
+        Lytics.event(event: self)
     }
 }

@@ -10,12 +10,12 @@ import Analytics
 import Crashlytics
 import Firebase
 
-class FirebaseCrashlyticsProvider: AnalyticsProviderType {
+class FirebaseCrashlyticsProvider: ProviderType {
     var name: String = "FirebaseCrashlytics"
     var enable: Bool = true
 }
 
-extension FirebaseCrashlyticsProvider: AnalyticsUserPropertiesDispatcher {
+extension FirebaseCrashlyticsProvider: UserPropertiesDispatcher {
     func user(properties: [String: Any]) {
         properties.forEach { key, value in
             Firebase.Crashlytics.sharedInstance().setObjectValue(value, forKey: key)
@@ -23,7 +23,7 @@ extension FirebaseCrashlyticsProvider: AnalyticsUserPropertiesDispatcher {
     }
 }
 
-extension FirebaseCrashlyticsProvider: AnalyticsUserIdentificationDispatcher {
+extension FirebaseCrashlyticsProvider: UserIdentificationDispatcher {
     func user(id: String?, name: String?, email: String?) {
         Firebase.Crashlytics.sharedInstance().setUserIdentifier(id)
         Firebase.Crashlytics.sharedInstance().setUserName(name)

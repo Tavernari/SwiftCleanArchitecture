@@ -1,5 +1,5 @@
 //
-//  AnalyticsFlagable.swift
+//  AnalyticsData.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol AnalyticsFlagable {
-    var enable: Bool { get }
+public protocol DataContainer {
+    var data: [String: Any]? { get }
 }

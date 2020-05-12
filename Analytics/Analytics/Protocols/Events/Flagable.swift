@@ -1,5 +1,5 @@
 //
-//  AnalyticsUserPropertiesDispatcher.swift
+//  AnalyticsFlagable.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol AnalyticsUserPropertiesDispatcher {
-    func user(properties: [String: Any])
+public protocol Flagable {
+    var enable: Bool { get }
 }

@@ -1,5 +1,5 @@
 //
-//  AnalyticsScreenEventDispatcher.swift
+//  AnalyticsUserPropertiesDispatcher.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol AnalyticsScreenEventDispatcher {
-    func screen(event: AnalyticsScreenEventType)
+public protocol UserPropertiesDispatcher {
+    func user(properties: [String: Any])
 }

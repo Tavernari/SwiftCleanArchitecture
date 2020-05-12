@@ -1,5 +1,5 @@
 //
-//  AnalyticsData.swift
+//  AnalyticsScreenEventDispatcher.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol AnalyticsData {
-    var data: [String: Any]? { get }
+public protocol ScreenEventDispatcher {
+    func screen(event: ScreenEventType)
 }

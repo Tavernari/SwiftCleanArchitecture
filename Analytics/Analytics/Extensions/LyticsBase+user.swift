@@ -10,7 +10,7 @@ import Foundation
 
 public extension LyticsBase where Self: UserPropertiesType {
     func dispatch() {
-        Analytics.user(properties: self)
-        Analytics.user(recognizable: self)
+        Lytics.user(properties: self)
+        Lytics.user(recognizable: self)
     }
 }

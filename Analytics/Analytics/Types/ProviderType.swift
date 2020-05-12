@@ -1,5 +1,5 @@
 //
-//  AnalyticsClass.swift
+//  ProviderType.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,4 @@
 
 import Foundation
 
-public protocol AnalyticsClass {
-    var classValue: AnyClass? { get }
-}
+public typealias ProviderType = LyticsBase & Identifiable & Flagable

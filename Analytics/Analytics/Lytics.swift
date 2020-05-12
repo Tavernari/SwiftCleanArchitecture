@@ -1,5 +1,5 @@
 //
-//  AnalyticsScreenEventType.swift
+//  Lytics.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,4 +8,6 @@
 
 import Foundation
 
-public typealias AnalyticsScreenEventType = LyticsBase & AnalyticsIdentifiable & AnalyticsClass
+public class Lytics: ProvidersContainerType {
+    public static var providers: [ProviderType] = []
+}

@@ -1,5 +1,5 @@
 //
-//  AnalyticsEventProviders.swift
+//  AnalyticsClass.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol AnalyticsEventProviders {
-    static var providers: [AnalyticsProviderType] { get set }
+public protocol ClassContainer {
+    var classValue: AnyClass? { get }
 }
