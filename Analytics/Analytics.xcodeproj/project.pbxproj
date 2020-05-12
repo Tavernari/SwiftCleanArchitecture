@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7840BDDCD6575754A8BDDA05 /* libPods-Analytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D849D6009657FFE1E5AD0FB /* libPods-Analytics.a */; };
+		A11D753D246B4A9800852253 /* UserPropertiesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D753C246B4A9800852253 /* UserPropertiesType.swift */; };
+		A11D753F246B4AB000852253 /* AnalyticsRecognizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D753E246B4AB000852253 /* AnalyticsRecognizable.swift */; };
+		A11D7541246B4AFC00852253 /* LyticsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D7540246B4AFC00852253 /* LyticsBase.swift */; };
+		A11D7543246B4B1900852253 /* LyticsBase+user.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D7542246B4B1900852253 /* LyticsBase+user.swift */; };
 		A16054C224648775000C53AD /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16054B824648774000C53AD /* Analytics.framework */; };
 		A16054C724648775000C53AD /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054C624648775000C53AD /* AnalyticsTests.swift */; };
 		A16054C924648775000C53AD /* Analytics.h in Headers */ = {isa = PBXBuildFile; fileRef = A16054BB24648774000C53AD /* Analytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,6 +51,10 @@
 /* Begin PBXFileReference section */
 		3D849D6009657FFE1E5AD0FB /* libPods-Analytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Analytics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F4A05D3937F43F2457B1CBD /* libPods-Analytics-AnalyticsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Analytics-AnalyticsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11D753C246B4A9800852253 /* UserPropertiesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertiesType.swift; sourceTree = "<group>"; };
+		A11D753E246B4AB000852253 /* AnalyticsRecognizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRecognizable.swift; sourceTree = "<group>"; };
+		A11D7540246B4AFC00852253 /* LyticsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsBase.swift; sourceTree = "<group>"; };
+		A11D7542246B4B1900852253 /* LyticsBase+user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+user.swift"; sourceTree = "<group>"; };
 		A16054B824648774000C53AD /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16054BB24648774000C53AD /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		A16054BC24648774000C53AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,6 +188,7 @@
 				A16054E8246489B8000C53AD /* AnalyticsEventType.swift */,
 				A16054ED24648A55000C53AD /* AnalyticsScreenEventType.swift */,
 				A160550024648D20000C53AD /* AnalyticsProviderType.swift */,
+				A11D753C246B4A9800852253 /* UserPropertiesType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -193,6 +202,7 @@
 				A16054F324648AA1000C53AD /* AnalyticsEventProviders+register.swift */,
 				A16054F724648ADB000C53AD /* AnalyticsIdentifiable+eventDispatch.swift */,
 				A16054F924648B01000C53AD /* AnalyticsIdentifiable+screenDispatch.swift */,
+				A11D7542246B4B1900852253 /* LyticsBase+user.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +233,8 @@
 				A16054DF2464896D000C53AD /* AnalyticsClass.swift */,
 				A16054E12464897D000C53AD /* AnalyticsData.swift */,
 				A16054E32464898D000C53AD /* AnalyticsFlagable.swift */,
+				A11D753E246B4AB000852253 /* AnalyticsRecognizable.swift */,
+				A11D7540246B4AFC00852253 /* LyticsBase.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -397,6 +409,7 @@
 				A16054DA2464893F000C53AD /* AnalyticsUserPropertiesDispatcher.swift in Sources */,
 				A16054E02464896D000C53AD /* AnalyticsClass.swift in Sources */,
 				A16054F424648AA1000C53AD /* AnalyticsEventProviders+register.swift in Sources */,
+				A11D7541246B4AFC00852253 /* LyticsBase.swift in Sources */,
 				A16054F824648ADB000C53AD /* AnalyticsIdentifiable+eventDispatch.swift in Sources */,
 				A16054D82464892E000C53AD /* AnalyticsScreenEventDispatcher.swift in Sources */,
 				A16054DE2464895B000C53AD /* AnalyticsIdentifiable.swift in Sources */,
@@ -405,7 +418,10 @@
 				A16054FA24648B01000C53AD /* AnalyticsIdentifiable+screenDispatch.swift in Sources */,
 				A16054D424648902000C53AD /* AnalyticsEventProviders.swift in Sources */,
 				A16054EC246489E1000C53AD /* AnalyticsEventProviders+event.swift in Sources */,
+				A11D753D246B4A9800852253 /* UserPropertiesType.swift in Sources */,
 				A16054F624648AC6000C53AD /* Analytics.swift in Sources */,
+				A11D7543246B4B1900852253 /* LyticsBase+user.swift in Sources */,
+				A11D753F246B4AB000852253 /* AnalyticsRecognizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

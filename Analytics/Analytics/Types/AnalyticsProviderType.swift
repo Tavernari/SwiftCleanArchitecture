@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias AnalyticsProviderType =  AnalyticsIdentifiable & AnalyticsFlagable
+public typealias AnalyticsProviderType =  LyticsBase & AnalyticsIdentifiable & AnalyticsFlagable

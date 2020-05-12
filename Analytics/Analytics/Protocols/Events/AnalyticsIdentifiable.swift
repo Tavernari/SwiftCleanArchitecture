@@ -11,3 +11,5 @@ import Foundation
 public protocol AnalyticsIdentifiable {
     var name: String { get }
 }
+
+

@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias AnalyticsBrokerType = AnalyticsEventProviders
+public typealias AnalyticsBrokerType = LyticsBase & AnalyticsEventProviders

@@ -9,7 +9,7 @@
 import Foundation
 
 public extension AnalyticsEventProviders {
-    static func user(properties: [String: Any]) {
+    static func user(properties: AnalyticsData) {
         providers.forEach { provider in
             guard provider.enable else {
                 return
@@ -19,12 +19,12 @@ public extension AnalyticsEventProviders {
                 return
             }
 
-            provider.user(properties: properties)
+            provider.user(properties: properties.data ?? [:])
 
         }
     }
 
-    static func user(id: String?, name: String?, email: String?) {
+    static func user(recognizable: AnalyticsRecognizable) {
         providers.forEach { provider in
             guard provider.enable else {
                 return
@@ -34,6 +34,9 @@ public extension AnalyticsEventProviders {
                 return
             }
 
+            let id = recognizable.idValue
+            let name = recognizable.nameValue
+            let email = recognizable.emailValue
             provider.user(id: id, name: name, email: email)
 
         }

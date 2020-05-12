@@ -8,4 +8,4 @@
 
 import Foundation
 
-public typealias AnalyticsScreenEventType = AnalyticsIdentifiable & AnalyticsClass
+public typealias AnalyticsScreenEventType = LyticsBase & AnalyticsIdentifiable & AnalyticsClass
