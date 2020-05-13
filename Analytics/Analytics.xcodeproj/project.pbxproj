@@ -51,6 +51,7 @@
 		A1B10E1B246C232D00283025 /* LyticsErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E1A246C232D00283025 /* LyticsErrorType.swift */; };
 		A1B10E1F246C23BA00283025 /* Error+LyticsErrorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E1E246C23BA00283025 /* Error+LyticsErrorKit.swift */; };
 		A1B10E22246C23E000283025 /* LyticsErrorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E21246C23E000283025 /* LyticsErrorKit.swift */; };
+		A1B10E24246C264F00283025 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E23246C264F00283025 /* TestError.swift */; };
 		E47F431777C3632BEF9211C4 /* libPods-Analytics-AnalyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4A05D3937F43F2457B1CBD /* libPods-Analytics-AnalyticsTests.a */; };
 		FCEAD1FEEED8FDDDD34DD293 /* LyticsBase+userIdentificationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADE5ECACC02B20B78F2C2 /* LyticsBase+userIdentificationProvider.swift */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		A1B10E1A246C232D00283025 /* LyticsErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsErrorType.swift; sourceTree = "<group>"; };
 		A1B10E1E246C23BA00283025 /* Error+LyticsErrorKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+LyticsErrorKit.swift"; sourceTree = "<group>"; };
 		A1B10E21246C23E000283025 /* LyticsErrorKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsErrorKit.swift; sourceTree = "<group>"; };
+		A1B10E23246C264F00283025 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.release.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.release.xcconfig"; sourceTree = "<group>"; };
 		CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics-AnalyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Analytics-AnalyticsTests/Pods-Analytics-AnalyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7F733691F7FD8687E255CEE /* Pods-Analytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.debug.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				A111CB1F246B55F800CAEFE6 /* TestEvent.swift */,
 				A111CB24246B578600CAEFE6 /* TestScreenEvent.swift */,
 				A111CB26246B5A0200CAEFE6 /* TestUserProperties.swift */,
+				A1B10E23246C264F00283025 /* TestError.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -234,8 +237,8 @@
 				A111CB1D246B55E200CAEFE6 /* ScreenEventsTests.swift */,
 				A111CB22246B577400CAEFE6 /* UserPropertiesTests.swift */,
 				A111CB28246B5A3800CAEFE6 /* UserIdentificationTests.swift */,
-				A16054C824648775000C53AD /* Info.plist */,
 				A1B10E12246C153200283025 /* NonFatalErrorTests.swift */,
+				A16054C824648775000C53AD /* Info.plist */,
 			);
 			path = AnalyticsTests;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B10E24246C264F00283025 /* TestError.swift in Sources */,
 				A111CB29246B5A3800CAEFE6 /* UserIdentificationTests.swift in Sources */,
 				A111CB16246B510200CAEFE6 /* ProviderMock.swift in Sources */,
 				A111CB1E246B55E200CAEFE6 /* ScreenEventsTests.swift in Sources */,

@@ -9,18 +9,6 @@
 import XCTest
 @testable import Analytics
 
-enum TestError: LyticsErrorType {
-    var data: [String : Any]? {
-        switch self {
-        case let .withUserInfo(data): return data
-        default: return nil
-        }
-    }
-
-    case withoutUserInfo
-    case withUserInfo(data: [String: Any])
-}
-
 class NonFatalErrorTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -79,5 +67,4 @@ class NonFatalErrorTests: XCTestCase {
         Lytics.register(provider: mock)
         URLError(.badURL).ly.dispatch(addtionalUserInfo: userInfoValue)
     }
-
 }
