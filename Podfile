@@ -96,8 +96,8 @@ target 'DataLayer' do
   end
 end
 
-target 'Analytics' do
-  project 'Analytics/Analytics.xcodeproj'
+target 'Lytics' do
+  project 'Lytics/Lytics.xcodeproj'
   # use_frameworks!
   use_modular_headers!
   inherit! :search_paths
@@ -105,6 +105,6 @@ target 'Analytics' do
   pod 'SwiftLint'
   pod 'SwiftFormat/CLI'
 
-  target 'AnalyticsTests' do
+  target 'LyticsTests' do
   end
 end

@@ -27,8 +27,6 @@
 		A1398B4D243A4A5A00A3A0CD /* GithubRepositoryDataReponseFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4C243A4A5900A3A0CD /* GithubRepositoryDataReponseFake.swift */; };
 		A1398B4F243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */; };
 		A16054FC24648CC2000C53AD /* FirebaseAnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */; };
-		A16054FE24648CDB000C53AD /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16054FD24648CDB000C53AD /* Analytics.framework */; };
-		A16054FF24648CDB000C53AD /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A16054FD24648CDB000C53AD /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A160550324649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */; };
 		A160550524649904000C53AD /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550424649904000C53AD /* Mock.generated.swift */; };
 		A160550724649DC6000C53AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A160550624649DC6000C53AD /* GoogleService-Info.plist */; };
@@ -55,6 +53,8 @@
 		A1672CB92413B3B4004CE285 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1672CB82413B3B4004CE285 /* ProgressHUD.swift */; };
 		A18D4DE12457962D00783A65 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DE02457962D00783A65 /* DomainLayer.framework */; };
 		A18D4DE22457962D00783A65 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A18D4DE02457962D00783A65 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1B10E26246C273100283025 /* Lytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B10E25246C273100283025 /* Lytics.framework */; };
+		A1B10E27246C273100283025 /* Lytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B10E25246C273100283025 /* Lytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1B79B05243F6D0D00DD46B4 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; };
 		A1B79B06243F6D0D00DD46B4 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE718078F5AB22723B91C87D /* Pods_PresentationLayer_PresentationLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911B68DFCFB09373A4EC85CC /* Pods_PresentationLayer_PresentationLayerTests.framework */; };
@@ -104,7 +104,7 @@
 			files = (
 				A18D4DE22457962D00783A65 /* DomainLayer.framework in Embed Frameworks */,
 				A1B79B06243F6D0D00DD46B4 /* DataLayer.framework in Embed Frameworks */,
-				A16054FF24648CDB000C53AD /* Analytics.framework in Embed Frameworks */,
+				A1B10E27246C273100283025 /* Lytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +172,7 @@
 		A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewModelTests.swift; sourceTree = "<group>"; };
 		A1672CB82413B3B4004CE285 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		A18D4DE02457962D00783A65 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B10E25246C273100283025 /* Lytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B79AFD243E799D00DD46B4 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E2974C241121EC0020288A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,10 +207,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B10E26246C273100283025 /* Lytics.framework in Frameworks */,
 				A18D4DE12457962D00783A65 /* DomainLayer.framework in Frameworks */,
 				A1B79B05243F6D0D00DD46B4 /* DataLayer.framework in Frameworks */,
 				35D735D40C869DECE6D490D7 /* Pods_PresentationLayer.framework in Frameworks */,
-				A16054FE24648CDB000C53AD /* Analytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +236,7 @@
 		55FCE9760BE55DC4B33F2FF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1B10E25246C273100283025 /* Lytics.framework */,
 				A16054FD24648CDB000C53AD /* Analytics.framework */,
 				A18D4DE02457962D00783A65 /* DomainLayer.framework */,
 				A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */,

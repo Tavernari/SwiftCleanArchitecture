@@ -6,10 +6,10 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Analytics
 import CoreData
 import Crashlytics
 import Firebase
+import Lytics
 import Sentry
 import UIKit
 
@@ -31,8 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Lytics.register(provider: FirebaseAnalyticsProvider())
         Lytics.register(provider: FirebaseCrashlyticsProvider())
 
-        Analytics.user(id: "123ID", name: "LUCAS TESTE", email: "LUCAS@TESTE.COM")
-        Analytics.user(properties: ["teste": "123ID2"])
+//        Analytics.user(id: "123ID", name: "LUCAS TESTE", email: "LUCAS@TESTE.COM")
+//        Analytics.user(properties: ["teste": "123ID2"])
+
+//        URLError(.badURL).ly.dispatch()
 
         return true
     }

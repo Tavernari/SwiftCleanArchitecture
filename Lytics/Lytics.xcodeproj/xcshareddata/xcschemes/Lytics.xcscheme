@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A16054B724648774000C53AD"
-               BuildableName = "Analytics.framework"
-               BlueprintName = "Analytics"
-               ReferencedContainer = "container:Analytics.xcodeproj">
+               BuildableName = "Lytics.framework"
+               BlueprintName = "Lytics"
+               ReferencedContainer = "container:Lytics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,17 +26,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A16054C024648775000C53AD"
-               BuildableName = "AnalyticsTests.xctest"
-               BlueprintName = "AnalyticsTests"
-               ReferencedContainer = "container:Analytics.xcodeproj">
+               BuildableName = "LyticsTests.xctest"
+               BlueprintName = "LyticsTests"
+               ReferencedContainer = "container:Lytics.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -62,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A16054B724648774000C53AD"
-            BuildableName = "Analytics.framework"
-            BlueprintName = "Analytics"
-            ReferencedContainer = "container:Analytics.xcodeproj">
+            BuildableName = "Lytics.framework"
+            BlueprintName = "Lytics"
+            ReferencedContainer = "container:Lytics.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

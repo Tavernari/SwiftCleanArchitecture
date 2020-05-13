@@ -14,11 +14,11 @@ public class LyticsErrorKit {
         self.error = error
     }
 
-    func dispatch() {
+    public func dispatch() {
         Lytics.error(error, addtionalUserInfo: nil)
     }
 
-    func dispatch(addtionalUserInfo userInfo:[String: Any]) {
+    public func dispatch(addtionalUserInfo userInfo:[String: Any]) {
         Lytics.error(error, addtionalUserInfo: userInfo)
     }
 }

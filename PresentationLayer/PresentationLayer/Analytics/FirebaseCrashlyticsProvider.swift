@@ -6,9 +6,9 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Analytics
 import Crashlytics
 import Firebase
+import Lytics
 
 class FirebaseCrashlyticsProvider: ProviderType {
     var name: String = "FirebaseCrashlytics"

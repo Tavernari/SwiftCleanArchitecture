@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7840BDDCD6575754A8BDDA05 /* libPods-Analytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D849D6009657FFE1E5AD0FB /* libPods-Analytics.a */; };
+		8B8AB7336491D22C44E4DD86 /* libPods-Lytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90843CCE52035904DF5376D3 /* libPods-Lytics.a */; };
 		A111CB16246B510200CAEFE6 /* ProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB15246B510200CAEFE6 /* ProviderMock.swift */; };
 		A111CB18246B53EA00CAEFE6 /* RegisterProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */; };
 		A111CB1A246B545D00CAEFE6 /* Lytics+removeAllMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB19246B545D00CAEFE6 /* Lytics+removeAllMocks.swift */; };
@@ -21,7 +21,7 @@
 		A11D753F246B4AB000852253 /* Recognizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D753E246B4AB000852253 /* Recognizable.swift */; };
 		A11D7541246B4AFC00852253 /* LyticsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D7540246B4AFC00852253 /* LyticsBase.swift */; };
 		A11D7543246B4B1900852253 /* LyticsBase+user.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D7542246B4B1900852253 /* LyticsBase+user.swift */; };
-		A16054C224648775000C53AD /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16054B824648774000C53AD /* Analytics.framework */; };
+		A16054C224648775000C53AD /* Lytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16054B824648774000C53AD /* Lytics.framework */; };
 		A16054C724648775000C53AD /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054C624648775000C53AD /* EventTests.swift */; };
 		A16054C924648775000C53AD /* Analytics.h in Headers */ = {isa = PBXBuildFile; fileRef = A16054BB24648774000C53AD /* Analytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A16054D424648902000C53AD /* ProvidersContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054D324648902000C53AD /* ProvidersContainer.swift */; };
@@ -52,7 +52,7 @@
 		A1B10E1F246C23BA00283025 /* Error+LyticsErrorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E1E246C23BA00283025 /* Error+LyticsErrorKit.swift */; };
 		A1B10E22246C23E000283025 /* LyticsErrorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E21246C23E000283025 /* LyticsErrorKit.swift */; };
 		A1B10E24246C264F00283025 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E23246C264F00283025 /* TestError.swift */; };
-		E47F431777C3632BEF9211C4 /* libPods-Analytics-AnalyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4A05D3937F43F2457B1CBD /* libPods-Analytics-AnalyticsTests.a */; };
+		BA21619381E178237029AA1A /* libPods-Lytics-LyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6438AE6E8D8673282FB3F24D /* libPods-Lytics-LyticsTests.a */; };
 		FCEAD1FEEED8FDDDD34DD293 /* LyticsBase+userIdentificationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADE5ECACC02B20B78F2C2 /* LyticsBase+userIdentificationProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +67,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D849D6009657FFE1E5AD0FB /* libPods-Analytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Analytics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F4A05D3937F43F2457B1CBD /* libPods-Analytics-AnalyticsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Analytics-AnalyticsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		423F46A453B18FD79A0EA7A6 /* Pods-Lytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics.release.xcconfig"; path = "Target Support Files/Pods-Lytics/Pods-Lytics.release.xcconfig"; sourceTree = "<group>"; };
+		52F7EA09FA64BA919C30C879 /* Pods-Lytics-LyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics-LyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Lytics-LyticsTests/Pods-Lytics-LyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6438AE6E8D8673282FB3F24D /* libPods-Lytics-LyticsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lytics-LyticsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90843CCE52035904DF5376D3 /* libPods-Lytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lytics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics-LyticsTests.release.xcconfig"; path = "Target Support Files/Pods-Lytics-LyticsTests/Pods-Lytics-LyticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A111CB15246B510200CAEFE6 /* ProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderMock.swift; sourceTree = "<group>"; };
 		A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProviderTests.swift; sourceTree = "<group>"; };
 		A111CB19246B545D00CAEFE6 /* Lytics+removeAllMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lytics+removeAllMocks.swift"; sourceTree = "<group>"; };
@@ -82,10 +85,10 @@
 		A11D753E246B4AB000852253 /* Recognizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recognizable.swift; sourceTree = "<group>"; };
 		A11D7540246B4AFC00852253 /* LyticsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsBase.swift; sourceTree = "<group>"; };
 		A11D7542246B4B1900852253 /* LyticsBase+user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+user.swift"; sourceTree = "<group>"; };
-		A16054B824648774000C53AD /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16054B824648774000C53AD /* Lytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16054BB24648774000C53AD /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		A16054BC24648774000C53AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A16054C124648775000C53AD /* AnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16054C124648775000C53AD /* LyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16054C624648775000C53AD /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		A16054C824648775000C53AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16054D324648902000C53AD /* ProvidersContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersContainer.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		A1B10E21246C23E000283025 /* LyticsErrorKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsErrorKit.swift; sourceTree = "<group>"; };
 		A1B10E23246C264F00283025 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.release.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.release.xcconfig"; sourceTree = "<group>"; };
+		AFAD2E57358479337FA34827 /* Pods-Lytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics.debug.xcconfig"; path = "Target Support Files/Pods-Lytics/Pods-Lytics.debug.xcconfig"; sourceTree = "<group>"; };
 		CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics-AnalyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Analytics-AnalyticsTests/Pods-Analytics-AnalyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7F733691F7FD8687E255CEE /* Pods-Analytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.debug.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.debug.xcconfig"; sourceTree = "<group>"; };
 		F04C8DF8B2F17242E31374F7 /* Pods-Analytics-AnalyticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics-AnalyticsTests.release.xcconfig"; path = "Target Support Files/Pods-Analytics-AnalyticsTests/Pods-Analytics-AnalyticsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7840BDDCD6575754A8BDDA05 /* libPods-Analytics.a in Frameworks */,
+				8B8AB7336491D22C44E4DD86 /* libPods-Lytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +140,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16054C224648775000C53AD /* Analytics.framework in Frameworks */,
-				E47F431777C3632BEF9211C4 /* libPods-Analytics-AnalyticsTests.a in Frameworks */,
+				A16054C224648775000C53AD /* Lytics.framework in Frameworks */,
+				BA21619381E178237029AA1A /* libPods-Lytics-LyticsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +151,8 @@
 		436894A5207D7A048458C369 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3D849D6009657FFE1E5AD0FB /* libPods-Analytics.a */,
-				6F4A05D3937F43F2457B1CBD /* libPods-Analytics-AnalyticsTests.a */,
+				90843CCE52035904DF5376D3 /* libPods-Lytics.a */,
+				6438AE6E8D8673282FB3F24D /* libPods-Lytics-LyticsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,6 +164,10 @@
 				AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */,
 				CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */,
 				F04C8DF8B2F17242E31374F7 /* Pods-Analytics-AnalyticsTests.release.xcconfig */,
+				AFAD2E57358479337FA34827 /* Pods-Lytics.debug.xcconfig */,
+				423F46A453B18FD79A0EA7A6 /* Pods-Lytics.release.xcconfig */,
+				52F7EA09FA64BA919C30C879 /* Pods-Lytics-LyticsTests.debug.xcconfig */,
+				9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -195,8 +203,8 @@
 		A16054AE24648774000C53AD = {
 			isa = PBXGroup;
 			children = (
-				A16054BA24648774000C53AD /* Analytics */,
-				A16054C524648775000C53AD /* AnalyticsTests */,
+				A16054BA24648774000C53AD /* Lytics */,
+				A16054C524648775000C53AD /* LyticsTests */,
 				A16054B924648774000C53AD /* Products */,
 				91C1A7709A508AE59BD87FEF /* Pods */,
 				436894A5207D7A048458C369 /* Frameworks */,
@@ -206,13 +214,13 @@
 		A16054B924648774000C53AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A16054B824648774000C53AD /* Analytics.framework */,
-				A16054C124648775000C53AD /* AnalyticsTests.xctest */,
+				A16054B824648774000C53AD /* Lytics.framework */,
+				A16054C124648775000C53AD /* LyticsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A16054BA24648774000C53AD /* Analytics */ = {
+		A16054BA24648774000C53AD /* Lytics */ = {
 			isa = PBXGroup;
 			children = (
 				A1B10E20246C23D000283025 /* Kits */,
@@ -223,10 +231,10 @@
 				A16054BC24648774000C53AD /* Info.plist */,
 				A16054F524648AC6000C53AD /* Lytics.swift */,
 			);
-			path = Analytics;
+			path = Lytics;
 			sourceTree = "<group>";
 		};
-		A16054C524648775000C53AD /* AnalyticsTests */ = {
+		A16054C524648775000C53AD /* LyticsTests */ = {
 			isa = PBXGroup;
 			children = (
 				A111CB21246B561100CAEFE6 /* Events */,
@@ -240,7 +248,7 @@
 				A1B10E12246C153200283025 /* NonFatalErrorTests.swift */,
 				A16054C824648775000C53AD /* Info.plist */,
 			);
-			path = AnalyticsTests;
+			path = LyticsTests;
 			sourceTree = "<group>";
 		};
 		A16054D2246488F0000C53AD /* Protocols */ = {
@@ -355,9 +363,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A16054B724648774000C53AD /* Analytics */ = {
+		A16054B724648774000C53AD /* Lytics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A16054CC24648775000C53AD /* Build configuration list for PBXNativeTarget "Analytics" */;
+			buildConfigurationList = A16054CC24648775000C53AD /* Build configuration list for PBXNativeTarget "Lytics" */;
 			buildPhases = (
 				F4A2FD41C9E6E0148C6D7DE5 /* [CP] Check Pods Manifest.lock */,
 				A16054B324648774000C53AD /* Headers */,
@@ -369,14 +377,14 @@
 			);
 			dependencies = (
 			);
-			name = Analytics;
+			name = Lytics;
 			productName = Analytics;
-			productReference = A16054B824648774000C53AD /* Analytics.framework */;
+			productReference = A16054B824648774000C53AD /* Lytics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		A16054C024648775000C53AD /* AnalyticsTests */ = {
+		A16054C024648775000C53AD /* LyticsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A16054CF24648775000C53AD /* Build configuration list for PBXNativeTarget "AnalyticsTests" */;
+			buildConfigurationList = A16054CF24648775000C53AD /* Build configuration list for PBXNativeTarget "LyticsTests" */;
 			buildPhases = (
 				3FFA2C36DAA32AA25EC43257 /* [CP] Check Pods Manifest.lock */,
 				A16054BD24648775000C53AD /* Sources */,
@@ -388,9 +396,9 @@
 			dependencies = (
 				A16054C424648775000C53AD /* PBXTargetDependency */,
 			);
-			name = AnalyticsTests;
+			name = LyticsTests;
 			productName = AnalyticsTests;
-			productReference = A16054C124648775000C53AD /* AnalyticsTests.xctest */;
+			productReference = A16054C124648775000C53AD /* LyticsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -412,7 +420,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A16054B224648774000C53AD /* Build configuration list for PBXProject "Analytics" */;
+			buildConfigurationList = A16054B224648774000C53AD /* Build configuration list for PBXProject "Lytics" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -425,8 +433,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A16054B724648774000C53AD /* Analytics */,
-				A16054C024648775000C53AD /* AnalyticsTests */,
+				A16054B724648774000C53AD /* Lytics */,
+				A16054C024648775000C53AD /* LyticsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -464,7 +472,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Analytics-AnalyticsTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Lytics-LyticsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -486,7 +494,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Analytics-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Lytics-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -558,7 +566,7 @@
 /* Begin PBXTargetDependency section */
 		A16054C424648775000C53AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A16054B724648774000C53AD /* Analytics */;
+			target = A16054B724648774000C53AD /* Lytics */;
 			targetProxy = A16054C324648775000C53AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -686,7 +694,7 @@
 		};
 		A16054CD24648775000C53AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7F733691F7FD8687E255CEE /* Pods-Analytics.debug.xcconfig */;
+			baseConfigurationReference = AFAD2E57358479337FA34827 /* Pods-Lytics.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -696,7 +704,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Analytics/Info.plist;
+				INFOPLIST_FILE = Lytics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -715,7 +723,7 @@
 		};
 		A16054CE24648775000C53AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */;
+			baseConfigurationReference = 423F46A453B18FD79A0EA7A6 /* Pods-Lytics.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -725,7 +733,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Analytics/Info.plist;
+				INFOPLIST_FILE = Lytics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -743,13 +751,13 @@
 		};
 		A16054D024648775000C53AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */;
+			baseConfigurationReference = 52F7EA09FA64BA919C30C879 /* Pods-Lytics-LyticsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4REX2KBMNV;
-				INFOPLIST_FILE = AnalyticsTests/Info.plist;
+				INFOPLIST_FILE = LyticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -764,13 +772,13 @@
 		};
 		A16054D124648775000C53AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F04C8DF8B2F17242E31374F7 /* Pods-Analytics-AnalyticsTests.release.xcconfig */;
+			baseConfigurationReference = 9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4REX2KBMNV;
-				INFOPLIST_FILE = AnalyticsTests/Info.plist;
+				INFOPLIST_FILE = LyticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -786,7 +794,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A16054B224648774000C53AD /* Build configuration list for PBXProject "Analytics" */ = {
+		A16054B224648774000C53AD /* Build configuration list for PBXProject "Lytics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A16054CA24648775000C53AD /* Debug */,
@@ -795,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A16054CC24648775000C53AD /* Build configuration list for PBXNativeTarget "Analytics" */ = {
+		A16054CC24648775000C53AD /* Build configuration list for PBXNativeTarget "Lytics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A16054CD24648775000C53AD /* Debug */,
@@ -804,7 +812,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A16054CF24648775000C53AD /* Build configuration list for PBXNativeTarget "AnalyticsTests" */ = {
+		A16054CF24648775000C53AD /* Build configuration list for PBXNativeTarget "LyticsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A16054D024648775000C53AD /* Debug */,

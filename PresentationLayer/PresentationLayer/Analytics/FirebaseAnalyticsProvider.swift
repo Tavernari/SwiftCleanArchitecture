@@ -6,8 +6,8 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Analytics
 import Firebase
+import Lytics
 
 class FirebaseAnalyticsProvider: ProviderType {
     var name: String = "FirebaseAnalytics"
