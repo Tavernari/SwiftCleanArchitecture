@@ -1,6 +1,6 @@
 //
 //  ProviderMock.swift
-//  AnalyticsTests
+//  Lytics
 //
 //  Created by Victor C Tavernari on 12/05/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
@@ -15,7 +15,7 @@ class ProviderMock: ProviderType {
 
     var eventValidation: ((EventType) -> Void)?
     var screenEventValidation: ((ScreenEventType) -> Void)?
-    var userPropertiesValidation: (([String: Any]) -> Void)?
+    var userPropertiesValidation: (([String: Any]?) -> Void)?
     var userIdentificationValidation: ((_ id: String?, _ name: String?, _ email: String?) -> Void)?
     var errorValidation: ((_ error: Error, _ userInfo: [String : Any]?) -> Void )?
 
@@ -37,7 +37,7 @@ extension ProviderMock: ScreenEventDispatcher {
 }
 
 extension ProviderMock: UserPropertiesDispatcher {
-    func user(properties: [String : Any]) {
+    func user(properties: [String : Any]?) {
         self.userPropertiesValidation?(properties)
     }
 }

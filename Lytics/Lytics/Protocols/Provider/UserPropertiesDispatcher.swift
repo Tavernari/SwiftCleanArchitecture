@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol UserPropertiesDispatcher {
-    func user(properties: [String: Any])
+    func user(properties: [String: Any]?)
 }

@@ -1,6 +1,6 @@
 //
 //  UserPropertiesTests.swift
-//  AnalyticsTests
+//  Lytics
 //
 //  Created by Victor C Tavernari on 12/05/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
@@ -38,6 +38,10 @@ class UserPropertiesTests: XCTestCase {
             XCTAssertEqual(data["isVip"], true)
         }
 
+        mock.userIdentificationValidation = { (_, _, _) in
+            XCTFail()
+        }
+
         Lytics.register(provider: mock)
 
         TestUserProperties.isVip(true).dispatch()
@@ -48,6 +52,10 @@ class UserPropertiesTests: XCTestCase {
         mock.userPropertiesValidation = {
             let data = $0 as! [String: Bool]
             XCTAssertEqual(data["isVip"], false)
+        }
+
+        mock.userIdentificationValidation = { (_, _, _) in
+            XCTFail()
         }
 
         Lytics.register(provider: mock)
@@ -63,6 +71,10 @@ class UserPropertiesTests: XCTestCase {
             XCTAssertEqual(data["totalCoin"], totalCoin)
         }
 
+        mock.userIdentificationValidation = { (_, _, _) in
+            XCTFail()
+        }
+
         Lytics.register(provider: mock)
 
         TestUserProperties.totalCoin(totalCoin).dispatch()
@@ -74,6 +86,10 @@ class UserPropertiesTests: XCTestCase {
         mock.userPropertiesValidation = {
             let data = $0 as! [String: Int]
             XCTAssertEqual(data["totalCoin"], totalCoin)
+        }
+
+        mock.userIdentificationValidation = { (_, _, _) in
+            XCTFail()
         }
 
         Lytics.register(provider: mock)

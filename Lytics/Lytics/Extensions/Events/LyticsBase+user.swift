@@ -10,7 +10,11 @@ import Foundation
 
 public extension LyticsBase where Self: UserPropertiesType {
     func dispatch() {
+        guard self.emailValue == nil && self.idValue == nil && self.nameValue == nil else {
+            Lytics.user(recognizable: self)
+            return
+        }
+
         Lytics.user(properties: self)
-        Lytics.user(recognizable: self)
     }
 }

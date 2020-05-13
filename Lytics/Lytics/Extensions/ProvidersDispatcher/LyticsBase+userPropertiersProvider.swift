@@ -13,6 +13,6 @@ public extension LyticsBase where Self: ProvidersContainerType {
         providers
             .filter{ $0.enable }
             .compactMap{ $0 as? UserPropertiesDispatcher }
-            .forEach { $0.user(properties: properties.data ?? [:]) }
+            .forEach { $0.user(properties: properties.data ) }
     }
 }

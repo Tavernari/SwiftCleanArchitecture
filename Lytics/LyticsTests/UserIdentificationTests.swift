@@ -1,6 +1,6 @@
 //
 //  UserIdentificationTests.swift
-//  AnalyticsTests
+//  Lytics
 //
 //  Created by Victor C Tavernari on 12/05/20.
 //  Copyright © 2020 Taverna Apps. All rights reserved.
@@ -39,6 +39,10 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertNil(email)
         }
 
+        mock.userPropertiesValidation = { _ in
+            XCTFail()
+        }
+
         Lytics.register(provider: mock)
 
         TestUserProperties.identify(id: idValue, name: nil, email: nil).dispatch()
@@ -51,6 +55,10 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertEqual(name, nameValue)
             XCTAssertNil(id)
             XCTAssertNil(email)
+        }
+
+        mock.userPropertiesValidation = { _ in
+            XCTFail()
         }
 
         Lytics.register(provider: mock)
@@ -67,6 +75,10 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertNil(name)
         }
 
+        mock.userPropertiesValidation = { _ in
+            XCTFail()
+        }
+
         Lytics.register(provider: mock)
 
         TestUserProperties.identify(id: nil, name: nil, email: emailValue).dispatch()
@@ -81,6 +93,10 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertEqual(email, emailValue)
             XCTAssertEqual(name, nameValue)
             XCTAssertEqual(id, idValue)
+        }
+
+        mock.userPropertiesValidation = { _ in
+            XCTFail()
         }
 
         Lytics.register(provider: mock)
