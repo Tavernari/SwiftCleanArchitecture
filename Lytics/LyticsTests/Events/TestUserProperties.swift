@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import Analytics
+@testable import Lytics
 
 enum TestUserProperties: UserPropertiesType {
 

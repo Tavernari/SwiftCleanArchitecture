@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Analytics
+@testable import Lytics
 
 class NonFatalErrorTests: XCTestCase {
 

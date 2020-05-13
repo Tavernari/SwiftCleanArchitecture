@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import Analytics
+@testable import Lytics
 
 class ProviderMock: ProviderType {
     var enable: Bool = true
