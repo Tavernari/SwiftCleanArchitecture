@@ -16,8 +16,8 @@ class FirebaseCrashlyticsProvider: ProviderType {
 }
 
 extension FirebaseCrashlyticsProvider: UserPropertiesDispatcher {
-    func user(properties: [String: Any]) {
-        properties.forEach { key, value in
+    func user(properties: [String: Any]?) {
+        properties?.forEach { key, value in
             Firebase.Crashlytics.sharedInstance().setObjectValue(value, forKey: key)
         }
     }

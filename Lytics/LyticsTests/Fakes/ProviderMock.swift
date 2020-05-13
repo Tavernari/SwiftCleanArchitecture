@@ -19,8 +19,9 @@ class ProviderMock: ProviderType {
     var userIdentificationValidation: ((_ id: String?, _ name: String?, _ email: String?) -> Void)?
     var errorValidation: ((_ error: Error, _ userInfo: [String : Any]?) -> Void )?
 
-    init(enable: Bool = true) {
+    init(enable: Bool = true, name: String = "ProviderMock") {
         self.enable = enable
+        self.name = name
     }
 }
 

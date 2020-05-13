@@ -31,8 +31,8 @@ extension FirebaseAnalyticsProvider: ScreenEventDispatcher {
 }
 
 extension FirebaseAnalyticsProvider: UserPropertiesDispatcher {
-    func user(properties: [String: Any]) {
-        properties.forEach { key, value in
+    func user(properties: [String: Any]?) {
+        properties?.forEach { key, value in
 
             guard let value = value as? String else {
                 print("[Warning ]Firebase need String value ")

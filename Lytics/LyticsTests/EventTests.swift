@@ -12,12 +12,12 @@ import XCTest
 class LyticsEventTests: XCTestCase {
 
     override func setUpWithError() throws {
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     override func tearDownWithError() throws {
         XCTAssertGreaterThan(Lytics.providers.count, 0)
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     func testSendEventWithProviderDisable() {
@@ -26,7 +26,7 @@ class LyticsEventTests: XCTestCase {
             XCTFail("Provider should be disabled")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         TestEvent.withoutData.dispatch()
     }
 
@@ -37,7 +37,7 @@ class LyticsEventTests: XCTestCase {
             XCTAssertEqual($0.name, "withoutData")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestEvent.withoutData.dispatch()
     }
@@ -52,7 +52,7 @@ class LyticsEventTests: XCTestCase {
             XCTAssertEqual($0.name, "withData")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestEvent.withData(data: data).dispatch()
     }

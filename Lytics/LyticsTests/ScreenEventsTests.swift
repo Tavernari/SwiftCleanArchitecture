@@ -12,12 +12,12 @@ import XCTest
 class ScreenEventsTests: XCTestCase {
 
     override func setUpWithError() throws {
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     override func tearDownWithError() throws {
         XCTAssertGreaterThan(Lytics.providers.count, 0)
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     func testSendScreenEventWithProviderDisable() {
@@ -26,7 +26,7 @@ class ScreenEventsTests: XCTestCase {
             XCTFail("Provider should be disabled")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         TestScreenEvent.screenWithoutClass.dispatch()
     }
 
@@ -37,7 +37,7 @@ class ScreenEventsTests: XCTestCase {
             XCTAssertEqual($0.name, "screenWithoutClass")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestScreenEvent.screenWithoutClass.dispatch()
     }
@@ -49,7 +49,7 @@ class ScreenEventsTests: XCTestCase {
             XCTAssertEqual($0.name, "screenWithClass")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestScreenEvent.screenWithClass(class: UIViewController.self).dispatch()
     }

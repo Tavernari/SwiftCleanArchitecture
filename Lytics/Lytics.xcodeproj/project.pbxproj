@@ -10,7 +10,6 @@
 		8B8AB7336491D22C44E4DD86 /* libPods-Lytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90843CCE52035904DF5376D3 /* libPods-Lytics.a */; };
 		A111CB16246B510200CAEFE6 /* ProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB15246B510200CAEFE6 /* ProviderMock.swift */; };
 		A111CB18246B53EA00CAEFE6 /* RegisterProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */; };
-		A111CB1A246B545D00CAEFE6 /* Lytics+removeAllMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB19246B545D00CAEFE6 /* Lytics+removeAllMocks.swift */; };
 		A111CB1E246B55E200CAEFE6 /* ScreenEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB1D246B55E200CAEFE6 /* ScreenEventsTests.swift */; };
 		A111CB20246B55F800CAEFE6 /* TestEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB1F246B55F800CAEFE6 /* TestEvent.swift */; };
 		A111CB23246B577400CAEFE6 /* UserPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB22246B577400CAEFE6 /* UserPropertiesTests.swift */; };
@@ -39,7 +38,6 @@
 		A16054EE24648A55000C53AD /* ScreenEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054ED24648A55000C53AD /* ScreenEventType.swift */; };
 		A16054F024648A67000C53AD /* LyticsBase+screenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054EF24648A67000C53AD /* LyticsBase+screenProvider.swift */; };
 		A16054F224648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F124648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift */; };
-		A16054F424648AA1000C53AD /* LyticsBase+registerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F324648AA1000C53AD /* LyticsBase+registerProvider.swift */; };
 		A16054F624648AC6000C53AD /* Lytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F524648AC6000C53AD /* Lytics.swift */; };
 		A16054F824648ADB000C53AD /* LyticsBase+event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F724648ADB000C53AD /* LyticsBase+event.swift */; };
 		A16054FA24648B01000C53AD /* LyticsBase+screenEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F924648B01000C53AD /* LyticsBase+screenEvent.swift */; };
@@ -74,7 +72,6 @@
 		9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics-LyticsTests.release.xcconfig"; path = "Target Support Files/Pods-Lytics-LyticsTests/Pods-Lytics-LyticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		A111CB15246B510200CAEFE6 /* ProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderMock.swift; sourceTree = "<group>"; };
 		A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProviderTests.swift; sourceTree = "<group>"; };
-		A111CB19246B545D00CAEFE6 /* Lytics+removeAllMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lytics+removeAllMocks.swift"; sourceTree = "<group>"; };
 		A111CB1D246B55E200CAEFE6 /* ScreenEventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEventsTests.swift; sourceTree = "<group>"; };
 		A111CB1F246B55F800CAEFE6 /* TestEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEvent.swift; sourceTree = "<group>"; };
 		A111CB22246B577400CAEFE6 /* UserPropertiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertiesTests.swift; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		A16054ED24648A55000C53AD /* ScreenEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEventType.swift; sourceTree = "<group>"; };
 		A16054EF24648A67000C53AD /* LyticsBase+screenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+screenProvider.swift"; sourceTree = "<group>"; };
 		A16054F124648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+userPropertiersProvider.swift"; sourceTree = "<group>"; };
-		A16054F324648AA1000C53AD /* LyticsBase+registerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+registerProvider.swift"; sourceTree = "<group>"; };
 		A16054F524648AC6000C53AD /* Lytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lytics.swift; sourceTree = "<group>"; };
 		A16054F724648ADB000C53AD /* LyticsBase+event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+event.swift"; sourceTree = "<group>"; };
 		A16054F924648B01000C53AD /* LyticsBase+screenEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+screenEvent.swift"; sourceTree = "<group>"; };
@@ -181,14 +177,6 @@
 			path = Fakes;
 			sourceTree = "<group>";
 		};
-		A111CB1C246B55C700CAEFE6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A111CB19246B545D00CAEFE6 /* Lytics+removeAllMocks.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		A111CB21246B561100CAEFE6 /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				A111CB21246B561100CAEFE6 /* Events */,
-				A111CB1C246B55C700CAEFE6 /* Extensions */,
 				A111CB1B246B55BC00CAEFE6 /* Fakes */,
 				A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */,
 				A16054C624648775000C53AD /* EventTests.swift */,
@@ -323,7 +310,6 @@
 				A16054EB246489E1000C53AD /* LyticsBase+eventProvider.swift */,
 				A1B10E16246C228A00283025 /* LyticsBase+errorProvider.swift */,
 				A16054EF24648A67000C53AD /* LyticsBase+screenProvider.swift */,
-				A16054F324648AA1000C53AD /* LyticsBase+registerProvider.swift */,
 				FCEADE5ECACC02B20B78F2C2 /* LyticsBase+userIdentificationProvider.swift */,
 				A16054F124648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift */,
 			);
@@ -524,7 +510,6 @@
 				A1B10E15246C225D00283025 /* ErrorDispatcher.swift in Sources */,
 				A1B10E1B246C232D00283025 /* LyticsErrorType.swift in Sources */,
 				A16054E02464896D000C53AD /* ClassContainer.swift in Sources */,
-				A16054F424648AA1000C53AD /* LyticsBase+registerProvider.swift in Sources */,
 				A11D7541246B4AFC00852253 /* LyticsBase.swift in Sources */,
 				A16054F824648ADB000C53AD /* LyticsBase+event.swift in Sources */,
 				A16054D82464892E000C53AD /* ScreenEventDispatcher.swift in Sources */,
@@ -551,7 +536,6 @@
 				A111CB16246B510200CAEFE6 /* ProviderMock.swift in Sources */,
 				A111CB1E246B55E200CAEFE6 /* ScreenEventsTests.swift in Sources */,
 				A111CB25246B578600CAEFE6 /* TestScreenEvent.swift in Sources */,
-				A111CB1A246B545D00CAEFE6 /* Lytics+removeAllMocks.swift in Sources */,
 				A111CB18246B53EA00CAEFE6 /* RegisterProviderTests.swift in Sources */,
 				A111CB23246B577400CAEFE6 /* UserPropertiesTests.swift in Sources */,
 				A111CB20246B55F800CAEFE6 /* TestEvent.swift in Sources */,

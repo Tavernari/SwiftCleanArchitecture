@@ -13,12 +13,12 @@ import XCTest
 class UserPropertiesTests: XCTestCase {
 
     override func setUpWithError() throws {
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     override func tearDownWithError() throws {
         XCTAssertGreaterThan(Lytics.providers.count, 0)
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     func testSendUserPropertiesWithProviderDisable() {
@@ -27,7 +27,7 @@ class UserPropertiesTests: XCTestCase {
             XCTFail("Provider should be disabled")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         TestUserProperties.isVip(true).dispatch()
     }
 
@@ -42,7 +42,7 @@ class UserPropertiesTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.isVip(true).dispatch()
     }
@@ -58,7 +58,7 @@ class UserPropertiesTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.isVip(false).dispatch()
     }
@@ -75,7 +75,7 @@ class UserPropertiesTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.totalCoin(totalCoin).dispatch()
     }
@@ -92,7 +92,7 @@ class UserPropertiesTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.totalCoin(totalCoin).dispatch()
     }

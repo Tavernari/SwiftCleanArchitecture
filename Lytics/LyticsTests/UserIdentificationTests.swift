@@ -12,12 +12,12 @@ import XCTest
 class UserIdentificationTests: XCTestCase {
 
     override func setUpWithError() throws {
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     override func tearDownWithError() throws {
         XCTAssertGreaterThan(Lytics.providers.count, 0)
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     func testSendUserIdentificationWithProviderDisable() {
@@ -26,7 +26,7 @@ class UserIdentificationTests: XCTestCase {
             XCTFail("Provider should be disabled")
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         TestUserProperties.identify(id: "", name: nil, email: nil).dispatch()
     }
 
@@ -43,7 +43,7 @@ class UserIdentificationTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.identify(id: idValue, name: nil, email: nil).dispatch()
     }
@@ -61,7 +61,7 @@ class UserIdentificationTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.identify(id: nil, name: nameValue, email: nil).dispatch()
     }
@@ -79,7 +79,7 @@ class UserIdentificationTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.identify(id: nil, name: nil, email: emailValue).dispatch()
     }
@@ -99,7 +99,7 @@ class UserIdentificationTests: XCTestCase {
             XCTFail()
         }
 
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
 
         TestUserProperties.identify(id: idValue, name: nameValue, email: emailValue).dispatch()
     }

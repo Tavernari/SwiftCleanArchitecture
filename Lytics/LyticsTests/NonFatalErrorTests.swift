@@ -12,12 +12,12 @@ import XCTest
 class NonFatalErrorTests: XCTestCase {
 
     override func setUpWithError() throws {
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     override func tearDownWithError() throws {
         XCTAssertGreaterThan(Lytics.providers.count, 0)
-        Lytics.removeAllMocks()
+        Lytics.unregisterAllProviders()
     }
 
     func testSendCustomNonError(){
@@ -27,7 +27,7 @@ class NonFatalErrorTests: XCTestCase {
             XCTAssertNil(userInfo)
 
         }
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         TestError.withoutUserInfo.dispatch()
     }
 
@@ -40,7 +40,7 @@ class NonFatalErrorTests: XCTestCase {
             XCTAssertEqual(userInfo!["test"] as! String, userInfoValue["test"] as! String)
 
         }
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         TestError.withUserInfo(data: userInfoValue).dispatch()
     }
 
@@ -51,7 +51,7 @@ class NonFatalErrorTests: XCTestCase {
             XCTAssertNil(userInfo)
 
         }
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         URLError(.dataNotAllowed).ly.dispatch()
     }
 
@@ -64,7 +64,7 @@ class NonFatalErrorTests: XCTestCase {
             XCTAssertEqual(userInfo!["test2"] as! String, userInfoValue["test2"] as! String)
 
         }
-        Lytics.register(provider: mock)
+        try? Lytics.register(provider: mock)
         URLError(.badURL).ly.dispatch(addtionalUserInfo: userInfoValue)
     }
 }

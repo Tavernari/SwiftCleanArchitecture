@@ -9,5 +9,8 @@
 import Foundation
 
 public protocol ProvidersContainer {
-    static var providers: [ProviderType] { get set }
+    static var providers: [ProviderType] { get }
+    static func register(provider: ProviderType) throws
+    static func unregister(provider: ProviderType) 
+    static func unregisterAllProviders()
 }
