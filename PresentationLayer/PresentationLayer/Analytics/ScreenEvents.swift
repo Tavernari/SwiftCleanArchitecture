@@ -6,9 +6,9 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Analytics
+import Lytics
 
-enum ScreenEvents: AnalyticsScreenEventType {
+enum ScreenEvents: ScreenEventType {
     case gitRepositoriesList
     case gitPullRequestList
     case gitPullRequestDetails

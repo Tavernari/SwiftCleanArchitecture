@@ -1,0 +1,811 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B8AB7336491D22C44E4DD86 /* libPods-Lytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90843CCE52035904DF5376D3 /* libPods-Lytics.a */; };
+		A111CB16246B510200CAEFE6 /* ProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB15246B510200CAEFE6 /* ProviderMock.swift */; };
+		A111CB18246B53EA00CAEFE6 /* RegisterProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */; };
+		A111CB1E246B55E200CAEFE6 /* ScreenEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB1D246B55E200CAEFE6 /* ScreenEventsTests.swift */; };
+		A111CB20246B55F800CAEFE6 /* TestEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB1F246B55F800CAEFE6 /* TestEvent.swift */; };
+		A111CB23246B577400CAEFE6 /* UserPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB22246B577400CAEFE6 /* UserPropertiesTests.swift */; };
+		A111CB25246B578600CAEFE6 /* TestScreenEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB24246B578600CAEFE6 /* TestScreenEvent.swift */; };
+		A111CB27246B5A0200CAEFE6 /* TestUserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB26246B5A0200CAEFE6 /* TestUserProperties.swift */; };
+		A111CB29246B5A3800CAEFE6 /* UserIdentificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111CB28246B5A3800CAEFE6 /* UserIdentificationTests.swift */; };
+		A11D753D246B4A9800852253 /* UserPropertiesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D753C246B4A9800852253 /* UserPropertiesType.swift */; };
+		A11D753F246B4AB000852253 /* Recognizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D753E246B4AB000852253 /* Recognizable.swift */; };
+		A11D7541246B4AFC00852253 /* LyticsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D7540246B4AFC00852253 /* LyticsBase.swift */; };
+		A11D7543246B4B1900852253 /* LyticsBase+user.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D7542246B4B1900852253 /* LyticsBase+user.swift */; };
+		A16054C224648775000C53AD /* Lytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16054B824648774000C53AD /* Lytics.framework */; };
+		A16054C724648775000C53AD /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054C624648775000C53AD /* EventTests.swift */; };
+		A16054C924648775000C53AD /* Analytics.h in Headers */ = {isa = PBXBuildFile; fileRef = A16054BB24648774000C53AD /* Analytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A16054D424648902000C53AD /* ProvidersContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054D324648902000C53AD /* ProvidersContainer.swift */; };
+		A16054D62464891A000C53AD /* EventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054D52464891A000C53AD /* EventDispatcher.swift */; };
+		A16054D82464892E000C53AD /* ScreenEventDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054D72464892E000C53AD /* ScreenEventDispatcher.swift */; };
+		A16054DA2464893F000C53AD /* UserPropertiesDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054D92464893F000C53AD /* UserPropertiesDispatcher.swift */; };
+		A16054DC2464894F000C53AD /* UserIdentificationDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054DB2464894F000C53AD /* UserIdentificationDispatcher.swift */; };
+		A16054DE2464895B000C53AD /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054DD2464895B000C53AD /* Identifiable.swift */; };
+		A16054E02464896D000C53AD /* ClassContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054DF2464896D000C53AD /* ClassContainer.swift */; };
+		A16054E22464897D000C53AD /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054E12464897D000C53AD /* DataContainer.swift */; };
+		A16054E42464898D000C53AD /* Flagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054E32464898D000C53AD /* Flagable.swift */; };
+		A16054E7246489A8000C53AD /* ProvidersContainerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054E6246489A8000C53AD /* ProvidersContainerType.swift */; };
+		A16054E9246489B8000C53AD /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054E8246489B8000C53AD /* EventType.swift */; };
+		A16054EC246489E1000C53AD /* LyticsBase+eventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054EB246489E1000C53AD /* LyticsBase+eventProvider.swift */; };
+		A16054EE24648A55000C53AD /* ScreenEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054ED24648A55000C53AD /* ScreenEventType.swift */; };
+		A16054F024648A67000C53AD /* LyticsBase+screenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054EF24648A67000C53AD /* LyticsBase+screenProvider.swift */; };
+		A16054F224648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F124648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift */; };
+		A16054F624648AC6000C53AD /* Lytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F524648AC6000C53AD /* Lytics.swift */; };
+		A16054F824648ADB000C53AD /* LyticsBase+event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F724648ADB000C53AD /* LyticsBase+event.swift */; };
+		A16054FA24648B01000C53AD /* LyticsBase+screenEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054F924648B01000C53AD /* LyticsBase+screenEvent.swift */; };
+		A160550124648D20000C53AD /* ProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550024648D20000C53AD /* ProviderType.swift */; };
+		A1B10E13246C153200283025 /* NonFatalErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E12246C153200283025 /* NonFatalErrorTests.swift */; };
+		A1B10E15246C225D00283025 /* ErrorDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E14246C225D00283025 /* ErrorDispatcher.swift */; };
+		A1B10E17246C228A00283025 /* LyticsBase+errorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E16246C228A00283025 /* LyticsBase+errorProvider.swift */; };
+		A1B10E19246C231800283025 /* LyticsBase+error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E18246C231800283025 /* LyticsBase+error.swift */; };
+		A1B10E1B246C232D00283025 /* LyticsErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E1A246C232D00283025 /* LyticsErrorType.swift */; };
+		A1B10E1F246C23BA00283025 /* Error+LyticsErrorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E1E246C23BA00283025 /* Error+LyticsErrorKit.swift */; };
+		A1B10E22246C23E000283025 /* LyticsErrorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E21246C23E000283025 /* LyticsErrorKit.swift */; };
+		A1B10E24246C264F00283025 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B10E23246C264F00283025 /* TestError.swift */; };
+		BA21619381E178237029AA1A /* libPods-Lytics-LyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6438AE6E8D8673282FB3F24D /* libPods-Lytics-LyticsTests.a */; };
+		FCEAD1FEEED8FDDDD34DD293 /* LyticsBase+userIdentificationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADE5ECACC02B20B78F2C2 /* LyticsBase+userIdentificationProvider.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A16054C324648775000C53AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A16054AF24648774000C53AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A16054B724648774000C53AD;
+			remoteInfo = Analytics;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		423F46A453B18FD79A0EA7A6 /* Pods-Lytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics.release.xcconfig"; path = "Target Support Files/Pods-Lytics/Pods-Lytics.release.xcconfig"; sourceTree = "<group>"; };
+		52F7EA09FA64BA919C30C879 /* Pods-Lytics-LyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics-LyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Lytics-LyticsTests/Pods-Lytics-LyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6438AE6E8D8673282FB3F24D /* libPods-Lytics-LyticsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lytics-LyticsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90843CCE52035904DF5376D3 /* libPods-Lytics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lytics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics-LyticsTests.release.xcconfig"; path = "Target Support Files/Pods-Lytics-LyticsTests/Pods-Lytics-LyticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		A111CB15246B510200CAEFE6 /* ProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderMock.swift; sourceTree = "<group>"; };
+		A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProviderTests.swift; sourceTree = "<group>"; };
+		A111CB1D246B55E200CAEFE6 /* ScreenEventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEventsTests.swift; sourceTree = "<group>"; };
+		A111CB1F246B55F800CAEFE6 /* TestEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEvent.swift; sourceTree = "<group>"; };
+		A111CB22246B577400CAEFE6 /* UserPropertiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertiesTests.swift; sourceTree = "<group>"; };
+		A111CB24246B578600CAEFE6 /* TestScreenEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScreenEvent.swift; sourceTree = "<group>"; };
+		A111CB26246B5A0200CAEFE6 /* TestUserProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserProperties.swift; sourceTree = "<group>"; };
+		A111CB28246B5A3800CAEFE6 /* UserIdentificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentificationTests.swift; sourceTree = "<group>"; };
+		A11D753C246B4A9800852253 /* UserPropertiesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertiesType.swift; sourceTree = "<group>"; };
+		A11D753E246B4AB000852253 /* Recognizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recognizable.swift; sourceTree = "<group>"; };
+		A11D7540246B4AFC00852253 /* LyticsBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsBase.swift; sourceTree = "<group>"; };
+		A11D7542246B4B1900852253 /* LyticsBase+user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+user.swift"; sourceTree = "<group>"; };
+		A16054B824648774000C53AD /* Lytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16054BB24648774000C53AD /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		A16054BC24648774000C53AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A16054C124648775000C53AD /* LyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16054C624648775000C53AD /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
+		A16054C824648775000C53AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A16054D324648902000C53AD /* ProvidersContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersContainer.swift; sourceTree = "<group>"; };
+		A16054D52464891A000C53AD /* EventDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDispatcher.swift; sourceTree = "<group>"; };
+		A16054D72464892E000C53AD /* ScreenEventDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEventDispatcher.swift; sourceTree = "<group>"; };
+		A16054D92464893F000C53AD /* UserPropertiesDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertiesDispatcher.swift; sourceTree = "<group>"; };
+		A16054DB2464894F000C53AD /* UserIdentificationDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentificationDispatcher.swift; sourceTree = "<group>"; };
+		A16054DD2464895B000C53AD /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		A16054DF2464896D000C53AD /* ClassContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassContainer.swift; sourceTree = "<group>"; };
+		A16054E12464897D000C53AD /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		A16054E32464898D000C53AD /* Flagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flagable.swift; sourceTree = "<group>"; };
+		A16054E6246489A8000C53AD /* ProvidersContainerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersContainerType.swift; sourceTree = "<group>"; };
+		A16054E8246489B8000C53AD /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		A16054EB246489E1000C53AD /* LyticsBase+eventProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+eventProvider.swift"; sourceTree = "<group>"; };
+		A16054ED24648A55000C53AD /* ScreenEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEventType.swift; sourceTree = "<group>"; };
+		A16054EF24648A67000C53AD /* LyticsBase+screenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+screenProvider.swift"; sourceTree = "<group>"; };
+		A16054F124648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+userPropertiersProvider.swift"; sourceTree = "<group>"; };
+		A16054F524648AC6000C53AD /* Lytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lytics.swift; sourceTree = "<group>"; };
+		A16054F724648ADB000C53AD /* LyticsBase+event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+event.swift"; sourceTree = "<group>"; };
+		A16054F924648B01000C53AD /* LyticsBase+screenEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+screenEvent.swift"; sourceTree = "<group>"; };
+		A160550024648D20000C53AD /* ProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderType.swift; sourceTree = "<group>"; };
+		A1B10E12246C153200283025 /* NonFatalErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonFatalErrorTests.swift; sourceTree = "<group>"; };
+		A1B10E14246C225D00283025 /* ErrorDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDispatcher.swift; sourceTree = "<group>"; };
+		A1B10E16246C228A00283025 /* LyticsBase+errorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+errorProvider.swift"; sourceTree = "<group>"; };
+		A1B10E18246C231800283025 /* LyticsBase+error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyticsBase+error.swift"; sourceTree = "<group>"; };
+		A1B10E1A246C232D00283025 /* LyticsErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsErrorType.swift; sourceTree = "<group>"; };
+		A1B10E1E246C23BA00283025 /* Error+LyticsErrorKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+LyticsErrorKit.swift"; sourceTree = "<group>"; };
+		A1B10E21246C23E000283025 /* LyticsErrorKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyticsErrorKit.swift; sourceTree = "<group>"; };
+		A1B10E23246C264F00283025 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.release.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.release.xcconfig"; sourceTree = "<group>"; };
+		AFAD2E57358479337FA34827 /* Pods-Lytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lytics.debug.xcconfig"; path = "Target Support Files/Pods-Lytics/Pods-Lytics.debug.xcconfig"; sourceTree = "<group>"; };
+		CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics-AnalyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Analytics-AnalyticsTests/Pods-Analytics-AnalyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7F733691F7FD8687E255CEE /* Pods-Analytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics.debug.xcconfig"; path = "Target Support Files/Pods-Analytics/Pods-Analytics.debug.xcconfig"; sourceTree = "<group>"; };
+		F04C8DF8B2F17242E31374F7 /* Pods-Analytics-AnalyticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analytics-AnalyticsTests.release.xcconfig"; path = "Target Support Files/Pods-Analytics-AnalyticsTests/Pods-Analytics-AnalyticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		FCEADE5ECACC02B20B78F2C2 /* LyticsBase+userIdentificationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LyticsBase+userIdentificationProvider.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A16054B524648774000C53AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B8AB7336491D22C44E4DD86 /* libPods-Lytics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A16054BE24648775000C53AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A16054C224648775000C53AD /* Lytics.framework in Frameworks */,
+				BA21619381E178237029AA1A /* libPods-Lytics-LyticsTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		436894A5207D7A048458C369 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90843CCE52035904DF5376D3 /* libPods-Lytics.a */,
+				6438AE6E8D8673282FB3F24D /* libPods-Lytics-LyticsTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91C1A7709A508AE59BD87FEF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7F733691F7FD8687E255CEE /* Pods-Analytics.debug.xcconfig */,
+				AD0F4AF30AED6CAF2C27F7E7 /* Pods-Analytics.release.xcconfig */,
+				CE8894CFF02E50483E8AB113 /* Pods-Analytics-AnalyticsTests.debug.xcconfig */,
+				F04C8DF8B2F17242E31374F7 /* Pods-Analytics-AnalyticsTests.release.xcconfig */,
+				AFAD2E57358479337FA34827 /* Pods-Lytics.debug.xcconfig */,
+				423F46A453B18FD79A0EA7A6 /* Pods-Lytics.release.xcconfig */,
+				52F7EA09FA64BA919C30C879 /* Pods-Lytics-LyticsTests.debug.xcconfig */,
+				9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		A111CB1B246B55BC00CAEFE6 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				A111CB15246B510200CAEFE6 /* ProviderMock.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
+		A111CB21246B561100CAEFE6 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A111CB1F246B55F800CAEFE6 /* TestEvent.swift */,
+				A111CB24246B578600CAEFE6 /* TestScreenEvent.swift */,
+				A111CB26246B5A0200CAEFE6 /* TestUserProperties.swift */,
+				A1B10E23246C264F00283025 /* TestError.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		A16054AE24648774000C53AD = {
+			isa = PBXGroup;
+			children = (
+				A16054BA24648774000C53AD /* Lytics */,
+				A16054C524648775000C53AD /* LyticsTests */,
+				A16054B924648774000C53AD /* Products */,
+				91C1A7709A508AE59BD87FEF /* Pods */,
+				436894A5207D7A048458C369 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A16054B924648774000C53AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A16054B824648774000C53AD /* Lytics.framework */,
+				A16054C124648775000C53AD /* LyticsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A16054BA24648774000C53AD /* Lytics */ = {
+			isa = PBXGroup;
+			children = (
+				A1B10E20246C23D000283025 /* Kits */,
+				A16054EA246489C7000C53AD /* Extensions */,
+				A16054E524648998000C53AD /* Types */,
+				A16054D2246488F0000C53AD /* Protocols */,
+				A16054BB24648774000C53AD /* Analytics.h */,
+				A16054BC24648774000C53AD /* Info.plist */,
+				A16054F524648AC6000C53AD /* Lytics.swift */,
+			);
+			path = Lytics;
+			sourceTree = "<group>";
+		};
+		A16054C524648775000C53AD /* LyticsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A111CB21246B561100CAEFE6 /* Events */,
+				A111CB1B246B55BC00CAEFE6 /* Fakes */,
+				A111CB17246B53EA00CAEFE6 /* RegisterProviderTests.swift */,
+				A16054C624648775000C53AD /* EventTests.swift */,
+				A111CB1D246B55E200CAEFE6 /* ScreenEventsTests.swift */,
+				A111CB22246B577400CAEFE6 /* UserPropertiesTests.swift */,
+				A111CB28246B5A3800CAEFE6 /* UserIdentificationTests.swift */,
+				A1B10E12246C153200283025 /* NonFatalErrorTests.swift */,
+				A16054C824648775000C53AD /* Info.plist */,
+			);
+			path = LyticsTests;
+			sourceTree = "<group>";
+		};
+		A16054D2246488F0000C53AD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A160551024659EB1000C53AD /* Events */,
+				A160550F24659E9C000C53AD /* Provider */,
+				A160550E24659E8F000C53AD /* Providers */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A16054E524648998000C53AD /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				A16054E6246489A8000C53AD /* ProvidersContainerType.swift */,
+				A16054E8246489B8000C53AD /* EventType.swift */,
+				A16054ED24648A55000C53AD /* ScreenEventType.swift */,
+				A160550024648D20000C53AD /* ProviderType.swift */,
+				A11D753C246B4A9800852253 /* UserPropertiesType.swift */,
+				A1B10E1A246C232D00283025 /* LyticsErrorType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		A16054EA246489C7000C53AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1B10E1D246C239C00283025 /* Events */,
+				A1B10E1C246C234800283025 /* ProvidersDispatcher */,
+				A1B10E1E246C23BA00283025 /* Error+LyticsErrorKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A160550E24659E8F000C53AD /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				A16054D324648902000C53AD /* ProvidersContainer.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		A160550F24659E9C000C53AD /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				A16054D52464891A000C53AD /* EventDispatcher.swift */,
+				A16054D72464892E000C53AD /* ScreenEventDispatcher.swift */,
+				A16054D92464893F000C53AD /* UserPropertiesDispatcher.swift */,
+				A16054DB2464894F000C53AD /* UserIdentificationDispatcher.swift */,
+				A1B10E14246C225D00283025 /* ErrorDispatcher.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		A160551024659EB1000C53AD /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A16054DD2464895B000C53AD /* Identifiable.swift */,
+				A16054DF2464896D000C53AD /* ClassContainer.swift */,
+				A16054E12464897D000C53AD /* DataContainer.swift */,
+				A16054E32464898D000C53AD /* Flagable.swift */,
+				A11D753E246B4AB000852253 /* Recognizable.swift */,
+				A11D7540246B4AFC00852253 /* LyticsBase.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		A1B10E1C246C234800283025 /* ProvidersDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				A16054EB246489E1000C53AD /* LyticsBase+eventProvider.swift */,
+				A1B10E16246C228A00283025 /* LyticsBase+errorProvider.swift */,
+				A16054EF24648A67000C53AD /* LyticsBase+screenProvider.swift */,
+				FCEADE5ECACC02B20B78F2C2 /* LyticsBase+userIdentificationProvider.swift */,
+				A16054F124648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift */,
+			);
+			path = ProvidersDispatcher;
+			sourceTree = "<group>";
+		};
+		A1B10E1D246C239C00283025 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A16054F724648ADB000C53AD /* LyticsBase+event.swift */,
+				A16054F924648B01000C53AD /* LyticsBase+screenEvent.swift */,
+				A11D7542246B4B1900852253 /* LyticsBase+user.swift */,
+				A1B10E18246C231800283025 /* LyticsBase+error.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		A1B10E20246C23D000283025 /* Kits */ = {
+			isa = PBXGroup;
+			children = (
+				A1B10E21246C23E000283025 /* LyticsErrorKit.swift */,
+			);
+			path = Kits;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A16054B324648774000C53AD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A16054C924648775000C53AD /* Analytics.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A16054B724648774000C53AD /* Lytics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A16054CC24648775000C53AD /* Build configuration list for PBXNativeTarget "Lytics" */;
+			buildPhases = (
+				F4A2FD41C9E6E0148C6D7DE5 /* [CP] Check Pods Manifest.lock */,
+				A16054B324648774000C53AD /* Headers */,
+				A16054B424648774000C53AD /* Sources */,
+				A16054B524648774000C53AD /* Frameworks */,
+				A16054B624648774000C53AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lytics;
+			productName = Analytics;
+			productReference = A16054B824648774000C53AD /* Lytics.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A16054C024648775000C53AD /* LyticsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A16054CF24648775000C53AD /* Build configuration list for PBXNativeTarget "LyticsTests" */;
+			buildPhases = (
+				3FFA2C36DAA32AA25EC43257 /* [CP] Check Pods Manifest.lock */,
+				A16054BD24648775000C53AD /* Sources */,
+				A16054BE24648775000C53AD /* Frameworks */,
+				A16054BF24648775000C53AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A16054C424648775000C53AD /* PBXTargetDependency */,
+			);
+			name = LyticsTests;
+			productName = AnalyticsTests;
+			productReference = A16054C124648775000C53AD /* LyticsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A16054AF24648774000C53AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Taverna Apps";
+				TargetAttributes = {
+					A16054B724648774000C53AD = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+					A16054C024648775000C53AD = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = A16054B224648774000C53AD /* Build configuration list for PBXProject "Lytics" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A16054AE24648774000C53AD;
+			productRefGroup = A16054B924648774000C53AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A16054B724648774000C53AD /* Lytics */,
+				A16054C024648775000C53AD /* LyticsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A16054B624648774000C53AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A16054BF24648775000C53AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FFA2C36DAA32AA25EC43257 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lytics-LyticsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4A2FD41C9E6E0148C6D7DE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lytics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A16054B424648774000C53AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A16054F024648A67000C53AD /* LyticsBase+screenProvider.swift in Sources */,
+				A16054E22464897D000C53AD /* DataContainer.swift in Sources */,
+				A16054E7246489A8000C53AD /* ProvidersContainerType.swift in Sources */,
+				A1B10E17246C228A00283025 /* LyticsBase+errorProvider.swift in Sources */,
+				A160550124648D20000C53AD /* ProviderType.swift in Sources */,
+				A16054E42464898D000C53AD /* Flagable.swift in Sources */,
+				A16054DC2464894F000C53AD /* UserIdentificationDispatcher.swift in Sources */,
+				A1B10E22246C23E000283025 /* LyticsErrorKit.swift in Sources */,
+				A16054EE24648A55000C53AD /* ScreenEventType.swift in Sources */,
+				A16054D62464891A000C53AD /* EventDispatcher.swift in Sources */,
+				A1B10E19246C231800283025 /* LyticsBase+error.swift in Sources */,
+				A1B10E1F246C23BA00283025 /* Error+LyticsErrorKit.swift in Sources */,
+				A16054DA2464893F000C53AD /* UserPropertiesDispatcher.swift in Sources */,
+				A1B10E15246C225D00283025 /* ErrorDispatcher.swift in Sources */,
+				A1B10E1B246C232D00283025 /* LyticsErrorType.swift in Sources */,
+				A16054E02464896D000C53AD /* ClassContainer.swift in Sources */,
+				A11D7541246B4AFC00852253 /* LyticsBase.swift in Sources */,
+				A16054F824648ADB000C53AD /* LyticsBase+event.swift in Sources */,
+				A16054D82464892E000C53AD /* ScreenEventDispatcher.swift in Sources */,
+				A16054DE2464895B000C53AD /* Identifiable.swift in Sources */,
+				A16054E9246489B8000C53AD /* EventType.swift in Sources */,
+				A16054F224648A7C000C53AD /* LyticsBase+userPropertiersProvider.swift in Sources */,
+				A16054FA24648B01000C53AD /* LyticsBase+screenEvent.swift in Sources */,
+				A16054D424648902000C53AD /* ProvidersContainer.swift in Sources */,
+				A16054EC246489E1000C53AD /* LyticsBase+eventProvider.swift in Sources */,
+				A11D753D246B4A9800852253 /* UserPropertiesType.swift in Sources */,
+				A16054F624648AC6000C53AD /* Lytics.swift in Sources */,
+				A11D7543246B4B1900852253 /* LyticsBase+user.swift in Sources */,
+				A11D753F246B4AB000852253 /* Recognizable.swift in Sources */,
+				FCEAD1FEEED8FDDDD34DD293 /* LyticsBase+userIdentificationProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A16054BD24648775000C53AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B10E24246C264F00283025 /* TestError.swift in Sources */,
+				A111CB29246B5A3800CAEFE6 /* UserIdentificationTests.swift in Sources */,
+				A111CB16246B510200CAEFE6 /* ProviderMock.swift in Sources */,
+				A111CB1E246B55E200CAEFE6 /* ScreenEventsTests.swift in Sources */,
+				A111CB25246B578600CAEFE6 /* TestScreenEvent.swift in Sources */,
+				A111CB18246B53EA00CAEFE6 /* RegisterProviderTests.swift in Sources */,
+				A111CB23246B577400CAEFE6 /* UserPropertiesTests.swift in Sources */,
+				A111CB20246B55F800CAEFE6 /* TestEvent.swift in Sources */,
+				A16054C724648775000C53AD /* EventTests.swift in Sources */,
+				A111CB27246B5A0200CAEFE6 /* TestUserProperties.swift in Sources */,
+				A1B10E13246C153200283025 /* NonFatalErrorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A16054C424648775000C53AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A16054B724648774000C53AD /* Lytics */;
+			targetProxy = A16054C324648775000C53AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A16054CA24648775000C53AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A16054CB24648775000C53AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A16054CD24648775000C53AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFAD2E57358479337FA34827 /* Pods-Lytics.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Lytics/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.tavernapps.Analytics;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A16054CE24648775000C53AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 423F46A453B18FD79A0EA7A6 /* Pods-Lytics.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Lytics/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.tavernapps.Analytics;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A16054D024648775000C53AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52F7EA09FA64BA919C30C879 /* Pods-Lytics-LyticsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4REX2KBMNV;
+				INFOPLIST_FILE = LyticsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.tavernapps.AnalyticsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A16054D124648775000C53AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C8F2B08B98885122B40FBEE /* Pods-Lytics-LyticsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4REX2KBMNV;
+				INFOPLIST_FILE = LyticsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.tavernapps.AnalyticsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A16054B224648774000C53AD /* Build configuration list for PBXProject "Lytics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A16054CA24648775000C53AD /* Debug */,
+				A16054CB24648775000C53AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A16054CC24648775000C53AD /* Build configuration list for PBXNativeTarget "Lytics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A16054CD24648775000C53AD /* Debug */,
+				A16054CE24648775000C53AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A16054CF24648775000C53AD /* Build configuration list for PBXNativeTarget "LyticsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A16054D024648775000C53AD /* Debug */,
+				A16054D124648775000C53AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A16054AF24648774000C53AD /* Project object */;
+}

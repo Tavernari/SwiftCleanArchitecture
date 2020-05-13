@@ -6,16 +6,17 @@
 //  Copyright © 2020 Taverna Apps. All rights reserved.
 //
 
-import Analytics
 import CoreData
 import Crashlytics
 import Firebase
+import Lytics
 import Sentry
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
         FirebaseApp.initialize()
@@ -27,7 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "debug": true,
         ])
 
-        Analytics.register(provider: FirebaseAnalyticsProvider())
+        try? Lytics.register(provider: FirebaseAnalyticsProvider())
+        try? Lytics.register(provider: FirebaseCrashlyticsProvider())
+
+//        Analytics.user(id: "123ID", name: "LUCAS TESTE", email: "LUCAS@TESTE.COM")
+//        Analytics.user(properties: ["teste": "123ID2"])
+
+//        URLError(.badURL).ly.dispatch()
 
         return true
     }
