@@ -34,24 +34,33 @@ class Requester {
             .validate(contentType: ["application/json"])
     }
 
+    private static func validate<DecodedType: Error>(
+        decodeError: @escaping (Data?) -> DecodedType?,
+        urlRequest _: URLRequest?,
+        httpReponse: HTTPURLResponse,
+        data: Data?
+    ) -> DataRequest.ValidationResult {
+        switch httpReponse.statusCode {
+        case 200 ..< 300:
+            return .success(())
+        default:
+            if let errorDecoded = decodeError(data) {
+                return .failure(errorDecoded)
+            }
+
+            let error = URLError(.init(rawValue: httpReponse.statusCode))
+            return .failure(error)
+        }
+    }
+
     static func request<DecodedType: Error>(
         _ value: URLRequestConvertible,
         decodeError: @escaping (Data?) -> DecodedType?
     ) -> DataRequest {
         return AF.request(value)
             .validate(contentType: ["application/json"])
-            .validate { (_, httpReponse, data) -> DataRequest.ValidationResult in
-                switch httpReponse.statusCode {
-                case 200 ..< 300:
-                    return .success(())
-                default:
-                    if let errorDecoded = decodeError(data) {
-                        return .failure(errorDecoded)
-                    }
-
-                    let error = URLError(.init(rawValue: httpReponse.statusCode))
-                    return .failure(error)
-                }
+            .validate { (urlRequest, httpReponse, data) -> DataRequest.ValidationResult in
+                self.validate(decodeError: decodeError, urlRequest: urlRequest, httpReponse: httpReponse, data: data)
             }
     }
 }

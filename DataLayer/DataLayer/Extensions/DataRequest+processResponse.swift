@@ -10,17 +10,21 @@ import Alamofire
 import Foundation
 
 extension DataRequest {
+    fileprivate func handleError(_ error: AFError) -> Error {
+        guard let underlyingError = error.underlyingError else {
+            return error
+        }
+        return underlyingError
+    }
+
     func processResponse<ResultData: Decodable>(completion: @escaping (Result<ResultData, Error>) -> Void) {
         responseDecodable { (response: DataResponse<ResultData, AFError>) in
             switch response.result {
             case let .success(reponseData):
                 completion(.success(reponseData))
             case let .failure(error):
-                if let underlyingError = error.underlyingError {
-                    completion(.failure(underlyingError))
-                } else {
-                    completion(.failure(error))
-                }
+                let error = self.handleError(error)
+                completion(.failure(error))
             }
         }
     }

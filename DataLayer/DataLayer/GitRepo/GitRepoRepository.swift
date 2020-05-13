@@ -17,47 +17,39 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         self.remoteConfigDataSource = remoteConfigDataSource
     }
 
+    private func fetchAndSetStats(gitRepo: GitRepositoryModel, completion: @escaping (Result<GitRepositoryModel, Error>) -> Void) {
+        gitRepoDataSource.stats(repo: gitRepo) { result in
+            var repo = gitRepo
+            result.handle(decodeSuccess: { (stats) -> GitRepositoryModel in
+                repo.stats = stats
+                return repo
+            }, completion: completion)
+        }
+    }
+
     public func list(term: String, completion: @escaping (Result<[GitRepositoryModel], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
-
         var gitRepoRepositoriesResult: [GitRepositoryModel] = []
-        var error: Error?
-
         dispatchGroup.enter()
         gitRepoDataSource.list(term: term) { result in
-            switch result {
-            case let .success(data):
-                data.items.forEach { repo in
-                    var gitRepo = GitRepositoryModel(data: repo)
+            do {
+                let data = try result.handle()
+                let repos = data.items.map(GitRepositoryModel.init)
+                repos.forEach { repo in
                     dispatchGroup.enter()
-                    self.gitRepoDataSource.stats(repo: gitRepo) { result in
-                        switch result {
-                        case let .success(model):
-                            gitRepo.stats = model
-                            gitRepoRepositoriesResult.append(gitRepo)
-                        case let .failure(statsError):
-                            error = statsError
-                        }
+                    self.fetchAndSetStats(gitRepo: repo) { result in
+                        let repoWithStats = try? result.handle()
+                        gitRepoRepositoriesResult.append(repoWithStats!)
                         dispatchGroup.leave()
                     }
                 }
-            case let .failure(dataSourceError):
-                error = dataSourceError
+            } catch let statsError {
+                DispatchQueue.main.async { completion(.failure(statsError)) }
             }
-            dispatchGroup.leave()
         }
-
+        dispatchGroup.leave()
         dispatchGroup.notify(queue: .global(qos: .background)) {
-            guard error == nil else {
-                DispatchQueue.main.async {
-                    completion(.failure(error!))
-                }
-                return
-            }
-
-            DispatchQueue.main.async {
-                completion(.success(gitRepoRepositoriesResult))
-            }
+            DispatchQueue.main.async { completion(.success(gitRepoRepositoriesResult)) }
         }
     }
 

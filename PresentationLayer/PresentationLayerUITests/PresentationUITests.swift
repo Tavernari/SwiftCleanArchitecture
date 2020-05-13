@@ -71,7 +71,7 @@ class PresentationUITests: XCTestCase {
     func testShowListOfRepositories() {
         app.launch()
         let tablesQuery = app.tables
-        sleep(1)
+        sleep(2)
         XCTAssertEqual(tablesQuery.cells.count, 2)
         XCTAssertTrue(app.staticTexts["ReSwiftMiddleware"].exists)
         XCTAssertTrue(app.staticTexts["Tavernari"].exists)
