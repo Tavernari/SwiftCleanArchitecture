@@ -31,7 +31,7 @@ class UserPropertiesTests: XCTestCase {
         TestUserProperties.isVip(true).dispatch()
     }
 
-    fileprivate func mockIsVip(isVip: Bool) -> ProviderMock{
+    fileprivate func mockIsVip(isVip: Bool){
         let mock = ProviderMock(enable: true)
         mock.userPropertiesValidation = {
             let data = $0 as! [String: Bool]
@@ -42,26 +42,21 @@ class UserPropertiesTests: XCTestCase {
             XCTFail()
         }
 
-        return mock
+        try? Lytics.register(provider: mock)
+
     }
 
     func testSendUserIsVipData() throws {
-        let mock = mockIsVip(isVip: true)
-
-        try? Lytics.register(provider: mock)
-
+        mockIsVip(isVip: true)
         TestUserProperties.isVip(true).dispatch()
     }
 
     func testSendUserIsVipFalseData() throws {
-        let mock = mockIsVip(isVip: false)
-
-        try? Lytics.register(provider: mock)
-
+        mockIsVip(isVip: false)
         TestUserProperties.isVip(false).dispatch()
     }
 
-    fileprivate func mockTotalCoin(totalCoin: Int) -> ProviderMock {
+    fileprivate func mockTotalCoin(totalCoin: Int) {
         let mock = ProviderMock(enable: true)
 
         mock.userPropertiesValidation = {
@@ -73,25 +68,16 @@ class UserPropertiesTests: XCTestCase {
             XCTFail()
         }
 
-        return mock
+        try? Lytics.register(provider: mock)
     }
 
-
-    func testSendUserTotalCoin100Data() throws {
-        let totalCoin = 100
-        let mock = mockTotalCoin(totalCoin: totalCoin)
-
-        try? Lytics.register(provider: mock)
-
-        TestUserProperties.totalCoin(totalCoin).dispatch()
+    func testSendUserTotalCoin100Data() {
+        mockTotalCoin(totalCoin: 100)
+        TestUserProperties.totalCoin(100).dispatch()
     }
 
-    func testSendUserTotalCoin0Data() throws {
-        let totalCoin = 0
-        let mock = mockTotalCoin(totalCoin: totalCoin)
-
-        try? Lytics.register(provider: mock)
-
-        TestUserProperties.totalCoin(totalCoin).dispatch()
+    func testSendUserTotalCoin0Data() {
+        mockTotalCoin(totalCoin: 0)
+        TestUserProperties.totalCoin(0).dispatch()
     }
 }
