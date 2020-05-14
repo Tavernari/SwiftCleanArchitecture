@@ -17,6 +17,7 @@
 		A1073F1424223C5200770450 /* DataSourceAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1324223C5200770450 /* DataSourceAssembler.swift */; };
 		A1073F1824223F3300770450 /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1073F1724223F3300770450 /* MainAssembler.swift */; };
 		A1289C40245B14F50077D694 /* AppLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101CAAD245B136D00CB57EA /* AppLaunchArguments.swift */; };
+		A136960E246DB1B40000640E /* LocalHostFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136960D246DB1B40000640E /* LocalHostFacade.swift */; };
 		A1398AE924383E0400A3A0CD /* UILabel+bindObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398AE824383E0400A3A0CD /* UILabel+bindObservable.swift */; };
 		A1398B052438B4D300A3A0CD /* GitRepositoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B002438B4D300A3A0CD /* GitRepositoriesListViewController.swift */; };
 		A1398B062438B4D300A3A0CD /* GitRepositoriesListViewModelRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B012438B4D300A3A0CD /* GitRepositoriesListViewModelRoute.swift */; };
@@ -129,6 +130,7 @@
 		A101CAAD245B136D00CB57EA /* AppLaunchArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchArguments.swift; sourceTree = "<group>"; };
 		A1073F1324223C5200770450 /* DataSourceAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAssembler.swift; sourceTree = "<group>"; };
 		A1073F1724223F3300770450 /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
+		A136960D246DB1B40000640E /* LocalHostFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHostFacade.swift; sourceTree = "<group>"; };
 		A1398AE824383E0400A3A0CD /* UILabel+bindObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+bindObservable.swift"; sourceTree = "<group>"; };
 		A1398B002438B4D300A3A0CD /* GitRepositoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesListViewController.swift; sourceTree = "<group>"; };
 		A1398B012438B4D300A3A0CD /* GitRepositoriesListViewModelRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesListViewModelRoute.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				A166A92B240D506000824CAD /* Info.plist */,
 				A1398B4C243A4A5900A3A0CD /* GithubRepositoryDataReponseFake.swift */,
 				A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */,
+				A136960D246DB1B40000640E /* LocalHostFacade.swift */,
 			);
 			path = PresentationLayerUITests;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1398B4F243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift in Sources */,
+				A136960E246DB1B40000640E /* LocalHostFacade.swift in Sources */,
 				A101CAA6245B094E00CB57EA /* AppEnvironment.swift in Sources */,
 				A1398B4D243A4A5A00A3A0CD /* GithubRepositoryDataReponseFake.swift in Sources */,
 				A166A92A240D506000824CAD /* PresentationUITests.swift in Sources */,
