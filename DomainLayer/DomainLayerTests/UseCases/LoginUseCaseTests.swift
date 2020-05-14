@@ -48,6 +48,17 @@ struct LoginUseCaseParams {
 }
 
 class LoginUseCaseTests: XCTestCase {
+    var paramsState: LoginUseCaseParams!
+
+    override func setUp() {
+        paramsState = LoginUseCaseParams(customToken: "token123",
+                                         startedAuth: true,
+                                         logedIn: true,
+                                         failureOnLogin: true,
+                                         invalidEmail: true,
+                                         invalidPassword: true)
+    }
+
     func loadLoginUseCase(params: LoginUseCaseParams) -> LoginUseCase {
         var loginModel = LoginModel()
         loginModel.token = params.customToken!
@@ -66,45 +77,39 @@ class LoginUseCaseTests: XCTestCase {
     }
 
     func testLoginWithValidEmailAndPassword_shouldReturnTrue() {
-        let params = LoginUseCaseParams(customToken: "token123",
-                                        startedAuth: true,
-                                        logedIn: true,
-                                        failureOnLogin: false,
-                                        invalidEmail: false,
-                                        invalidPassword: false)
-        let useCase = loadLoginUseCase(params: params)
+        paramsState.failureOnLogin = false
+        paramsState.invalidEmail = false
+        paramsState.invalidPassword = false
+
+        let useCase = loadLoginUseCase(params: paramsState)
         useCase.execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithValidEmailAndPassword_shouldReturnFalse() {
-        let params = LoginUseCaseParams(startedAuth: true,
-                                        logedIn: false,
-                                        failureOnLogin: true,
-                                        invalidEmail: false,
-                                        invalidPassword: false)
-        let useCase = loadLoginUseCase(params: params)
+        paramsState.customToken = ""
+        paramsState.logedIn = false
+        paramsState.invalidEmail = false
+        paramsState.invalidPassword = false
+
+        let useCase = loadLoginUseCase(params: paramsState)
         useCase.execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithInvalidEmailAndPassword_shouldReturnFalse() {
-        let params = LoginUseCaseParams(customToken: "token123",
-                                        startedAuth: true,
-                                        logedIn: false,
-                                        failureOnLogin: false,
-                                        invalidEmail: true,
-                                        invalidPassword: false)
-        let useCase = loadLoginUseCase(params: params)
+        paramsState.logedIn = false
+        paramsState.failureOnLogin = false
+        paramsState.invalidPassword = false
+
+        let useCase = loadLoginUseCase(params: paramsState)
         useCase.execute(email: "lucas@email", password: "pass123")
     }
 
     func testLoginWithInvalidPassword_shouldReturnFalse() {
-        let params = LoginUseCaseParams(customToken: "token123",
-                                        startedAuth: true,
-                                        logedIn: false,
-                                        failureOnLogin: false,
-                                        invalidEmail: false,
-                                        invalidPassword: true)
-        let useCase = loadLoginUseCase(params: params)
+        paramsState.logedIn = false
+        paramsState.failureOnLogin = false
+        paramsState.invalidEmail = false
+
+        let useCase = loadLoginUseCase(params: paramsState)
         useCase.execute(email: "lucas@email.com", password: "pass")
     }
 }
