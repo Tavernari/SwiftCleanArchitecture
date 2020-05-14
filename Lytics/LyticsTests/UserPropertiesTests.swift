@@ -24,6 +24,7 @@ class UserPropertiesTests: XCTestCase {
     }
 
     func testSendUserPropertiesWithProviderDisable() {
+        mock.enable = false
         mock.userPropertiesValidation = { _ in
             XCTFail("Provider should be disabled")
         }
@@ -32,10 +33,10 @@ class UserPropertiesTests: XCTestCase {
         TestUserProperties.isVip(true).dispatch()
     }
 
-    fileprivate func mockIsVip(isVip: Bool){
+    fileprivate func mockResponse<Type: Equatable>(key: String, value: Type){
         mock.userPropertiesValidation = {
-            let data = $0 as! [String: Bool]
-            XCTAssertEqual(data["isVip"], isVip)
+            let data = $0 as! [String: Type]
+            XCTAssertEqual(data[key], value)
         }
 
         mock.userIdentificationValidation = { (_, _, _) in
@@ -47,37 +48,22 @@ class UserPropertiesTests: XCTestCase {
     }
 
     func testSendUserIsVipData() throws {
-        mockIsVip(isVip: true)
+        mockResponse(key:"isVip", value: true)
         TestUserProperties.isVip(true).dispatch()
     }
 
     func testSendUserIsVipFalseData() throws {
-        mockIsVip(isVip: false)
+        mockResponse(key:"isVip", value: false)
         TestUserProperties.isVip(false).dispatch()
     }
 
-    fileprivate func mockTotalCoin(totalCoin: Int) {
-        let mock = ProviderMock(enable: true)
-
-        mock.userPropertiesValidation = {
-            let data = $0 as! [String: Int]
-            XCTAssertEqual(data["totalCoin"], totalCoin)
-        }
-
-        mock.userIdentificationValidation = { (_, _, _) in
-            XCTFail()
-        }
-
-        try? Lytics.register(provider: mock)
-    }
-
     func testSendUserTotalCoin100Data() {
-        mockTotalCoin(totalCoin: 100)
+        mockResponse(key:"totalCoin", value: 100)
         TestUserProperties.totalCoin(100).dispatch()
     }
 
     func testSendUserTotalCoin0Data() {
-        mockTotalCoin(totalCoin: 0)
+        mockResponse(key:"totalCoin", value: 0)
         TestUserProperties.totalCoin(0).dispatch()
     }
 }
