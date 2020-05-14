@@ -12,7 +12,9 @@ import XCTest
 
 class UserPropertiesTests: XCTestCase {
 
+    var mock: ProviderMock!
     override func setUpWithError() throws {
+        mock = ProviderMock(enable: true)
         Lytics.unregisterAllProviders()
     }
 
@@ -22,7 +24,6 @@ class UserPropertiesTests: XCTestCase {
     }
 
     func testSendUserPropertiesWithProviderDisable() {
-        let mock = ProviderMock(enable: false)
         mock.userPropertiesValidation = { _ in
             XCTFail("Provider should be disabled")
         }
@@ -32,7 +33,6 @@ class UserPropertiesTests: XCTestCase {
     }
 
     fileprivate func mockIsVip(isVip: Bool){
-        let mock = ProviderMock(enable: true)
         mock.userPropertiesValidation = {
             let data = $0 as! [String: Bool]
             XCTAssertEqual(data["isVip"], isVip)
