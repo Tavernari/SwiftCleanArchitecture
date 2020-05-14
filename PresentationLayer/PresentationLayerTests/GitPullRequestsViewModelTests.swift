@@ -28,7 +28,6 @@ class GitPullRequestsViewModelTests: XCTestCase {
         let data = GitPullRequestDTO()
         let viewModel = createViewModel(result: [data])
 
-
         viewModel.pullRequests.observe { pullRequests in
             guard pullRequests.isEmpty == false else {
                 return
@@ -76,7 +75,7 @@ class GitPullRequestsViewModelTests: XCTestCase {
         viewModel.isLoading.observe { isLoading in
             if isLoading { loadingExpectation.fulfill() }
         }
-        
+
         viewModel.load(repo: repo)
         wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
