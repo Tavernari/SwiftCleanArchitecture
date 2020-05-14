@@ -40,11 +40,15 @@ struct RecoverPasswordUseCaseParams {
 }
 
 class RecoverPasswordUseCaseTests: XCTestCase {
-    var paramsState = RecoverPasswordUseCaseParams(success: true,
+    var paramsState: RecoverPasswordUseCaseParams!
+
+    override func setUp() {
+        paramsState = RecoverPasswordUseCaseParams(success: true,
                                                    startedRecover: true,
                                                    recovered: true,
-                                                   failureOnRecover: false,
-                                                   invalidEmail: false)
+                                                   failureOnRecover: true,
+                                                   invalidEmail: true)
+    }
 
     func loadRecoverPasswordUseCase(params: RecoverPasswordUseCaseParams) -> RecoverPasswordUseCase {
         let repository = MockSignInRepository(result: .success(params.success))
@@ -58,9 +62,6 @@ class RecoverPasswordUseCaseTests: XCTestCase {
     }
 
     func testRecoverWithValidEmail_shouldReturnTrue() {
-        paramsState.success = true
-        paramsState.startedRecover = true
-        paramsState.recovered = true
         paramsState.failureOnRecover = false
         paramsState.invalidEmail = false
 
@@ -70,9 +71,7 @@ class RecoverPasswordUseCaseTests: XCTestCase {
 
     func testRecoverWithWrongEmail_shouldReturnFalse() {
         paramsState.success = false
-        paramsState.startedRecover = true
         paramsState.recovered = false
-        paramsState.failureOnRecover = true
         paramsState.invalidEmail = false
 
         let useCase = loadRecoverPasswordUseCase(params: paramsState)
@@ -84,7 +83,6 @@ class RecoverPasswordUseCaseTests: XCTestCase {
         paramsState.startedRecover = false
         paramsState.recovered = false
         paramsState.failureOnRecover = false
-        paramsState.invalidEmail = true
 
         let useCase = loadRecoverPasswordUseCase(params: paramsState)
         useCase.execute(email: "lucas.com")
