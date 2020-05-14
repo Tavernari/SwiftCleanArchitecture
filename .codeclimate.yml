@@ -2,3 +2,7 @@ version: 2
 plugins:
   swiftlint:
     enabled: true
+exclude_patterns:
+- "**/*.generated.*" 
+- "Pods/"
+- "fastlane/"

@@ -9,12 +9,12 @@
 import Foundation
 
 public extension LyticsBase where Self: ProvidersContainerType {
-    
-    static func screen(screen: ScreenType) {
-        screenEventDispatcherProviders.forEach { $0.screen(screen: screen) }
-    }
 
     private static var screenEventDispatcherProviders: [ScreenDispatcher] {
         return providers.filterEnabled()
+    }
+
+    static func screen(screen: ScreenType) {
+        screenEventDispatcherProviders.forEach { $0.screen(screen: screen) }
     }
 }
