@@ -1,5 +1,6 @@
 ![](GithubMidia.png)
 ![Swift](https://github.com/Tavernari/IOSArchitecture/workflows/Swift/badge.svg?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ce64643c437ce5a55ca/maintainability)](https://codeclimate.com/repos/5eb307ec17f71a553a00e02d/maintainability)
 ## **Clean Architecture using Swift**
 
 Using  [Github Api](https://developer.github.com/v3/search/) para:
