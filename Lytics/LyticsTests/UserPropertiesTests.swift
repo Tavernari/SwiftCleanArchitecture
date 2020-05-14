@@ -31,23 +31,22 @@ class UserPropertiesTests: XCTestCase {
         TestUserProperties.isVip(true).dispatch()
     }
 
-    fileprivate func mockUserIdentificationShouldntCalled(mock: ProviderMock) {
-        mock.userIdentificationValidation = { (_, _, _) in
-            XCTFail()
-        }
-    }
-
-    fileprivate func mockIsVip(mock: ProviderMock, isVip: Bool){
+    fileprivate func mockIsVip(isVip: Bool) -> ProviderMock{
+        let mock = ProviderMock(enable: true)
         mock.userPropertiesValidation = {
             let data = $0 as! [String: Bool]
             XCTAssertEqual(data["isVip"], isVip)
         }
+
+        mock.userIdentificationValidation = { (_, _, _) in
+            XCTFail()
+        }
+
+        return mock
     }
 
     func testSendUserIsVipData() throws {
-        let mock = ProviderMock(enable: true)
-        mockIsVip(mock: mock, isVip: true)
-        mockUserIdentificationShouldntCalled(mock: mock)
+        let mock = mockIsVip(isVip: true)
 
         try? Lytics.register(provider: mock)
 
@@ -55,29 +54,32 @@ class UserPropertiesTests: XCTestCase {
     }
 
     func testSendUserIsVipFalseData() throws {
-        let mock = ProviderMock(enable: true)
-        mockIsVip(mock: mock, isVip: false)
-        mockUserIdentificationShouldntCalled(mock: mock)
+        let mock = mockIsVip(isVip: false)
 
         try? Lytics.register(provider: mock)
 
         TestUserProperties.isVip(false).dispatch()
     }
 
-    fileprivate func mockTotalCoin(mock: ProviderMock, totalCoin: Int) {
+    fileprivate func mockTotalCoin(totalCoin: Int) -> ProviderMock {
+        let mock = ProviderMock(enable: true)
+
         mock.userPropertiesValidation = {
             let data = $0 as! [String: Int]
             XCTAssertEqual(data["totalCoin"], totalCoin)
         }
+
+        mock.userIdentificationValidation = { (_, _, _) in
+            XCTFail()
+        }
+
+        return mock
     }
 
 
     func testSendUserTotalCoin100Data() throws {
         let totalCoin = 100
-        let mock = ProviderMock(enable: true)
-
-        mockTotalCoin(mock: mock, totalCoin: totalCoin)
-        mockUserIdentificationShouldntCalled(mock: mock)
+        let mock = mockTotalCoin(totalCoin: totalCoin)
 
         try? Lytics.register(provider: mock)
 
@@ -86,10 +88,7 @@ class UserPropertiesTests: XCTestCase {
 
     func testSendUserTotalCoin0Data() throws {
         let totalCoin = 0
-        let mock = ProviderMock(enable: true)
-
-        mockTotalCoin(mock: mock, totalCoin: totalCoin)
-        mockUserIdentificationShouldntCalled(mock: mock)
+        let mock = mockTotalCoin(totalCoin: totalCoin)
 
         try? Lytics.register(provider: mock)
 
