@@ -43,64 +43,64 @@ class MockLoginViewModel: LoginUseCaseInterfaceAdapter {
 }
 
 class LoginUseCaseTests: XCTestCase {
-    func testLoginWithValidEmailAndPassword_shouldReturnTrue() {
+    func loadLoginUseCase(customToken: String? = "",
+                          startedAuth: Bool,
+                          logedIn: Bool,
+                          failureOnLogin: Bool,
+                          invalidEmail: Bool,
+                          invalidPassword: Bool) -> LoginUseCase {
         var loginModel = LoginModel()
-        loginModel.token = "token123"
+        loginModel.token = customToken!
 
         let repository = MockSignInRepository(loginResult: .success(loginModel))
         let useCase = LoginUseCase(repository: repository)
-        let viewModel = MockLoginViewModel(startedAuth: true,
-                                           logedIn: true,
-                                           failureOnLogin: false,
-                                           invalidEmail: false,
-                                           invalidPassword: false)
+        let viewModel = MockLoginViewModel(startedAuth: startedAuth,
+                                           logedIn: logedIn,
+                                           failureOnLogin: failureOnLogin,
+                                           invalidEmail: invalidEmail,
+                                           invalidPassword: invalidPassword)
 
         useCase.delegateInterfaceAdapter = viewModel
+
+        return useCase
+    }
+
+    func testLoginWithValidEmailAndPassword_shouldReturnTrue() {
+        let useCase = loadLoginUseCase(customToken: "token123",
+                                       startedAuth: true,
+                                       logedIn: true,
+                                       failureOnLogin: false,
+                                       invalidEmail: false,
+                                       invalidPassword: false)
         useCase.execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithValidEmailAndPassword_shouldReturnFalse() {
-        let loginModel = LoginModel()
-        let repository = MockSignInRepository(loginResult: .success(loginModel))
-        let useCase = LoginUseCase(repository: repository)
-        let viewModel = MockLoginViewModel(startedAuth: true,
-                                           logedIn: false,
-                                           failureOnLogin: true,
-                                           invalidEmail: false,
-                                           invalidPassword: false)
-
-        useCase.delegateInterfaceAdapter = viewModel
-
+        let useCase = loadLoginUseCase(startedAuth: true,
+                                       logedIn: false,
+                                       failureOnLogin: true,
+                                       invalidEmail: false,
+                                       invalidPassword: false)
         useCase.execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithInvalidEmailAndPassword_shouldReturnFalse() {
-        let loginModel = LoginModel()
-        let repository = MockSignInRepository(loginResult: .success(loginModel))
-        let useCase = LoginUseCase(repository: repository)
-        let viewModel = MockLoginViewModel(startedAuth: true,
-                                           logedIn: false,
-                                           failureOnLogin: false,
-                                           invalidEmail: true,
-                                           invalidPassword: false)
-
-        useCase.delegateInterfaceAdapter = viewModel
-
+        let useCase = loadLoginUseCase(customToken: "token123",
+                                       startedAuth: true,
+                                       logedIn: false,
+                                       failureOnLogin: false,
+                                       invalidEmail: true,
+                                       invalidPassword: false)
         useCase.execute(email: "lucas@email", password: "pass123")
     }
 
     func testLoginWithInvalidPassword_shouldReturnFalse() {
-        let loginModel = LoginModel()
-        let repository = MockSignInRepository(loginResult: .success(loginModel))
-        let useCase = LoginUseCase(repository: repository)
-        let viewModel = MockLoginViewModel(startedAuth: true,
-                                           logedIn: false,
-                                           failureOnLogin: false,
-                                           invalidEmail: false,
-                                           invalidPassword: true)
-
-        useCase.delegateInterfaceAdapter = viewModel
-
+        let useCase = loadLoginUseCase(customToken: "token123",
+                                       startedAuth: true,
+                                       logedIn: false,
+                                       failureOnLogin: false,
+                                       invalidEmail: false,
+                                       invalidPassword: true)
         useCase.execute(email: "lucas@email.com", password: "pass")
     }
 }
