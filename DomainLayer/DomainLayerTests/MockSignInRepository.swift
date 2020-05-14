@@ -13,7 +13,8 @@ class MockSignInRepository: SignInRepositoryProtocol {
     private let result: Result<Bool, Error>
     private let loginResult: Result<LoginModel, Error>
 
-    init(result: Result<Bool, Error>? = .success(false), loginResult: Result<LoginModel, Error>? = .success(LoginModel())) {
+    init(result: Result<Bool, Error>? = .success(false),
+         loginResult: Result<LoginModel, Error>? = .success(LoginModel())) {
         self.result = result!
         self.loginResult = loginResult!
     }
