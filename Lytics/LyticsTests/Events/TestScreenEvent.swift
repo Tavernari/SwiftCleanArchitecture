@@ -9,7 +9,7 @@
 import Foundation
 @testable import Lytics
 
-enum TestScreenEvent: ScreenEventType {
+enum TestScreenEvent: ScreenType {
 
     case screenWithClass(class: AnyClass?)
     case screenWithoutClass

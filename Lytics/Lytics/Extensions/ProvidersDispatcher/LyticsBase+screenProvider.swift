@@ -7,11 +7,14 @@
 //
 
 import Foundation
+
 public extension LyticsBase where Self: ProvidersContainerType {
-    static func screen(event: ScreenEventType) {
-        providers
-            .filter{ $0.enable }
-            .compactMap{ $0 as? ScreenEventDispatcher }
-            .forEach { $0.screen(event: event) }
+    
+    static func screen(screen: ScreenType) {
+        screenEventDispatcherProviders.forEach { $0.screen(screen: screen) }
+    }
+
+    private static var screenEventDispatcherProviders: [ScreenDispatcher] {
+        return providers.filterEnabled()
     }
 }

@@ -10,9 +10,11 @@ import XCTest
 @testable import Lytics
 
 class LyticsEventTests: XCTestCase {
+    var mock: ProviderMock!
 
     override func setUpWithError() throws {
         Lytics.unregisterAllProviders()
+        mock = ProviderMock(enable: true)
     }
 
     override func tearDownWithError() throws {
@@ -21,7 +23,7 @@ class LyticsEventTests: XCTestCase {
     }
 
     func testSendEventWithProviderDisable() {
-        let mock = ProviderMock(enable: false)
+        mock.enable = false
         mock.eventValidation = { _ in
             XCTFail("Provider should be disabled")
         }
@@ -31,7 +33,6 @@ class LyticsEventTests: XCTestCase {
     }
 
     func testSendEventWithoutData() throws {
-        let mock = ProviderMock(enable: true)
         mock.eventValidation = {
             XCTAssertNil($0.data)
             XCTAssertEqual($0.name, "withoutData")
@@ -43,10 +44,7 @@ class LyticsEventTests: XCTestCase {
     }
 
     func testSendEventWithData() throws {
-
         let data = "TestData"
-
-        let mock = ProviderMock(enable: true)
         mock.eventValidation = {
             XCTAssertEqual(($0.data!["data"] as! String), data)
             XCTAssertEqual($0.name, "withData")

@@ -22,8 +22,8 @@ extension FirebaseAnalyticsProvider: EventDispatcher {
     }
 }
 
-extension FirebaseAnalyticsProvider: ScreenEventDispatcher {
-    func screen(event: ScreenEventType) {
+extension FirebaseAnalyticsProvider: ScreenDispatcher {
+    func screen(screen: ScreenType) {
         let screenName = event.name
         let className = String(describing: event.classValue)
         Firebase.Analytics.setScreenName(screenName, screenClass: className)

@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension LyticsBase  where Self: ScreenEventType {
+public extension LyticsBase  where Self: ScreenType {
     func dispatch() {
-        Lytics.screen(event: self)
+        Lytics.screen(screen: self)
     }
 }

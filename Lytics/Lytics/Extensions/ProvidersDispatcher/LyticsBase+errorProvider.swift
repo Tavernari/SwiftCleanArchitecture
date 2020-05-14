@@ -9,10 +9,12 @@
 import Foundation
 
 public extension LyticsBase where Self: ProvidersContainerType {
+
+    private static var errorDispatcherProviders: [ErrorDispatcher] {
+        return providers.filterEnabled()
+    }
+
     static func error(_ error: Error, addtionalUserInfo userInfo:[String: Any]?) {
-        providers
-            .filter{ $0.enable }
-            .compactMap{ $0 as? ErrorDispatcher }
-            .forEach { $0.error(error, addtionalUserInfo: userInfo) }
+        errorDispatcherProviders.forEach { $0.error(error, addtionalUserInfo: userInfo) }
     }
 }
