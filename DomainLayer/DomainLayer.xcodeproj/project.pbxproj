@@ -20,6 +20,8 @@
 		E308BC7624622B6E002264B6 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308BC7524622B6E002264B6 /* LoginUseCase.swift */; };
 		E3AFED3E24643DC400F557CE /* SignInRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFED3D24643DC400F557CE /* SignInRepositoryProtocol.swift */; };
 		E3AFED402464422C00F557CE /* MockSignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFED3F2464422C00F557CE /* MockSignInRepository.swift */; };
+		E3B15AA5246D7FAC00C0ED58 /* String+isValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B15AA4246D7FAC00C0ED58 /* String+isValidEmail.swift */; };
+		E3B15AA7246D800F00C0ED58 /* String+isValidPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B15AA6246D800F00C0ED58 /* String+isValidPassword.swift */; };
 		E3C4142D2462EAEB0073ED8B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C4142C2462EAEB0073ED8B /* LoginModel.swift */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
 		FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */; };
@@ -72,6 +74,8 @@
 		E38A6FD3C50F9A1A622B711F /* Pods_DomainLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AFED3D24643DC400F557CE /* SignInRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E3AFED3F2464422C00F557CE /* MockSignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignInRepository.swift; sourceTree = "<group>"; };
+		E3B15AA4246D7FAC00C0ED58 /* String+isValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmail.swift"; sourceTree = "<group>"; };
+		E3B15AA6246D800F00C0ED58 /* String+isValidPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidPassword.swift"; sourceTree = "<group>"; };
 		E3C4142C2462EAEB0073ED8B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FCEAD409605400C7A9B0B55A /* FetchPullRequestDetailUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPullRequestDetailUseCase.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			children = (
 				A1191B5A2436BE9300A8FA1F /* Result+handle.swift */,
 				A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */,
+				E3B15AA4246D7FAC00C0ED58 /* String+isValidEmail.swift */,
+				E3B15AA6246D800F00C0ED58 /* String+isValidPassword.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -557,6 +563,8 @@
 				E3AFED3E24643DC400F557CE /* SignInRepositoryProtocol.swift in Sources */,
 				FCEAD87B76CEB8B6CDEAD995 /* GitRepoReliabilityMultiplierModel.swift in Sources */,
 				FCEAD40CA4FAC944B2F0C7AA /* GitRepoReliabilityModel.swift in Sources */,
+				E3B15AA7246D800F00C0ED58 /* String+isValidPassword.swift in Sources */,
+				E3B15AA5246D7FAC00C0ED58 /* String+isValidEmail.swift in Sources */,
 				FCEAD328D1BC65CC6497DA38 /* GitRepoRepositoryProtocol.swift in Sources */,
 				E308BC7624622B6E002264B6 /* LoginUseCase.swift in Sources */,
 			);
