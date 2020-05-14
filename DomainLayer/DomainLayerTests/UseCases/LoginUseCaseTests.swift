@@ -41,14 +41,14 @@ class MockLoginViewModel: LoginUseCaseInterfaceAdapter {
 }
 
 extension MockLoginViewModel {
-    func makeLoginWithValidEmailAndPassword() -> Self {
+    func configLoginWithValidEmailAndPassword() -> Self {
         startedAuthAssert = true
         logedInAssert = true
 
         return self
     }
 
-    func makeLoginWithFailureReturn() -> Self {
+    func configLoginWithFailureReturn() -> Self {
         startedAuthAssert = true
         logedInAssert = true
         failureOnLoginAssert = true
@@ -56,7 +56,7 @@ extension MockLoginViewModel {
         return self
     }
 
-    func makeLoginWithInvalidEmailAndPassword() -> Self {
+    func configLoginWithInvalidEmailAndPassword() -> Self {
         startedAuthAssert = true
         logedInAssert = true
         invalidEmailAssert = true
@@ -64,7 +64,7 @@ extension MockLoginViewModel {
         return self
     }
 
-    func makeLoginWithInvalidPassword() -> Self {
+    func configLoginWithInvalidPassword() -> Self {
         startedAuthAssert = true
         logedInAssert = true
         invalidPasswordAssert = true
@@ -87,22 +87,22 @@ class LoginUseCaseTests: XCTestCase {
     }
 
     func testLoginWithValidEmailAndPassword_shouldReturnTrue() {
-        makeLoginUseCase(viewModel: MockLoginViewModel().makeLoginWithValidEmailAndPassword(), customToken: "token123")
+        makeLoginUseCase(viewModel: MockLoginViewModel().configLoginWithValidEmailAndPassword(), customToken: "token123")
             .execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithFailureReturn() {
-        makeLoginUseCase(viewModel: MockLoginViewModel().makeLoginWithFailureReturn())
+        makeLoginUseCase(viewModel: MockLoginViewModel().configLoginWithFailureReturn())
             .execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithInvalidEmailAndPassword_shouldReturnFalse() {
-        makeLoginUseCase(viewModel: MockLoginViewModel().makeLoginWithInvalidEmailAndPassword())
+        makeLoginUseCase(viewModel: MockLoginViewModel().configLoginWithInvalidEmailAndPassword())
             .execute(email: "lucas@email", password: "pass123")
     }
 
     func testLoginWithInvalidPassword_shouldReturnFalse() {
-        makeLoginUseCase(viewModel: MockLoginViewModel().makeLoginWithInvalidPassword())
+        makeLoginUseCase(viewModel: MockLoginViewModel().configLoginWithInvalidPassword())
             .execute(email: "lucas@email.com", password: "pass")
     }
 }
