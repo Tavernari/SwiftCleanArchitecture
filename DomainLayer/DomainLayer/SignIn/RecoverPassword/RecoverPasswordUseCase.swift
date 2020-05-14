@@ -35,18 +35,14 @@ public class RecoverPasswordUseCase {
         }
 
         delegateInterfaceAdapter?.startedRecover()
-        repository.recoverPassword(email: email) { result in
-            switch result {
-            case let .success(value):
 
-                if value {
-                    self.delegateInterfaceAdapter?.recovered()
-                } else {
-                    self.delegateInterfaceAdapter?.failureOnRecover()
-                }
-            case .failure:
+        repository.recoverPassword(email: email) { result in
+            guard let value = try? result.handle(), value == true else {
                 self.delegateInterfaceAdapter?.failureOnRecover()
+                return
             }
+
+            self.delegateInterfaceAdapter?.recovered()
         }
     }
 }

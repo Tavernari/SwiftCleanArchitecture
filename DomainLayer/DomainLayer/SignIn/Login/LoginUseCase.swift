@@ -39,21 +39,17 @@ public class LoginUseCase {
     }
 
     public func execute(email: String, password: String) {
-        if !loginIsValid(email: email, password: password) { return }
+        guard loginIsValid(email: email, password: password) else { return }
 
         delegateInterfaceAdapter?.startedAuth()
 
         repository.login(email: email, password: password) { result in
-            switch result {
-            case let .success(loginModel):
-                if !loginModel.token.isEmpty {
-                    self.delegateInterfaceAdapter?.logedIn(loginModel: loginModel)
-                } else {
-                    self.delegateInterfaceAdapter?.failureOnLogin()
-                }
-            case .failure:
+            guard let loginModel = try? result.handle(), loginModel.token.isEmpty == false else {
                 self.delegateInterfaceAdapter?.failureOnLogin()
+                return
             }
+
+            self.delegateInterfaceAdapter?.logedIn(loginModel: loginModel)
         }
     }
 }
