@@ -24,24 +24,13 @@ public class LoginUseCase {
         self.repository = repository
     }
 
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-
-    private func isValidPassword(_ password: String) -> Bool {
-        password.count > 6
-    }
-
     public func execute(email: String, password: String) {
-        guard isValidEmail(email) else {
+        guard email.isValidEmail() else {
             delegateInterfaceAdapter?.invalidEmail()
             return
         }
 
-        guard isValidPassword(password) else {
+        guard password.isValidPassword() else {
             delegateInterfaceAdapter?.invalidPassword()
             return
         }
