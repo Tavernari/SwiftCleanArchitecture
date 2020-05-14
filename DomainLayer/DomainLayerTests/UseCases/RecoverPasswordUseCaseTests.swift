@@ -35,46 +35,50 @@ class MockViewModel: RecoverPasswordUseCaseInterfaceAdapter {
     }
 }
 
+struct RecoverPasswordUseCaseParams {
+    var success, startedRecover, recovered, failureOnRecover, invalidEmail: Bool
+}
+
 class RecoverPasswordUseCaseTests: XCTestCase {
-    func loadRecoveryPasswordUseCase(success: Bool,
-                                     startedRecover: Bool,
-                                     recovered: Bool,
-                                     failureOnRecover: Bool,
-                                     invalidEmail: Bool) -> RecoverPasswordUseCase {
-        let repository = MockSignInRepository(result: .success(success))
+    func loadRecoveryPasswordUseCase(params: RecoverPasswordUseCaseParams) -> RecoverPasswordUseCase {
+        let repository = MockSignInRepository(result: .success(params.success))
         let useCase = RecoverPasswordUseCase(repository: repository)
-        let viewModel = MockViewModel(startedRecover: startedRecover,
-                                      recovered: recovered,
-                                      failureOnRecover: failureOnRecover,
-                                      invalidEmail: invalidEmail)
+        let viewModel = MockViewModel(startedRecover: params.startedRecover,
+                                      recovered: params.recovered,
+                                      failureOnRecover: params.failureOnRecover,
+                                      invalidEmail: params.invalidEmail)
         useCase.delegateInterfaceAdapter = viewModel
         return useCase
     }
 
     func testRecoverWithValidEmail_shouldReturnTrue() {
-        let useCase = loadRecoveryPasswordUseCase(success: true,
+        let params = RecoverPasswordUseCaseParams(success: true,
                                                   startedRecover: true,
                                                   recovered: true,
                                                   failureOnRecover: false,
                                                   invalidEmail: false)
+        let useCase = loadRecoveryPasswordUseCase(params: params)
         useCase.execute(email: "lucas@teste.com")
     }
 
     func testRecoverWithWrongEmail_shouldReturnFalse() {
-        let useCase = loadRecoveryPasswordUseCase(success: false,
+        let params = RecoverPasswordUseCaseParams(success: false,
                                                   startedRecover: true,
                                                   recovered: false,
                                                   failureOnRecover: true,
                                                   invalidEmail: false)
+        let useCase = loadRecoveryPasswordUseCase(params: params)
         useCase.execute(email: "lucas@teste.com")
     }
 
     func testRecoverWithInvalidEmail_shouldReturnInvalidEmail() {
-        let useCase = loadRecoveryPasswordUseCase(success: false,
+        let params = RecoverPasswordUseCaseParams(success: false,
                                                   startedRecover: false,
                                                   recovered: false,
                                                   failureOnRecover: false,
                                                   invalidEmail: true)
+
+        let useCase = loadRecoveryPasswordUseCase(params: params)
         useCase.execute(email: "lucas.com")
     }
 }
