@@ -30,6 +30,12 @@ class UserIdentificationTests: XCTestCase {
         TestUserProperties.identify(id: "", name: nil, email: nil).dispatch()
     }
 
+    fileprivate func mockUserPropertiesShouldntCalled(mock: ProviderMock) {
+        mock.userPropertiesValidation = { (_) in
+            XCTFail()
+        }
+    }
+
     func testSendOnlyUserIdData() throws {
         let idValue = "testId"
         let mock = ProviderMock(enable: true)
@@ -39,9 +45,7 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertNil(email)
         }
 
-        mock.userPropertiesValidation = { _ in
-            XCTFail()
-        }
+        mockUserPropertiesShouldntCalled(mock: mock)
 
         try? Lytics.register(provider: mock)
 
@@ -57,9 +61,7 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertNil(email)
         }
 
-        mock.userPropertiesValidation = { _ in
-            XCTFail()
-        }
+        mockUserPropertiesShouldntCalled(mock: mock)
 
         try? Lytics.register(provider: mock)
 
@@ -75,9 +77,7 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertNil(name)
         }
 
-        mock.userPropertiesValidation = { _ in
-            XCTFail()
-        }
+        mockUserPropertiesShouldntCalled(mock: mock)
 
         try? Lytics.register(provider: mock)
 
@@ -95,9 +95,7 @@ class UserIdentificationTests: XCTestCase {
             XCTAssertEqual(id, idValue)
         }
 
-        mock.userPropertiesValidation = { _ in
-            XCTFail()
-        }
+        mockUserPropertiesShouldntCalled(mock: mock)
 
         try? Lytics.register(provider: mock)
 

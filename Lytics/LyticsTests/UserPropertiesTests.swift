@@ -12,7 +12,9 @@ import XCTest
 
 class UserPropertiesTests: XCTestCase {
 
+    var mock: ProviderMock!
     override func setUpWithError() throws {
+        mock = ProviderMock(enable: true)
         Lytics.unregisterAllProviders()
     }
 
@@ -22,7 +24,7 @@ class UserPropertiesTests: XCTestCase {
     }
 
     func testSendUserPropertiesWithProviderDisable() {
-        let mock = ProviderMock(enable: false)
+        mock.enable = false
         mock.userPropertiesValidation = { _ in
             XCTFail("Provider should be disabled")
         }
@@ -31,11 +33,10 @@ class UserPropertiesTests: XCTestCase {
         TestUserProperties.isVip(true).dispatch()
     }
 
-    func testSendUserIsVipData() throws {
-        let mock = ProviderMock(enable: true)
+    fileprivate func mockResponse<Type: Equatable>(key: String, value: Type){
         mock.userPropertiesValidation = {
-            let data = $0 as! [String: Bool]
-            XCTAssertEqual(data["isVip"], true)
+            let data = $0 as! [String: Type]
+            XCTAssertEqual(data[key], value)
         }
 
         mock.userIdentificationValidation = { (_, _, _) in
@@ -44,56 +45,25 @@ class UserPropertiesTests: XCTestCase {
 
         try? Lytics.register(provider: mock)
 
+    }
+
+    func testSendUserIsVipData() throws {
+        mockResponse(key:"isVip", value: true)
         TestUserProperties.isVip(true).dispatch()
     }
 
     func testSendUserIsVipFalseData() throws {
-        let mock = ProviderMock(enable: true)
-        mock.userPropertiesValidation = {
-            let data = $0 as! [String: Bool]
-            XCTAssertEqual(data["isVip"], false)
-        }
-
-        mock.userIdentificationValidation = { (_, _, _) in
-            XCTFail()
-        }
-
-        try? Lytics.register(provider: mock)
-
+        mockResponse(key:"isVip", value: false)
         TestUserProperties.isVip(false).dispatch()
     }
 
-    func testSendUserTotalCoin100Data() throws {
-        let totalCoin = 100
-        let mock = ProviderMock(enable: true)
-        mock.userPropertiesValidation = {
-            let data = $0 as! [String: Int]
-            XCTAssertEqual(data["totalCoin"], totalCoin)
-        }
-
-        mock.userIdentificationValidation = { (_, _, _) in
-            XCTFail()
-        }
-
-        try? Lytics.register(provider: mock)
-
-        TestUserProperties.totalCoin(totalCoin).dispatch()
+    func testSendUserTotalCoin100Data() {
+        mockResponse(key:"totalCoin", value: 100)
+        TestUserProperties.totalCoin(100).dispatch()
     }
 
-    func testSendUserTotalCoin0Data() throws {
-        let totalCoin = 0
-        let mock = ProviderMock(enable: true)
-        mock.userPropertiesValidation = {
-            let data = $0 as! [String: Int]
-            XCTAssertEqual(data["totalCoin"], totalCoin)
-        }
-
-        mock.userIdentificationValidation = { (_, _, _) in
-            XCTFail()
-        }
-
-        try? Lytics.register(provider: mock)
-
-        TestUserProperties.totalCoin(totalCoin).dispatch()
+    func testSendUserTotalCoin0Data() {
+        mockResponse(key:"totalCoin", value: 0)
+        TestUserProperties.totalCoin(0).dispatch()
     }
 }

@@ -21,26 +21,15 @@ class PresentationUITests: XCTestCase {
         localhostServer.startListening()
         portNumber = localhostServer.portNumber
 
-        localhostServer.get("/search/repositories", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.repositoriesData()
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
-
-        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.listOfPullsData()
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
-
-        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls/1", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.pullDetailData()
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
+        localhostServer.githubGet(path: "/search/repositories",
+                                  code: 200,
+                                  data: GithubRepositoryDataReponseFake.repositoriesData())
+        localhostServer.githubGet(path: "/repos/Tavernari/IOSArchitecture/pulls",
+                                  code: 200,
+                                  data: GithubRepositoryDataReponseFake.listOfPullsData())
+        localhostServer.githubGet(path: "/repos/Tavernari/IOSArchitecture/pulls/1",
+                                  code: 200,
+                                  data: GithubRepositoryDataReponseFake.pullDetailData())
 
         app = XCUIApplication()
         app.launchArguments.append(AppLaunchArguments.uiTesting.rawValue)
@@ -54,7 +43,6 @@ class PresentationUITests: XCTestCase {
     func testDisableReliabilityScoreWithMultiplier() {
         app.launchEnvironment[AppEnvironment.configReliabilityEnable.rawValue] = "0"
         app.launch()
-        let tablesQuery = app.tables
         sleep(1)
         XCTAssertFalse(app.images["RepositoryTableViewCell.ReliabilityIcon"].exists)
     }
@@ -63,7 +51,6 @@ class PresentationUITests: XCTestCase {
         app.launchEnvironment[AppEnvironment.configReliabilityEnable.rawValue] = "1"
         app.launchEnvironment[AppEnvironment.configReliabilityMultipler.rawValue] = "1.0"
         app.launch()
-        let tablesQuery = app.tables
         sleep(1)
         XCTAssertTrue(app.images["RepositoryTableViewCell.ReliabilityIcon"].exists)
     }
@@ -99,14 +86,5 @@ class PresentationUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Additions: 10"].exists)
         XCTAssertTrue(app.staticTexts["Commits: 30"].exists)
         XCTAssertTrue(app.staticTexts["Comments: 4"].exists)
-    }
-
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                app.launch()
-            }
-        }
     }
 }

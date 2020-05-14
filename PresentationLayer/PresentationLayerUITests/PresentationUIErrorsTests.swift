@@ -38,12 +38,11 @@ class PresentationUIErrorTests: XCTestCase {
     }
 
     func testGithubErrorOnListOfRepositories() {
-        localhostServer.get("/search/repositories", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 422, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.errorData(message: "invalid github")
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
+        localhostServer.githubGet(
+            path: "/search/repositories",
+            code: 422,
+            data: GithubRepositoryDataReponseFake.errorData(message: "invalid github")
+        )
 
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
@@ -59,11 +58,9 @@ class PresentationUIErrorTests: XCTestCase {
     }
 
     func testURLErrorOnListOfRepositories() {
-        localhostServer.get("/search/repositories", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 504, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: Data())
-        })
+        localhostServer.githubGet(path: "/search/repositories",
+                                  code: 504,
+                                  data: Data())
 
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
@@ -76,18 +73,12 @@ class PresentationUIErrorTests: XCTestCase {
     }
 
     func testErrorOnListOfPullRequests() {
-        localhostServer.get("/search/repositories", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.repositoriesData()
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
-
-        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 504, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: Data())
-        })
+        localhostServer.githubGet(path: "/search/repositories",
+                                  code: 200,
+                                  data: GithubRepositoryDataReponseFake.repositoriesData())
+        localhostServer.githubGet(path: "/repos/Tavernari/IOSArchitecture/pulls",
+                                  code: 504,
+                                  data: Data())
 
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
@@ -103,25 +94,15 @@ class PresentationUIErrorTests: XCTestCase {
     }
 
     func testErrorOnPullRequestDetail() {
-        localhostServer.get("/search/repositories", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.repositoriesData()
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
-
-        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 200, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            let data = GithubRepositoryDataReponseFake.listOfPullsData()
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: data)
-        })
-
-        localhostServer.get("/repos/Tavernari/IOSArchitecture/pulls/1", routeBlock: { _ in
-            let requestURL: URL = URL(string: "http://localhost:\(self.portNumber!)/search/repositories?q=swift")!
-            let httpUrlResponse = HTTPURLResponse(url: requestURL, statusCode: 504, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!
-            return LocalhostServerResponse(httpUrlResponse: httpUrlResponse, data: Data())
-        })
+        localhostServer.githubGet(path: "/search/repositories",
+                                  code: 200,
+                                  data: GithubRepositoryDataReponseFake.repositoriesData())
+        localhostServer.githubGet(path: "/repos/Tavernari/IOSArchitecture/pulls",
+                                  code: 200,
+                                  data: GithubRepositoryDataReponseFake.listOfPullsData())
+        localhostServer.githubGet(path: "/repos/Tavernari/IOSArchitecture/pulls/1",
+                                  code: 504,
+                                  data: Data())
 
         let app = XCUIApplication()
         app.launchArguments.append("ui-testing")
