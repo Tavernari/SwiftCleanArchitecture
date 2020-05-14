@@ -24,16 +24,22 @@ public class LoginUseCase {
         self.repository = repository
     }
 
-    public func execute(email: String, password: String) {
-        guard email.isValidEmail() else {
+    private func loginIsValid(email: String, password: String) -> Bool {
+        if !email.isValidEmail() {
             delegateInterfaceAdapter?.invalidEmail()
-            return
+            return false
         }
 
-        guard password.isValidPassword() else {
+        if !password.isValidPassword() {
             delegateInterfaceAdapter?.invalidPassword()
-            return
+            return false
         }
+
+        return true
+    }
+
+    public func execute(email: String, password: String) {
+        if !loginIsValid(email: email, password: password) { return }
 
         delegateInterfaceAdapter?.startedAuth()
 
