@@ -87,7 +87,8 @@ class LoginUseCaseTests: XCTestCase {
     }
 
     func testLoginWithValidEmailAndPassword_shouldReturnTrue() {
-        makeLoginUseCase(viewModel: MockLoginViewModel().configLoginWithValidEmailAndPassword(), customToken: "token123")
+        makeLoginUseCase(viewModel: MockLoginViewModel().configLoginWithValidEmailAndPassword(),
+                         customToken: "token123")
             .execute(email: "lucas@email.com", password: "pass123")
     }
 
