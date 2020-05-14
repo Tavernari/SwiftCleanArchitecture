@@ -10,15 +10,13 @@
 import XCTest
 
 class MockLoginViewModel: LoginUseCaseInterfaceAdapter {
-    let startedAuthAssert, logedInAssert, failureOnLoginAssert, invalidEmailAssert, invalidPasswordAssert: Bool
+    public init() {}
 
-    init(startedAuth: Bool, logedIn: Bool, failureOnLogin: Bool, invalidEmail: Bool, invalidPassword: Bool) {
-        startedAuthAssert = startedAuth
-        logedInAssert = logedIn
-        failureOnLoginAssert = failureOnLogin
-        invalidEmailAssert = invalidEmail
-        invalidPasswordAssert = invalidPassword
-    }
+    var startedAuthAssert = false
+    var logedInAssert = false
+    var failureOnLoginAssert = false
+    var invalidEmailAssert = false
+    var invalidPasswordAssert = false
 
     func startedAuth() {
         XCTAssert(startedAuthAssert)
@@ -42,34 +40,50 @@ class MockLoginViewModel: LoginUseCaseInterfaceAdapter {
     }
 }
 
-struct LoginUseCaseParams {
-    var customToken: String? = ""
-    var startedAuth, logedIn, failureOnLogin, invalidEmail, invalidPassword: Bool
+extension MockLoginViewModel {
+    static func makeLoginWithValidEmailAndPassword() -> MockLoginViewModel {
+        let mock = MockLoginViewModel()
+        mock.startedAuthAssert = true
+        mock.logedInAssert = true
+
+        return mock
+    }
+
+    static func makeLoginWithFailureReturn() -> MockLoginViewModel {
+        let mock = MockLoginViewModel()
+        mock.startedAuthAssert = true
+        mock.logedInAssert = true
+        mock.failureOnLoginAssert = true
+
+        return mock
+    }
+
+    static func makeLoginWithInvalidEmailAndPassword() -> MockLoginViewModel {
+        let mock = MockLoginViewModel()
+        mock.startedAuthAssert = true
+        mock.logedInAssert = true
+        mock.invalidEmailAssert = true
+
+        return mock
+    }
+
+    static func makeLoginWithInvalidPassword() -> MockLoginViewModel {
+        let mock = MockLoginViewModel()
+        mock.startedAuthAssert = true
+        mock.logedInAssert = true
+        mock.invalidPasswordAssert = true
+
+        return mock
+    }
 }
 
 class LoginUseCaseTests: XCTestCase {
-    var paramsState: LoginUseCaseParams!
-
-    override func setUp() {
-        paramsState = LoginUseCaseParams(customToken: "token123",
-                                         startedAuth: false,
-                                         logedIn: false,
-                                         failureOnLogin: false,
-                                         invalidEmail: false,
-                                         invalidPassword: false)
-    }
-
-    func loadLoginUseCase(params: LoginUseCaseParams) -> LoginUseCase {
+    func makeLoginUseCase(viewModel: MockLoginViewModel, customToken: String? = "") -> LoginUseCase {
         var loginModel = LoginModel()
-        loginModel.token = params.customToken!
+        loginModel.token = customToken!
 
         let repository = MockSignInRepository(loginResult: .success(loginModel))
         let useCase = LoginUseCase(repository: repository)
-        let viewModel = MockLoginViewModel(startedAuth: params.startedAuth,
-                                           logedIn: params.logedIn,
-                                           failureOnLogin: params.failureOnLogin,
-                                           invalidEmail: params.invalidEmail,
-                                           invalidPassword: params.invalidPassword)
 
         useCase.delegateInterfaceAdapter = viewModel
 
@@ -77,38 +91,22 @@ class LoginUseCaseTests: XCTestCase {
     }
 
     func testLoginWithValidEmailAndPassword_shouldReturnTrue() {
-        paramsState.startedAuth = true
-        paramsState.logedIn = true
-
-        let useCase = loadLoginUseCase(params: paramsState)
-        useCase.execute(email: "lucas@email.com", password: "pass123")
+        makeLoginUseCase(viewModel: .makeLoginWithValidEmailAndPassword(), customToken: "token123")
+            .execute(email: "lucas@email.com", password: "pass123")
     }
 
-    func testLoginWithValidEmailAndPassword_shouldReturnFalse() {
-        paramsState.customToken = ""
-        paramsState.startedAuth = true
-        paramsState.logedIn = true
-        paramsState.failureOnLogin = true
-
-        let useCase = loadLoginUseCase(params: paramsState)
-        useCase.execute(email: "lucas@email.com", password: "pass123")
+    func testLoginWithFailureReturn() {
+        makeLoginUseCase(viewModel: .makeLoginWithFailureReturn())
+            .execute(email: "lucas@email.com", password: "pass123")
     }
 
     func testLoginWithInvalidEmailAndPassword_shouldReturnFalse() {
-        paramsState.startedAuth = true
-        paramsState.logedIn = true
-        paramsState.invalidEmail = true
-
-        let useCase = loadLoginUseCase(params: paramsState)
-        useCase.execute(email: "lucas@email", password: "pass123")
+        makeLoginUseCase(viewModel: .makeLoginWithInvalidEmailAndPassword())
+            .execute(email: "lucas@email", password: "pass123")
     }
 
     func testLoginWithInvalidPassword_shouldReturnFalse() {
-        paramsState.startedAuth = true
-        paramsState.logedIn = true
-        paramsState.invalidPassword = true
-
-        let useCase = loadLoginUseCase(params: paramsState)
-        useCase.execute(email: "lucas@email.com", password: "pass")
+        makeLoginUseCase(viewModel: .makeLoginWithInvalidPassword())
+            .execute(email: "lucas@email.com", password: "pass")
     }
 }
