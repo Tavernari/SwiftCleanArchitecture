@@ -16,37 +16,37 @@
 default_platform(:ios)
 
 platform :ios do
-  def install_pods
-    cocoapods(
-      clean: true,
-      podfile: "Podfile",
-      try_repo_update_on_error: true
-    )
-  end
+  # def install_pods
+  #   cocoapods(
+  #     clean: true,
+  #     podfile: "Podfile",
+  #     try_repo_update_on_error: true
+  #   )
+  # end
 
-  def install_swifty_mocky
-    if(File.exist?('/usr/local/Cellar/mint'))
-      puts 'Mint exists'
-    else
-      sh("brew install mint")
-    end
+  # def install_swifty_mocky
+  #   if(File.exist?('/usr/local/Cellar/mint'))
+  #     puts 'Mint exists'
+  #   else
+  #     sh("brew install mint")
+  #   end
 
-    if(File.exist?('/usr/local/bin/swiftymocky'))
-      puts 'SwiftyMocky exists'
-    else
-      sh("mint install MakeAWishFoundation/SwiftyMocky")
-    end
-  end
+  #   if(File.exist?('/usr/local/bin/swiftymocky'))
+  #     puts 'SwiftyMocky exists'
+  #   else
+  #     sh("mint install MakeAWishFoundation/SwiftyMocky")
+  #   end
+  # end
 
-  def generate_mock
-    puts 'Generate mock'
-    sh("swiftymocky generate")
-  end
+  # def generate_mock
+  #   puts 'Generate mock'
+  #   sh("swiftymocky generate")
+  # end
 
   lane :test do
-    install_swifty_mocky()
-    install_pods()
-    generate_mock()
+    # install_swifty_mocky()
+    # install_pods()
+    # generate_mock()
     scan(
       workspace: ENV['XCODE_WORKSPACE'],
       scheme: ENV['XCODE_DOMAIN_SCHEME'],
