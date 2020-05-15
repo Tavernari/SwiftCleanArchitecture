@@ -10,7 +10,7 @@ jobs:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 11 Pro (13.3) [" || true
+          command: xcrun instruments -w "iPhone 11 Pro Max (13.4.1) [7FDE8ED7-1356-4ECE-B82D-37733C1E55CB]" || true
       - checkout
 
       - restore_cache:
@@ -27,7 +27,9 @@ jobs:
           command: |
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
-            sudo gem install bundler --path vendor/bundle
+            sudo gem install bundler
+
+      - run: bundle --path vendor/bundle
 
       - save_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
