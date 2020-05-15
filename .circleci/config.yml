@@ -12,12 +12,34 @@ jobs:
           name: pre-start simulator
           command: xcrun instruments -w "iPhone 11 Pro (13.3) [" || true
       - checkout
+
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}
+            - gem-cache-v1
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
       - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
 
       - run: pod install # Install CocoaPods dependencies
+      - run:
+          name: Prepare cc-test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+            
       - run: fastlane test # Run tests using Fastlane
 
+      - run:
+          name: Submit to codeclimate
+          command: ./cc-test-reporter after-build
       - save_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
           paths:

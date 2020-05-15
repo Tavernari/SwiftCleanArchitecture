@@ -54,6 +54,7 @@
 		A158AC34240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+makeURLCommonsError.swift"; sourceTree = "<group>"; };
 		A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMocky.swift; sourceTree = "<group>"; };
+		A1DBA0E9246F0A10004F327A /* tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = tests.xctestplan; path = ../../tests.xctestplan; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 		B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +153,7 @@
 				A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */,
 				A1E2974224106A710020288A /* UseCases */,
 				A158AC34240BEDDB00B7A40E /* Info.plist */,
+				A1DBA0E9246F0A10004F327A /* tests.xctestplan */,
 			);
 			path = DomainLayerTests;
 			sourceTree = "<group>";

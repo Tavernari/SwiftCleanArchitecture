@@ -1,0 +1,91 @@
+{
+  "configurations" : [
+    {
+      "id" : "0FA5F3AC-776A-44C2-A53E-C3E6A2A574B8",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "ui-testing",
+        "enabled" : false
+      }
+    ],
+    "environmentVariableEntries" : [
+      {
+        "enabled" : false,
+        "key" : "remoteConfigReabilityEnabled",
+        "value" : "true"
+      },
+      {
+        "enabled" : false,
+        "key" : "config_reliability_enable",
+        "value" : "true"
+      },
+      {
+        "enabled" : false,
+        "key" : "config_reliability_multiplier",
+        "value" : "4.0"
+      },
+      {
+        "key" : "githubTerm",
+        "value" : "swift"
+      },
+      {
+        "key" : "localhostPort",
+        "value" : "80"
+      },
+      {
+        "key" : "remoteConfigReabilityMultiplier",
+        "value" : "4"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PresentationLayer.xcodeproj",
+      "identifier" : "A166A900240D505800824CAD",
+      "name" : "PresentationLayer"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:PresentationLayer.xcodeproj",
+        "identifier" : "A166A919240D506000824CAD",
+        "name" : "PresentationLayerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:PresentationLayer.xcodeproj",
+        "identifier" : "A166A924240D506000824CAD",
+        "name" : "PresentationLayerUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Lytics\/Lytics.xcodeproj",
+        "identifier" : "A16054C024648775000C53AD",
+        "name" : "LyticsTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/DomainLayer\/DomainLayer.xcodeproj",
+        "identifier" : "A158AC2C240BEDDB00B7A40E",
+        "name" : "DomainLayerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/DataLayer\/DataLayer.xcodeproj",
+        "identifier" : "A158ABF9240BE89A00B7A40E",
+        "name" : "DataLayerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

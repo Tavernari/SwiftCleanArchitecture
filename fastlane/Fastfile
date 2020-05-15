@@ -19,24 +19,48 @@ platform :ios do
   lane :test do
     scan(
       workspace: ENV['XCODE_WORKSPACE'],
-      scheme: ENV['XCODE_DOMAIN_SCHEME'],
-      output_directory: "fastlane/report/domain/",
+      scheme: ENV['XCODE_PRESENTATION_SCHEME'],
+      # output_directory: "fastlane/report/presentation/",
       clean: true,
       code_coverage: true
     )
-    scan(
-      workspace: ENV['XCODE_WORKSPACE'],
-      scheme: ENV['XCODE_DATA_SCHEME'],
-      output_directory: "fastlane/report/data/",
-      clean: true,
-      code_coverage: true
-    )
-    scan(
+
+    slather(
       workspace: ENV['XCODE_WORKSPACE'],
       scheme: ENV['XCODE_PRESENTATION_SCHEME'],
-      output_directory: "fastlane/report/presentation/",
-      clean: true,
-      code_coverage: true
+      proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
+      ignore: [ 
+        '**/R.generated.swift', 
+        '**/SwiftMock.swift', 
+        'Pods/*',
+        '../../../Library/*',
+        '**/DerivedData/*',
+        'Carthage/*'],
+      verbose: true,
+      show: true,
+      circleci: true,
+      cobertura_xml: true,
+      output_directory: './fastlane/test_output',
     )
+
+
+    # scan(
+    #   workspace: ENV['XCODE_WORKSPACE'],
+    #   scheme: ENV['XCODE_DOMAIN_SCHEME'],
+    #   output_directory: "fastlane/report/domain/",
+    #   clean: true,
+    #   code_coverage: true
+    # )
+
+   
+
+    # scan(
+    #   workspace: ENV['XCODE_WORKSPACE'],
+    #   scheme: ENV['XCODE_DATA_SCHEME'],
+    #   output_directory: "fastlane/report/data/",
+    #   clean: true,
+    #   code_coverage: true
+    # )
+    
   end
 end
