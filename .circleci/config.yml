@@ -18,14 +18,13 @@ jobs:
             - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - gem-cache-v1-{{ arch }}-{{ .Branch }}
             - gem-cache-v1
+            - build-temp-pods-{{ checksum "Podfile.lock" }}
+
       - run: bundle install --path vendor/bundle
       - save_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
-      - restore_cache:
-          key: build-temp-pods-{{ checksum "Podfile.lock" }}
 
       - run: pod install # Install CocoaPods dependencies
       - run:
@@ -34,7 +33,7 @@ jobs:
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
             ./cc-test-reporter before-build
-            
+
       - run: fastlane test # Run tests using Fastlane
 
       - run:

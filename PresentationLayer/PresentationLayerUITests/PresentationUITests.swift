@@ -79,6 +79,7 @@ class PresentationUITests: XCTestCase {
     func testNavigateToPullRequestDetail() {
         app.launch()
         let tablesQuery = app.tables
+        sleep(1)
         tablesQuery.cells.firstMatch.tap()
         sleep(1)
         tablesQuery.cells.firstMatch.tap()
