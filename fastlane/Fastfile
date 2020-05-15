@@ -31,16 +31,16 @@ platform :ios do
       sh("brew install mint")
     end
 
-    if(File.exist?('/usr/local/bin/swiftymocky'))
+    if(File.directory?('/usr/local/lib/mint/packages/github.com_MakeAWishFoundation_SwiftyMocky'))
       puts 'SwiftyMocky exists'
     else
-      sh("mint install MakeAWishFoundation/SwiftyMocky")
+      sh("/usr/local/Cellar/mint install MakeAWishFoundation/SwiftyMocky")
     end
   end
 
   def generate_mock
     puts 'Generate mock'
-    sh("swiftymocky generate")
+    sh("/usr/local/bin/swiftymocky generate")
   end
 
   lane :test do

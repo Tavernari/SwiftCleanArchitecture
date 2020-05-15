@@ -15,7 +15,7 @@ jobs:
       - restore_cache:
           key: build-temp-mint-{{ checksum "fastlane/Fastfile" }}
       - restore_cache:
-          key: build-temp-swiftymocky-{{ checksum "fastlane/Fastfile" }}
+          key: build-temp-min-packages-{{ checksum "fastlane/Fastfile" }}
       - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
 
@@ -28,9 +28,9 @@ jobs:
             - /usr/local/Cellar/mint
 
       - save_cache:
-          key: build-temp-swiftymocky-{{ checksum "fastlane/Fastfile" }}
+          key: build-temp-min-packages-{{ checksum "fastlane/Fastfile" }}
           paths:
-            - /usr/local/bin/swiftymocky
+            - /usr/local/lib/mint/packages/
 
       - save_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
