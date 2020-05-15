@@ -8,5 +8,6 @@ plugins:
     enabled: true
 exclude_patterns:
 - "**/*.generated.*" 
+- "**/SwiftyMocky.swift"
 - "Pods/"
 - "fastlane/"

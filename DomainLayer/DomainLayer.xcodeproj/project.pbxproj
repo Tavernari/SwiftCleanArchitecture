@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		493CBE69BB3B0C89F06B927C /* Pods_DomainLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38A6FD3C50F9A1A622B711F /* Pods_DomainLayerTests.framework */; };
 		A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5A2436BE9300A8FA1F /* Result+handle.swift */; };
-		A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */; };
 		A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */; };
 		A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */; };
+		A1DBA0E8246EEB9D004F327A /* SwiftyMocky.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */; };
 		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
 		C44E5480B0F32D29B122D16F /* Pods_DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
@@ -48,12 +48,12 @@
 		5D76D5514B639891D4574622 /* Pods-DomainLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayerTests.release.xcconfig"; path = "Target Support Files/Pods-DomainLayerTests/Pods-DomainLayerTests.release.xcconfig"; sourceTree = "<group>"; };
 		93C989238C3867A1CEAEFB7E /* Pods-DomainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1191B5A2436BE9300A8FA1F /* Result+handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+handle.swift"; sourceTree = "<group>"; };
-		A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		A158AC24240BEDDB00B7A40E /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158AC28240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A158AC2D240BEDDB00B7A40E /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A158AC34240BEDDB00B7A40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+makeURLCommonsError.swift"; sourceTree = "<group>"; };
+		A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMocky.swift; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 		B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +149,7 @@
 		A158AC31240BEDDB00B7A40E /* DomainLayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1191B5C2436C69A00A8FA1F /* Mock.generated.swift */,
+				A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */,
 				A1E2974224106A710020288A /* UseCases */,
 				A158AC34240BEDDB00B7A40E /* Info.plist */,
 			);
@@ -510,7 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */,
-				A1191B5D2436C69A00A8FA1F /* Mock.generated.swift in Sources */,
+				A1DBA0E8246EEB9D004F327A /* SwiftyMocky.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

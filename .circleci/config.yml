@@ -13,24 +13,10 @@ jobs:
           command: xcrun instruments -w "iPhone 11 Pro (13.3) [" || true
       - checkout
       - restore_cache:
-          key: build-temp-mint-{{ checksum "fastlane/Fastfile" }}
-      - restore_cache:
-          key: build-temp-min-packages-{{ checksum "fastlane/Fastfile" }}
-      - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
 
       - run: pod install # Install CocoaPods dependencies
       - run: fastlane test # Run tests using Fastlane
-
-      - save_cache:
-          key: build-temp-mint-{{ checksum "fastlane/Fastfile" }}
-          paths:
-            - /usr/local/Cellar/mint
-
-      - save_cache:
-          key: build-temp-min-packages-{{ checksum "fastlane/Fastfile" }}
-          paths:
-            - /usr/local/lib/mint/packages/
 
       - save_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
