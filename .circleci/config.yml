@@ -25,8 +25,8 @@ jobs:
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             sudo gem install bundler
-            bundle config set path vendor/bundle
-            source vendor/bundle/slather
+            bundle install
+            
 
       - save_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
