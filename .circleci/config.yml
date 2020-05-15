@@ -5,14 +5,34 @@ version: 2.1
 
 jobs:
   build:
-
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
-
     steps:
       - checkout
+      - restore_cache:
+          key: build-temp-mint-{{ checksum "fastlane/Fastfile" }}
+      - restore_cache:
+          key: build-temp-swiftymocky-{{ checksum "fastlane/Fastfile" }}
+      - restore_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+
       - run: pod install # Install CocoaPods dependencies
       - run: fastlane test # Run tests using Fastlane
+
+      - save_cache:
+          key: build-temp-mint-{{ checksum "fastlane/Fastfile" }}
+          paths:
+            - /usr/local/Cellar/mint
+
+      - save_cache:
+          key: build-temp-swiftymocky-{{ checksum "fastlane/Fastfile" }}
+          paths:
+            - /usr/local/bin/swiftymocky
+
+      - save_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods/
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab
