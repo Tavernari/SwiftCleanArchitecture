@@ -7,6 +7,7 @@
 //
 
 @testable import DataLayer
+import DomainLayer
 import XCTest
 
 class MockDataSource: SignInDataSourceProtocol {
@@ -55,18 +56,8 @@ class DataSourceTests: XCTestCase {
     var repository: SignInRepository!
 
     override func setUp() {
-//        let repository = SignInRepository(signInDataSource: MockDataSource())
         mockDataSource = MockDataSource()
         repository = SignInRepository(signInDataSource: mockDataSource)
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func assertRecoveryResult(result: Result<Bool, Error>,
@@ -79,6 +70,17 @@ class DataSourceTests: XCTestCase {
 
         if expectation != nil { expectation?.fulfill() }
         XCTAssertEqual(value, assert)
+    }
+
+    func assertLoginResult(result: Result<LoginModel, Error>,
+                           assert: Bool? = false) {
+        guard let value = try? result.handle() else {
+            XCTFail("failed waiting for success response")
+            return
+        }
+
+        XCTAssertNotNil(value)
+        XCTAssertEqual(value.token.isEmpty, assert)
     }
 
     func testRecoveryPassword_returnTrue() {
@@ -110,25 +112,13 @@ class DataSourceTests: XCTestCase {
         repository
             .configRepository(dataSource: mockDataSource.logable())
             .login(email: "lucas@email.com", password: "pass123") { result in
-                switch result {
-                case let .success(value):
-                    XCTAssertNotNil(value)
-                    XCTAssertEqual(value.token.isEmpty, false)
-                default:
-                    XCTFail("failed waiting for success response")
-                }
+                self.assertLoginResult(result: result)
             }
     }
 
     func testLogin_returnFalse() {
         repository.login(email: "lucas@email.com", password: "pass123") { result in
-            switch result {
-            case let .success(value):
-                XCTAssertNotNil(value)
-                XCTAssertEqual(value.token.isEmpty, true)
-            default:
-                XCTFail("failed waiting for success response")
-            }
+            self.assertLoginResult(result: result, assert: true)
         }
     }
 
