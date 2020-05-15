@@ -24,6 +24,7 @@ jobs:
             echo "ruby-2.7.0" > ~/.ruby-version
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
+            chmod +x /Library/Ruby/Gems/
             sudo gem install bundler
             bundle install
             
@@ -31,7 +32,7 @@ jobs:
       - save_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - /Library/Ruby/Gems/
 
       - run: 
           name: Install Pods
