@@ -26,7 +26,9 @@ class GitPullRequestDetailsViewController: UIViewController {
     @IBOutlet private var deletionsLabel: UILabel!
     @IBOutlet private var changedFilesLabel: UILabel!
 
-    final class func initWith(viewModel: GitPullRequestDetailsViewModelInterface, id: Int, repo: GitRepositoryModel) -> GitPullRequestDetailsViewController {
+    final class func initWith(viewModel: GitPullRequestDetailsViewModelInterface,
+                              id: Int,
+                              repo: GitRepositoryModel) -> GitPullRequestDetailsViewController {
         let vc = GitPullRequestDetailsViewController()
         vc.viewModel = viewModel
         vc.id = id
@@ -56,16 +58,6 @@ class GitPullRequestDetailsViewController: UIViewController {
         if let url = try? data.image.asURL() {
             imageView.loadCircleImage(url: url)
         }
-    }
-
-    fileprivate func showError(message: String?) {
-        guard let message = message else {
-            return
-        }
-
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 
     fileprivate func handleIsLoading(_ isLoading: Bool) {

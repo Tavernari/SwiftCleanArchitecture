@@ -12,7 +12,8 @@ import DomainLayer
 import UIKit
 
 class GitPullRequestsListViewController: UIViewController {
-    final class func initWith(withViewModel viewModel: GitPullRequestsListViewModel, andRepo repo: GitRepositoryModel) -> GitPullRequestsListViewController {
+    final class func initWith(withViewModel viewModel: GitPullRequestsListViewModel,
+                              andRepo repo: GitRepositoryModel) -> GitPullRequestsListViewController {
         let vc = GitPullRequestsListViewController()
         vc.viewModel = viewModel
         vc.repo = repo
@@ -32,24 +33,6 @@ class GitPullRequestsListViewController: UIViewController {
         tableView.estimatedRowHeight = 90
         tableView.delegate = self
         tableView.dataSource = self
-    }
-
-    fileprivate func populateCell(index _: Int, pullRequests: GitPullRequestModel, cell: GitPullRequestsTableViewCell) {
-        cell.pullRequestAuthor = pullRequests.author
-        cell.pullRequestImage = pullRequests.image
-        cell.pullRequestTitle = pullRequests.title
-        cell.pullRequestDescription = pullRequests.description
-        cell.pullRequestDate = pullRequests.createdAt?.string(format: .ddMMyyyyHHmmss) ?? ""
-    }
-
-    fileprivate func showError(message: String?) {
-        guard let message = message else {
-            return
-        }
-
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 
     fileprivate func deselectRow(indexPath: IndexPath) {
@@ -110,10 +93,14 @@ extension GitPullRequestsListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.gitPullRequestsTableViewCell, for: indexPath)!
-        let index = indexPath.row
-        let data = dataSource[index]
-        populateCell(index: index, pullRequests: data, cell: cell)
+        let id = R.reuseIdentifier.gitPullRequestsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)!
+        let pullRequest = dataSource[indexPath.row]
+        cell.pullRequestAuthor = pullRequest.author
+        cell.pullRequestImage = pullRequest.image
+        cell.pullRequestTitle = pullRequest.title
+        cell.pullRequestDescription = pullRequest.description
+        cell.pullRequestDate = pullRequest.createdAt?.string(format: .ddMMyyyyHHmmss) ?? ""
         return cell
     }
 }

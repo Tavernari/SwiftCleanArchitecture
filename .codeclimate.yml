@@ -1,4 +1,8 @@
 version: 2
+checks:
+  similar-code:
+    config:
+      threshold: 71
 plugins:
   swiftlint:
     enabled: true

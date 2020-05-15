@@ -10,14 +10,17 @@ import Alamofire
 import DomainLayer
 
 public class GitRepoRepository: GitRepoRepositoryProtocol {
+    public typealias CompletionRepoReliabilityResult = (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void
     private let gitRepoDataSource: GitRepoDataSourceProtocol
     private let remoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol
-    public init(gitRepoDataSource: GitRepoDataSourceProtocol, remoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol) {
+    public init(gitRepoDataSource: GitRepoDataSourceProtocol,
+                remoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol) {
         self.gitRepoDataSource = gitRepoDataSource
         self.remoteConfigDataSource = remoteConfigDataSource
     }
 
-    private func fetchAndSetStats(gitRepo: GitRepositoryModel, completion: @escaping (Result<GitRepositoryModel, Error>) -> Void) {
+    private func fetchAndSetStats(gitRepo: GitRepositoryModel,
+                                  completion: @escaping (Result<GitRepositoryModel, Error>) -> Void) {
         gitRepoDataSource.stats(repo: gitRepo) { result in
             var repo = gitRepo
             result.handle(decodeSuccess: { (stats) -> GitRepositoryModel in
@@ -27,7 +30,8 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         }
     }
 
-    public func list(term: String, completion: @escaping (Result<[GitRepositoryModel], Error>) -> Void) {
+    public func list(term: String,
+                     completion: @escaping (Result<[GitRepositoryModel], Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         var gitRepoRepositoriesResult: [GitRepositoryModel] = []
         dispatchGroup.enter()
@@ -57,9 +61,11 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
         gitRepoDataSource.stats(repo: repo, completion: completion)
     }
 
-    public func getRepoReliabilityMultiplier(completion: @escaping (Result<GitRepoReliabilityMultiplierModel, Error>) -> Void) {
+    public func getRepoReliabilityMultiplier(completion: @escaping CompletionRepoReliabilityResult) {
         remoteConfigDataSource.gitRepoReliability { result in
-            result.handle(decodeSuccess: { GitRepoReliabilityMultiplierModel(remoteConfigData: $0) }, completion: completion)
+            result.handle(decodeSuccess: {
+                GitRepoReliabilityMultiplierModel(remoteConfigData: $0)
+            }, completion: completion)
         }
     }
 }

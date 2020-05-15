@@ -36,9 +36,10 @@ public class FetchPullRequestCommitsUseCase: FetchPullRequestCommitsUseCaseProto
         delegateInterfaceAdapter?.doing()
         repository.commits(repoName: repoName, owner: ownerName) { result in
             do {
-                let commits = try result.handle()
-                self.delegateInterfaceAdapter?.done(data: commits)
-            } catch { self.delegateInterfaceAdapter?.failure(error: error) }
+                self.delegateInterfaceAdapter?.done(data: try result.handle())
+            } catch {
+                self.delegateInterfaceAdapter?.failure(error: error)
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "dsn": "https://e9ffdf1077ae48ada023975dda78567a@o163739.ingest.sentry.io/5218118",
             "enableAutoSessionTracking": true,
             "sessionTrackingIntervalMillis": 60000,
-            "debug": true,
+            "debug": true
         ])
 
         try? Lytics.register(provider: FirebaseAnalyticsProvider())

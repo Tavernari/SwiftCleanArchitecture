@@ -33,11 +33,17 @@ class GitRepositoriesTableViewCell: UITableViewCell {
 
     public var repositoryName: String = "" { didSet { self.repositoryNameLabel.text = repositoryName } }
     public var repositoryAuthor: String = "" { didSet { self.repositoryAuthorLabel.text = repositoryAuthor } }
-    public var repositoryDescription: String = "" { didSet { self.repositoryDescriptionLabel.text = repositoryDescription } }
+    public var repositoryDescription: String = "" { didSet {
+        self.repositoryDescriptionLabel.text = repositoryDescription
+        } }
     public var repositoryStarCount: String = "" { didSet { self.repositoryStarCountLabel.text = repositoryStarCount } }
     public var repositoryForkCount: String = "" { didSet { self.repositoryForkCountLabel.text = repositoryForkCount } }
-    public var repositoryIssueCount: String = "" { didSet { self.repositoryIssueCountLabel.text = repositoryIssueCount } }
-    public var repositoryReliabilityIndicator: String = "" { didSet { self.repositoryReliabilityIndicatorLabel.text = repositoryReliabilityIndicator } }
+    public var repositoryIssueCount: String = "" { didSet {
+        self.repositoryIssueCountLabel.text = repositoryIssueCount
+        } }
+    public var repositoryReliabilityIndicator: String = "" { didSet {
+        self.repositoryReliabilityIndicatorLabel.text = repositoryReliabilityIndicator
+        } }
 
     public var repositoryReliabilityIndicatorEnabled = false {
         didSet {
@@ -53,13 +59,7 @@ class GitRepositoriesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        containerView.layer.shadowOffset = .init(width: 1, height: 1)
-        containerView.layer.shadowRadius = 1
-        containerView.layer.shouldRasterize = true
-        containerView.layer.rasterizationScale = UIScreen.main.scale
-        containerView.layer.shadowOpacity = 0.3
+        containerView.defaultCardStyle()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

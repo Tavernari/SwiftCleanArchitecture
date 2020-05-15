@@ -12,7 +12,6 @@ import DomainLayer
 import XCTest
 
 class GitPullRequestsViewModelTests: XCTestCase {
-
     fileprivate func createViewModel(result: [GitPullRequestDTO]) -> GitPullRequestsListViewModel {
         let dataSource = MockGitPullRequestDataSource(result: result)
         let repository = GitPullRequestRepository(dataSource: dataSource)

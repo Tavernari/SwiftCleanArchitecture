@@ -30,7 +30,9 @@ public class GitPullRequestRepository: GitPullRequestRepositoryProtocol {
         }
     }
 
-    public func commits(repoName: String, owner: String, completion: @escaping (Result<[GitCommitModel], Error>) -> Void) {
+    public func commits(repoName: String,
+                        owner: String,
+                        completion: @escaping (Result<[GitCommitModel], Error>) -> Void) {
         dataSource.commits(repoName: repoName, prOwner: owner) { result in
             result.handle(decodeSuccess: { $0.map(GitCommitModel.init) }, completion: completion)
         }

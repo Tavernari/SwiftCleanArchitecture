@@ -52,12 +52,6 @@ class GitPullRequestsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        containerView.layer.shadowOffset = .init(width: 1, height: 1)
-        containerView.layer.shadowRadius = 1
-        containerView.layer.shouldRasterize = true
-        containerView.layer.rasterizationScale = UIScreen.main.scale
-        containerView.layer.shadowOpacity = 0.3
+        containerView.defaultCardStyle()
     }
 }

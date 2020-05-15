@@ -23,13 +23,15 @@ class GithubRepositoryDataReponseFake {
         githubRepositoryData1.description = "Studying about Architecture for iOS Projects"
         githubResponseData.items.append(githubRepositoryData1)
 
+        let description = "This lib was created to help developers to handle the middlewares on ReSwift library"
+
         var githubRepositoryData2 = GitbRepositoryDTO()
         githubRepositoryData2.name = "ReSwiftMiddleware"
         githubRepositoryData2.owner = owner
         githubRepositoryData2.forks_count = 1
         githubRepositoryData2.stargazers_count = 4
         githubRepositoryData2.open_issues_count = 2
-        githubRepositoryData2.description = "This lib was created to help developers to handle the middlewares on ReSwift library"
+        githubRepositoryData2.description = description
         githubResponseData.items.append(githubRepositoryData2)
 
         let githubResponseJsonData = try? JSONEncoder().encode(githubResponseData)

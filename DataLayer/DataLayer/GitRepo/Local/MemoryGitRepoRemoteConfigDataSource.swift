@@ -9,12 +9,13 @@
 import DomainLayer
 
 public class MemoryGitRepoRemoteConfigDataSource: GitRepoRemoteConfigDataSourceProtocol {
+    public typealias CompletionResult = (Result<FlagableConfig<RepoReliabilityConfigDTO>, Error>) -> Void
     var remoteConfigData: FlagableConfig<RepoReliabilityConfigDTO>
     public init(enable: Bool, multiplier: Double) {
         remoteConfigData = FlagableConfig(enable: enable, data: RepoReliabilityConfigDTO(multiplier: multiplier))
     }
 
-    public func gitRepoReliability(completion: @escaping (Result<FlagableConfig<RepoReliabilityConfigDTO>, Error>) -> Void) {
+    public func gitRepoReliability(completion: @escaping CompletionResult) {
         completion(.success(remoteConfigData))
     }
 }
