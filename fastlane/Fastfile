@@ -27,7 +27,7 @@ platform :ios do
     slather(
       circleci: true,
       cobertura_xml: true,
-      output_directory: './fastlane/test_output',
+      output_directory: './',
       workspace: ENV['XCODE_WORKSPACE'],
       scheme: ENV['XCODE_PRESENTATION_SCHEME'],
       proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
