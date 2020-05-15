@@ -8,37 +8,37 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - run:
-          name: pre-start simulator
-          command: xcrun instruments -w "iPhone 11 Pro Max (13.4.1) [7FDE8ED7-1356-4ECE-B82D-37733C1E55CB]" || true
       - checkout
-
       - restore_cache:
           keys:
             - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - gem-cache-v1-{{ arch }}-{{ .Branch }}
             - gem-cache-v1
-            - build-temp-pods-{{ checksum "Podfile.lock" }}
+      
+      - restore_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+
       - run:
-          name: Set Ruby Version
-          command: echo "ruby-2.7.0" > ~/.ruby-version
-      - run:
-          name: Configure Bundler
+          name: Configure Bundle
           command: |
+            echo "ruby-2.7.0" > ~/.ruby-version
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             sudo gem install bundler
-
-      - run: bundle --path vendor/bundle
+            bundle config set path vendor/bundle
+            source vendor/bundle/slather
 
       - save_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
-      - run: pod install # Install CocoaPods dependencies
+      - run: 
+          name: Install Pods
+          command: pod install
+
       - run:
-          name: Prepare cc-test-reporter
+          name: Prepare CodeClimate Reporter
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
@@ -49,6 +49,7 @@ jobs:
       - run:
           name: Submit to codeclimate
           command: ./cc-test-reporter after-build
+
       - save_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
           paths:
