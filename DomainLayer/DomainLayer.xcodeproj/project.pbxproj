@@ -12,8 +12,17 @@
 		A158AC2E240BEDDB00B7A40E /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A158AC24240BEDDB00B7A40E /* DomainLayer.framework */; };
 		A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */; };
 		A1DBA0E8246EEB9D004F327A /* SwiftyMocky.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */; };
+		A1D256EB2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D256EA2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift */; };
+		A1D256ED2460B531003D3B64 /* RecoverPasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D256EC2460B531003D3B64 /* RecoverPasswordUseCase.swift */; };
 		A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */; };
 		C44E5480B0F32D29B122D16F /* Pods_DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */; };
+		E308BC7324620053002264B6 /* LoginUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308BC7224620053002264B6 /* LoginUseCaseTests.swift */; };
+		E308BC7624622B6E002264B6 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308BC7524622B6E002264B6 /* LoginUseCase.swift */; };
+		E3AFED3E24643DC400F557CE /* SignInRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFED3D24643DC400F557CE /* SignInRepositoryProtocol.swift */; };
+		E3AFED402464422C00F557CE /* MockSignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFED3F2464422C00F557CE /* MockSignInRepository.swift */; };
+		E3B15AA5246D7FAC00C0ED58 /* String+isValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B15AA4246D7FAC00C0ED58 /* String+isValidEmail.swift */; };
+		E3B15AA7246D800F00C0ED58 /* String+isValidPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B15AA6246D800F00C0ED58 /* String+isValidPassword.swift */; };
+		E3C4142D2462EAEB0073ED8B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C4142C2462EAEB0073ED8B /* LoginModel.swift */; };
 		FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */; };
 		FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD7CFB3BC4EFC0B3803EC /* GitCommitModel.swift */; };
 		FCEAD125D9912BDCD4085BF5 /* ConfigRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEADF73957A9C3827FCB47C /* ConfigRepositoryProtocol.swift */; };
@@ -55,11 +64,20 @@
 		A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLError+makeURLCommonsError.swift"; sourceTree = "<group>"; };
 		A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMocky.swift; sourceTree = "<group>"; };
 		A1DBA0E9246F0A10004F327A /* tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = tests.xctestplan; path = ../../tests.xctestplan; sourceTree = "<group>"; };
+		A1D256EA2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUseCaseTests.swift; sourceTree = "<group>"; };
+		A1D256EC2460B531003D3B64 /* RecoverPasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordUseCase.swift; sourceTree = "<group>"; };
 		A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGitRepositoryUseCaseTests.swift; sourceTree = "<group>"; };
 		B0F332531486F6D5C3DF9A9F /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 		B738F3EA22F1E7926357F776 /* Pods_DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B9C45DB2F2A0C45D04C561 /* Pods-DomainLayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainLayer.release.xcconfig"; path = "Target Support Files/Pods-DomainLayer/Pods-DomainLayer.release.xcconfig"; sourceTree = "<group>"; };
+		E308BC7224620053002264B6 /* LoginUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTests.swift; sourceTree = "<group>"; };
+		E308BC7524622B6E002264B6 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		E38A6FD3C50F9A1A622B711F /* Pods_DomainLayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainLayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3AFED3D24643DC400F557CE /* SignInRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E3AFED3F2464422C00F557CE /* MockSignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignInRepository.swift; sourceTree = "<group>"; };
+		E3B15AA4246D7FAC00C0ED58 /* String+isValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmail.swift"; sourceTree = "<group>"; };
+		E3B15AA6246D800F00C0ED58 /* String+isValidPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidPassword.swift"; sourceTree = "<group>"; };
+		E3C4142C2462EAEB0073ED8B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FCEAD158E690A61B2FE2E6C9 /* GitPullRequestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitPullRequestRepositoryProtocol.swift; sourceTree = "<group>"; };
 		FCEAD409605400C7A9B0B55A /* FetchPullRequestDetailUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPullRequestDetailUseCase.swift; sourceTree = "<group>"; };
 		FCEAD4B91ED893F00EFECDBC /* GitRepoRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitRepoRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -111,6 +129,8 @@
 			children = (
 				A1191B5A2436BE9300A8FA1F /* Result+handle.swift */,
 				A1B0C436244E4801004FE747 /* URLError+makeURLCommonsError.swift */,
+				E3B15AA4246D7FAC00C0ED58 /* String+isValidEmail.swift */,
+				E3B15AA6246D800F00C0ED58 /* String+isValidPassword.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -138,6 +158,7 @@
 		A158AC26240BEDDB00B7A40E /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				A1D256E82460B45B003D3B64 /* SignIn */,
 				A1191B592436BE7900A8FA1F /* Extensions */,
 				E306C7A9244E3D3400280358 /* SupportFiles */,
 				FCEAD60A5EB5AF8858F8D736 /* GitRepo */,
@@ -151,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A1DBA0E7246EEB9D004F327A /* SwiftyMocky.swift */,
+				E3AFED3F2464422C00F557CE /* MockSignInRepository.swift */,
 				A1E2974224106A710020288A /* UseCases */,
 				A158AC34240BEDDB00B7A40E /* Info.plist */,
 				A1DBA0E9246F0A10004F327A /* tests.xctestplan */,
@@ -158,10 +180,30 @@
 			path = DomainLayerTests;
 			sourceTree = "<group>";
 		};
+		A1D256E82460B45B003D3B64 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E3AFED3D24643DC400F557CE /* SignInRepositoryProtocol.swift */,
+				E308BC7424622B59002264B6 /* Login */,
+				A1D256E92460B473003D3B64 /* RecoverPassword */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		A1D256E92460B473003D3B64 /* RecoverPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A1D256EC2460B531003D3B64 /* RecoverPasswordUseCase.swift */,
+			);
+			path = RecoverPassword;
+			sourceTree = "<group>";
+		};
 		A1E2974224106A710020288A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				A1E29740241067960020288A /* ListGitRepositoryUseCaseTests.swift */,
+				A1D256EA2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift */,
+				E308BC7224620053002264B6 /* LoginUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -172,6 +214,23 @@
 				A158AC28240BEDDB00B7A40E /* Info.plist */,
 			);
 			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		E308BC7424622B59002264B6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E308BC7524622B6E002264B6 /* LoginUseCase.swift */,
+				E3C4142E2462EAF40073ED8B /* Models */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E3C4142E2462EAF40073ED8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3C4142C2462EAEB0073ED8B /* LoginModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E70FE8A0E230DD1BBAC36ECB /* Pods */ = {
@@ -488,10 +547,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C4142D2462EAEB0073ED8B /* LoginModel.swift in Sources */,
 				A1B0C437244E4801004FE747 /* URLError+makeURLCommonsError.swift in Sources */,
 				A1191B5B2436BE9300A8FA1F /* Result+handle.swift in Sources */,
 				FCEAD170DA4232A96B08BCE3 /* FetchGitRepositoriesUseCase.swift in Sources */,
 				FCEAD125D9912BDCD4085BF5 /* ConfigRepositoryProtocol.swift in Sources */,
+				A1D256ED2460B531003D3B64 /* RecoverPasswordUseCase.swift in Sources */,
 				FCEAD05072B313206827EC91 /* GitPullRequestRepositoryProtocol.swift in Sources */,
 				FCEAD970CE26DB8642EFFFDF /* FetchPullRequestDetailUseCase.swift in Sources */,
 				FCEADE9415B6E00C53AC50A4 /* FetchPullRequestsUseCase.swift in Sources */,
@@ -501,9 +562,13 @@
 				FCEADCC7DE336570F7A5948A /* GitRepoStatsModel.swift in Sources */,
 				FCEAD05F71434CE9529AE990 /* GitCommitModel.swift in Sources */,
 				FCEAD307254E3F7D48649F6E /* GitPullRequestModel.swift in Sources */,
+				E3AFED3E24643DC400F557CE /* SignInRepositoryProtocol.swift in Sources */,
 				FCEAD87B76CEB8B6CDEAD995 /* GitRepoReliabilityMultiplierModel.swift in Sources */,
 				FCEAD40CA4FAC944B2F0C7AA /* GitRepoReliabilityModel.swift in Sources */,
+				E3B15AA7246D800F00C0ED58 /* String+isValidPassword.swift in Sources */,
+				E3B15AA5246D7FAC00C0ED58 /* String+isValidEmail.swift in Sources */,
 				FCEAD328D1BC65CC6497DA38 /* GitRepoRepositoryProtocol.swift in Sources */,
+				E308BC7624622B6E002264B6 /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,8 +576,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D256EB2460B49E003D3B64 /* RecoverPasswordUseCaseTests.swift in Sources */,
 				A1E29741241067960020288A /* ListGitRepositoryUseCaseTests.swift in Sources */,
 				A1DBA0E8246EEB9D004F327A /* SwiftyMocky.swift in Sources */,
+				E3AFED402464422C00F557CE /* MockSignInRepository.swift in Sources */,
+				E308BC7324620053002264B6 /* LoginUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

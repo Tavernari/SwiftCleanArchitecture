@@ -9,6 +9,8 @@
 import Alamofire
 
 enum GithubAPIRouter: APIRouter {
+    var baseURL: String { GithubServerURL.path }
+
     case listPullRequest(owner: String, repoName: String)
     case getPullRequest(owner: String, repoName: String, pullNumber: Int)
     case commits(owner: String, repoName: String)
