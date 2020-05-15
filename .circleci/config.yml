@@ -49,7 +49,7 @@ jobs:
 
       - run:
           name: Submit to codeclimate
-          command: ./cc-test-reporter upload-coverage --path fastlane/test_output/cobertura.xml
+          command: ./cc-test-reporter upload-coverage --input fastlane/test_output/cobertura.xml
 
       - save_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
