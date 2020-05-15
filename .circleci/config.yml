@@ -19,8 +19,16 @@ jobs:
             - gem-cache-v1-{{ arch }}-{{ .Branch }}
             - gem-cache-v1
             - build-temp-pods-{{ checksum "Podfile.lock" }}
+      - run:
+          name: Set Ruby Version
+          command: echo "ruby-2.7.0" > ~/.ruby-version
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            sudo gem install bundler --path vendor/bundle
 
-      - run: bundle install --path vendor/bundle
       - save_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
