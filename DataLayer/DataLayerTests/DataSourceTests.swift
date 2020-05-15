@@ -56,7 +56,7 @@ class DataSourceTests: XCTestCase {
     }
 
     func testRecoveryPassword_returnFalse() {
-        let repository = SignInRepository(signInDataSource: MockDataSource(recovered: false))
+        let repository = SignInRepository(signInDataSource: MockDataSource())
         repository.recoverPassword(email: "lucas@email.com") { result in
             switch result {
             case let .success(value):
@@ -98,7 +98,7 @@ class DataSourceTests: XCTestCase {
     }
 
     func testLogin_returnFalse() {
-        let repository = SignInRepository(signInDataSource: MockDataSource(logedIn: false))
+        let repository = SignInRepository(signInDataSource: MockDataSource())
         repository.login(email: "lucas@email.com", password: "pass123") { result in
             switch result {
             case let .success(value):
