@@ -43,16 +43,6 @@ class GitRepositoriesListViewController: UIViewController {
         cell.repositoryReliabilityIndicator = "\(Int(repository.reliability.score))"
     }
 
-    fileprivate func showError(message: String?) {
-        guard let message = message else {
-            return
-        }
-
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-
     fileprivate func showLoading(_ isLoading: Bool) {
         if isLoading {
             showLoadingIndicator(text: "Loading")
@@ -107,7 +97,9 @@ extension GitRepositoriesListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.repositoriesTableViewCell, for: indexPath)!
+        let identifier = R.reuseIdentifier.repositoriesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier,
+                                                 for: indexPath)!
         let index = indexPath.row
         let data = dataSource[index]
         populateCell(index: index, repository: data, cell: cell)

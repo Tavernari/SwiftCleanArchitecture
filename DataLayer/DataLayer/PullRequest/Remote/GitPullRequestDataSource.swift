@@ -29,7 +29,9 @@ public class GitPullRequestDataSource: GitPullRequestDataSourceProtocol {
             .processResponse(completion: completion)
     }
 
-    public func commits(repoName: String, prOwner: String, completion: @escaping (Result<[GitPullRequestCommitsDTO], Error>) -> Void) {
+    public func commits(repoName: String,
+                        prOwner: String,
+                        completion: @escaping (Result<[GitPullRequestCommitsDTO], Error>) -> Void) {
         GithubAPIRouter
             .commits(owner: prOwner, repoName: repoName)
             .request()

@@ -12,15 +12,20 @@ import DomainLayer
 import XCTest
 
 class GitPullRequestsViewModelTests: XCTestCase {
+    fileprivate func createViewModel(result: [GitPullRequestDTO]) -> GitPullRequestsListViewModel {
+        let dataSource = MockGitPullRequestDataSource(result: result)
+        let repository = GitPullRequestRepository(dataSource: dataSource)
+        let useCase = FetchPullRequestsUseCase(repository: repository)
+        var viewModel = GitPullRequestsListViewModel(fetchPullRequestsUseCase: useCase)
+        useCase.delegateInterfaceAdapter = viewModel
+        return viewModel
+    }
+
     func testListPullRequests() {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let data = GitPullRequestDTO()
-        let dataSource = MockGitPullRequestDataSource(result: [data])
-        let repository = GitPullRequestRepository(dataSource: dataSource)
-        let useCase = FetchPullRequestsUseCase(repository: repository)
-        let viewModel = GitPullRequestsListViewModel(fetchPullRequestsUseCase: useCase)
-        useCase.delegateInterfaceAdapter = viewModel
+        let viewModel = createViewModel(result: [data])
 
         viewModel.pullRequests.observe { pullRequests in
             guard pullRequests.isEmpty == false else {
@@ -42,45 +47,35 @@ class GitPullRequestsViewModelTests: XCTestCase {
         wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
 
+    fileprivate func createGitPullRequestDTO(login: String, number: Int) -> GitPullRequestDTO {
+        var data = GitPullRequestDTO()
+        data.user = .init()
+        data.user.login = login
+        data.number = number
+        return data
+    }
+
     func testSelectPullRequest() {
         let resultExpectation = XCTestExpectation(description: "Waiting pull requests")
         let loadingExpectation = XCTestExpectation(description: "Waiting loading status")
         let repo = GitRepositoryModel()
-        var data1 = GitPullRequestDTO()
-        data1.user = .init()
-        data1.user.login = "data1"
-        data1.number = 400
-        var data2 = GitPullRequestDTO()
-        data2.user = .init()
-        data2.user.login = "data2"
-        data2.number = 500
-
-        let dataSource = MockGitPullRequestDataSource(result: [data1, data2])
-        let repository = GitPullRequestRepository(dataSource: dataSource)
-        let useCase = FetchPullRequestsUseCase(repository: repository)
-        let viewModel = GitPullRequestsListViewModel(fetchPullRequestsUseCase: useCase)
-        useCase.delegateInterfaceAdapter = viewModel
+        let data1 = createGitPullRequestDTO(login: "data1", number: 400)
+        let data2 = createGitPullRequestDTO(login: "data2", number: 500)
+        let viewModel = createViewModel(result: [data1, data2])
 
         viewModel.pullRequests.observe { pullRequests in
-            guard pullRequests.isEmpty == false else {
-                return
-            }
-
+            guard pullRequests.isEmpty == false else { return }
             resultExpectation.fulfill()
             XCTAssertEqual(viewModel.pullRequests.value.count, 2)
-
             viewModel.select(index: 0)
             XCTAssertEqual(viewModel.route.value, .showPullRequestDetail(id: data1.number, repo: repo))
         }
 
         viewModel.isLoading.observe { isLoading in
-            if isLoading {
-                loadingExpectation.fulfill()
-            }
+            if isLoading { loadingExpectation.fulfill() }
         }
 
         viewModel.load(repo: repo)
-
         wait(for: [resultExpectation, loadingExpectation], timeout: 2)
     }
 }

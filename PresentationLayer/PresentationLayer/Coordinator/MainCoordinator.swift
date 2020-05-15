@@ -23,7 +23,8 @@ class MainCoordinator: NSObject, Coordinator {
     func start() {
         let remoteConfigDataSource = assembler.resolver.resolve(GitRepoRemoteConfigDataSourceProtocol.self)!
         let gitRepoDataSource = assembler.resolver.resolve(GitRepoDataSourceProtocol.self)!
-        let gitRepoRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource, remoteConfigDataSource: remoteConfigDataSource)
+        let gitRepoRepository = GitRepoRepository(gitRepoDataSource: gitRepoDataSource,
+                                                  remoteConfigDataSource: remoteConfigDataSource)
         let reliabilityRepoCalculatorUseCase = ReliabilityRepoCalculator()
 
         let fetchGitRepositories = FetchGitRepositoriesUseCase(
@@ -32,7 +33,8 @@ class MainCoordinator: NSObject, Coordinator {
         )
 
         let analyticsInterface = GitRepositoriesListViewModelAnalytics()
-        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories, delegateAnalyticsInterface: analyticsInterface)
+        let viewModel = GitRepositoriesListViewModel(fetchGitRepositoriesUseCase: fetchGitRepositories,
+                                                     delegateAnalyticsInterface: analyticsInterface)
 
         fetchGitRepositories.delegateInterfaceAdapter = viewModel
 

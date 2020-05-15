@@ -8,7 +8,7 @@
 
 import Lytics
 
-enum ScreenEvents: ScreenEventType {
+enum ScreenEvents: ScreenType {
     case gitRepositoriesList
     case gitPullRequestList
     case gitPullRequestDetails

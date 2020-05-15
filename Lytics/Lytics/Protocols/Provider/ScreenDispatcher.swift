@@ -1,5 +1,5 @@
 //
-//  ScreenEventType.swift
+//  AnalyticsScreenEventDispatcher.swift
 //  Analytics
 //
 //  Created by Victor C Tavernari on 07/05/20.
@@ -8,4 +8,6 @@
 
 import Foundation
 
-public typealias ScreenEventType = LyticsBase & Identifiable & ClassContainer
+public protocol ScreenDispatcher {
+    func screen(screen: ScreenType)
+}

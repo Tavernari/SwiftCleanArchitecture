@@ -14,7 +14,7 @@ class ProviderMock: ProviderType {
     var name: String = "ProviderMock"
 
     var eventValidation: ((EventType) -> Void)?
-    var screenEventValidation: ((ScreenEventType) -> Void)?
+    var screenEventValidation: ((ScreenType) -> Void)?
     var userPropertiesValidation: (([String: Any]?) -> Void)?
     var userIdentificationValidation: ((_ id: String?, _ name: String?, _ email: String?) -> Void)?
     var errorValidation: ((_ error: Error, _ userInfo: [String : Any]?) -> Void )?
@@ -31,9 +31,9 @@ extension ProviderMock: EventDispatcher {
     }
 }
 
-extension ProviderMock: ScreenEventDispatcher {
-    func screen(event: ScreenEventType) {
-        self.screenEventValidation?(event)
+extension ProviderMock: ScreenDispatcher {
+    func screen(screen: ScreenType) {
+        self.screenEventValidation?(screen)
     }
 }
 

@@ -11,7 +11,9 @@ import XCTest
 
 class UserIdentificationTests: XCTestCase {
 
+    var mock: ProviderMock!
     override func setUpWithError() throws {
+        mock = ProviderMock(enable: true)
         Lytics.unregisterAllProviders()
     }
 
@@ -21,7 +23,7 @@ class UserIdentificationTests: XCTestCase {
     }
 
     func testSendUserIdentificationWithProviderDisable() {
-        let mock = ProviderMock(enable: false)
+        mock.enable = false
         mock.userIdentificationValidation = { (_, _, _) in
             XCTFail("Provider should be disabled")
         }
@@ -30,7 +32,13 @@ class UserIdentificationTests: XCTestCase {
         TestUserProperties.identify(id: "", name: nil, email: nil).dispatch()
     }
 
-    fileprivate func mockUserPropertiesShouldntCalled(mock: ProviderMock) {
+    fileprivate func mockValidating(id:String? = nil, name:String? = nil, email: String? = nil) {
+        mock.userIdentificationValidation = { (idValue: String?, nameValue: String?, emailValue: String?) in
+            XCTAssertEqual(email, emailValue)
+            XCTAssertEqual(id, idValue)
+            XCTAssertEqual(name, nameValue)
+        }
+
         mock.userPropertiesValidation = { (_) in
             XCTFail()
         }
@@ -38,49 +46,22 @@ class UserIdentificationTests: XCTestCase {
 
     func testSendOnlyUserIdData() throws {
         let idValue = "testId"
-        let mock = ProviderMock(enable: true)
-        mock.userIdentificationValidation = { (id: String?, name: String?, email: String?) in
-            XCTAssertEqual(id, idValue)
-            XCTAssertNil(name)
-            XCTAssertNil(email)
-        }
-
-        mockUserPropertiesShouldntCalled(mock: mock)
-
+        mockValidating(id: idValue)
         try? Lytics.register(provider: mock)
-
         TestUserProperties.identify(id: idValue, name: nil, email: nil).dispatch()
     }
 
     func testSendOnlyUserNameData() throws {
         let nameValue = "testName"
-        let mock = ProviderMock(enable: true)
-        mock.userIdentificationValidation = { (id: String?, name: String?, email: String?) in
-            XCTAssertEqual(name, nameValue)
-            XCTAssertNil(id)
-            XCTAssertNil(email)
-        }
-
-        mockUserPropertiesShouldntCalled(mock: mock)
-
+        mockValidating(name: nameValue)
         try? Lytics.register(provider: mock)
-
         TestUserProperties.identify(id: nil, name: nameValue, email: nil).dispatch()
     }
 
     func testSendOnlyUserEmailData() throws {
         let emailValue = "testEmail"
-        let mock = ProviderMock(enable: true)
-        mock.userIdentificationValidation = { (id: String?, name: String?, email: String?) in
-            XCTAssertEqual(email, emailValue)
-            XCTAssertNil(id)
-            XCTAssertNil(name)
-        }
-
-        mockUserPropertiesShouldntCalled(mock: mock)
-
+        mockValidating(email: emailValue)
         try? Lytics.register(provider: mock)
-
         TestUserProperties.identify(id: nil, name: nil, email: emailValue).dispatch()
     }
 
@@ -88,18 +69,8 @@ class UserIdentificationTests: XCTestCase {
         let emailValue = "emailValue"
         let nameValue = "nomeValue"
         let idValue = "idValue"
-        let mock = ProviderMock(enable: true)
-        mock.userIdentificationValidation = { (id: String?, name: String?, email: String?) in
-            XCTAssertEqual(email, emailValue)
-            XCTAssertEqual(name, nameValue)
-            XCTAssertEqual(id, idValue)
-        }
-
-        mockUserPropertiesShouldntCalled(mock: mock)
-
+        mockValidating(id: idValue, name: nameValue, email: emailValue)
         try? Lytics.register(provider: mock)
-
         TestUserProperties.identify(id: idValue, name: nameValue, email: emailValue).dispatch()
     }
-
 }

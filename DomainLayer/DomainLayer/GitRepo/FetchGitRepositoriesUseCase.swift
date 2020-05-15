@@ -47,30 +47,32 @@ public class FetchGitRepositoriesUseCase: FetchGitRepositoriesUseCaseProtocol {
         self.reliabilityCalculatorUseCase = reliabilityCalculatorUseCase
     }
 
-    private func fetchRepositories(term: String, completion: @escaping ([GitRepositoryModel]) -> Void) {
-        gitRepoRepository.list(term: term) { result in
-            do {
-                let repositories = try result.handle()
-                completion(repositories)
-            } catch let error as URLError {
-                self.delegateInterfaceAdapter?.failure(withError: .urlError(error.makeCommonError()))
-            } catch {
-                self.delegateInterfaceAdapter?.failure(withError: .urlError(.generic(error.localizedDescription)))
+    private func handleResult<Type, ReturnType>(result: Result<Type, Error>,
+                                                completion: @escaping (ReturnType) -> Void) {
+        do {
+            guard let handledResult = try result.handle() as? ReturnType else {
+                return
             }
+            completion(handledResult)
+        } catch {
+            processAndDispatchError(error: error)
         }
     }
 
-    private func fetchReliabilityConfig(completion: @escaping (GitRepoReliabilityMultiplierModel) -> Void) {
-        gitRepoRepository.getRepoReliabilityMultiplier { result in
-            do {
-                let repoReliabilityMultiplierModel = try result.handle()
-                completion(repoReliabilityMultiplierModel)
-            } catch let error as URLError {
-                self.delegateInterfaceAdapter?.failure(withError: .urlError(error.makeCommonError()))
-            } catch {
-                self.delegateInterfaceAdapter?.failure(withError: .urlError(.generic(error.localizedDescription)))
-            }
+    private func processAndDispatchError(error: Error) {
+        if let error = error as? URLError {
+            delegateInterfaceAdapter?.failure(withError: .urlError(error.makeCommonError()))
+        } else {
+            delegateInterfaceAdapter?.failure(withError: .urlError(.generic(error.localizedDescription)))
         }
+    }
+
+    private func fetchRepositories(term: String, completion: @escaping ([GitRepositoryModel]) -> Void) {
+        gitRepoRepository.list(term: term) { self.handleResult(result: $0, completion: completion) }
+    }
+
+    private func fetchReliabilityConfig(completion: @escaping (GitRepoReliabilityMultiplierModel) -> Void) {
+        gitRepoRepository.getRepoReliabilityMultiplier { self.handleResult(result: $0, completion: completion) }
     }
 
     public func execute(term: String) {

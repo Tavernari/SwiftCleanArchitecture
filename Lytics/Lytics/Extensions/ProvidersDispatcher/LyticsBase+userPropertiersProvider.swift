@@ -9,10 +9,12 @@
 import Foundation
 
 public extension LyticsBase where Self: ProvidersContainerType {
+
+    private static var userPropertiesDispatcherProviders: [UserPropertiesDispatcher] {
+        return providers.filterEnabled()
+    }
+
     static func user(properties: DataContainer) {
-        providers
-            .filter{ $0.enable }
-            .compactMap{ $0 as? UserPropertiesDispatcher }
-            .forEach { $0.user(properties: properties.data ) }
+        userPropertiesDispatcherProviders.forEach { $0.user(properties: properties.data ) }
     }
 }

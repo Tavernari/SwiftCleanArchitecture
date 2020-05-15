@@ -9,10 +9,12 @@
 import Foundation
 
 public extension LyticsBase where Self: ProvidersContainerType {
+
+    private static var eventDispatcherProviders: [EventDispatcher] {
+        return providers.filterEnabled()
+    }
+
     static func event(event: EventType) {
-        providers
-            .filter{ $0.enable }
-            .compactMap{ $0 as? EventDispatcher }
-            .forEach { $0.event(event: event) }
+        eventDispatcherProviders.forEach { $0.event(event: event) }
     }
 }

@@ -21,6 +21,9 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - R.generated.swift
   - PresentationLayerTests/Mock.generated.swift
   - DomainLayerTests/Mock.generated.swift
+  - PresentationLayer/PresentationLayerTests/Mock.generated.swift
+  - DomainLayer/DomainLayerTests/Mock.generated.swift
+  - "**/*.generated.*"
 
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level
