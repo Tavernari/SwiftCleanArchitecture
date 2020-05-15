@@ -50,8 +50,8 @@ public class GitRepoRepository: GitRepoRepositoryProtocol {
             } catch let statsError {
                 DispatchQueue.main.async { completion(.failure(statsError)) }
             }
+            dispatchGroup.leave()
         }
-        dispatchGroup.leave()
         dispatchGroup.notify(queue: .global(qos: .background)) {
             DispatchQueue.main.async { completion(.success(gitRepoRepositoriesResult)) }
         }

@@ -29,7 +29,6 @@
 		A1398B4F243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */; };
 		A16054FC24648CC2000C53AD /* FirebaseAnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */; };
 		A160550324649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */; };
-		A160550524649904000C53AD /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550424649904000C53AD /* Mock.generated.swift */; };
 		A160550724649DC6000C53AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A160550624649DC6000C53AD /* GoogleService-Info.plist */; };
 		A160550B2465821E000C53AD /* AppEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550A2465821E000C53AD /* AppEvents.swift */; };
 		A160550D246582E1000C53AD /* ScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550C246582E1000C53AD /* ScreenEvents.swift */; };
@@ -59,6 +58,7 @@
 		A1B79B06243F6D0D00DD46B4 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1DBA0E2246EC59C004F327A /* UIViewController+showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA0E1246EC59C004F327A /* UIViewController+showError.swift */; };
 		A1DBA0E4246EC62C004F327A /* UIView+defaultCardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA0E3246EC62C004F327A /* UIView+defaultCardStyle.swift */; };
+		A1DBA0E6246EEB87004F327A /* SwiftyMocky.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA0E5246EEB87004F327A /* SwiftyMocky.swift */; };
 		BE718078F5AB22723B91C87D /* Pods_PresentationLayer_PresentationLayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911B68DFCFB09373A4EC85CC /* Pods_PresentationLayer_PresentationLayerTests.framework */; };
 		E3D258022469E147001972D7 /* FirebaseCrashlyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D258012469E147001972D7 /* FirebaseCrashlyticsProvider.swift */; };
 		FCEAD01357146DF09269E59E /* GitPullRequestDetailsViewModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAD1779301AAA9A811FFA3 /* GitPullRequestDetailsViewModelInterface.swift */; };
@@ -144,7 +144,6 @@
 		A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsProvider.swift; sourceTree = "<group>"; };
 		A16054FD24648CDB000C53AD /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesListViewModelAnalytics.swift; sourceTree = "<group>"; };
-		A160550424649904000C53AD /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		A160550624649DC6000C53AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "PresentationLayer/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A160550A2465821E000C53AD /* AppEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvents.swift; sourceTree = "<group>"; };
 		A160550C246582E1000C53AD /* ScreenEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEvents.swift; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 		A1B79B04243F6D0D00DD46B4 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DBA0E1246EC59C004F327A /* UIViewController+showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showError.swift"; sourceTree = "<group>"; };
 		A1DBA0E3246EC62C004F327A /* UIView+defaultCardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+defaultCardStyle.swift"; sourceTree = "<group>"; };
+		A1DBA0E5246EEB87004F327A /* SwiftyMocky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMocky.swift; sourceTree = "<group>"; };
 		A1E2974C241121EC0020288A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B33CD1B6EFE7F988F46FC905 /* Pods-PresentationLayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationLayerTests.debug.xcconfig"; path = "Target Support Files/Pods-PresentationLayerTests/Pods-PresentationLayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B35CD60CED3CC2E13961B9E8 /* Pods-PresentationLayer-PresentationLayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PresentationLayer-PresentationLayerTests.release.xcconfig"; path = "Target Support Files/Pods-PresentationLayer-PresentationLayerTests/Pods-PresentationLayer-PresentationLayerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 		A166A91D240D506000824CAD /* PresentationLayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				A160550424649904000C53AD /* Mock.generated.swift */,
+				A1DBA0E5246EEB87004F327A /* SwiftyMocky.swift */,
 				A166A920240D506000824CAD /* Info.plist */,
 				A1672CB5241357A6004CE285 /* RepositoriesTableViewModelTests.swift */,
 				A163E596241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift */,
@@ -876,10 +876,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A160550524649904000C53AD /* Mock.generated.swift in Sources */,
 				A163E599241538A600FA0BA2 /* MockGitPullRequestDataSource.swift in Sources */,
 				A163E597241534AC00FA0BA2 /* GitPullRequestsViewModelTests.swift in Sources */,
 				A163E59B2415391400FA0BA2 /* PullRequestDetailViewModelTests.swift in Sources */,
+				A1DBA0E6246EEB87004F327A /* SwiftyMocky.swift in Sources */,
 				A1672CB6241357A6004CE285 /* RepositoriesTableViewModelTests.swift in Sources */,
 				A1398B49243A1C7A00A3A0CD /* APIErrorViewModelTests.swift in Sources */,
 			);

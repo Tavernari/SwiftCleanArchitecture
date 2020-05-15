@@ -3,7 +3,7 @@ DomainTests:
   sources:
     include:
     - ./DomainLayer
-  output: ./DomainLayer/DomainLayerTests/Mock.generated.swift
+  output: ./DomainLayer/DomainLayerTests/SwiftyMocky.swift
   targets:
   - DomainLayerTests
   testable:
@@ -17,7 +17,7 @@ PresentationTests:
     - ./PresentationLayer
     - ./DomainLayer
     - ./DataLayer
-  output: ./PresentationLayer/PresentationLayerTests/Mock.generated.swift
+  output: ./PresentationLayer/PresentationLayerTests/SwiftyMocky.swift
   targets:
   - PresentationLayerTests
   testable:

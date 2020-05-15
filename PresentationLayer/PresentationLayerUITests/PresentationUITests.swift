@@ -51,7 +51,7 @@ class PresentationUITests: XCTestCase {
         app.launchEnvironment[AppEnvironment.configReliabilityEnable.rawValue] = "1"
         app.launchEnvironment[AppEnvironment.configReliabilityMultipler.rawValue] = "1.0"
         app.launch()
-        sleep(1)
+        sleep(3)
         XCTAssertTrue(app.images["RepositoryTableViewCell.ReliabilityIcon"].exists)
     }
 
@@ -79,6 +79,7 @@ class PresentationUITests: XCTestCase {
     func testNavigateToPullRequestDetail() {
         app.launch()
         let tablesQuery = app.tables
+        sleep(1)
         tablesQuery.cells.firstMatch.tap()
         sleep(1)
         tablesQuery.cells.firstMatch.tap()
