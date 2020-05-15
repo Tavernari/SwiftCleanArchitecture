@@ -8,6 +8,9 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
+      - run:
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone 11 Pro (13.3) [" || true
       - checkout
       - restore_cache:
           key: build-temp-mint-{{ checksum "fastlane/Fastfile" }}
