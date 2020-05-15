@@ -9,6 +9,8 @@
 import Foundation
 
 enum GithubRepoAPIRouter: APIRouter {
+    var baseURL: String { GithubServerURL.path }
+
     case search(term: String)
 
     var path: String {
