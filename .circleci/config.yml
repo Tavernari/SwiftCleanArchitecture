@@ -21,26 +21,7 @@ jobs:
 
       - restore_cache:
           key: gem-cache-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
-
-      # - restore_cache:
-      #     key: build-temp-pods-{{ checksum "Podfile.lock" }}
-
-      # - run:
-      #     name: Configure Bundle
-      #     command: |
-      #       echo "ruby-2.7.0" > ~/.ruby-version
-      #       echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-      #       source $BASH_ENV
-      #       chmod +x /Library/Ruby/Gems/
-      #       sudo gem install bundler
-      #       bundle install
-            
-
-      # - save_cache:
-      #     key: gem-cache-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
-      #     paths:
-      #       - /Library/Ruby/Gems/
-
+          
       - run: 
           name: Install Pods
           command: pod install
