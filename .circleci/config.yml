@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          key: gem-cache-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
       
       - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
@@ -27,13 +27,18 @@ jobs:
             
 
       - save_cache:
-          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          key: gem-cache-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - /Library/Ruby/Gems/
 
       - run: 
           name: Install Pods
           command: pod install
+        
+      - save_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods/
 
       - run:
           name: Prepare CodeClimate Reporter
@@ -47,11 +52,6 @@ jobs:
       - run:
           name: Submit to codeclimate
           command: ./cc-test-reporter after-build -t cobertura
-
-      - save_cache:
-          key: build-temp-pods-{{ checksum "Podfile.lock" }}
-          paths:
-            - Pods/
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab
