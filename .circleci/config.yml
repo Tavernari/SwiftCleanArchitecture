@@ -20,8 +20,8 @@ jobs:
             - vendor/bundle
 
       - restore_cache:
-          key: gem-cache-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
-          
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+
       - run: 
           name: Install Pods
           command: pod install
