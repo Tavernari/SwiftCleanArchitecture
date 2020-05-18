@@ -96,3 +96,5 @@ iOSInjectionProject/
 *.generated.swift
 
 .idea
+vendor/
+cobertura.xml

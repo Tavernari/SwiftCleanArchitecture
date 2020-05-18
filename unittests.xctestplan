@@ -59,6 +59,7 @@
       }
     },
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:PresentationLayer.xcodeproj",
         "identifier" : "A166A924240D506000824CAD",

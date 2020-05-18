@@ -30,7 +30,7 @@
       codeCoverageEnabled = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../tests.xctestplan"
+            reference = "container:../unittests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
