@@ -9,9 +9,14 @@ jobs:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - checkout
+
+      - run:
+          name: Preparing restore bundle
+          command: chmod +x /Library/Ruby/Gems/
+      
       - restore_cache:
           key: gem-cache-v1-{{ arch }}-{{ checksum "Gemfile.lock" }}
-      
+
       - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
 
