@@ -34,7 +34,8 @@ platform :ios do
       ignore: [
         '../../../Library/*',
         '**/DerivedData/*',
-        'Carthage/*'
+        'Carthage/*',
+        'Pods/'
       ]
     )
   end
