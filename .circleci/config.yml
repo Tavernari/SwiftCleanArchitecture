@@ -36,6 +36,7 @@ jobs:
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
+            chmod +x /Library/Ruby/Gems/2.6.0
             ./cc-test-reporter before-build
 
       - run: fastlane test # Run tests using Fastlane
