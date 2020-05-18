@@ -10,10 +10,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gem-cache-v1-{{ arch }}-{{ .Branch }}
-            - gem-cache-v1
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
       
       - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
