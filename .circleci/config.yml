@@ -39,7 +39,7 @@ jobs:
             chmod +x /Library/Ruby/Gems/2.6.0
             ./cc-test-reporter before-build
 
-      - run: fastlane test # Run tests using Fastlane
+      - run: bundle exec fastlane test # Run tests using Fastlane
 
       - run:
           name: Submit to codeclimate
