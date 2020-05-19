@@ -76,7 +76,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:PresentationLayer.xcodeproj",
         "identifier" : "A166A919240D506000824CAD",
@@ -91,7 +90,6 @@
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:..\/Lytics\/Lytics.xcodeproj",
         "identifier" : "A16054C024648775000C53AD",
@@ -99,7 +97,6 @@
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:..\/DomainLayer\/DomainLayer.xcodeproj",
         "identifier" : "A158AC2C240BEDDB00B7A40E",
@@ -107,7 +104,6 @@
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:..\/DataLayer\/DataLayer.xcodeproj",
         "identifier" : "A158ABF9240BE89A00B7A40E",

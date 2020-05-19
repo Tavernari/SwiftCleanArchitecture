@@ -15,7 +15,59 @@
 
 default_platform(:ios)
 
+def test(params)
+  scan(
+    skip_build: true,
+    workspace: params[:workspace],
+    scheme: params[:scheme],
+    clean: true,
+    code_coverage: true,
+  )
+
+  slather(
+    use_bundle_exec: true,
+    circleci: true,
+    cobertura_xml: true,
+    workspace: params[:workspace],
+    scheme: params[:scheme],
+    proj: params[:proj],
+    ignore: params[:ignore]
+  )
+
+  sh("mkdir -p ../report")
+  sh("cp", "../cobertura.xml", "../report/cobertura.#{params[:scheme].downcase}.xml")
+  sh("rm", "../cobertura.xml")
+end
+
 platform :ios do
+  lane :test_domain_layer do 
+    test( workspace: ENV['XCODE_WORKSPACE'],
+          scheme: ENV['XCODE_DOMAIN_SCHEME'],
+          proj: "#{ENV['XCODE_DOMAIN_SCHEME']}/#{ENV['XCODE_DOMAIN_SCHEME']}.xcodeproj",
+          ignore: [
+            "PresentationLayer/R.generated.swift", "Pods/*"
+          ] )
+  end
+
+  lane :test_data_layer do 
+    test( workspace: ENV['XCODE_WORKSPACE'],
+          scheme: ENV['XCODE_DATA_SCHEME'],
+          proj: "#{ENV['XCODE_DATA_SCHEME']}/#{ENV['XCODE_DATA_SCHEME']}.xcodeproj",
+          ignore: [
+            "PresentationLayer/R.generated.swift", "Pods/*"
+          ] )
+  end
+
+  lane :test_presentation_layer do 
+    test( workspace: ENV['XCODE_WORKSPACE'],
+          scheme: ENV['XCODE_PRESENTATION_SCHEME'],
+          proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
+          ignore: [
+            "PresentationLayer/R.generated.swift", "Pods/*"
+          ] )
+  end
+
+
   lane :test do
     scan(
       skip_build: true,
@@ -23,9 +75,12 @@ platform :ios do
       scheme: ENV['XCODE_PRESENTATION_SCHEME'],
       clean: true,
       code_coverage: true,
+      derived_data_path: "./reports/test",
     )
 
     slather(
+      build_directory: "./reports/test",
+      use_bundle_exec: true,
       circleci: true,
       cobertura_xml: true,
       output_directory: './',
@@ -33,9 +88,23 @@ platform :ios do
       scheme: ENV['XCODE_PRESENTATION_SCHEME'],
       proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
       ignore: [
-        '../../../Library/*',
-        '**/DerivedData/*',
-        'Pods/*'
+        "PresentationLayer/R.generated.swift", "Pods/*"
+      ]
+    )
+  end
+
+  lane :cov do
+    slather(
+      build_directory: "./reports/test",
+      use_bundle_exec: true,
+      circleci: true,
+      cobertura_xml: true,
+      output_directory: './',
+      workspace: ENV['XCODE_WORKSPACE'],
+      scheme: ENV['XCODE_DOMAIN_SCHEME'],
+      proj: "#{ENV['XCODE_DOMAIN_SCHEME']}/#{ENV['XCODE_DOMAIN_SCHEME']}.xcodeproj",
+      ignore: [
+        "PresentationLayer/R.generated.swift", "Pods/*"
       ]
     )
   end

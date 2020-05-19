@@ -98,3 +98,4 @@ iOSInjectionProject/
 .idea
 vendor/
 cobertura.xml
+report/

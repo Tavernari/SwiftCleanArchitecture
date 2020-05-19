@@ -16,9 +16,29 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios test_domain_layer
+```
+fastlane ios test_domain_layer
+```
+
+### ios test_data_layer
+```
+fastlane ios test_data_layer
+```
+
+### ios test_presentation_layer
+```
+fastlane ios test_presentation_layer
+```
+
 ### ios test
 ```
 fastlane ios test
+```
+
+### ios cov
+```
+fastlane ios cov
 ```
 
 
