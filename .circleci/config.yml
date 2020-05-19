@@ -2,7 +2,7 @@
 # https://circleci.com/docs/2.0/testing-ios/
 
 version: 2.1
-
+## IOSArchitecture.xcworkspace
 commands:
   prepare_codeclimete_reporter:
     description: "Prepara CodeClimate reporter"
@@ -23,11 +23,14 @@ commands:
   build_app:
     description: "Build the application before tests"
     steps:
+      - restore_cache:
+          key: derived-data-{{ checksum "IOSArchitecture.xcworkspace" }}
+      - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane build
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - ./derived_data/
+      - save_cache:
+          key: derived-data-{{ checksum "IOSArchitecture.xcworkspace" }}
+          paths: 
+            - ./derived_data
 
   codeclimate_before_build:
     description: "Prepare codeclimate before build"
@@ -64,6 +67,9 @@ commands:
       lane:
         type: string
     steps:
+      - restore_cache:
+          key: derived-data-{{ checksum "IOSArchitecture.xcworkspace" }}
+      - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane << parameters.lane >>
       - persist_to_workspace:
           root: reporter
@@ -84,8 +90,6 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - attach_workspace:
-          at: ~/
       - codeclimate_before_build
       - test:
           lane: "test_domain_layer"
@@ -94,8 +98,6 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - attach_workspace:
-          at: ~/
       - codeclimate_before_build
       - test:
           lane: "test_data_layer"
@@ -104,8 +106,6 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - attach_workspace:
-          at: ~/
       - codeclimate_before_build
       - test:
           lane: "test_presentation_layer"
@@ -114,7 +114,6 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - prepare_codeclimete_reporter
       - attach_workspace:
           at: ~/
       - run:
