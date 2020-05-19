@@ -23,7 +23,6 @@ target 'PresentationLayer' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Performance'
 
-
   target 'PresentationLayerTests' do
     pod "SwiftyMocky"
   end
@@ -60,7 +59,6 @@ target 'PresentationSwiftUI' do
   target 'PresentationSwiftUIUITests' do
     pod 'SwiftLocalhost'
   end
-
 end
 
 target 'DomainLayer' do

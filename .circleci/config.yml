@@ -10,7 +10,6 @@ commands:
       - run:
           name: Prepare CodeClimate Reporter
           command: |
-            mkdir -p temp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
             chmod +x /Library/Ruby/Gems/2.6.0
@@ -45,6 +44,10 @@ commands:
         type: string
     steps:
       - run: bundle exec fastlane << parameters.lane >>
+      - persist_to_workspace:
+          root: /Users/distiller/project/
+          paths:
+            - report/
 
 jobs:
   build:
@@ -83,7 +86,7 @@ jobs:
       - prepare_codeclimete_reporter
       - config_workspace
       - test:
-          lane: "test-presentation-layer"
+          lane: "test_presentation_layer"
 
   upload-coverage:
     macos:
@@ -92,8 +95,8 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./tmp/cc-test-reporter sum-coverage ./report/cobertura.*.xml -p 2 -o tmp/cobertura.total.xml
-            ./tmp/cc-test-reporter upload-coverage -i ./report/cobertura.total.xml
+            ./cc-test-reporter sum-coverage ./report/cobertura.*.xml -p 2 -o tmp/cobertura.total.xml
+            ./cc-test-reporter upload-coverage -i ./report/cobertura.total.xml
 
 workflows:
   version: 2.1
