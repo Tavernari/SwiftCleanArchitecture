@@ -18,10 +18,11 @@ default_platform(:ios)
 platform :ios do
   lane :test do
     scan(
+      skip_build: true,
       workspace: ENV['XCODE_WORKSPACE'],
       scheme: ENV['XCODE_PRESENTATION_SCHEME'],
       clean: true,
-      code_coverage: true
+      code_coverage: true,
     )
 
     slather(
@@ -34,8 +35,7 @@ platform :ios do
       ignore: [
         '../../../Library/*',
         '**/DerivedData/*',
-        'Carthage/*',
-        'Pods/'
+        'Pods/*'
       ]
     )
   end
