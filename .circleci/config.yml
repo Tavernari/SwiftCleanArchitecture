@@ -54,6 +54,7 @@ commands:
       lane:
         type: string
     steps:
+      - checkout
       - restore_cache:
           key: derived-data-{{ checksum "DomainLayer/Domainlayer.xcodeproj/project.pbxproj" }}-{{ checksum "DataLayer/Datalayer.xcodeproj/project.pbxproj" }}-{{ checksum "PresentationLayer/Presentationlayer.xcodeproj/project.pbxproj" }}
       - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
