@@ -10,10 +10,18 @@ commands:
       - run:
           name: Prepare CodeClimate Reporter
           command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
+            mkdir -p reporter/
+            chmod +x reporter/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./reporter/cc-test-reporter
+            chmod +x ./reporter/cc-test-reporter
             chmod +x /Library/Ruby/Gems/2.6.0
-            ./cc-test-reporter before-build
+      - attach_workspace:
+          at: ./reporter/
+
+  codeclimate_before_build:
+    description: "Prepare codeclimate before build"
+    steps:
+      - run: ./reporter/cc-test-reporter before-build
 
   config_workspace:
     description: "Install or Restore configurations"
@@ -44,13 +52,11 @@ commands:
         type: string
     steps:
       - run: bundle exec fastlane << parameters.lane >>
-      - persist_to_workspace:
-          root: /Users/distiller/project/
-          paths:
-            - report/
+      - attach_workspace:
+          at: ./report/
 
 jobs:
-  build:
+  config-workspace:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
@@ -63,8 +69,8 @@ jobs:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - checkout
-      - prepare_codeclimete_reporter
       - config_workspace
+      - codeclimate_before_build
       - test:
           lane: "test_domain_layer"
 
@@ -73,8 +79,8 @@ jobs:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - checkout
-      - prepare_codeclimete_reporter
       - config_workspace
+      - codeclimate_before_build
       - test:
           lane: "test_data_layer"
 
@@ -83,8 +89,8 @@ jobs:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - checkout
-      - prepare_codeclimete_reporter
       - config_workspace
+      - codeclimate_before_build
       - test:
           lane: "test_presentation_layer"
 
@@ -92,26 +98,27 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
+      - prepare_codeclimete_reporter
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage ./report/cobertura.*.xml -p 2 -o tmp/cobertura.total.xml
-            ./cc-test-reporter upload-coverage -i ./report/cobertura.total.xml
+            ./reporter//cc-test-reporter sum-coverage ./report/cobertura.*.xml -p 2 -o tmp/cobertura.total.xml
+            ./reporter//cc-test-reporter upload-coverage -i ./report/cobertura.total.xml
 
 workflows:
   version: 2.1
   commit:
     jobs:
-      - build
+      - config-workspace
       - test-domain-layer:
           requires:
-            - build
+            - config-workspace
       - test-data-layer:
           requires: 
-             - build
+             - config-workspace
       - test-presentation-layer:
           requires: 
-             - build
+             - config-workspace
       - upload-coverage:
           requires:
              - test-domain-layer
