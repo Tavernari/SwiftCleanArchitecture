@@ -54,7 +54,6 @@ commands:
       lane:
         type: string
     steps:
-      - checkout
       - restore_cache:
           key: derived-data-{{ checksum "DomainLayer/Domainlayer.xcodeproj/project.pbxproj" }}-{{ checksum "DataLayer/Datalayer.xcodeproj/project.pbxproj" }}-{{ checksum "PresentationLayer/Presentationlayer.xcodeproj/project.pbxproj" }}
       - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
@@ -78,6 +77,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
+      - checkout
       - prepare_codeclimete_reporter
       - test:
           lane: "test_domain_layer"
@@ -86,6 +86,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
+      - checkout
       - prepare_codeclimete_reporter
       - test:
           lane: "test_data_layer"
@@ -94,6 +95,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
+      - checkout
       - prepare_codeclimete_reporter
       - test:
           lane: "test_presentation_layer"
