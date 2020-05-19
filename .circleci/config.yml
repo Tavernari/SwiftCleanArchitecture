@@ -78,6 +78,7 @@ jobs:
       - checkout
       - prepare_codeclimete_reporter
       - config_workspace
+      - build_app
 
   test-domain-layer:
     macos:
