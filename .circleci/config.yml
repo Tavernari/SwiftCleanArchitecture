@@ -15,29 +15,16 @@ commands:
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./reporter/cc-test-reporter
             chmod +x ./reporter/cc-test-reporter
             chmod +x /Library/Ruby/Gems/2.6.0
-      - persist_to_workspace:
-          root: reporter
-          paths:
-            - cc-test-reporter
+            ./reporter/cc-test-reporter before-build
 
   build_app:
     description: "Build the application before tests"
     steps:
-      - restore_cache:
-          key: derived-data-{{ checksum "DomainLayer/Domainlayer.xcodeproj/project.pbxproj" }}-{{ checksum "DataLayer/Datalayer.xcodeproj/project.pbxproj" }}-{{ checksum "PresentationLayer/Presentationlayer.xcodeproj/project.pbxproj" }}
-      - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane build
       - save_cache:
           key: derived-data-{{ checksum "DomainLayer/Domainlayer.xcodeproj/project.pbxproj" }}-{{ checksum "DataLayer/Datalayer.xcodeproj/project.pbxproj" }}-{{ checksum "PresentationLayer/Presentationlayer.xcodeproj/project.pbxproj" }}
           paths: 
             - ./derived_data
-
-  codeclimate_before_build:
-    description: "Prepare codeclimate before build"
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: ./reporter/cc-test-reporter before-build
 
   config_workspace:
     description: "Install or Restore configurations"
@@ -90,7 +77,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - codeclimate_before_build
+      - prepare_codeclimete_reporter
       - test:
           lane: "test_domain_layer"
 
@@ -98,7 +85,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - codeclimate_before_build
+      - prepare_codeclimete_reporter
       - test:
           lane: "test_data_layer"
 
@@ -106,7 +93,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - codeclimate_before_build
+      - prepare_codeclimete_reporter
       - test:
           lane: "test_presentation_layer"
 
@@ -114,8 +101,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - attach_workspace:
-          at: ~/
+      - prepare_codeclimete_reporter
       - run:
           name: Upload coverage results to Code Climate
           command: |
