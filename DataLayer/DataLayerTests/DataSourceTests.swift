@@ -97,17 +97,6 @@ class DataSourceTests: XCTestCase {
         }
     }
 
-    func testIntegrationRecoverPasswordRepository() {
-        let expectation = XCTestExpectation(description: "waiting result")
-        repository
-            .configRepository(dataSource: SignInDataSource())
-            .recoverPassword(email: "lucas@email.com") { result in
-                self.assertRecoveryResult(result: result, expectation: expectation)
-            }
-
-        wait(for: [expectation], timeout: 1)
-    }
-
     func testLogin_returnTrue() {
         repository
             .configRepository(dataSource: mockDataSource.logable())
@@ -120,22 +109,5 @@ class DataSourceTests: XCTestCase {
         repository.login(email: "lucas@email.com", password: "pass123") { result in
             self.assertLoginResult(result: result, assert: true)
         }
-    }
-
-    func testIntegrationLoginRepository() {
-        let expectation = XCTestExpectation(description: "waiting login result")
-        repository
-            .configRepository(dataSource: SignInDataSource())
-            .login(email: "lucas@email.com", password: "pass123") { result in
-                switch result {
-                case let .success(response):
-                    XCTAssertEqual(response.token, "token123XXX99")
-                    expectation.fulfill()
-                default:
-                    XCTFail("failed waiting success response from login api")
-                }
-            }
-
-        wait(for: [expectation], timeout: 1)
     }
 }

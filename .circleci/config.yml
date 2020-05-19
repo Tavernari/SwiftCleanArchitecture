@@ -9,52 +9,41 @@ jobs:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - checkout
+
       - restore_cache:
-          keys:
-            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gem-cache-v1-{{ arch }}-{{ .Branch }}
-            - gem-cache-v1
-      
+          key: circlev2-{{ checksum "Gemfile.lock" }}
+      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      # Store bundle cache
+      - save_cache:
+          key: circlev2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
       - restore_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
-
-      - run:
-          name: Configure Bundle
-          command: |
-            echo "ruby-2.7.0" > ~/.ruby-version
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            chmod +x /Library/Ruby/Gems/
-            sudo gem install bundler
-            bundle install
-            
-
-      - save_cache:
-          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-          paths:
-            - /Library/Ruby/Gems/
 
       - run: 
           name: Install Pods
           command: pod install
+        
+      - save_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods/
 
       - run:
           name: Prepare CodeClimate Reporter
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
+            chmod +x /Library/Ruby/Gems/2.6.0
             ./cc-test-reporter before-build
 
-      - run: fastlane test # Run tests using Fastlane
+      - run: bundle exec fastlane test # Run tests using Fastlane
 
       - run:
           name: Submit to codeclimate
           command: ./cc-test-reporter after-build -t cobertura
-
-      - save_cache:
-          key: build-temp-pods-{{ checksum "Podfile.lock" }}
-          paths:
-            - Pods/
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab

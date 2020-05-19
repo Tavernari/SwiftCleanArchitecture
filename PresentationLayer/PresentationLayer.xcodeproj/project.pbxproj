@@ -27,6 +27,7 @@
 		A1398B49243A1C7A00A3A0CD /* APIErrorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B48243A1C7A00A3A0CD /* APIErrorViewModelTests.swift */; };
 		A1398B4D243A4A5A00A3A0CD /* GithubRepositoryDataReponseFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4C243A4A5900A3A0CD /* GithubRepositoryDataReponseFake.swift */; };
 		A1398B4F243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */; };
+		A15AE2AB2472EF68004440AA /* unittests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = A15AE2AA2472EF68004440AA /* unittests.xctestplan */; };
 		A16054FC24648CC2000C53AD /* FirebaseAnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */; };
 		A160550324649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */; };
 		A160550724649DC6000C53AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A160550624649DC6000C53AD /* GoogleService-Info.plist */; };
@@ -141,6 +142,7 @@
 		A1398B48243A1C7A00A3A0CD /* APIErrorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorViewModelTests.swift; sourceTree = "<group>"; };
 		A1398B4C243A4A5900A3A0CD /* GithubRepositoryDataReponseFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryDataReponseFake.swift; sourceTree = "<group>"; };
 		A1398B4E243A4EDB00A3A0CD /* PresentationUIErrorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIErrorsTests.swift; sourceTree = "<group>"; };
+		A15AE2AA2472EF68004440AA /* unittests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = unittests.xctestplan; path = ../../unittests.xctestplan; sourceTree = "<group>"; };
 		A16054FB24648CC2000C53AD /* FirebaseAnalyticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsProvider.swift; sourceTree = "<group>"; };
 		A16054FD24648CDB000C53AD /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A160550224649337000C53AD /* GitRepositoriesListViewModelAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepositoriesListViewModelAnalytics.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				A166A915240D506000824CAD /* Info.plist */,
 				A166A904240D505800824CAD /* AppDelegate.swift */,
 				A166A906240D505800824CAD /* SceneDelegate.swift */,
+				A15AE2AA2472EF68004440AA /* unittests.xctestplan */,
 				A166A910240D506000824CAD /* Assets.xcassets */,
 			);
 			path = PresentationLayer;
@@ -608,6 +611,7 @@
 				A166A911240D506000824CAD /* Assets.xcassets in Resources */,
 				FCEAD27FB49DF2DAD0D9FD26 /* GitPullRequestsTableViewCell.xib in Resources */,
 				FCEAD8CE41253687817460A9 /* GitPullRequestsListViewController.xib in Resources */,
+				A15AE2AB2472EF68004440AA /* unittests.xctestplan in Resources */,
 				FCEAD211D3B4711D39B3FE3C /* GitPullRequestDetailsViewController.xib in Resources */,
 				FCEAD12867B156C567FC9EC2 /* APIErrorViewController.xib in Resources */,
 			);
@@ -1046,7 +1050,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 6B36S74UH9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PresentationLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1065,7 +1069,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B36S74UH9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PresentationLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
