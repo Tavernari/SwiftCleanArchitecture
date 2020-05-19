@@ -99,3 +99,5 @@ iOSInjectionProject/
 vendor/
 cobertura.xml
 report/
+reporter/
+derived_data/

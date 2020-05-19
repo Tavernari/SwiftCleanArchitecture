@@ -15,13 +15,28 @@
 
 default_platform(:ios)
 
+def build(params)
+  sh("mkdir -p ../derived_data/")
+
+  build_app(
+    skip_archive: true,
+    # skip_build_archive: true,
+    configuration: "Debug",
+    skip_codesigning: true,
+    scheme: params[:scheme],
+    workspace: params[:workspace],
+    derived_data_path: "./derived_data/",
+    xcargs: "-sdk iphonesimulator -destination='OS=13.0' build-for-testing")
+end
+
 def test(params)
   scan(
     skip_build: true,
     workspace: params[:workspace],
     scheme: params[:scheme],
-    clean: true,
     code_coverage: true,
+    derived_data_path: "./derived_data/",
+    test_without_building: true,
   )
 
   slather(
@@ -31,15 +46,23 @@ def test(params)
     workspace: params[:workspace],
     scheme: params[:scheme],
     proj: params[:proj],
-    ignore: params[:ignore]
+    ignore: params[:ignore],
+    build_directory: "./derived_data/",
   )
 
-  sh("mkdir -p ../report")
-  sh("cp", "../cobertura.xml", "../report/cobertura.#{params[:scheme].downcase}.xml")
+  sh("mkdir -p ../reporter")
+  sh("cp", "../cobertura.xml", "../reporter/cobertura.#{params[:scheme].downcase}.xml")
   sh("rm", "../cobertura.xml")
 end
 
 platform :ios do
+  lane :build do 
+    build(
+      workspace: ENV['XCODE_WORKSPACE'],
+      scheme: ENV['XCODE_PRESENTATION_SCHEME'],
+    )
+  end
+
   lane :test_domain_layer do 
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_DOMAIN_SCHEME'],
@@ -62,6 +85,15 @@ platform :ios do
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_PRESENTATION_SCHEME'],
           proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
+          ignore: [
+            "PresentationLayer/R.generated.swift", "Pods/*"
+          ] )
+  end
+
+  lane :test_lytics do 
+    test( workspace: ENV['XCODE_WORKSPACE'],
+          scheme: ENV['XCODE_LYTICS_SCHEME'],
+          proj: "#{ENV['XCODE_LYTICS_SCHEME']}/#{ENV['XCODE_LYTICS_SCHEME']}.xcodeproj",
           ignore: [
             "PresentationLayer/R.generated.swift", "Pods/*"
           ] )
