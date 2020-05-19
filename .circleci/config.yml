@@ -3,12 +3,10 @@
 
 version: 2.1
 
-jobs:
-  build:
-    macos:
-      xcode: 11.4.1 # Specify the Xcode version to use
+commands:
+  prepare_codeclimete_reporter:
+    description: "Prepara CodeClimate reporter"
     steps:
-      - checkout
       - run:
           name: Prepare CodeClimate Reporter
           command: |
@@ -17,40 +15,75 @@ jobs:
             chmod +x ./cc-test-reporter
             chmod +x /Library/Ruby/Gems/2.6.0
             ./cc-test-reporter before-build
+
+  config_workspace:
+    description: "Install or Restore configurations"
+    steps:
       - restore_cache:
           key: circlev2-{{ checksum "Gemfile.lock" }}
-      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: 
+          name: Install Bundle if not exist in cache
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - save_cache:
           key: circlev2-{{ checksum "Gemfile.lock" }}
-          paths:
+          paths: 
             - vendor/bundle
       - restore_cache:
-            key: build-temp-pods-{{ checksum "Podfile.lock" }}
-      - run: 
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+      - run:
           name: Install Pods
           command: pod install
       - save_cache:
           key: build-temp-pods-{{ checksum "Podfile.lock" }}
-          paths:
+          paths: 
             - Pods/
+
+  test:
+    description: "Test aplication"
+    parameters: 
+      lane:
+        type: string
+    steps:
+      - run: bundle exec fastlane << parameters.lane >>
+
+jobs:
+  build:
+    macos:
+      xcode: 11.4.1 # Specify the Xcode version to use
+    steps:
+      - checkout
+      - prepare_codeclimete_reporter
+      - config_workspace
 
   test-domain-layer:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - run: bundle exec fastlane test_domain_layer
+      - checkout
+      - prepare_codeclimete_reporter
+      - config_workspace
+      - test:
+          lane: "test_domain_layer"
 
   test-data-layer:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - run: bundle exec fastlane test_presentation_layer
+      - checkout
+      - prepare_codeclimete_reporter
+      - config_workspace
+      - test:
+          lane: "test_data_layer"
 
   test-presentation-layer:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
-      - run: bundle exec fastlane test-presentation-layer
+      - checkout
+      - prepare_codeclimete_reporter
+      - config_workspace
+      - test:
+          lane: "test-presentation-layer"
 
   upload-coverage:
     macos:
