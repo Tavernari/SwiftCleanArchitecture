@@ -82,10 +82,10 @@ jobs:
       - prepare_codeclimete_reporter
       - test:
           lane: "test_domain_layer"
-      - persist_to_workspace:
-          root: reporter
-          paths:
-            - cobertura.domainlayer.xml
+      - save_cache:
+          key: cobertura.domainlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./reporter/cobertura.domainlayer.xml
 
   test-data-layer:
     macos:
@@ -96,10 +96,10 @@ jobs:
       - prepare_codeclimete_reporter
       - test:
           lane: "test_data_layer"
-      - persist_to_workspace:
-          root: reporter
-          paths:
-            - cobertura.datalayer.xml
+      - save_cache:
+          key: cobertura.datalayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./reporter/cobertura.datalayer.xml
 
   test-presentation-layer:
     macos:
@@ -110,18 +110,22 @@ jobs:
       - prepare_codeclimete_reporter
       - test:
           lane: "test_presentation_layer"
-      - persist_to_workspace:
-          root: reporter
-          paths:
-            - cobertura.presentationlayer.xml
+      - save_cache:
+          key: cobertura.presentationlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./reporter/cobertura.presentationlayer.xml
 
   upload-coverage:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - prepare_codeclimete_reporter
-      - attach_workspace:
-          at: ~/
+      - restore_cache:
+          key: cobertura.presentationlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+      - restore_cache:
+          key: cobertura.datalayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+      - restore_cache:
+          key: cobertura.domainlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
       - run:
           name: Upload coverage results to Code Climate
           command: |
