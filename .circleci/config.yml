@@ -135,7 +135,9 @@ jobs:
             brew install node || true
             npx cobertura-merge -o ./reporter/cobertura.total.xml package1=./reporter/cobertura.domainlayer.xml package2=./reporter/cobertura.datalayer.xml package3=./reporter/cobertura.presentationlayer.xml 
             ls reporter
-            ./reporter/cc-test-reporter upload-coverage -i ./reporter/cobertura.total.xml
+            reporter/cc-test-reporter format-coverage reporter/cobertura.total.xml -t cobertura -o reporter/codeclimate.json
+            ls reporter
+            ./reporter/cc-test-reporter upload-coverage -i reporter/codeclimate.json
 
 workflows:
   version: 2.1

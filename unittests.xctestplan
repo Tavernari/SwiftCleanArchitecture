@@ -88,27 +88,6 @@
         "identifier" : "A166A924240D506000824CAD",
         "name" : "PresentationLayerUITests"
       }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:..\/Lytics\/Lytics.xcodeproj",
-        "identifier" : "A16054C024648775000C53AD",
-        "name" : "LyticsTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:..\/DomainLayer\/DomainLayer.xcodeproj",
-        "identifier" : "A158AC2C240BEDDB00B7A40E",
-        "name" : "DomainLayerTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:..\/DataLayer\/DataLayer.xcodeproj",
-        "identifier" : "A158ABF9240BE89A00B7A40E",
-        "name" : "DataLayerTests"
-      }
     }
   ],
   "version" : 1
