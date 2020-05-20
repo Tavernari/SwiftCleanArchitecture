@@ -83,9 +83,9 @@ jobs:
       - test:
           lane: "test_domain_layer"
       - persist_to_workspace:
-          root: ~/
+          root: reporter
           paths:
-            - reporter/cobertura.domainlayer.xml
+            - cobertura.domainlayer.xml
 
   test-data-layer:
     macos:
@@ -97,9 +97,9 @@ jobs:
       - test:
           lane: "test_data_layer"
       - persist_to_workspace:
-          root: ~/
+          root: reporter
           paths:
-            - reporter/cobertura.datalayer.xml
+            - cobertura.datalayer.xml
 
   test-presentation-layer:
     macos:
@@ -111,9 +111,9 @@ jobs:
       - test:
           lane: "test_presentation_layer"
       - persist_to_workspace:
-          root: ~/
+          root: reporter
           paths:
-            - reporter/cobertura.presentationlayer.xml
+            - cobertura.presentationlayer.xml
 
   upload-coverage:
     macos:
