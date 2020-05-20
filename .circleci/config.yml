@@ -22,7 +22,7 @@ commands:
     steps:
       - run: bundle exec fastlane build
       - save_cache:
-          key: derived-data-{{ checksum "DomainLayer/Domainlayer.xcodeproj/project.pbxproj" }}-{{ checksum "DataLayer/Datalayer.xcodeproj/project.pbxproj" }}-{{ checksum "PresentationLayer/Presentationlayer.xcodeproj/project.pbxproj" }}
+          key: derived-data-$CIRCLE_WORKFLOW_ID
           paths: 
             - ./derived_data
 
@@ -55,7 +55,7 @@ commands:
         type: string
     steps:
       - restore_cache:
-          key: derived-data-{{ checksum "DomainLayer/Domainlayer.xcodeproj/project.pbxproj" }}-{{ checksum "DataLayer/Datalayer.xcodeproj/project.pbxproj" }}-{{ checksum "PresentationLayer/Presentationlayer.xcodeproj/project.pbxproj" }}
+          key: derived-data-$CIRCLE_WORKFLOW_ID
       - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane << parameters.lane >>
       - persist_to_workspace:

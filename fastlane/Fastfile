@@ -40,6 +40,7 @@ def test(params)
   )
 
   slather(
+    use_bundle_exec: true,
     circleci: true,
     cobertura_xml: true,
     workspace: params[:workspace],
@@ -66,27 +67,21 @@ platform :ios do
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_DOMAIN_SCHEME'],
           proj: "#{ENV['XCODE_DOMAIN_SCHEME']}/#{ENV['XCODE_DOMAIN_SCHEME']}.xcodeproj",
-          ignore: [
-            "PresentationLayer/R.generated.swift", "Pods/*"
-          ] )
+          ignore: ["Pods/*"] )
   end
 
   lane :test_data_layer do 
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_DATA_SCHEME'],
           proj: "#{ENV['XCODE_DATA_SCHEME']}/#{ENV['XCODE_DATA_SCHEME']}.xcodeproj",
-          ignore: [
-            "PresentationLayer/R.generated.swift", "Pods/*"
-          ] )
+          ignore: ["Pods/*"])
   end
 
   lane :test_presentation_layer do 
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_PRESENTATION_SCHEME'],
           proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
-          ignore: [
-            "PresentationLayer/R.generated.swift", "Pods/*"
-          ] )
+          ignore: ["Pods/*"] )
   end
 
   lane :test_lytics do 
