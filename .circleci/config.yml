@@ -26,7 +26,7 @@ commands:
     steps:
       - run: bundle exec fastlane build
       - save_cache:
-          key: derived-data-{$CIRCLE_WORKFLOW_ID}
+          key: derived-data-{{$CIRCLE_WORKFLOW_ID}}
           paths: 
             - ./derived_data
 
@@ -59,7 +59,7 @@ commands:
         type: string
     steps:
       - restore_cache:
-          key: derived-data-{$CIRCLE_WORKFLOW_ID}
+          key: derived-data-{{$CIRCLE_WORKFLOW_ID}}
       - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane << parameters.lane >>
       - persist_to_workspace:
@@ -115,6 +115,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
+            brew install node
             ./npx cobertura-merge -o ./reporter/cobertura.total.xml package1=./reporter/cobertura.domainlayer.xml package2=./reporter/cobertura.datalayer.xml package3=./reporter/cobertura.presentationlayer.xml 
             ./reporter/cc-test-reporter upload-coverage -i ./reporter/cobertura.total.xml
 
