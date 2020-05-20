@@ -92,9 +92,9 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-# R.Swift
-*.generated.swift
-
 .idea
 vendor/
 cobertura.xml
+report/
+reporter/
+derived_data/

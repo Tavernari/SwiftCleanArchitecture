@@ -2,53 +2,160 @@
 # https://circleci.com/docs/2.0/testing-ios/
 
 version: 2.1
+executors:
+  mac_exe:
+    macos:
+      xcode: "11.4.1"
+
+commands:
+  prepare_codeclimete_reporter:
+    description: "Prepara CodeClimate reporter"
+    steps:
+      - run:
+          name: Prepare CodeClimate Reporter
+          command: |
+            mkdir -p reporter/
+            chmod +x reporter/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./reporter/cc-test-reporter
+            chmod +x ./reporter/cc-test-reporter
+            chmod +x /Library/Ruby/Gems/2.6.0
+            ./reporter/cc-test-reporter before-build
+
+  build_app:
+    description: "Build the application before tests"
+    steps:
+      - run: bundle exec fastlane build
+      - save_cache:
+          key: derived-data-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./derived_data
+
+  config_workspace:
+    description: "Install or Restore configurations"
+    steps:
+      - restore_cache:
+          key: circlev2-{{ checksum "Gemfile.lock" }}
+      - run: 
+          name: Install Bundle if not exist in cache
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - save_cache:
+          key: circlev2-{{ checksum "Gemfile.lock" }}
+          paths: 
+            - vendor/bundle
+      - restore_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+      - run:
+          name: Install Pods
+          command: pod install
+      - save_cache:
+          key: build-temp-pods-{{ checksum "Podfile.lock" }}
+          paths: 
+            - Pods/
+
+  test:
+    description: "Test aplication"
+    parameters: 
+      lane:
+        type: string
+    steps:
+      - restore_cache:
+          key: derived-data-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+      - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
+      - run: bundle exec fastlane << parameters.lane >>
 
 jobs:
-  build:
+  config-workspace:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - checkout
+      - prepare_codeclimete_reporter
+      - config_workspace
+      - build_app
 
-      - restore_cache:
-          key: circlev2-{{ checksum "Gemfile.lock" }}
-      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      # Store bundle cache
+  test-domain-layer:
+    macos:
+      xcode: 11.4.1 # Specify the Xcode version to use
+    steps:
+      - checkout
+      - config_workspace
+      - prepare_codeclimete_reporter
+      - test:
+          lane: "test_domain_layer"
       - save_cache:
-          key: circlev2-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+          key: cobertura.domainlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./reporter/cobertura.domainlayer.xml
 
-      - restore_cache:
-          key: build-temp-pods-{{ checksum "Podfile.lock" }}
-
-      - run: 
-          name: Install Pods
-          command: pod install
-        
+  test-data-layer:
+    macos:
+      xcode: 11.4.1 # Specify the Xcode version to use
+    steps:
+      - checkout
+      - config_workspace
+      - prepare_codeclimete_reporter
+      - test:
+          lane: "test_data_layer"
       - save_cache:
-          key: build-temp-pods-{{ checksum "Podfile.lock" }}
-          paths:
-            - Pods/
+          key: cobertura.datalayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./reporter/cobertura.datalayer.xml
 
+  test-presentation-layer:
+    macos:
+      xcode: 11.4.1 # Specify the Xcode version to use
+    steps:
+      - checkout
+      - config_workspace
+      - prepare_codeclimete_reporter
+      - test:
+          lane: "test_presentation_layer"
+      - save_cache:
+          key: cobertura.presentationlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+          paths: 
+            - ./reporter/cobertura.presentationlayer.xml
+
+  upload-coverage:
+    macos:
+      xcode: 11.4.1 # Specify the Xcode version to use
+    steps:
+      - checkout
+      - prepare_codeclimete_reporter
+      - restore_cache:
+          key: cobertura.presentationlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+      - restore_cache:
+          key: cobertura.datalayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+      - restore_cache:
+          key: cobertura.domainlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
       - run:
-          name: Prepare CodeClimate Reporter
+          name: Upload coverage results to Code Climate
           command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-            chmod +x /Library/Ruby/Gems/2.6.0
-            ./cc-test-reporter before-build
+            ls -la
+            ls reporter
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+            brew install node || true
+            npx cobertura-merge -o ./reporter/cobertura.total.xml package1=./reporter/cobertura.domainlayer.xml package2=./reporter/cobertura.datalayer.xml package3=./reporter/cobertura.presentationlayer.xml 
+            ls reporter
+            reporter/cc-test-reporter format-coverage reporter/cobertura.total.xml -t cobertura -o reporter/codeclimate.json
+            ls reporter
+            ./reporter/cc-test-reporter upload-coverage -i reporter/codeclimate.json
 
-      - run: bundle exec fastlane test # Run tests using Fastlane
-
-      - run:
-          name: Submit to codeclimate
-          command: ./cc-test-reporter after-build -t cobertura
-
-      # Collect XML test results data to show in the UI, and save the same XML
-      # files under test-results folder in the Artifacts tab
-      - store_test_results:
-          path: fastlane/report.xml
-      - store_artifacts:
-          path: fastlane/report/
-          destination: scan-output
+workflows:
+  version: 2.1
+  commit:
+    jobs:
+      - config-workspace
+      - test-domain-layer:
+          requires:
+            - config-workspace
+      - test-data-layer:
+          requires: 
+             - config-workspace
+      - test-presentation-layer:
+          requires: 
+             - config-workspace
+      - upload-coverage:
+          requires:
+             - test-domain-layer
+             - test-data-layer
+             - test-presentation-layer
