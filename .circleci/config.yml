@@ -112,9 +112,12 @@ jobs:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
       - prepare_codeclimete_reporter
+      - attach_workspace:
+          at: ~/
       - run:
           name: Upload coverage results to Code Climate
           command: |
+            ls -la
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
             brew install node || true
             npx cobertura-merge -o ./reporter/cobertura.total.xml package1=./reporter/cobertura.domainlayer.xml package2=./reporter/cobertura.datalayer.xml package3=./reporter/cobertura.presentationlayer.xml 
