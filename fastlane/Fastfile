@@ -40,7 +40,6 @@ def test(params)
   )
 
   slather(
-    use_bundle_exec: true,
     circleci: true,
     cobertura_xml: true,
     workspace: params[:workspace],
