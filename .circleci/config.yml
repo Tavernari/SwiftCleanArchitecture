@@ -62,10 +62,6 @@ commands:
           key: derived-data-{{ .Environment.CIRCLE_WORKFLOW_ID }}
       - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane << parameters.lane >>
-      - persist_to_workspace:
-          root: reporter
-          paths:
-            - cobertura.*.xml
 
 jobs:
   config-workspace:
@@ -86,6 +82,10 @@ jobs:
       - prepare_codeclimete_reporter
       - test:
           lane: "test_domain_layer"
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - reporter/cobertura.domainlayer.xml
 
   test-data-layer:
     macos:
@@ -96,6 +96,10 @@ jobs:
       - prepare_codeclimete_reporter
       - test:
           lane: "test_data_layer"
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - reporter/cobertura.datalayer.xml
 
   test-presentation-layer:
     macos:
@@ -106,6 +110,10 @@ jobs:
       - prepare_codeclimete_reporter
       - test:
           lane: "test_presentation_layer"
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - reporter/cobertura.presentationlayer.xml
 
   upload-coverage:
     macos:
@@ -118,6 +126,7 @@ jobs:
           name: Upload coverage results to Code Climate
           command: |
             ls -la
+            ls reporter
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
             brew install node || true
             npx cobertura-merge -o ./reporter/cobertura.total.xml package1=./reporter/cobertura.domainlayer.xml package2=./reporter/cobertura.datalayer.xml package3=./reporter/cobertura.presentationlayer.xml 
