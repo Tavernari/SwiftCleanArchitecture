@@ -20,7 +20,6 @@ def build(params)
 
   build_app(
     skip_archive: true,
-    # skip_build_archive: true,
     configuration: "Debug",
     skip_codesigning: true,
     scheme: params[:scheme],
@@ -56,6 +55,11 @@ def test(params)
 end
 
 platform :ios do
+  
+  before_all do
+    setup_circle_ci
+  end
+
   lane :build do 
     build(
       workspace: ENV['XCODE_WORKSPACE'],
@@ -81,16 +85,14 @@ platform :ios do
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_PRESENTATION_SCHEME'],
           proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
-          ignore: ["Pods/*"] )
+          ignore: ["PresentationLayer/R.generated.swift", "Pods/*"] )
   end
 
   lane :test_lytics do 
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_LYTICS_SCHEME'],
           proj: "#{ENV['XCODE_LYTICS_SCHEME']}/#{ENV['XCODE_LYTICS_SCHEME']}.xcodeproj",
-          ignore: [
-            "PresentationLayer/R.generated.swift", "Pods/*"
-          ] )
+          ignore: [ "Pods/*" ] )
   end
 
 

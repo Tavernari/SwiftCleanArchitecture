@@ -2,7 +2,11 @@
 # https://circleci.com/docs/2.0/testing-ios/
 
 version: 2.1
-## IOSArchitecture.xcworkspace
+executors:
+  mac_exe:
+    macos:
+      xcode: "11.4.1"
+
 commands:
   prepare_codeclimete_reporter:
     description: "Prepara CodeClimate reporter"
@@ -22,7 +26,7 @@ commands:
     steps:
       - run: bundle exec fastlane build
       - save_cache:
-          key: derived-data-$CIRCLE_WORKFLOW_ID
+          key: derived-data-{$CIRCLE_WORKFLOW_ID}
           paths: 
             - ./derived_data
 
@@ -55,7 +59,7 @@ commands:
         type: string
     steps:
       - restore_cache:
-          key: derived-data-$CIRCLE_WORKFLOW_ID
+          key: derived-data-{$CIRCLE_WORKFLOW_ID}
       - run: find ./derived_data -exec touch -t 2004210000 {} \; || true
       - run: bundle exec fastlane << parameters.lane >>
       - persist_to_workspace:
