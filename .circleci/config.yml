@@ -119,6 +119,7 @@ jobs:
     macos:
       xcode: 11.4.1 # Specify the Xcode version to use
     steps:
+      - checkout
       - prepare_codeclimete_reporter
       - restore_cache:
           key: cobertura.presentationlayer-{{ .Environment.CIRCLE_WORKFLOW_ID }}
