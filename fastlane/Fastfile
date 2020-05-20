@@ -71,7 +71,7 @@ platform :ios do
     test( workspace: ENV['XCODE_WORKSPACE'],
           scheme: ENV['XCODE_DOMAIN_SCHEME'],
           proj: "#{ENV['XCODE_DOMAIN_SCHEME']}/#{ENV['XCODE_DOMAIN_SCHEME']}.xcodeproj",
-          ignore: ["Pods/*"] )
+          ignore: ["Pods/*, DomainLayer/DomainLayerTests/SwiftyMocky.swift"] )
   end
 
   lane :test_data_layer do 
