@@ -115,7 +115,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./reporter/cc-test-reporter sum-coverage ./reporter/cobertura.*.xml -p 2 -o ./reporter/cobertura.total.xml
+            ./npx cobertura-merge -o ./reporter/cobertura.total.xml package1=./reporter/cobertura.domainlayer.xml package2=./reporter/cobertura.datalayer.xml package3=./reporter/cobertura.presentationlayer.xml 
             ./reporter/cc-test-reporter upload-coverage -i ./reporter/cobertura.total.xml
 
 workflows:
