@@ -140,6 +140,15 @@ jobs:
             ls reporter
             ./reporter/cc-test-reporter upload-coverage -i reporter/codeclimate.json
 
+  deploy-test-flight:
+    macos:
+      xcode: 11.4.1 # Specify the Xcode version to use
+    setps: 
+      - checkout
+      - config_workspace
+      - run: bundle exec fastlane build_release
+      - run: bundle exec fastlane test_flight
+
 workflows:
   version: 2.1
   commit:
@@ -159,3 +168,9 @@ workflows:
              - test-domain-layer
              - test-data-layer
              - test-presentation-layer
+      - deploy-test-flight:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/

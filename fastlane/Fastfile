@@ -95,45 +95,33 @@ platform :ios do
           ignore: [ "Pods/*" ] )
   end
 
-
-  lane :test do
-    scan(
-      skip_build: true,
-      workspace: ENV['XCODE_WORKSPACE'],
-      scheme: ENV['XCODE_PRESENTATION_SCHEME'],
-      clean: true,
-      code_coverage: true,
-      derived_data_path: "./reports/test",
+  lane :build_release do
+    increment_build_number (
+      build_number: ENV['CIRCLE_WORKFLOW_ID'],
+      xcodeproj: ENV['XCODE_PRESENTATION_PROJECT'],
+      git_basic_authorization: ENV['GITHUB_KEY'],
+      readonly: true
     )
 
-    slather(
-      build_directory: "./reports/test",
-      use_bundle_exec: true,
-      circleci: true,
-      cobertura_xml: true,
-      output_directory: './',
+    gym(
       workspace: ENV['XCODE_WORKSPACE'],
       scheme: ENV['XCODE_PRESENTATION_SCHEME'],
-      proj: "#{ENV['XCODE_PRESENTATION_SCHEME']}/#{ENV['XCODE_PRESENTATION_SCHEME']}.xcodeproj",
-      ignore: [
-        "PresentationLayer/R.generated.swift", "Pods/*"
-      ]
+      configuration: ENV['DEVELOP_CONFIGURATION'],
+      xcargs:ENV['XCODE_ARGS'],
+      export_method: ENV['DEVELOP_EXPORT_METHOD'],
+      export_xcargs: ENV['DEVELOP_XCARGS'],
+      silent: true,
+      clean: true
+    )
+
+    crashlytics(
+      groups: ENV['DEVELOP_CRASHLYTICS_GROUPS'],
+      api_token: ENV['CRASHLYTICS_API_TOKEN'],
+      build_secret: ENV['CRASHLYTICS_BUILD_SECRET'],
     )
   end
 
-  lane :cov do
-    slather(
-      build_directory: "./reports/test",
-      use_bundle_exec: true,
-      circleci: true,
-      cobertura_xml: true,
-      output_directory: './',
-      workspace: ENV['XCODE_WORKSPACE'],
-      scheme: ENV['XCODE_DOMAIN_SCHEME'],
-      proj: "#{ENV['XCODE_DOMAIN_SCHEME']}/#{ENV['XCODE_DOMAIN_SCHEME']}.xcodeproj",
-      ignore: [
-        "PresentationLayer/R.generated.swift", "Pods/*"
-      ]
-    )
+  lane :test_flight do
+    upload_to_testflight(skip_waiting_for_build_processing: true, apple_id: ENV['APPLE_ID'])
   end
 end
